@@ -68,5 +68,4 @@ node_modules/
 # ---------------my additions:-----------------------------
 
 # firebase cofig file:
-firebaseConfig.js
 firebase-config.js
