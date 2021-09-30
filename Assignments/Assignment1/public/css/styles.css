@@ -62,9 +62,8 @@ header{
 
 #hero{ 
 	min-height: 800px; /*gives element a minimum height */
-	background: #555555; /* background colour as a default in case of issue with loading image*/
 	background-image: url('../img/stadium/football-g820e35a59_1920.jpg');  /* link to image */
-	background-size: cover;  /*makes image take up the whole element regardless of how much space you have*/
+	background-size: cover;  /*make image cover element*/
 }
 
 #hero-content{
@@ -79,4 +78,34 @@ header{
 }
 
 /* --------------------------------------------------------------------- */
-/* News styles */
+/* Section styles */
+
+section{
+	padding: 50px 30px; /* top & bottom: 50px,  right & left: 30px */
+}
+
+.section-header{
+	font-size: 1.5em; /* font size NOTE - 1.5 times the size of section body text */ 
+	text-align: center; /* center text */
+	margin-bottom: 30px; /* margin bottom */
+	letter-spacing: 2px; /* letter spacing */
+	font-weight: bold; /* font weight */
+	color: #777777; /* font colour */
+}
+
+.section-body {
+	font-size: 1em; /* font size */
+}
+
+/* --------------------------------------------------------------------- */
+/* News section styles */
+
+#news-content{
+	column-count: 3;
+  	column-gap: 50px;
+  	column-rule: 1px solid lightblue;
+}
+
+#news-content .section-header{
+	column-span: all; /* make header span all columns */
+}
