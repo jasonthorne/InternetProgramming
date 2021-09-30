@@ -1,4 +1,5 @@
-/* --------------------------------------------------------------------- */
+/* ---------------------------------------------------------------------
+https://www.lipsum.com/feed/html */
 /* Body styles */
 
 body{ 
@@ -100,12 +101,26 @@ section{
 /* --------------------------------------------------------------------- */
 /* News section styles */
 
-#news-content{
-	column-count: 3;
-  	column-gap: 50px;
-  	column-rule: 1px solid lightblue;
+#news-section{
+	column-count: 3; /* number of columns */
+  	column-gap: 50px; /* gap between columns */
+  	column-rule: 1px solid #add8e6; /* line betweeen columns */
 }
 
-#news-content .section-header{
+#news-section .section-header{
 	column-span: all; /* make header span all columns */
+}
+
+/* --------------------------------------------------------------------- */
+/* Fixtures section styles */
+
+#fixtures-section{
+	background: #ECF0F1; /* colour section */
+	width: 100%; /* use 100% width */
+	padding: 50px 0; /* top & bottom: 50px,  right & left: 0px */
+	text-align: center; /* center text */
+}
+
+#fixtures-section .section-body{
+	padding: 0px 30px;
 }
