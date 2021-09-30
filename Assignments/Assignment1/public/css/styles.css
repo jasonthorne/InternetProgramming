@@ -1,0 +1,82 @@
+/* --------------------------------------------------------------------- */
+/* Body styles */
+
+body{ 
+	margin: 0; /* amount of space wanted around the body */
+	font-family: Arial, Helvetica, sans-serif; /* font families in order of precidence */
+	font-size: 16px; /* font size */
+	line-height: 1.5; /* space between each line */
+}
+
+/* --------------------------------------------------------------------- */
+/* Header styles */
+
+header{
+	background: #222222; /* bg colour */
+	padding: 20px 30px; /* top & bottom: 20px,  right & left: 30px */
+}
+
+#header-content{
+     color: #ffffff; /* font colour */
+}
+
+#header-logo{ 
+    font-weight: bold; /* font weight */
+	display: inline-block; /* allows element to sit on same line as siblings */
+}
+
+#header-logo img{
+	width: 50px; /* width of content area */
+	margin-right: 8px; /* pushes the right margin 8px */
+	vertical-align: middle; /* puts image into the middle of its allowed height */
+}
+
+#header-navigation{
+	float: right; /* align nav to the right of page */
+}
+
+#header-navigation ul{
+	list-style: none; /* remove styles */
+	padding: 0; /* remove padding */
+}
+
+#header-navigation li{
+	display: inline-block; /* allows element to sit on same line as siblings */
+}
+
+#header-navigation a{
+	color: #ffffff; /* colour links white */
+	text-decoration: none; /* remove underscores */
+    padding-left: 15px; /* right padding */
+    padding-right: 15px; /* left padding */
+}
+
+#header-navigation a:hover{
+	color: #444444; /* hover colour */
+	border-radius: 3px; /* radius covered */
+	transition: 0.3s ease all; /* transition properties */
+}
+
+/* --------------------------------------------------------------------- */
+/* Hero styles */
+
+#hero{ 
+	min-height: 800px; /*gives element a minimum height */
+	background: #555555; /* background colour as a default in case of issue with loading image*/
+	background-image: url('../img/stadium/football-g820e35a59_1920.jpg');  /* link to image */
+	background-size: cover;  /*makes image take up the whole element regardless of how much space you have*/
+}
+
+#hero-content{
+	color: #ffffff; /* text colour */
+    text-align: center; /* center align text */
+	padding-top: 90px; /*130px;*/ /* top padding */
+}
+
+#hero-title{
+	margin: 0; /* remove margins */
+	font-size: 100px; /* font saize */
+}
+
+/* --------------------------------------------------------------------- */
+/* News styles */
