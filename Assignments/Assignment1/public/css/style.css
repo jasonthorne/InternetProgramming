@@ -126,8 +126,8 @@ section{
 }
 
 #fixtures{
-	/*padding-top: 30px;*/
-	
+	padding: 0px 150px; /* top & bottom: 0px,  right & left: 30px */
+	padding-top: 30px;
 }
 
 /*-----------------------------------*/
@@ -136,12 +136,14 @@ section{
 #fixtures-grid-container {
 	display: grid;
 	grid-template-columns: auto auto;
+	grid-gap: 30px 250px;
 }
 
 
 .fixture-grid-container {
 	display: grid;
 	grid-template-columns: auto auto auto;
+	grid-gap: 0px 0px;
 }
 
 
