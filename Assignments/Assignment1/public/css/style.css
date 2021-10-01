@@ -130,13 +130,46 @@ section{
 	
 }
 
+/*-----------------------------------*/
+
+
+#fixtures-grid-container {
+	display: grid;
+	grid-template-columns: auto auto;
+}
+
+
+.fixture-grid-container {
+	display: grid;
+	grid-template-columns: auto auto auto;
+}
+
+
+.fixture-grid-item{
+
+}
+
+.fixture-grid-item img{
+	width: 50px; /* width of content area */
+	vertical-align: middle; /* puts image into the middle of its allowed height */
+}
+
+.fixture-grid-item p{
+	font-weight: bold; /* font weight */
+	color: #777777; /* font colour */
+	margin-bottom: 0%; /* remove margin bottom */
+}
+
+/*-----------------------------------*/
 
 .fixture{
 	/*background: #ffffff; /* colour section ????????????*/
 	padding-top: 15px;
 	padding-bottom: 15px;
 	/*height: 90px; ???????????????????*/
-	display: flex;
+	/*display: flex;*/
+	/*display: inline-block;
+	width: 49%;*/
 	
 }
 
@@ -155,17 +188,19 @@ section{
 
 .score {
 	display: inline-block;
-	/*position: relative;*/
-	/*height: 100%;*/
-	height: 100%;
+	/*position:absolute;*/
+    /*text-align:center;*/
+	/*height: auto;*/
+
 }
 
 .score h3{
-	margin-bottom: 0%;
+	margin: 0%;
+	/*padding-bottom: 30px;*/
 }
 
 .fixture img{
-	width: 50px; /* width of content area */
+	width: 60px; /* width of content area */
 	vertical-align: middle; /* puts image into the middle of its allowed height */
 	/*background-image: url('../img/team-logos/team4.png');  /* link to image */
 	/*background-size: cover;  /*make image cover element*/
