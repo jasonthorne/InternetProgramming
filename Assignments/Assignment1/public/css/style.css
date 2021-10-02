@@ -154,22 +154,22 @@ section{
 
 /* --------------------------------------------------------------------- */
 /* admin section styles */
-
+ 
 #admin-section .section-body{
 	text-align: center;
 }
 
-
-/* ======================================*/
-
 #admin-container{
 	display: table;
-  	width: 100%;
+  	width: 90%;
+	margin-left: auto;
+    margin-right: auto;
 }
 
 .staff-col{
 	display: table-cell;
-	padding: 20px;
+	/*padding: 20px;*/
+	padding: 20px 20px 0px 20px; /* top, right, bottom, left */
 	width: 33%; /* fit 3 into page width */
 }
 
@@ -181,7 +181,6 @@ section{
 	margin-bottom: 15px;
 	color: #777777;
 }
-
 
 .staff-col img{
 	width: 80px;
@@ -198,7 +197,6 @@ section{
 	/*letter-spacing: 2px;*/
 }
 
-
 .staff-text{
 	background: #ecf0f1;
 	text-align: left;
@@ -206,38 +204,7 @@ section{
 	margin-bottom: 15px;
 	margin-left: 10px;
 	margin-right: 10px;
-}
-
-
-
-
-
-
-/* =======================================*/
-
-.staff-container{
-	/*text-align:left;*/
-	display: inline-block;
-	width: 24%;
-	padding: 20px 30px;
-	/*line-height: 1; /* ??????????????? */
-}
-
-
-
-.staff-container img{
-	width: 80px;
-	/*margin-bottom: 15px;*/
-	border-radius: 50%;
-}
-
-.staff-container h5{
-	margin-top: 0;
-	margin-bottom: 15px;
-	font-size: 20px;
-	color: #999999;
-	font-weight: 300px;
-	/*letter-spacing: 2px;*/
+	/*border-radius: 10px;*/
 }
 
 /* --------------------------------------------------------------------- */
