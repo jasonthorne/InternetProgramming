@@ -16,7 +16,7 @@ header{
 	padding: 20px 30px; /* top & bottom: 20px,  right & left: 30px */
 }
 
-#header-content{
+#header-container{
      color: #ffffff; /* font colour */
 }
 
@@ -66,7 +66,7 @@ header{
 	background-size: cover;  /*make image cover element*/
 }
 
-#hero-content{
+#hero-container{
 	color: #ffffff; /* text colour */
     text-align: center; /* center align text */
 	padding-top: 90px; /*130px;*/ /* top padding */
@@ -159,7 +159,50 @@ section{
 	text-align: center;
 }
 
-.staff-content{
+
+/* ======================================*/
+
+#admin-container{
+	display: table;
+  	width: 100%;
+}
+
+.staff-col{
+	display: table-cell;
+	padding: 16px;
+	width: 33%; /* fit 3 into page width */
+}
+
+
+
+
+
+.staff-col img{
+	width: 80px;
+	/*margin-bottom: 15px;*/
+	border-radius: 50%;
+}
+
+.staff-col h5{
+	margin-top: 0;
+	margin-bottom: 15px;
+	font-size: 20px;
+	color: #999999;
+	font-weight: 300px;
+	/*letter-spacing: 2px;*/
+}
+
+
+
+
+
+
+
+
+
+/* =======================================*/
+
+.staff-container{
 	/*text-align:left;*/
 	display: inline-block;
 	width: 24%;
@@ -172,16 +215,16 @@ section{
 	padding: 15px;
 	/*border-radius: 4px;*/
 	margin-bottom: 15px;
-	/*height: 100px;*/
+	
 }
 
-.staff-content img{
+.staff-container img{
 	width: 80px;
 	/*margin-bottom: 15px;*/
 	border-radius: 50%;
 }
 
-.staff-content h5{
+.staff-container h5{
 	margin-top: 0;
 	margin-bottom: 15px;
 	font-size: 20px;
