@@ -1,5 +1,4 @@
 /* ---------------------------------------------------------------------
-https://www.lipsum.com/feed/html */
 /* body styles */
 
 body{ 
@@ -86,7 +85,7 @@ section{
 }
 
 .section-header{
-	font-size: 1.5em; /* font size NOTE - 1.5 times the size of section body text */ 
+	font-size: 1.5em; /* font size */ /* NOTE - 1.5 times larger than .section-body text */ 
 	text-align: center; /* center text */
 	margin-bottom: 30px; /* margin bottom */
 	letter-spacing: 2px; /* letter spacing */
@@ -95,7 +94,7 @@ section{
 }
 
 .section-body {
-	font-size: 1em; /* font size */
+	font-size: 1em; /* font size */ /* NOTE - 1.5 times smaller than .section-header text */
 }
 
 /* --------------------------------------------------------------------- */
@@ -128,22 +127,18 @@ section{
 #fixtures-grid-container{
 	display: grid; /* display as grid */
 	grid-template-columns: auto auto auto; /* 3 auto sized cols */
-	grid-gap: 60px 150px; /* row gap: 60px, col gap: 150px */
-	padding: 30px 60px 20px 60px; /* top, right, bottom, left */
+	grid-gap: 60px 100px; /* row gap: 60px, col gap: 100px */
+	padding: 30px 30px 20px 30px; /* top, right, bottom, left */
 }
 
 .fixture-grid-container{
 	display: grid;
-	grid-template-columns: auto auto auto;
+	grid-template-columns: 120px 40px 120px;
 	grid-gap: 0px 0px;
 }
 
-.fixture-grid-item{
-	text-align: center; /*????????????????????*/
-}
-
 .fixture-grid-item img{
-	width: 50px; /* width of content area */
+	width: 60px; /* width of content area */
 	vertical-align: middle; /* puts image into the middle of its allowed height */
 }
 
@@ -153,37 +148,54 @@ section{
 	margin-bottom: 0%; /* remove margin bottom */
 }
 
-/* --------------------------------------------------------------------- */
-/* about section styles */
+.fixture-score-seperator{
+	color: #777777; /* font colour */
+}
 
-#about-section .section-body{
+/* --------------------------------------------------------------------- */
+/* admin section styles */
+
+#admin-section .section-body{
 	text-align: center;
 }
 
 .staff-content{
+	/*text-align:left;*/
 	display: inline-block;
-	width: 27%;
+	width: 24%;
 	padding: 20px 30px;
+	/*line-height: 1; /* ??????????????? */
 }
 
-.staff-comment{
-	background: #ECF0F1;
+.staff-text{
+	background: #ecf0f1;
 	padding: 15px;
-	border-radius: 4px;
+	/*border-radius: 4px;*/
 	margin-bottom: 15px;
+	/*height: 100px;*/
 }
 
 .staff-content img{
-	float: left;
 	width: 80px;
+	/*margin-bottom: 15px;*/
 	border-radius: 50%;
-	margin-right: 15px;
 }
 
 .staff-content h5{
-	font-size: 18px;
-	margin: 0;
-	padding-top: 15px;
+	margin-top: 0;
+	margin-bottom: 15px;
+	font-size: 20px;
+	color: #999999;
+	font-weight: 300px;
+	/*letter-spacing: 2px;*/
 }
 
+/* --------------------------------------------------------------------- */
+/* footer styles */
 
+footer{
+	background: #222222; /*bg colour*/
+	color: #777777; /*text colour*/
+	padding: 20px;
+	text-align: center; /*pushes text to center*/
+}

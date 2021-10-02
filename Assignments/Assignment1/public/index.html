@@ -15,9 +15,9 @@
 				</div>
 				<nav id="header-navigation">
 					<ul>
-						<li><a href="#news-section">News</a></li>
-						<li><a href="#fixtures-section">Fixtures</a></li>
-						<li><a href="#about-section">About</a></li>
+						<li><a href="#news-section">News & Updates</a></li>
+						<li><a href="#fixtures-section">Fixtures & Results</a></li>
+						<li><a href="#admin-section">Administration</a></li>
 					</ul>
 				</nav>
 			</div>
@@ -35,7 +35,7 @@
 		<!-- NEWS SECTION --> 
 		<section id ="news-section">
 			<div class="section-header">
-				NEWS
+				NEWS & UPDATES
 			</div>
 			<div class="section-body"> 
 				<p>
@@ -88,7 +88,7 @@
 		<!-- FIXTURES SECTION -->
 		<section id ="fixtures-section">
 			<div class="section-header">
-				FIXTURES
+				FIXTURES & RESULTS
 			</div>
 			<div class="section-body">
 				<p>
@@ -102,7 +102,7 @@
 								<p>Lorem Ipsum</p>
 							</div>
 							<div class="fixture-grid-item">
-								<h3>9 - 0</h3>
+								<h3>9<span class="fixture-score-seperator"> - </span>0</h3>
 							</div>
 							<div class="fixture-grid-item">
 								<img src="img/team-logos/team6.png" alt="fixture 1, team 2 logo">
@@ -117,7 +117,7 @@
 								<p>Aliquam Dictum</p>
 							</div>
 							<div class="fixture-grid-item">
-								<h3>2 - 1</h3>
+								<h3>2<span class="fixture-score-seperator"> - </span>1</h3>
 							</div>
 							<div class="fixture-grid-item">
 								<img src="img/team-logos/team2.png" alt="fixture 1, team 2 logo">
@@ -132,7 +132,7 @@
 								<p>Pellentesque</p>
 							</div>
 							<div class="fixture-grid-item">
-								<h3>0 - 0</h3>
+								<h3>0<span class="fixture-score-seperator"> - </span>0</h3>
 							</div>
 							<div class="fixture-grid-item">
 								<img src="img/team-logos/team5.png" alt="fixture 1, team 2 logo">
@@ -147,10 +147,10 @@
 								<p>Maecenas</p>
 							</div>
 							<div class="fixture-grid-item">
-								<h3>1 - 0</h3>
+								<h3>1<span class="fixture-score-seperator"> - </span>0</h3>
 							</div>
 							<div class="fixture-grid-item">
-								<img src="img/team-logos/team6.png" alt="fixture 1, team 2 logo">
+								<img src="img/team-logos/3.png" alt="fixture 1, team 2 logo">
 								<p>Donec Vitae</p>
 							</div>
 						</div>
@@ -158,14 +158,14 @@
 					<div class="fixtures-grid-item">
 						<div class="fixture-grid-container">
 							<div class="fixture-grid-item">
-								<img src="img/team-logos/team4.png" alt="fixture 1, team 1 logo">
+								<img src="img/team-logos/1.png" alt="fixture 1, team 1 logo">
 								<p>Ultricies Turpis</p>
 							</div>
 							<div class="fixture-grid-item">
-								<h3>1 - 1</h3>
+								<h3>1<span class="fixture-score-seperator"> - </span>1</h3>
 							</div>
 							<div class="fixture-grid-item">
-								<img src="img/team-logos/team6.png" alt="fixture 1, team 2 logo">
+								<img src="img/team-logos/2.png" alt="fixture 1, team 2 logo">
 								<p>Vestibulum</p>
 							</div>
 						</div>
@@ -173,14 +173,14 @@
 					<div class="fixtures-grid-item">
 						<div class="fixture-grid-container">
 							<div class="fixture-grid-item">
-								<img src="img/team-logos/team4.png" alt="fixture 1, team 1 logo">
-								<p>Mollis Sem Quis</p>
+								<img src="img/team-logos/4.png" alt="fixture 1, team 1 logo">
+								<p>Et Lacus Id</p>
 							</div>
 							<div class="fixture-grid-item">
-								<h3>3 - 2</h3>
+								<h3>3<span class="fixture-score-seperator"> - </span>2</h3>
 							</div>
 							<div class="fixture-grid-item">
-								<img src="img/team-logos/team6.png" alt="fixture 1, team 2 logo">
+								<img src="img/team-logos/5.png" alt="fixture 1, team 2 logo">
 								<p>Suspendisse</p>
 							</div>
 						</div>
@@ -189,10 +189,10 @@
 			</div>
 		</section>
 
-		<!-- ABOUT SECTION --> 
-		<section id ="about-section">
+		<!-- ADMIN SECTION --> 
+		<section id ="admin-section">
 			<div class="section-header">
-				ABOUT
+				ADMINISTRATION
 			</div>
 			<div class="section-body"> 
 				<p>
@@ -201,29 +201,48 @@
 					Proin tempor felis justo, vel dapibus erat semper at. Mauris nec libero et dolor gravida cursus. 
 					Ut id ligula volutpat, ultrices lorem vitae, consectetur nulla. Donec sit amet ex et ligula fermentum placerat. Nulla facilisi.
 				</p>
+				<!--
 				<div class="staff-content">
-					<div class="staff-comment">
-						A
-					</div>
 					<img src="img/club-staff/chairperson.png" alt="chairperson image">
 					<h5>John Doe</h5>
+					<div class="staff-text">
+						<p>
+							Nunc nulla neque, rhoncus eu mauris nec, tempor lobortis nibh. Morbi aliquet in leo at molestie. 
+							Nulla rhoncus interdum consectetur. Ut laoreet blandit feugiat. 
+						</p>
+					</div>
 				</div>
 				<div class="staff-content">
-					<div class="staff-comment">
-						B
-					</div>
 					<img src="img/club-staff/secretary.png" alt="secretary image">
-					<h5>John Doe</h5>
+					<h5>John Roe</h5>
+					<div class="staff-text">
+						<p>
+							Nunc nulla neque, rhoncus eu mauris nec, tempor lobortis nibh. Morbi aliquet in leo at molestie. 
+							
+						</p>
+					</div>
 				</div>
 				<div class="staff-content">
-					<div class="staff-comment">
-						C
-					</div>
 					<img src="img/club-staff/treasurer.png" alt="/treasurer image">
 					<h5>Jane Doe</h5>
+					<div class="staff-text">
+						<p>
+							Nunc nulla neque, rhoncus eu mauris nec, tempor lobortis nibh. Morbi aliquet in leo at molestie. 
+							Nulla rhoncus interdum consectetur. Ut laoreet blandit feugiat. 
+						</p>
+					</div>
 				</div>
+				https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_equal_height
+						-->
+				
+
 			</div>
 		</section>
+
+		<!-- FOOTER -->
+		<footer>
+			<p>I be the footer!</p>
+		</footer>
 
 		<!-- firebase config -->
 		<script src="js/firebase-config.js" type="module"></script>
