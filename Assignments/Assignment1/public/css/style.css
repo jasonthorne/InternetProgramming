@@ -173,8 +173,11 @@ section{
 	width: 33%; /* fit 3 into page width */
 }
 
-
-
+.staff-col h3{
+	/*font-size: 18px;
+	margin: 0;
+	padding-top: 15px;*/
+}
 
 
 .staff-col img{
@@ -193,7 +196,14 @@ section{
 }
 
 
-
+.staff-text{
+	background: #ecf0f1;
+	text-align: left;
+	padding: 15px;
+	margin-bottom: 15px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
 
 
 
@@ -210,13 +220,7 @@ section{
 	/*line-height: 1; /* ??????????????? */
 }
 
-.staff-text{
-	background: #ecf0f1;
-	padding: 15px;
-	/*border-radius: 4px;*/
-	margin-bottom: 15px;
-	
-}
+
 
 .staff-container img{
 	width: 80px;
