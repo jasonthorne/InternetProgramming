@@ -62,7 +62,7 @@ header{
 
 #hero{ 
 	min-height: 800px; /*gives element a minimum height */
-	background-image: url('../img/stadium/football-g820e35a59_1920.jpg');  /* link to image */
+	background-image: url('../img/pitch/pitch.jpg');  /* link to image */
 	background-size: cover;  /*make image cover element*/
 }
 
