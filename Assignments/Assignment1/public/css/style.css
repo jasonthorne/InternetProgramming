@@ -117,12 +117,12 @@ section{
 #fixtures-section{
 	background: #ECF0F1; /* colour section */
 	width: 100%; /* use 100% width */
-	padding: 50px 0; /* top & bottom: 50px,  right & left: 0px */
+	padding: 50px 0; /* top & bottom: 50px, right & left: 0px */
 	text-align: center; /* center text */
 }
 
 #fixtures-section .section-body{
-	padding: 0px 30px; /* top & bottom: 0px,  right & left: 30px */
+	padding: 0px 30px; /* top & bottom: 0px, right & left: 30px */
 }
 
 #fixtures-grid-container{
@@ -133,9 +133,9 @@ section{
 }
 
 .fixture-grid-container{
-	display: grid;
-	grid-template-columns: 120px 40px 120px;
-	grid-gap: 0px 0px;
+	display: grid; /* display as grid */
+	grid-template-columns: 120px 40px 120px; /* 3 cols of given px */
+	grid-gap: 0px 0px; /* no rol or col grid gaps */
 }
 
 .fixture-grid-item img{
@@ -157,55 +157,50 @@ section{
 /* admin section styles */
  
 #admin-section .section-body{
-	text-align: center;
+	text-align: center; /* center align text */
 }
 
-#admin-container{
-	display: table;
-  	width: 90%;
-	margin-left: auto;
-    margin-right: auto;
+#admin-staff-container{
+	display: table; /* display as table */
+  	width: 90%; /* take 90% of width */
+	margin-left: auto; /* center container */
+    margin-right: auto; /* center container */
 }
 
-.staff-col{
-	display: table-cell;
-	/*padding: 20px;*/
+.admin-staff{
+	display: table-cell; /* display as table cell */
 	padding: 20px 20px 0px 20px; /* top, right, bottom, left */
 	width: 33%; /* fit 3 into page width */
 }
 
-.staff-col h3{
-	font-size: 24px;
-	/*margin: 0;
-	padding-top: 15px;*/
-	margin-top: 0;
-	margin-bottom: 15px;
-	color: #777777;
+.admin-title{
+	font-weight: bold; /* make bold */
+	font-size: 24px; /* font size */
+	margin-top: 0; /* remove top margin */
+	margin-bottom: 15px; /* add margin bottom */
+	color: #777777; /* add colour */
 }
 
-.staff-col img{
-	width: 80px;
-	/*margin-bottom: 15px;*/
-	border-radius: 50%;
+.admin-staff img{
+	width: 80px; /* image width */
+	border-radius: 50%; /* give curcular border to image */
 }
 
-.staff-col h5{
-	margin-top: 0;
-	margin-bottom: 15px;
-	font-size: 20px;
-	color: #999999;
-	/*font-weight: bold;*/
-	/*letter-spacing: 2px;*/
+.admin-name{
+	font-weight: bold; /* make bold */
+	margin-top: 0; /* remove top margin */
+	margin-bottom: 15px; /* add margin bottom */
+	font-size: 20px;  /* font size */
+	color: #999999; /* add colour */
 }
 
-.staff-text{
-	background: #ecf0f1;
-	text-align: left;
-	padding: 15px;
-	margin-bottom: 15px;
-	margin-left: 10px;
-	margin-right: 10px;
-	/*border-radius: 10px;*/
+.admin-staff p{
+	background: #ecf0f1; /* add bg colour */
+	text-align: left; /* left align text  */
+	padding: 15px; /* add padding */
+	margin-bottom: 15px; /* add margin bottom */
+	margin-left: 10px; /* add margin left */
+	margin-right: 10px; /* add margin right */
 }
 
 /* --------------------------------------------------------------------- */
@@ -214,28 +209,18 @@ section{
 footer{
 	background: #222222; /*bg colour*/
 	color: #777777; /*text colour*/
-	/*color:#b3b1b1;*/
-	padding: 20px;
-	text-align: center; /*pushes text to center*/
-	
+	padding: 20px; /* add padding */
+	text-align: center; /*center text*/
 }
 
 footer i{
-	font-size: 38px;
-	margin-left: 10px;
-	margin-right: 10px;
-	margin-top: 20px;
-	margin-bottom: 30px;
-	/*float: left;*/
+	font-size: 38px; /* font size */
+	margin: 20px 10px 30px 10px; /*margins: top, right, bottom, left */
 }
 
 footer p{
-	/*display: inline-block;*/
-	/*float: right;*/
-	font-size: 14px;
-	/*color: #777777; /*text colour*/
-	/*margin-bottom: 10px;*/
-	margin: 6px;
+	font-size: 14px; /* font size */
+	margin: 6px; /* margins size */
 }
 
 footer a{
