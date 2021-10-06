@@ -241,3 +241,24 @@ footer a:hover{
 #footer-social-media a{
 	text-decoration: none; /* remove underscores */
 }
+
+
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++ */
+.navbar-custom {
+    background-color: lightgreen;
+}
+
+/*
+https://stackoverflow.com/questions/31147543/how-to-fit-100-of-an-image-to-a-jumbotron
+*/
+
+.jumbotron {
+    /* Image in the center of container */
+    background-position: center center;
+
+    /*  OR Image in the center top of the container */
+    /*background-position: center top;
+
+    /*  OR Image in the center bottom of the container  */
+    /*background-position: center bottom;
+}
