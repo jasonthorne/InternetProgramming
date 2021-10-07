@@ -20,7 +20,7 @@ header{
      color: #ffffff; /* font colour */
 }
 
-#header-logo{ 
+#header-logo{
     font-weight: bold; /* font weight */
 	display: inline-block; /* sit on same line as siblings */
 }
@@ -64,8 +64,6 @@ header{
 	min-height: 800px; /*gives element a minimum height */
 	background-image: url('../img/pitch/pitch.jpg');  /* link to image */
 	background-size: cover;  /*make image cover element*/
-	background-position: center center;  /* center image in it's container */
-	/* https://stackoverflow.com/questions/31147543/how-to-fit-100-of-an-image-to-a-jumbotron */
 }
 
 #hero-container{
@@ -242,14 +240,3 @@ footer a:hover{
 #footer-social-media a{
 	text-decoration: none; /* remove underscores */
 }
-
-
-/* ++++++++++++++++++++++++++++++++++++++++++++++++++ */
-.navbar-custom {
-    background-color: lightgreen;
-}
-
-/*
-+++++++++++++++++++++++++++make thi s adefault atyle and haved a bootsrap style with overriden changes added ++++++++
-+++++++++++++remove hero change here then add it in bootstrap style for example.
-*/

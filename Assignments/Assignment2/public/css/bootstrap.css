@@ -1,0 +1,18 @@
+
+/* --------------------------------------------------------------------- */
+/* navbar styles */
+
+.navbar-custom {
+    background-color: lightgreen;
+}
+
+
+/* --------------------------------------------------------------------- */
+/* hero styles */
+
+#hero{
+    background-position: center center;  /* center image in it's container */
+	/* https://stackoverflow.com/questions/31147543/how-to-fit-100-of-an-image-to-a-jumbotron */
+}
+
+
