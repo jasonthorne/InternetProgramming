@@ -6,7 +6,6 @@
     background-color: lightgreen;
 }
 
-
 /* --------------------------------------------------------------------- */
 /* hero styles */
 
@@ -15,11 +14,20 @@
 	/* https://stackoverflow.com/questions/31147543/how-to-fit-100-of-an-image-to-a-jumbotron */
 }
 
+/* --------------------------------------------------------------------- */
+/* section styles */
 
 .section-header{
 	/*font-size: 1.875em; /* font size */ 
 }
 
+.section-row{
+    margin-left: 15px; /* ++++++++++++++++++++ think about removing on small - */
+    margin-right: 15px;
+}
+
+/* --------------------------------------------------------------------- */
+/* news section styles */
 
 #news-section{
     padding: 50px 0; /* top & bottom: 50px, right & left: 0px */
@@ -27,27 +35,24 @@
 
 
 /*
-https://stackoverflow.com/questions/21075983/how-to-use-particular-css-styles-based-on-screen-size-device
-*/
-
-
-
-/*
 https://www.w3schools.com/cssref/css3_pr_mediaquery.asp
 */
 
+/* xl (1200px)and below */
 @media (max-width: 1200px){
     #news-section{
         column-count: 3; /* 3 cols */
     }
 }
 
+/* lg (992px) and below */
 @media (max-width: 992px){
     #news-section{
         column-count: 2; /* 2 cols */
     }
 }
 
+/* md (768px) and below */
 @media (max-width: 768px){
     #news-section{
         column-count: 1; /* 1 col */
@@ -55,19 +60,19 @@ https://www.w3schools.com/cssref/css3_pr_mediaquery.asp
 }
 
 
-.row{
-    margin-left: 15px;
-    margin-right: 15px;
-}
-
 
 /* media queries */
 
 /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) { }
+@media (max-width: 576px) {}
 
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) { }
+/* Medium devices (tablets, 768px and below) */
+@media (max-width: 768px) {
+    .news-section-hr {
+        border-top: 1px solid #add8e6; /* darken hr colour */
+        margin-bottom: 30px; /* increase bottom magin */
+    }
+}
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { }
@@ -81,10 +86,25 @@ https://www.w3schools.com/cssref/css3_pr_mediaquery.asp
 /* https://getbootstrap.com/docs/5.0/layout/breakpoints/ */
 
 
+/* --------------------------------------------------------------------- */
+/* fixtures section styles */
+
+/*
+#fixtures-section {
+	padding: 0px 30px; 
+}
+*/
+
+#fixtures-card{
+    background: #ECF0F1; /* colour section */
+}
+
 
 #test{
     background: #15a5c9; /* colour section */
 }
+
+
 
 /* hide table row's top border */
 tr{ 
@@ -96,3 +116,19 @@ tr{
     vertical-align: middle; /* puts image into the middle of its allowed height */
 }
 
+.fixture-td p{
+    font-weight: bold; /* font weight */
+	color: #777777; /* font colour */
+	margin-bottom: 0%; /* remove margin bottom */
+}
+
+/*
+https://stackoverflow.com/questions/21075983/how-to-use-particular-css-styles-based-on-screen-size-device
+*/
+
+/* --------------------------------------------------------------------- */
+/* admin section styles */
+
+/* insteads of tables: 
+https://getbootstrap.com/docs/5.0/utilities/flex/
+*/
