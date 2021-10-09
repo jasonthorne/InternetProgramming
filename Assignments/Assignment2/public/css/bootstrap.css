@@ -17,11 +17,13 @@
 
 
 .section-header{
-	/*font-size: 1.875em; /* font size */ 
+	font-size: 1.875em; /* font size */ 
 }
 
 
-
+#news-section{
+    padding: 50px 0; /* top & bottom: 50px, right & left: 0px */
+}
 
 
 /*
@@ -34,19 +36,19 @@ https://stackoverflow.com/questions/21075983/how-to-use-particular-css-styles-ba
 https://www.w3schools.com/cssref/css3_pr_mediaquery.asp
 */
 
-@media (max-width: 1200px) {
+@media (max-width: 1200px){
     #news-section{
         column-count: 3; /* 3 cols */
     }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 992px){
     #news-section{
         column-count: 2; /* 2 cols */
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 768px){
     #news-section{
         column-count: 1; /* 1 col */
     }
@@ -56,4 +58,30 @@ https://www.w3schools.com/cssref/css3_pr_mediaquery.asp
 .row{
     margin-left: 15px;
     margin-right: 15px;
+}
+
+
+/* media queries */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { }
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { }
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {}
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) { }
+
+/* https://getbootstrap.com/docs/5.0/layout/breakpoints/ */
+
+
+
+#test{
+    background: #15a5c9; /* colour section */
 }
