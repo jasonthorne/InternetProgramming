@@ -17,7 +17,7 @@
 
 
 .section-header{
-	font-size: 1.875em; /* font size */ 
+	/*font-size: 1.875em; /* font size */ 
 }
 
 
@@ -85,3 +85,14 @@ https://www.w3schools.com/cssref/css3_pr_mediaquery.asp
 #test{
     background: #15a5c9; /* colour section */
 }
+
+/* hide table row's top border */
+tr{ 
+    border-top: hidden;
+} 
+
+.fixture-td img{
+    width: 60px; /* width of content area */
+    vertical-align: middle; /* puts image into the middle of its allowed height */
+}
+
