@@ -51,7 +51,7 @@
 			</div>
 		</div>
 
-		<div class="container">
+		<div class="container-fluid">  <!-- ++++++++++++++++++++++ -fluid -->
 			<div class="row">
 				<div class="col-12">
 					<div class="card border-0"> <!-- ++++++++++++++++++++++ border-0 -->
@@ -123,13 +123,14 @@
 				</div>
 			</div>
 
-			<div class="row">
+			<div class="row d-none d-sm-block"> <!-- hides on xs -->
 				<div class="col-12">
 					<div class="card">
 						<div class="card-body">
-							<h5 class="card-title">I is a card!</h5>
+							<h5 class="card-title">I should vanish :P</h5>
 							<p class="card-text">
 								card text be here
+								<div class="d-none d-lg-block">hide on screens smaller than lg</div>
 							</p>
 						  </div>
 					</div>

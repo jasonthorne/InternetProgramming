@@ -17,7 +17,7 @@
 
 
 .section-header{
-	font-size: 1.875em; /* font size */ 
+	/*font-size: 1.875em; /* font size */ 
 }
 
 
@@ -29,3 +29,31 @@ https://stackoverflow.com/questions/21075983/how-to-use-particular-css-styles-ba
 */
 
 
+
+/*
+https://www.w3schools.com/cssref/css3_pr_mediaquery.asp
+*/
+
+@media (max-width: 1200px) {
+    #news-section{
+        column-count: 3; /* 3 cols */
+    }
+}
+
+@media (max-width: 992px) {
+    #news-section{
+        column-count: 2; /* 2 cols */
+    }
+}
+
+@media (max-width: 768px) {
+    #news-section{
+        column-count: 1; /* 1 col */
+    }
+}
+
+
+.row{
+    margin-left: 15px;
+    margin-right: 15px;
+}
