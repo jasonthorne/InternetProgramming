@@ -11,8 +11,8 @@
 
 #hero{
     background-position: center center;  /* center image in it's container */
-	/* https://stackoverflow.com/questions/31147543/how-to-fit-100-of-an-image-to-a-jumbotron */
 }
+/* https://stackoverflow.com/questions/31147543/how-to-fit-100-of-an-image-to-a-jumbotron */
 
 #hero-container{
 	padding-top: 20px; /* top padding */
@@ -109,7 +109,6 @@ https://www.w3schools.com/cssref/css3_pr_mediaquery.asp
 	padding: 0px; 
 }
 
-
 #fixtures-card{
     background: #ECF0F1; /* colour section */
 }
@@ -119,7 +118,27 @@ https://www.w3schools.com/cssref/css3_pr_mediaquery.asp
     padding-right: 0px;
 }
 
+.fixture-grid-container{
+	/*padding: 30px 30px 20px 30px; /* top, right, bottom, left */
+    padding-top: 30px;
+    /*padding-bottom: 20px;*/
+    /*padding-right: 20px;*/
+    /*padding-left: 20px;*/
+	place-items: center; /* center items */
+}
 
+.fixture-grid-item h3{
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* --------------------------------------------------------------------- */
+/* admin section styles */
+
+
+
+
+/* ================MIGHT USE: ===================*/
 td {
     /*padding: 0px;*/
     /*margin: 0px;*/
@@ -144,24 +163,6 @@ td p{
 
 
 /* ===================================*/
-
-.fixture-grid-container{
-	/*padding: 30px 30px 20px 30px; /* top, right, bottom, left */
-	place-items: center; /* center items */
-}
-
-
-
-
-.fixture-grid-item h3{
-    font-size: 1em;
-}
-
-/* --------------------------------------------------------------------- */
-/* admin section styles */
-
-
-
 
 
 
