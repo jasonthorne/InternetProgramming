@@ -14,6 +14,14 @@
 	/* https://stackoverflow.com/questions/31147543/how-to-fit-100-of-an-image-to-a-jumbotron */
 }
 
+#hero-container{
+	padding-top: 20px; /* top padding */
+}
+
+#hero-title{
+	font-weight: bold;
+}
+
 /* --------------------------------------------------------------------- */
 /* section styles */
 
@@ -38,7 +46,7 @@
 https://www.w3schools.com/cssref/css3_pr_mediaquery.asp
 */
 
-/* xl (1200px)and below */
+/* xl (1200px)and below +++++++++++++++++++THESE SHOULD BE MIN-WIDTH :P */
 @media (max-width: 1200px){
     #news-section{
         column-count: 3; /* 3 cols */
@@ -131,4 +139,8 @@ https://stackoverflow.com/questions/21075983/how-to-use-particular-css-styles-ba
 
 /* insteads of tables: 
 https://getbootstrap.com/docs/5.0/utilities/flex/
+
+
+hero images:
+https://www.lauraleeflores.com/blog/header-image-sizing-guide
 */
