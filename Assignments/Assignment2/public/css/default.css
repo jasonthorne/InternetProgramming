@@ -61,15 +61,15 @@ header{
 /* hero styles */
 
 #hero{ 
-	min-height: 800px; /*gives element a minimum height */
-	background-image: url('../img/pitch/pitch.jpg');  /* link to image */
-	background-size: cover;  /*make image cover element*/
+	min-height: 800px; /* gives element a minimum height */
+	background-image: url('../img/pitch/pitch.jpg'); /* link to image */
+	background-size: cover;  /* make image cover element*/
 }
 
 #hero-container{
 	color: #ffffff; /* text colour */
     text-align: center; /* center align text */
-	padding-top: 90px; /*130px;*/ /* top padding */
+	padding-top: 90px; /* top padding */
 }
 
 #hero-title{

@@ -97,34 +97,39 @@ https://www.w3schools.com/cssref/css3_pr_mediaquery.asp
 /* --------------------------------------------------------------------- */
 /* fixtures section styles */
 
-/*
-#fixtures-section {
-	padding: 0px 30px; 
+
+#fixtures-section .section-body{
+	padding: 0px; 
 }
-*/
+
 
 #fixtures-card{
     background: #ECF0F1; /* colour section */
 }
 
-
-#test{
-    background: #15a5c9; /* colour section */
+#fixtures-card .card-body{
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 
+td {
+    /*padding: 0px;*/
+    /*margin: 0px;*/
+    /*text-align:center;*/
+  }
 
 /* hide table row's top border */
 tr{ 
     border-top: hidden;
 } 
 
-.fixture-td img{
+td img{
     width: 60px; /* width of content area */
     vertical-align: middle; /* puts image into the middle of its allowed height */
 }
 
-.fixture-td p{
+td p{
     font-weight: bold; /* font weight */
 	color: #777777; /* font colour */
 	margin-bottom: 0%; /* remove margin bottom */
