@@ -3,7 +3,7 @@
 /* navbar styles */
 
 .navbar-custom {
-    background-color: lightgreen;
+    background-color: #222222;
 }
 
 /* --------------------------------------------------------------------- */
@@ -29,10 +29,17 @@
 	/*font-size: 1.875em; /* font size */ 
 }
 
+/*
+.section-body .container{
+    text-align: center;
+}*/
+
 .section-row{
     margin-left: 15px; /* ++++++++++++++++++++ think about removing on small - */
     margin-right: 15px;
 }
+
+
 
 /* --------------------------------------------------------------------- */
 /* news section styles */
@@ -135,12 +142,34 @@ td p{
 	margin-bottom: 0%; /* remove margin bottom */
 }
 
-/*
-https://stackoverflow.com/questions/21075983/how-to-use-particular-css-styles-based-on-screen-size-device
-*/
+
+/* ===================================*/
+
+.fixture-grid-container{
+	/*padding: 30px 30px 20px 30px; /* top, right, bottom, left */
+	place-items: center; /* center items */
+}
+
+
+
+
+.fixture-grid-item h3{
+    font-size: 1em;
+}
 
 /* --------------------------------------------------------------------- */
 /* admin section styles */
+
+
+
+
+
+
+
+
+
+
+/* +++++++++++++++++++++++++++++++++LINKS +++++++++++++++++++++++++++
 
 /* insteads of tables: 
 https://getbootstrap.com/docs/5.0/utilities/flex/
@@ -148,4 +177,8 @@ https://getbootstrap.com/docs/5.0/utilities/flex/
 
 hero images:
 https://www.lauraleeflores.com/blog/header-image-sizing-guide
+*/
+
+/*
+https://stackoverflow.com/questions/21075983/how-to-use-particular-css-styles-based-on-screen-size-device
 */
