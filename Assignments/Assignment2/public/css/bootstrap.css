@@ -145,6 +145,11 @@ https://www.w3schools.com/cssref/css3_pr_mediaquery.asp
 
 
 
+.admin-staff img{
+	width: 100px; /* image width */
+}
+
+
 
 /* ================MIGHT USE: ===================*/
 td {
