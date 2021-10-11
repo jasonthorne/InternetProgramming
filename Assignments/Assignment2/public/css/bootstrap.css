@@ -104,7 +104,6 @@ https://www.w3schools.com/cssref/css3_pr_mediaquery.asp
 /* --------------------------------------------------------------------- */
 /* fixtures section styles */
 
-
 #fixtures-section .section-body{
 	padding: 0px; 
 }
@@ -121,15 +120,24 @@ https://www.w3schools.com/cssref/css3_pr_mediaquery.asp
 .fixture-grid-container{
 	/*padding: 30px 30px 20px 30px; /* top, right, bottom, left */
     padding-top: 30px;
-    /*padding-bottom: 20px;*/
+    /*padding-bottom: 30px;*/
+    padding-bottom: 20px;
     /*padding-right: 20px;*/
     /*padding-left: 20px;*/
 	place-items: center; /* center items */
 }
 
+.fixture-grid-item p{
+    /*margin-top: 8px;*/
+     margin-top: 5px;
+}
+
 .fixture-grid-item h3{
     font-size: 1.2em;
     font-weight: bold;
+
+    /*padding-bottom: 16px; /* remove margin bottom */
+    padding-bottom: 10px; /* remove margin bottom */
 }
 
 /* --------------------------------------------------------------------- */
