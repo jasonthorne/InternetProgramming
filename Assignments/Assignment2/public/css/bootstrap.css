@@ -135,7 +135,7 @@ https://www.w3schools.com/cssref/css3_pr_mediaquery.asp
 .fixture-grid-item h3{
     font-size: 1.2em;
     font-weight: bold;
-    padding-bottom: 10px; /* remove margin bottom */
+    padding-bottom: 10px;
 }
 
 /* --------------------------------------------------------------------- */
@@ -150,6 +150,24 @@ https://www.w3schools.com/cssref/css3_pr_mediaquery.asp
 .admin-name{
     margin-bottom: 0;
 }
+
+
+/* --------------------------------------------------------------------- */
+/* footer styles */
+
+
+footer a{
+	text-decoration: underline; /* add underline removed by bootsrap */
+}
+
+
+
+
+
+
+
+
+
 
 
 /* ================MIGHT USE: ===================*/
