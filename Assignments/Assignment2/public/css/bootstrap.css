@@ -26,8 +26,6 @@
     font-weight: bold; /* bolden font */
 }
 
-/* media queries: */
-
 /* Large devices (desktops, 992px and below) */
 @media (max-width: 992px) {
     #hero-container{
@@ -95,8 +93,6 @@
     padding: 50px 0; /* top & bottom: 50px, right & left: 0px */
 }
 
-/* media queries: */
-
 /* X-Large devices (large desktops, 1200px and below) */
 @media (max-width: 1200px) {
     #news-section{
@@ -159,12 +155,29 @@
 /* admin section styles */
 
 .admin-staff img{
-	width: 100px; /* 80px */ /* change image width */
+	width: 120px; /* 80px */ /* change image width */
 }
 
 .admin-name{ 
     margin-bottom: 0; /* remove bottom margin: */
 }
+
+
+/* Medium devices (tablets, 768px and below) */
+@media (max-width: 768px) {
+    /* remove left & right padding from various elements */
+    #admin-section, #admin-section .card-body, #admin-section .col-12{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .admin-title {
+        font-size: 22px; /* reduce font size */
+    }
+
+
+    
+}
+
 
 /* --------------------------------------------------------------------- */
 /* footer styles */
