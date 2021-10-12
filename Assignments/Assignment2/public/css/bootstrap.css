@@ -9,7 +9,13 @@
 /* --------------------------------------------------------------------- */
 /* hero styles */
 
-#hero{ background-position: center center;  /* center image in it's container */ }
+#hero{ 
+    background-position: center center;  /* center image in it's container */
+    
+    /*min-height: 450px; /* gives element a minimum height */
+    
+       
+}
 /* https://stackoverflow.com/questions/31147543/how-to-fit-100-of-an-image-to-a-jumbotron */
 
 #hero-container{
@@ -22,32 +28,44 @@
 
 /* media queries: */
 
-/* XX-Large devices (larger desktops, 1400px and below) */
-@media (max-width: 1400px) {}
-
-/* X-Large devices (large desktops, 1200px and below) */
-@media (max-width: 1200px) {}
-
 /* Large devices (desktops, 992px and below) */
 @media (max-width: 992px) {
+    #hero-container{
+        padding-top:5px; /* decrease top padding */
+    }
+    #hero{
+        min-height: 600px; /* reduce height */
+    }
     #hero-title{
-        color: red;
+        /*color: red;*/
         font-size: 80px; /* reduce font size */
     }
 }
 
 /* Medium devices (tablets, 768px and below) */
 @media (max-width: 768px) {
+    #hero-container{
+        padding-top: 0px; /* decrease top padding */
+    }
+    #hero{
+        min-height: 500px; /* reduce height */
+    }
     #hero-title{
-        color: blue;
+        /*color: blue;*/
         font-size: 60px; /* reduce font size */
     }
 }
 
 /* Small devices (landscape phones, 576px and below) */
 @media (max-width: 576px) {
+    #hero-container{
+        padding-top: 25px; /* increase top padding */
+    }
+    #hero{
+        min-height: 450px; /* reduce height */
+    }
     #hero-title{
-        color: yellow;
+        /*color: yellow;*/
         font-size: 50px; /* reduce font size */
     }
 }
@@ -69,8 +87,6 @@
     margin-left: 15px;
     margin-right: 15px;
 }
-
-
 
 /* --------------------------------------------------------------------- */
 /* news section styles */
