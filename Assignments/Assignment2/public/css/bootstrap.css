@@ -9,17 +9,47 @@
 /* --------------------------------------------------------------------- */
 /* hero styles */
 
-#hero{
-    background-position: center center;  /* center image in it's container */
-}
+#hero{ background-position: center center;  /* center image in it's container */ }
 /* https://stackoverflow.com/questions/31147543/how-to-fit-100-of-an-image-to-a-jumbotron */
 
 #hero-container{
-	padding-top: 20px; /* top padding */
+    padding-top: 20px; /* increase top padding */
 }
 
-#hero-title{
-	font-weight: bold;
+#hero-title{ 
+    font-weight: bold; /* bolden font */
+}
+
+/* media queries: */
+
+/* XX-Large devices (larger desktops, 1400px and below) */
+@media (max-width: 1400px) {}
+
+/* X-Large devices (large desktops, 1200px and below) */
+@media (max-width: 1200px) {}
+
+/* Large devices (desktops, 992px and below) */
+@media (max-width: 992px) {
+    #hero-title{
+        color: red;
+        font-size: 80px; /* reduce font size */
+    }
+}
+
+/* Medium devices (tablets, 768px and below) */
+@media (max-width: 768px) {
+    #hero-title{
+        color: blue;
+        font-size: 60px; /* reduce font size */
+    }
+}
+
+/* Small devices (landscape phones, 576px and below) */
+@media (max-width: 576px) {
+    #hero-title{
+        color: yellow;
+        font-size: 50px; /* reduce font size */
+    }
 }
 
 /* --------------------------------------------------------------------- */
@@ -35,7 +65,8 @@
 }*/
 
 .section-row{
-    margin-left: 15px; /* ++++++++++++++++++++ think about removing on small - */
+    /* increase left & right padding: */
+    margin-left: 15px;
     margin-right: 15px;
 }
 
@@ -48,64 +79,38 @@
     padding: 50px 0; /* top & bottom: 50px, right & left: 0px */
 }
 
+/* media queries: */
 
-/*
-https://www.w3schools.com/cssref/css3_pr_mediaquery.asp
-*/
-
-/* xl (1200px)and below +++++++++++++++++++THESE SHOULD BE MIN-WIDTH :P */
-@media (max-width: 1200px){
+/* X-Large devices (large desktops, 1200px and below) */
+@media (max-width: 1200px) {
     #news-section{
         column-count: 3; /* 3 cols */
     }
 }
 
-/* lg (992px) and below */
-@media (max-width: 992px){
+/* Large devices (desktops, 992px and below) */
+@media (max-width: 992px) {
     #news-section{
         column-count: 2; /* 2 cols */
     }
 }
 
-/* md (768px) and below */
-@media (max-width: 768px){
+/* Medium devices (tablets, 768px and below) */
+@media (max-width: 768px) {
     #news-section{
         column-count: 1; /* 1 col */
     }
-}
-
-
-
-/* media queries */
-
-/* Small devices (landscape phones, 576px and up) */
-@media (max-width: 576px) {}
-
-/* Medium devices (tablets, 768px and below) */
-@media (max-width: 768px) {
     .news-section-hr {
         border-top: 1px solid #add8e6; /* darken hr colour */
         margin-bottom: 30px; /* increase bottom magin */
     }
 }
 
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { }
-
-/* X-Large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {}
-
-/* XX-Large devices (larger desktops, 1400px and up) */
-@media (min-width: 1400px) { }
-
-/* https://getbootstrap.com/docs/5.0/layout/breakpoints/ */
-
-
 /* --------------------------------------------------------------------- */
 /* fixtures section styles */
 
 #fixtures-section .section-body{
-	padding: 0px; 
+	padding: 0px; /* remmove padding */
 }
 
 #fixtures-card{
@@ -113,51 +118,44 @@ https://www.w3schools.com/cssref/css3_pr_mediaquery.asp
 }
 
 #fixtures-card .card-body{
+    /* remove left & right padding: */
     padding-left: 0px;
     padding-right: 0px;
 }
 
 .fixture-grid-container{
-	/*padding: 30px 30px 20px 30px; /* top, right, bottom, left */
-    padding-top: 30px;
-    /*padding-bottom: 30px;*/
-    padding-bottom: 20px;
-    /*padding-right: 20px;*/
-    /*padding-left: 20px;*/
+    padding-top: 30px; /* change top padding */
+    padding-bottom: 20px; /* change bottom padding */
 	place-items: center; /* center items */
 }
 
 .fixture-grid-item p{
-    /*margin-top: 8px;*/
-     margin-top: 5px;
+     margin-top: 5px; /* change top margin */
 }
 
 .fixture-grid-item h3{
-    font-size: 1.2em;
-    font-weight: bold;
-    padding-bottom: 10px;
+    font-size: 1.2em; /* change size */
+    font-weight: bold; /* bolden */
+    padding-bottom: 10px; /* add bottom padding */
 }
 
 /* --------------------------------------------------------------------- */
 /* admin section styles */
 
-
-
 .admin-staff img{
-	/*width: 100px; /* image width */
+	width: 100px; /* 80px */ /* change image width */
 }
 
-.admin-name{
-    margin-bottom: 0;
+.admin-name{ 
+    margin-bottom: 0; /* remove bottom margin: */
 }
-
 
 /* --------------------------------------------------------------------- */
 /* footer styles */
 
-
-footer a{
-	text-decoration: underline; /* add underline removed by bootsrap */
+/* add underline removed by bootsrap: */
+footer a{ 
+    text-decoration: underline; 
 }
 
 
@@ -170,34 +168,9 @@ footer a{
 
 
 
-/* ================MIGHT USE: ===================*/
-td {
-    /*padding: 0px;*/
-    /*margin: 0px;*/
-    /*text-align:center;*/
-  }
-
-/* hide table row's top border */
-tr{ 
-    border-top: hidden;
-} 
-
-td img{
-    width: 60px; /* width of content area */
-    vertical-align: middle; /* puts image into the middle of its allowed height */
-}
-
-td p{
-    font-weight: bold; /* font weight */
-	color: #777777; /* font colour */
-	margin-bottom: 0%; /* remove margin bottom */
-}
 
 
 /* ===================================*/
-
-
-
 
 
 
@@ -215,3 +188,28 @@ https://www.lauraleeflores.com/blog/header-image-sizing-guide
 /*
 https://stackoverflow.com/questions/21075983/how-to-use-particular-css-styles-based-on-screen-size-device
 */
+
+
+
+/* media queries */
+
+/* XX-Large devices (larger desktops, 1400px and below) */
+@media (max-width: 1400px) {}
+
+/* X-Large devices (large desktops, 1200px and below) */
+@media (max-width: 1200px) {}
+
+/* Large devices (desktops, 992px and below) */
+@media (max-width: 992px) {}
+
+/* Medium devices (tablets, 768px and below) */
+@media (max-width: 768px) {}
+
+/* Small devices (landscape phones, 576px and below) */
+@media (max-width: 576px) {}
+
+
+
+
+
+
