@@ -155,7 +155,7 @@
 /* admin section styles */
 
 .admin-staff img{
-	width: 120px; /* 80px */ /* change image width */
+	width: 100px; /* 80px */ /* change image width */
 }
 
 .admin-name{ 
@@ -173,6 +173,9 @@
     .admin-title {
         font-size: 22px; /* reduce font size */
     }
+    #admin-section .section-body p{
+        text-align: left; /* left align text */
+    }
 }
 
 /* alt admin text when in col-sm */
@@ -180,9 +183,7 @@
     background: #ecf0f1; /* add bg colour */
 	text-align: left; /* left align text  */
 	padding: 15px; /* add padding */
-	margin-bottom: 15px; /* add margin bottom */
-	margin-left: 30px; /* add margin left */
-	margin-right: 30px; /* add margin right */
+    margin: 15px 60px 0px 60px; /*margins: top, right, bottom, left */
 }
 
 /* --------------------------------------------------------------------- */
