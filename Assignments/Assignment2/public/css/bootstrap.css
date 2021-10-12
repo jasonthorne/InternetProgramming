@@ -162,7 +162,6 @@
     margin-bottom: 0; /* remove bottom margin: */
 }
 
-
 /* Medium devices (tablets, 768px and below) */
 @media (max-width: 768px) {
     /* remove left & right padding from various elements */
@@ -183,7 +182,7 @@
     background: #ecf0f1; /* add bg colour */
 	text-align: left; /* left align text  */
 	padding: 15px; /* add padding */
-    margin: 15px 60px 0px 60px; /*margins: top, right, bottom, left */
+    margin: 15px 50px 0px 50px; /*margins: top, right, bottom, left */
 }
 
 /* --------------------------------------------------------------------- */
@@ -193,59 +192,3 @@
 footer a{ 
     text-decoration: underline; 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* ===================================*/
-
-
-
-
-/* +++++++++++++++++++++++++++++++++LINKS +++++++++++++++++++++++++++
-
-/* insteads of tables: 
-https://getbootstrap.com/docs/5.0/utilities/flex/
-
-
-hero images:
-https://www.lauraleeflores.com/blog/header-image-sizing-guide
-*/
-
-/*
-https://stackoverflow.com/questions/21075983/how-to-use-particular-css-styles-based-on-screen-size-device
-*/
-
-
-
-/* media queries */
-
-/* XX-Large devices (larger desktops, 1400px and below) */
-@media (max-width: 1400px) {}
-
-/* X-Large devices (large desktops, 1200px and below) */
-@media (max-width: 1200px) {}
-
-/* Large devices (desktops, 992px and below) */
-@media (max-width: 992px) {}
-
-/* Medium devices (tablets, 768px and below) */
-@media (max-width: 768px) {}
-
-/* Small devices (landscape phones, 576px and below) */
-@media (max-width: 576px) {}
-
-
-
-
-
-
