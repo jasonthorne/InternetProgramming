@@ -109,7 +109,7 @@
 /* news section styles */
 
 #news-section{
-    padding: 50px 0; /* top & bottom: 50px, right & left: 0px */
+    /*padding: 50px 0; /* top & bottom: 50px, right & left: 0px */
 }
 
 /* X-Large devices (large desktops, 1200px and below) */
@@ -139,6 +139,10 @@
 
 /* --------------------------------------------------------------------- */
 /* fixtures section styles */
+
+#fixtures-section{
+    /*padding: 0px; /* remmove padding */
+}
 
 #fixtures-section .section-body{
 	padding: 0px; /* remmove padding */
