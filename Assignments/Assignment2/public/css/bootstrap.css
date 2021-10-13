@@ -6,15 +6,9 @@
     background-color: #222222;
 }
 
-#navbar-logo a{
+#navbar-logo {
     color: #ffffff; /* font colour */
     font-size: 12px; /* font size */
-    text-decoration: none; /* remove underscore */
-}
-
-#navbar-logo a:hover{
-	color: #777777; /* add hover colour */
-    transition: 0.3s ease all; /* transition properties */
 }
 
 #navbar-logo img{
@@ -22,16 +16,18 @@
     width: 30px;
     margin-right: 5px;
     /*height: 24px;*/
-    display: inline-block;
+   
 }
 
 #navbar-logo span{
-    display: inline-block;
+   
 }
 
 .test{
     color: yellow; /*text colour*/
 }
+
+
 
 /* --------------------------------------------------------------------- */
 /* hero styles */
