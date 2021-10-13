@@ -35,6 +35,7 @@
 #hero{ 
     background-position: center center;  /* center image in it's container */
     /* https://stackoverflow.com/questions/31147543/how-to-fit-100-of-an-image-to-a-jumbotron */
+    margin-bottom: 0px; /* remove bottom margin */
 }
 
 #hero-container{
@@ -106,32 +107,47 @@
 }
 
 /* --------------------------------------------------------------------- */
-/* news section styles */
+/* news & updates section styles */
 
+/*
 #news-section{
-    /*padding: 50px 0; /* top & bottom: 50px, right & left: 0px */
+
+    column-count: 0; 
+    column-gap: 0; 
+    column-rule: 1px solid #add8e6; 
+}*/
+
+#news-updates-section{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#news-updates-section .section-body{
+    column-count: 3; /* number of columns */
+  	column-gap: 50px; /* gap between columns */
+  	column-rule: 1px solid #add8e6; /* line betweeen columns */
 }
 
 /* X-Large devices (large desktops, 1200px and below) */
 @media (max-width: 1200px) {
-    #news-section{
+    #news-updates-section .section-body{
         column-count: 3; /* 3 cols */
     }
 }
 
 /* Large devices (desktops, 992px and below) */
 @media (max-width: 992px) {
-    #news-section{
+    #news-updates-section .section-body{
         column-count: 2; /* 2 cols */
     }
 }
 
 /* Medium devices (tablets, 768px and below) */
 @media (max-width: 768px) {
-    #news-section{
+    #news-updates-section .section-body{
         column-count: 1; /* 1 col */
     }
-    .news-section-hr {
+    #news-updates-section hr {
         border-top: 1px solid #add8e6; /* darken hr colour */
         margin-bottom: 30px; /* increase bottom magin */
     }
