@@ -1,10 +1,5 @@
-
 /* --------------------------------------------------------------------- */
 /* navbar styles */
-
-.navbar-custom {
-    background-color: #222222;
-}
 
 #navbar-logo {
     color: #ffffff; /* font colour */
@@ -16,31 +11,6 @@
     width: 30px; /* width */
     margin-right: 5px; /* push right margin */
 }
-
-#navbar-logo span{
-   
-}
-
-.test{
-    color: yellow; /*text colour*/
-}
-
-/*
-https://www.geeksforgeeks.org/how-to-change-navigation-bar-color-in-bootstrap/
-*/
-
-.navbar .navbar-nav .nav-link{
-    color: green;
-}
-
-/*
-https://stackoverflow.com/questions/34573324/how-can-i-change-link-color-and-hover-color-in-bootstrap-version-4/34575363
-*/
-
-.navbar .navbar-nav .nav-link:hover{
-    color: yellow;
-}
-
 
 /* --------------------------------------------------------------------- */
 /* hero styles */
@@ -180,7 +150,7 @@ https://stackoverflow.com/questions/34573324/how-can-i-change-link-color-and-hov
 	width: 100px; /* 80px */ /* change image width */
 }
 
-.admin-name{ 
+.admin-name{
     margin-bottom: 0; /* remove bottom margin */
 }
 
@@ -195,7 +165,7 @@ https://stackoverflow.com/questions/34573324/how-can-i-change-link-color-and-hov
         padding-left: 0px;
         padding-right: 0px;
     }
-    .admin-title {
+    .admin-title{
         font-size: 22px; /* reduce font size */
     }
     #admin-section .section-body p{
