@@ -13,10 +13,8 @@
 
 #navbar-logo img{
 	vertical-align: middle; /* align img */
-    width: 30px;
-    margin-right: 5px;
-    /*height: 24px;*/
-   
+    width: 30px; /* width */
+    margin-right: 5px; /* push right margin */
 }
 
 #navbar-logo span{
@@ -27,6 +25,21 @@
     color: yellow; /*text colour*/
 }
 
+/*
+https://www.geeksforgeeks.org/how-to-change-navigation-bar-color-in-bootstrap/
+*/
+
+.navbar .navbar-nav .nav-link{
+    color: green;
+}
+
+/*
+https://stackoverflow.com/questions/34573324/how-can-i-change-link-color-and-hover-color-in-bootstrap-version-4/34575363
+*/
+
+.navbar .navbar-nav .nav-link:hover{
+    color: yellow;
+}
 
 
 /* --------------------------------------------------------------------- */
@@ -47,7 +60,7 @@
 }
 
 /* Large devices (desktops, 992px and below) */
-@media (max-width: 992px) {
+@media (max-width: 992px){
     #hero-container{
         padding-top:5px; /* decrease top padding */
     }
@@ -55,13 +68,12 @@
         min-height: 600px; /* reduce height */
     }
     #hero-title{
-        /*color: red;*/
         font-size: 80px; /* reduce font size */
     }
 }
 
 /* Medium devices (tablets, 768px and below) */
-@media (max-width: 768px) {
+@media (max-width: 768px){
     #hero-container{
         padding-top: 0px; /* decrease top padding */
     }
@@ -69,13 +81,12 @@
         min-height: 500px; /* reduce height */
     }
     #hero-title{
-        /*color: blue;*/
         font-size: 60px; /* reduce font size */
     }
 }
 
 /* Small devices (landscape phones, 576px and below) */
-@media (max-width: 576px) {
+@media (max-width: 576px){
     #hero-container{
         padding-top: 25px; /* increase top padding */
     }
@@ -83,22 +94,12 @@
         min-height: 450px; /* reduce height */
     }
     #hero-title{
-        /*color: yellow;*/
         font-size: 50px; /* reduce font size */
     }
 }
 
 /* --------------------------------------------------------------------- */
 /* section styles */
-
-.section-header{
-	/*font-size: 1.875em; /* font size */ 
-}
-
-/*
-.section-body .container{
-    text-align: center;
-}*/
 
 .section-row{
     /* increase left & right padding: */
@@ -109,41 +110,27 @@
 /* --------------------------------------------------------------------- */
 /* news & updates section styles */
 
-/*
-#news-section{
-
-    column-count: 0; 
-    column-gap: 0; 
-    column-rule: 1px solid #add8e6; 
-}*/
-
 #news-updates-section{
+    /* remove left & right padding: */
     padding-left: 0px;
     padding-right: 0px;
 }
-
+ 
 #news-updates-section .section-body{
     column-count: 3; /* number of columns */
   	column-gap: 50px; /* gap between columns */
   	column-rule: 1px solid #add8e6; /* line betweeen columns */
 }
 
-/* X-Large devices (large desktops, 1200px and below) */
-@media (max-width: 1200px) {
-    #news-updates-section .section-body{
-        column-count: 3; /* 3 cols */
-    }
-}
-
 /* Large devices (desktops, 992px and below) */
-@media (max-width: 992px) {
+@media (max-width: 992px){
     #news-updates-section .section-body{
         column-count: 2; /* 2 cols */
     }
 }
 
 /* Medium devices (tablets, 768px and below) */
-@media (max-width: 768px) {
+@media (max-width: 768px){
     #news-updates-section .section-body{
         column-count: 1; /* 1 col */
     }
@@ -155,10 +142,6 @@
 
 /* --------------------------------------------------------------------- */
 /* fixtures section styles */
-
-#fixtures-section{
-    /*padding: 0px; /* remmove padding */
-}
 
 #fixtures-section .section-body{
 	padding: 0px; /* remmove padding */
@@ -206,7 +189,7 @@
 }
 
 /* Medium devices (tablets, 768px and below) */
-@media (max-width: 768px) {
+@media (max-width: 768px){
     /* remove left & right padding from various elements */
     #admin-section, #admin-section .card-body, #admin-section .col-12{
         padding-left: 0px;
