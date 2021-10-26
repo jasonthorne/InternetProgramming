@@ -23,7 +23,6 @@ header{
 #header-logo{ 
     font-weight: bold; /* font weight */
 	display: inline-block; /* sit on same line as siblings */
-	/*color: #777777; /* text colour */
 }
 
 #header-logo img{
