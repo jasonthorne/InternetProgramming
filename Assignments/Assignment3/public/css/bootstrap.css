@@ -1,0 +1,192 @@
+/* --------------------------------------------------------------------- */
+/* navbar styles */
+
+#navbar-logo {
+    color: #ffffff; /* font colour */
+    font-size: 12px; /* font size */
+}
+
+#navbar-logo img{
+	vertical-align: middle; /* align img */
+    width: 30px; /* width */
+    margin-right: 5px; /* push right margin */
+}
+
+/* --------------------------------------------------------------------- */
+/* hero styles */
+
+#hero{ 
+    background-position: center center;  /* center image in it's container */
+    /* https://stackoverflow.com/questions/31147543/how-to-fit-100-of-an-image-to-a-jumbotron */
+    margin-bottom: 0px; /* remove bottom margin */
+}
+
+#hero-container{
+    padding-top: 20px; /* increase top padding */
+}
+
+#hero-title{ 
+    font-weight: bold; /* bolden font */
+}
+
+/* Large devices (desktops, 992px and below) */
+@media (max-width: 992px){
+    #hero-container{
+        padding-top:5px; /* decrease top padding */
+    }
+    #hero{
+        min-height: 600px; /* reduce height */
+    }
+    #hero-title{
+        font-size: 80px; /* reduce font size */
+    }
+}
+
+/* Medium devices (tablets, 768px and below) */
+@media (max-width: 768px){
+    #hero-container{
+        padding-top: 0px; /* decrease top padding */
+    }
+    #hero{
+        min-height: 500px; /* reduce height */
+    }
+    #hero-title{
+        font-size: 60px; /* reduce font size */
+    }
+}
+
+/* Small devices (landscape phones, 576px and below) */
+@media (max-width: 576px){
+    #hero-container{
+        padding-top: 25px; /* increase top padding */
+    }
+    #hero{
+        min-height: 450px; /* reduce height */
+    }
+    #hero-title{
+        font-size: 50px; /* reduce font size */
+    }
+}
+
+/* --------------------------------------------------------------------- */
+/* section styles */
+
+.section-row{
+    /* increase left & right padding: */
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+/* --------------------------------------------------------------------- */
+/* news & updates section styles */
+
+#news-updates-section{
+    /* remove left & right padding: */
+    padding-left: 0px;
+    padding-right: 0px;
+}
+ 
+#news-updates-section .section-body{
+    column-count: 3; /* number of columns */
+  	column-gap: 50px; /* gap between columns */
+  	column-rule: 1px solid #add8e6; /* line betweeen columns */
+}
+
+/* Large devices (desktops, 992px and below) */
+@media (max-width: 992px){
+    #news-updates-section .section-body{
+        column-count: 2; /* 2 cols */
+    }
+}
+
+/* Medium devices (tablets, 768px and below) */
+@media (max-width: 768px){
+    #news-updates-section .section-body{
+        column-count: 1; /* 1 col */
+    }
+    #news-updates-section hr {
+        border-top: 1px solid #add8e6; /* darken hr colour */
+        margin-bottom: 30px; /* increase bottom magin */
+    }
+}
+
+/* --------------------------------------------------------------------- */
+/* fixtures section styles */
+
+#fixtures-section .section-body{
+	padding: 0px; /* remmove padding */
+}
+
+#fixtures-card{
+    background: #ECF0F1; /* colour section */
+}
+
+#fixtures-card .card-body{
+    /* remove left & right padding: */
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.fixture-grid-container{
+    padding-top: 30px; /* change top padding */
+    padding-bottom: 20px; /* change bottom padding */
+	place-items: center; /* center items */
+}
+
+.fixture-grid-item p{
+     margin-top: 5px; /* change top margin */
+}
+
+.fixture-grid-item h3{
+    font-size: 1.2em; /* change size */
+    font-weight: bold; /* bolden */
+    padding-bottom: 10px; /* add bottom padding */
+}
+
+/* --------------------------------------------------------------------- */
+/* admin section styles */
+
+.admin-staff img{
+	width: 100px; /* change image width */
+}
+
+.admin-name{
+    margin-bottom: 0; /* remove bottom margin */
+}
+
+#admin-section .section-body p{
+    text-align: left; /* left align text */
+}
+
+/* Medium devices (tablets, 768px and below) */
+@media (max-width: 768px){
+    /* remove left & right padding from various elements */
+    #admin-section, #admin-section .card-body, #admin-section .col-12{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .admin-title{
+        font-size: 22px; /* reduce font size */
+    }
+    #admin-section .section-body p{
+        /* add left & right margins: */
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+}
+
+/* alt admin text when in col-sm */
+#alt-admin-text{
+    background: #ecf0f1; /* add bg colour */
+	text-align: left; /* left align text  */
+	padding: 15px; /* add padding */
+    margin: 15px 50px 0px 50px; /*margins: top, right, bottom, left */
+}
+
+/* --------------------------------------------------------------------- */
+/* footer styles */
+
+/* add underline removed by bootsrap: */
+footer a{ 
+    text-decoration: underline; 
+}
