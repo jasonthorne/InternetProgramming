@@ -161,7 +161,7 @@
 /* Medium devices (tablets, 768px and below) */
 @media (max-width: 768px){
     /* remove left & right padding from various elements */
-    #admin-section, #admin-section .card-body, #admin-section .col-12{
+    #admin-col, #admin-section, #admin-section .card-body{
         padding-left: 0px;
         padding-right: 0px;
     }
@@ -184,7 +184,9 @@
 }
 
 /* +++++++++++++++++ FIX PADDING TARGETING ABOVE :P +++++++++++ */
-
+#t{
+    background: yellow; /* add bg colour */
+}
 /* --------------------------------------------------------------------- */
 /* comments section styles */
 
