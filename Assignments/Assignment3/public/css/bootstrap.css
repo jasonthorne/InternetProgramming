@@ -158,6 +158,13 @@
     text-align: left; /* left align text */
 }
 
+/* devices 2000px and above: */
+@media (min-width: 2000px) {
+    #admin-section .section-body p{
+        text-align: center; /* center align text */
+    }
+}
+
 /* Medium devices (tablets, 768px and below) */
 @media (max-width: 768px){
     /* remove left & right padding from various elements */
@@ -183,10 +190,6 @@
     margin: 15px 50px 0px 50px; /*margins: top, right, bottom, left */
 }
 
-/* +++++++++++++++++ FIX PADDING TARGETING ABOVE :P +++++++++++ */
-#t{
-    background: yellow; /* add bg colour */
-}
 /* --------------------------------------------------------------------- */
 /* comments section styles */
 
