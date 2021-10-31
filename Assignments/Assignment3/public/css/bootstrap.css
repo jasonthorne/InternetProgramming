@@ -183,13 +183,7 @@
     margin: 15px 50px 0px 50px; /*margins: top, right, bottom, left */
 }
 
-#test{
-    /*background: yellow; /* add bg colour */
-}
-
-.row .admin-section{
-   /*align content here???????????????*/
-}
+/* +++++++++++++++++ FIX PADDING TARGETING ABOVE :P +++++++++++ */
 
 /* --------------------------------------------------------------------- */
 /* comments section styles */
