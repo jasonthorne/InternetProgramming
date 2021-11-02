@@ -210,6 +210,10 @@
 
 .test{
     background: yellow; /* colour section */
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    /*text-align: center; /* center text */
 }
 
 /* --------------------------------------------------------------------- */
