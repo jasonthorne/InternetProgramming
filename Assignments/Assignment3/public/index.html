@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<title>Assignment 3 - Jason Thorne</title>
-		<!-- Required meta tags -->
+		<!-- required meta tags -->
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -301,8 +301,10 @@
 								<input type="text" id="handle" name="handle"><br>
 								<label for="comment">comment:</label><br>
 								<input type="text" id="comment" name="comment"><br><br>
-								<input type="submit" value="Post Comment">
+								<input type="button" value="Post Comment">
 							</form>
+
+							<div id="testId">Something here</div>
 
 							
 						</div>
@@ -350,7 +352,16 @@
 		
 		<!-- firebase config -->
 		<script src="js/firebase-config.js" type="module"></script>
-		<!-- Optional JavaScript -->
+
+		<script>
+			var comments = [{make: "Ford", model: "Mondeo", age: 2, mileage: 10000}];
+			document.getElementById("testId").innerHTML = comments[0].make;
+			console.log(comments);
+		</script>
+
+		<!-- comments-section comments -->
+		<script src="js/comments.js" type="module"></script>
+		<!-- optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
