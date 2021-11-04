@@ -1,26 +1,33 @@
 
 
-var comments = [{make: "Ford", model: "Mondeo", age: 2, mileage: 10000}];
-document.getElementById("testId").innerHTML = comments[0].age;
-console.log(comments);
+var comments = []; //holds comments ++++++++++++++++++++++++++comment sucks as a name!! Should be user comment or something :P 
 
 //load comments from db:
-//function loadComments(){
-function test(){
+function loadComments(){
+    //test comments, to mimic those pulled remotely:
+    comments.push( 
+        {handle: "Bob", comment: "I'm Bob", post_date: Date.now()}, 
+        {handle: "Frank", comment: "I b Frank", post_date: Date.now()},
+        {handle: "Billy", comment: "Billy was here", post_date: Date.now()}, 
+        {handle: "Cuthbert", comment: "Cuthbert", post_date: Date.now()}) 
 
-    //test comments to mimic those pulled remotely:
-    comments.push({make: "Ford", model: "Mondeo", age: 2, mileage: 10000}, 
-    {make: "Ford2", model: "Mondeo2", age: 22, mileage: 100002})
 
-    document.getElementById("testId").value = comments;
+    console.log(comments);
+
+    document.getElementById("testId").innerHTML = comments[1].comment;
+
+    showComments();
 
 
 }
 
-function buildComments(){
+
+function showComments(){
 
 }
 
+function addComment(){
 
+}
 
 

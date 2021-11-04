@@ -15,7 +15,7 @@
 		<!-- local bootstrap styles -->
 		<link rel="stylesheet" href="css/bootstrap.css">
 	</head>
-	<body>
+	<body onload="loadComments()">
 
 		<nav class="navbar sticky-top navbar-expand navbar-dark bg-dark">
 			<div class="container-fluid">
@@ -301,7 +301,7 @@
 								<input type="text" id="handle" name="handle"><br>
 								<label for="comment">comment:</label><br>
 								<input type="text" id="comment" name="comment"><br><br>
-								<input type="button" value="Post Comment">
+								<input type="button" value="Post Comment" onclick="test()">
 							</form>
 
 							<div id="testId">Something here</div>
