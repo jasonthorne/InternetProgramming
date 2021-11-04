@@ -1,8 +1,8 @@
 
 
 var comments = [{make: "Ford", model: "Mondeo", age: 2, mileage: 10000}];
-document.getElementById("testId").value = comments;
-
+document.getElementById("testId").innerHTML = comments[0].age;
+console.log(comments);
 
 //load comments from db:
 //function loadComments(){
