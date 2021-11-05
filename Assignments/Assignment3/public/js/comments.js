@@ -16,7 +16,9 @@ function loadComments(){
 //show comments:
 function showComments(){
 
-    
+    /*
+    https://stackoverflow.com/questions/35538057/css-bootstrap-creating-elements-via-javascript/35538121
+    */
 
     var test = 
     "<table>\n" +
