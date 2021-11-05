@@ -217,6 +217,7 @@
 
 .test{
     color: #777777; /*text colour*/
+    font-weight: bold; /* make bold */
     /*width: 50%;*/
     /*margin-left: auto;
     margin-right: auto;*/
@@ -240,15 +241,16 @@
 
 }
 
-.card-header{
-    font-weight: bold; /* font weight */
-	color: #777777; /* font colour */
+.comment p{
+   /* color: #000000; /*text colour*/
 }
 
+
+/*
 .comment button:hover{
     color: #ffffff;
 
-}
+}*/
 
 /* --------------------------------------------------------------------- */
 /* footer styles */

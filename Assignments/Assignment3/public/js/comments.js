@@ -1,20 +1,45 @@
 
+//comment object:
+class Comment{
+    //constructor sets properties:
+    constructor(handle, comment, post_date, likes) {
+        this.handle = handle;
+        this.comment = comment;
+        this.post_date = post_date;
+        this.likes = likes;
+    }
+}
+
 var comments = []; //holds comments
+var totalComments = 0; //holds total number of comments
+var totalLikes = 0; //holds total number of likes
 
 //load comments from db:
 function loadComments(){
-    comments.push( //add test comments to mimic remote pull:
-        {handle: "Bob", comment: "Bob comment", post_date: Date.now(), likes: 6}, 
-        {handle: "Frank", comment: "Frank comment", post_date: Date.now(), likes: 6},
-        {handle: "Billy", comment: "Billy comment", post_date: Date.now(), likes: 6}, 
-        {handle: "Terry", comment: "Terry comment", post_date: Date.now(), likes: 6}) 
+    comments.push( //add test comments to mimic db pull:
+        new Comment("Bob", "Bob comment", Date.now(), 6),
+        new Comment("Frank", "Frank comment", Date.now(), 6),
+        new Comment("Billy", "Billy comment", Date.now(), 6),
+        new Comment("Terry", "Terry comment", Date.now(), 6))
 
     console.log(comments); //+++++++++++
-    showComments();
+    totalComments = comments.length; //set totalComments
+    showComments(); //show comments on page
 }
 
-//show comments:
+//show comments on page:
 function showComments(){
+
+
+
+
+
+
+
+
+
+
+
 
     /*
     https://stackoverflow.com/questions/35538057/css-bootstrap-creating-elements-via-javascript/35538121
