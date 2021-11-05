@@ -245,6 +245,10 @@
 	color: #777777; /* font colour */
 }
 
+.comment button:hover{
+    color: #ffffff;
+
+}
 
 /* --------------------------------------------------------------------- */
 /* footer styles */
