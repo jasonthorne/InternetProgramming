@@ -85,6 +85,10 @@
     /* +++++++++++++++++++++++ */
 }
 
+.section-header{
+    text-align: center; /* center text */
+}
+
 /* --------------------------------------------------------------------- */
 /* news & updates section styles */
 
@@ -205,14 +209,14 @@
 	background: #ecf0f1; /* colour section */
 	width: 100%; /* use 100% width */
 	padding: 50px 0px; /* top & bottom: 50px, right & left: 0px */
-	text-align: center; /* center text */
+	/*text-align: center; /* center text */
     /*padding-left: 50px;
     padding-right: 50px;*/
 }
 
 
 .test{
-    background: yellow; /* colour section */
+    color: #777777; /*text colour*/
     /*width: 50%;*/
     /*margin-left: auto;
     margin-right: auto;*/
@@ -228,12 +232,19 @@
 }
 
 .comment{
-    /*width: 80%;
-    margin-left: auto; 
+    /*width: 80%;*/
+    /*margin-left: auto; 
     margin-right: auto;*/
     margin-top: 30px;
+    padding: 15px;
 
 }
+
+.card-header{
+    font-weight: bold; /* font weight */
+	color: #777777; /* font colour */
+}
+
 
 /* --------------------------------------------------------------------- */
 /* footer styles */
