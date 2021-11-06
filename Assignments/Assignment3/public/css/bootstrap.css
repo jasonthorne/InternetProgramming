@@ -221,60 +221,30 @@
     text-align: center; /* center text */
 }
 
-.test1{
-   /* color: #777777; /*text colour*/
-  /*  font-weight: bold; /* make bold */
-    /*width: 50%;*/
-    /*margin-left: auto;
-    margin-right: auto;*/
-    /*text-align: center; /* center text */
-    float: left;
-}
-
-
-
-.test{
-    float: right;
-}
-
-.fas{
-    color: #777777;
-}
-
 #comments{
     width: 40%;
     margin-left: auto; 
     margin-right: auto; 
     /*text-align: center;*/
-
 }
 
 .comment{
-    /*width: 80%;*/
-    /*margin-left: auto; 
-    margin-right: auto;*/
-    margin-top: 30px;
-    /*padding: 15px;*/
-
+    margin-top: 30px; /* add top margin */
 }
 
-.comment p{
-   /* color: #000000; /*text colour*/
+.comment-handle{
+    color: #777777; /*text colour*/
+    font-weight: bold; /* make bold */
+    font-size: 18px; /* font size */
 }
 
-.text-muted{
-    /*float: right;*/
+.comment-likes-container{
+    float: right; /* float right */
 }
 
-.card-footer{
-    text-align: center;
+.comment-likes-container, .comment-date, .comment-like-btn {
+    font-size: small; /* reduce font size */
 }
-
-/*
-.comment button:hover{
-    color: #ffffff;
-
-}*/
 
 /* --------------------------------------------------------------------- */
 /* footer styles */

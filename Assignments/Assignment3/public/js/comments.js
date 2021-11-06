@@ -30,9 +30,21 @@ function loadComments() {
 //show comments on page:
 function showComments() {
 
+    //reset counters:
+    var totalComments = 0;
+    var totalLikes = 0;
 
+    //loop through comments:
+    for (let i=0, j=comments.length; i<j; i++){
 
-    //use normal for loop here +++++++++++++++
+        let card = document.createElement("div"); //create card div
+        card.className = "card comment"; //give class names
+
+        var cardBody = document.createElement("div");
+        cardBody.className = "card-body";
+
+    }
+
 
     var card = document.createElement("div");
     card.className = "card comment";
@@ -106,4 +118,3 @@ function addComment() {
 
     showComments(); //show comments
 }
-
