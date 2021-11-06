@@ -30,6 +30,10 @@ function loadComments() {
 //show comments on page:
 function showComments() {
 
+
+
+    //use normal for loop here +++++++++++++++
+
     var card = document.createElement("div");
     card.className = "card comment";
 
@@ -61,6 +65,9 @@ function showComments() {
 
     /*
     https://stackoverflow.com/questions/35538057/css-bootstrap-creating-elements-via-javascript/35538121
+
+
+    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fieldshttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields
     */
 
     //https://getbootstrap.com/docs/5.0/utilities/sizing/
@@ -85,7 +92,7 @@ function addComment() {
     //+++++++++++++++++++++++++++CHeck that both forms have valid data. THEN:
     
     //add new comment to comments:
-    comments.push(new Comment(
+    comments.unshift(new Comment(
         document.getElementById("handle").value, //get handle from form
         document.getElementById("comment").value, //get comment from form
         Date.now(), //add current date
