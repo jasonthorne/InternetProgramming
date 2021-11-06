@@ -20,7 +20,7 @@ function loadComments() {
         new Comment("Bob", "Bob comment", Date.now(), 6),
         new Comment("Frank", "Frank comment", Date.now(), 6),
         new Comment("Billy", "Billy comment", Date.now(), 6),
-        new Comment("Terry", "Terry comment", Date.now(), 6))
+        new Comment("Terry", "Terry comment", Date.now(), 6));
 
     console.log(comments); //+++++++++++
     totalComments = comments.length; //set totalComments
@@ -30,18 +30,37 @@ function loadComments() {
 //show comments on page:
 function showComments() {
 
-    //reset counters:
-    var totalComments = 0;
-    var totalLikes = 0;
+    var totalLikes = 0; //reset totalLikes
 
-    //loop through comments:
-    for (let i=0, j=comments.length; i<j; i++){
+    //loop through comments length:
+    //////for (let i=0, j=comments.length; i<j; i++){
+    for (let i=0, j=1; i<j; i++){
 
-        let card = document.createElement("div"); //create card div
-        card.className = "card comment"; //give class names
+        //create html elements with class names:
+        let card = makeElement("div", "card comment"); //card
+        let cardBody = makeElement("div", "card-body"); //card body
+        let cardTitle = makeElement("div", "card-title"); //card title
+        let handle = makeElement("span", "comment-handle"); // handle
+        let likesContainer = makeElement("span", "comment-likes-container"); //likes container
+        let likesIcon = makeElement("i", "far fa-thumbs-up comment-likes-icon"); //likes icon
+        let likes = makeElement("span", "comment-likes text-muted"); //likes
+        let commment = makeElement("p", "card-text comment-text"); //comment
+        let postDate = makeElement("p", "card-text text-muted comment-date"); //post date
+        let likeBtn = makeElement("button", "btn btn-sm btn-outline-secondary comment-like-btn"); //like button
+        let likeBtnIcon = makeElement("i", "far fa-thumbs-up"); //like button icon
 
-        var cardBody = document.createElement("div");
-        cardBody.className = "card-body";
+        //build like button:
+        likeBtn.appendChild(likeBtnIcon); //add icon to like button
+        likeBtn.appendChild(document.createTextNode(" Like")); //add text to like button
+        likeBtn.type = "button"; //give type to button
+        cardBody.appendChild(likeBtn);//add button to card body
+
+        
+
+
+
+        card.appendChild(cardBody);
+        document.getElementById("comments").appendChild(card); 
 
     }
 
@@ -61,7 +80,7 @@ function showComments() {
 
     card.appendChild(cardBody);
 
-    document.getElementById("comments").appendChild(card); 
+    ////////////////////document.getElementById("comments").appendChild(card); 
    
 
 
@@ -116,5 +135,14 @@ function addComment() {
     
     console.log(comments); //+++++++++++
 
+    totalComments++;
+
     showComments(); //show comments
+}
+
+//make a html element with classname:
+function makeElement(type, className){ 
+    let element = document.createElement(type); //create element
+    element.className = className; //give classname
+    return element;
 }
