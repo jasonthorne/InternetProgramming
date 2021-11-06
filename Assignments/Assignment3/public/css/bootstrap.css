@@ -221,16 +221,25 @@
     text-align: center; /* center text */
 }
 
-.test{
-    color: #777777; /*text colour*/
-    font-weight: bold; /* make bold */
+.test1{
+   /* color: #777777; /*text colour*/
+  /*  font-weight: bold; /* make bold */
     /*width: 50%;*/
     /*margin-left: auto;
     margin-right: auto;*/
     /*text-align: center; /* center text */
+    float: left;
 }
 
 
+
+.test{
+    float: right;
+}
+
+.fas{
+    color: #777777;
+}
 
 #comments{
     width: 40%;
@@ -245,7 +254,7 @@
     /*margin-left: auto; 
     margin-right: auto;*/
     margin-top: 30px;
-    padding: 15px;
+    /*padding: 15px;*/
 
 }
 
@@ -253,6 +262,13 @@
    /* color: #000000; /*text colour*/
 }
 
+.text-muted{
+    /*float: right;*/
+}
+
+.card-footer{
+    text-align: center;
+}
 
 /*
 .comment button:hover{
