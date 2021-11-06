@@ -15,7 +15,7 @@ var totalComments = 0; //holds total number of comments
 var totalLikes = 0; //holds total number of likes
 
 //load comments from db:
-function loadComments(){
+function loadComments() {
     comments.push( //add test comments to mimic db pull:
         new Comment("Bob", "Bob comment", Date.now(), 6),
         new Comment("Frank", "Frank comment", Date.now(), 6),
@@ -28,7 +28,25 @@ function loadComments(){
 }
 
 //show comments on page:
-function showComments(){
+function showComments() {
+
+    var card = document.createElement("div");
+    card.className = "card comment";
+
+    var cardBody = document.createElement("div");
+    cardBody.className = "card-body";
+
+    var cardP = document.createElement("p");
+    cardP.className = "card-text";
+    cardP.textContent = "hullo!";
+    
+    ///////cardBody.appendChild(document.createTextNode("Yo dawg!"));
+    cardBody.appendChild(cardP);
+
+    card.appendChild(cardBody);
+
+    document.getElementById("comments").appendChild(card); 
+   
 
 
 
@@ -47,14 +65,14 @@ function showComments(){
 
     //https://getbootstrap.com/docs/5.0/utilities/sizing/
 
-    var test = 
+    /*var test = 
     "<table>\n" +
     "<tr>\n" +
         "<td>Emil</td>\n" +
         "<td>Tobias</td>\n" +
         "<td>Linus</td>\n" +
     "</tr>\n" +
-    "</table>";
+    "</table>";*/
 
     //document.getElementById("comments").innerHTML = comments[0].post_date;
 
@@ -62,8 +80,19 @@ function showComments(){
 
 }
 
-function addComment(){
+function addComment() {
 
+    //+++++++++++++++++++++++++++CHeck that both forms have valid data. THEN:
+    
+    //add new comment to comments:
+    comments.push(new Comment(
+        document.getElementById("handle").value, //get handle from form
+        document.getElementById("comment").value, //get comment from form
+        Date.now(), //add current date
+        0)); //initialize likes as 0
+    
+    console.log(comments); //+++++++++++
 
+    showComments(); //show comments
 }
 

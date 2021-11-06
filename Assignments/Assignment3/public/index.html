@@ -296,13 +296,51 @@
 						</div>
 						<div class="section-body">
 
-							<form>
-								<label for="handle">handle:</label><br>
-								<input type="text" id="handle" name="handle"><br>
-								<label for="comment">comment:</label><br>
-								<input type="text" id="comment" name="comment"><br><br>
-								<input type="button" value="Post Comment" onclick="test()">
-							</form>
+							<div id="comment-form">
+
+								<form>
+									<input type="text" id="handle" name="handle" placeholder="Name"><br>
+									<input type="text" id="comment" name="comment" placeholder="Comment"><br><br>
+									<input type="button" value="Post Comment" onclick="addComment()">
+								</form>
+
+								<!--<form>
+									<div class="row mb-3">
+										<label class="col-4 col-form-label">Handle</label>
+										<div class="col-4">
+										  <input type="text" class="form-control" id="handle">
+										</div>
+									  </div>
+								</form>
+
+								<div class="mb-3">
+									<label for="exampleFormControlInput1" class="form-label">Email address</label>
+									<input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+								  </div>
+								  <div class="mb-3">
+									<label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+									<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+								</div>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+								
+
+							</div>
+
+							
 
 
 							<div id="comments">
@@ -322,21 +360,6 @@
 									</div>
 								</div>
 
-								<div class="card comment">
-									<div class="card-body">
-										<h5 class="card-title">Orinoco</h5>
-										<p class="card-text"><small class="text-muted">Posted 2 hours ago</small></p>
-										<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.</p>
-										<button type="button" class="btn btn-primary position-relative">
-											Like
-											<span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-												99+
-											</span>
-										</button>
-										
-										
-									</div>
-								</div>
 							</div>
 						</div>
 					</div>

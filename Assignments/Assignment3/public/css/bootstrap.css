@@ -214,6 +214,12 @@
     padding-right: 50px;*/
 }
 
+#comment-form{
+    width: 50%;
+    margin-left: auto; 
+    margin-right: auto;
+    text-align: center; /* center text */
+}
 
 .test{
     color: #777777; /*text colour*/
@@ -224,8 +230,10 @@
     /*text-align: center; /* center text */
 }
 
+
+
 #comments{
-    width: 50%;
+    width: 40%;
     margin-left: auto; 
     margin-right: auto; 
     /*text-align: center;*/
