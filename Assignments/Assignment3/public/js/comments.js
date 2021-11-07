@@ -2,7 +2,7 @@
 //comment object:
 class Comment{
     //constructor sets properties:
-    constructor(handle, comment, post_date, likes) {
+    constructor(handle, comment, post_date, likes){
         this.handle = handle;
         this.comment = comment;
         this.post_date = post_date;
@@ -10,30 +10,80 @@ class Comment{
     }
 }
 
-var comments = []; //holds comments
-var totalComments = 0; //holds total number of comments
-var totalLikes = 0; //holds total number of likes
+var comments = []; //comments
+var commentCards = []; //cards for displaying comments
+var totalComments = 0; //number of comments
+var totalLikes = 0; //number of likes
 
 //load comments from db:
-function loadComments() {
+function loadComments(){
     comments.push( //add test comments to mimic db pull:
-        new Comment("Bob", "Bob comment", Date.now(), 6),
+        new Comment("Orinoco", "Bob comment", Date.now(), 6),
         new Comment("Frank", "Frank comment", Date.now(), 6),
         new Comment("Billy", "Billy comment", Date.now(), 6),
         new Comment("Terry", "Terry comment", Date.now(), 6));
 
     console.log(comments); //+++++++++++
     totalComments = comments.length; //set totalComments
-    showComments(); //show comments on page
+    ///////showComments(); //show comments on page
+    comments.forEach(buildCommentCard); //build commentCards for comments
+
+}
+
+//build card element for comment:  
+function buildCommentCard(comment){
+
+    //create html elements with class names:
+    let card = makeElement("div", "card comment"); //card
+    let cardBody = makeElement("div", "card-body"); //card body
+    let cardTitle = makeElement("div", "card-title"); //card title
+    let handle = makeElement("span", "comment-handle"); // handle
+    let likesContainer = makeElement("span", "comment-likes-container"); //likes container
+    let likesIcon = makeElement("i", "far fa-thumbs-up comment-likes-icon"); //likes icon
+    let likes = makeElement("span", "text-muted comment-likes"); //likes
+    let commentText = makeElement("p", "card-text comment-text"); //comment
+    let postDate = makeElement("p", "card-text text-muted comment-post-date"); //post date
+    let likeBtn = makeElement("button", "btn btn-sm btn-outline-secondary comment-like-btn"); //like button
+    let likeBtnIcon = makeElement("i", "far fa-thumbs-up"); //like button icon
+    let likeBtnText = document.createTextNode(" Like"); //like button text
+
+    //build card, adding comment's values to elements:
+    likeBtn.appendChild(likeBtnIcon); //add icon to like button
+    likeBtn.appendChild(likeBtnText); //add text to like button
+    likeBtn.addEventListener("click", function(){  //add click event listener to button
+        likeClick(comment, likeBtn, likes); }); //call likeClick() on click
+    postDate.textContent = comment.post_date /////buildPostDate(comment.post_date); //add build post date
+    commentText.textContent = comment.comment; //add comment's text to comment text
+    likesContainer.appendChild(likesIcon); //add likes icon to likes container
+    likes.textContent = " " + comment.likes; //add comment's likes to likes
+    likesContainer.appendChild(likes); //add likes to likes container
+    cardTitle.appendChild(likesContainer) //add likes container to card title
+    handle.textContent = comment.handle; //add current handle to handle
+    cardTitle.appendChild(handle); //add handle to card title
+    cardBody.appendChild(cardTitle); //add card title to card body
+    cardBody.appendChild(commentText); //add comment text to card body
+    cardBody.appendChild(postDate); //add post date to card body
+    cardBody.appendChild(likeBtn); //add button to card body
+    card.appendChild(cardBody); //add card body to card
+    document.getElementById("comments").appendChild(card); //add card to comments
+
+    //return built card:
+    /////////return card;
+}
+
+function buildPostDate(post_date){
+    console.log(post_date);
+    return post_date.value;
+
 }
 
 //show comments on page:
-function showComments() {
+function showComments(){
 
     totalLikes = 0; //reset totalLikes
 
     //loop through comments length:
-    //////for (let i=0, j=comments.length; i<j; i++){
+    //for (let i=0, j=comments.length; i<j; i++){
     for (let i=0, j=1; i<j; i++){
 
         let currComment = comments[i]; //get current comment
@@ -50,14 +100,29 @@ function showComments() {
         let postDate = makeElement("p", "card-text text-muted comment-post-date"); //post date
         let likeBtn = makeElement("button", "btn btn-sm btn-outline-secondary comment-like-btn"); //like button
         let likeBtnIcon = makeElement("i", "far fa-thumbs-up"); //like button icon
+        let likeBtnText = document.createTextNode(" Like"); //like button text
 
         //build comment from html elements:
         likeBtn.appendChild(likeBtnIcon); //add icon to like button
-        likeBtn.appendChild(document.createTextNode(" Like")); //add text to like button
-        likeBtn.type = "button"; //give type to button
-        likeBtn.onClick = function(){
-            console.log("bum");
-        }; //??????????????????????????????
+        likeBtn.appendChild(likeBtnText); //add text to like button
+        //add click event listener to button:
+        likeBtn.addEventListener("click", function(){
+
+            //+++++++++++check if icon isn't coloured: if not: add like, else remove like
+            ///currComment.addLike();
+            likeBtn.removeChild(likeBtnIcon);
+            likeBtn.removeChild(likeBtnText);
+            likeBtnIcon = makeElement("i", "fas fa-thumbs-up"); 
+            likeBtn.appendChild(likeBtnIcon);
+            likeBtn.appendChild(likeBtnText); //add text to like button
+
+            //currComment.likes++;
+            console.log(currComment.likes);
+            likes.textContent = " " + currComment.likes++ + " ";
+        });
+        
+        //#############
+       // https://stackoverflow.com/questions/203198/event-binding-on-dynamically-created-elements
        
 
         //build post date:
@@ -157,12 +222,28 @@ function addComment() {
 }
 
 //make a html element with classname:
-function makeElement(type, className){ 
+function makeElement(type, className) { 
     let element = document.createElement(type); //create element
     element.className = className; //give classname
     return element;
 }
 
+
+var testBtn; 
+
 function test(){
     console.log("hullo there!")
+}
+
+function likeClick(comment, likeBtn, likes) {
+
+    ///currComment.addLike();
+    /*
+    likeBtn.removeChild(likeBtnIcon);
+    likeBtn.removeChild(likeBtnText);
+    likeBtnIcon = makeElement("i", "fas fa-thumbs-up"); 
+    likeBtn.appendChild(likeBtnIcon);
+    likeBtn.appendChild(likeBtnText); //add text to like button
+    */
+
 }
