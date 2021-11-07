@@ -30,11 +30,13 @@ function loadComments() {
 //show comments on page:
 function showComments() {
 
-    var totalLikes = 0; //reset totalLikes
+    totalLikes = 0; //reset totalLikes
 
     //loop through comments length:
     //////for (let i=0, j=comments.length; i<j; i++){
     for (let i=0, j=1; i<j; i++){
+
+        let currComment = comments[i]; //get current comment
 
         //create html elements with class names:
         let card = makeElement("div", "card comment"); //card
@@ -43,24 +45,40 @@ function showComments() {
         let handle = makeElement("span", "comment-handle"); // handle
         let likesContainer = makeElement("span", "comment-likes-container"); //likes container
         let likesIcon = makeElement("i", "far fa-thumbs-up comment-likes-icon"); //likes icon
-        let likes = makeElement("span", "comment-likes text-muted"); //likes
-        let commment = makeElement("p", "card-text comment-text"); //comment
-        let postDate = makeElement("p", "card-text text-muted comment-date"); //post date
+        let likes = makeElement("span", "text-muted comment-likes"); //likes
+        let comment = makeElement("p", "card-text comment-text"); //comment
+        let postDate = makeElement("p", "card-text text-muted comment-post-date"); //post date
         let likeBtn = makeElement("button", "btn btn-sm btn-outline-secondary comment-like-btn"); //like button
         let likeBtnIcon = makeElement("i", "far fa-thumbs-up"); //like button icon
 
-        //build like button:
+        //build comment from html elements:
         likeBtn.appendChild(likeBtnIcon); //add icon to like button
         likeBtn.appendChild(document.createTextNode(" Like")); //add text to like button
         likeBtn.type = "button"; //give type to button
-        cardBody.appendChild(likeBtn);//add button to card body
+       
 
-        
+        //build post date:
+        //++++++++++++++++++++++++++++++MORE NEEDED HERE (to figure out time from silly number :P)
+        postDate.textContent = "Posted 3 mins ago";
+
+        comment.textContent = currComment.comment; //add current comment to comment
+        likesContainer.appendChild(likesIcon); //add likes icon to likes container
+        likes.textContent = " " + currComment.likes; //add current likes to likes
+        likesContainer.appendChild(likes); //add likes to container
+        cardTitle.appendChild(likesContainer) //add likes container to card title
+        handle.textContent = currComment.handle; //add current handle to handle
+        cardTitle.appendChild(handle); //add handle to card title
+        cardBody.appendChild(cardTitle); //add card title to card body
+        cardBody.appendChild(comment); //add comment to card body
+        cardBody.appendChild(postDate); //add post date to card body
+        cardBody.appendChild(likeBtn); //add button to card body
 
 
 
-        card.appendChild(cardBody);
-        document.getElementById("comments").appendChild(card); 
+
+
+        card.appendChild(cardBody); //add card body to card
+        document.getElementById("comments").appendChild(card); //add card to comments
 
     }
 
