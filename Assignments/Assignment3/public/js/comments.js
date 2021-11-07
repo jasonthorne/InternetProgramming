@@ -55,6 +55,9 @@ function showComments() {
         likeBtn.appendChild(likeBtnIcon); //add icon to like button
         likeBtn.appendChild(document.createTextNode(" Like")); //add text to like button
         likeBtn.type = "button"; //give type to button
+        likeBtn.onClick = function(){
+            console.log("bum");
+        }; //??????????????????????????????
        
 
         //build post date:
@@ -64,7 +67,7 @@ function showComments() {
         comment.textContent = currComment.comment; //add current comment to comment
         likesContainer.appendChild(likesIcon); //add likes icon to likes container
         likes.textContent = " " + currComment.likes; //add current likes to likes
-        likesContainer.appendChild(likes); //add likes to container
+        likesContainer.appendChild(likes); //add likes to likes container
         cardTitle.appendChild(likesContainer) //add likes container to card title
         handle.textContent = currComment.handle; //add current handle to handle
         cardTitle.appendChild(handle); //add handle to card title
@@ -72,11 +75,6 @@ function showComments() {
         cardBody.appendChild(comment); //add comment to card body
         cardBody.appendChild(postDate); //add post date to card body
         cardBody.appendChild(likeBtn); //add button to card body
-
-
-
-
-
         card.appendChild(cardBody); //add card body to card
         document.getElementById("comments").appendChild(card); //add card to comments
 
@@ -163,4 +161,8 @@ function makeElement(type, className){
     let element = document.createElement(type); //create element
     element.className = className; //give classname
     return element;
+}
+
+function test(){
+    console.log("hullo there!")
 }
