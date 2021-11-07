@@ -27,11 +27,16 @@ function loadComments(){
     totalComments = comments.length; //set totalComments
     ///////showComments(); //show comments on page
     comments.forEach(buildCommentCard); //build commentCards for comments
+    console.log(commentCards); //+++++++++++
+    showComments(); //show comments on page
+    //document.getElementById("comments").replaceChildren(commentCards);
 
 }
 
 //build card element for comment:  
 function buildCommentCard(comment){
+
+    console.log("Adding: " + comment.handle); //+++++++++++
 
     //create html elements with class names:
     let card = makeElement("div", "card comment"); //card
@@ -52,7 +57,7 @@ function buildCommentCard(comment){
     likeBtn.appendChild(likeBtnText); //add text to like button
     likeBtn.addEventListener("click", function(){  //add click event listener to button
         likeClick(comment, likeBtn, likes); }); //call likeClick() on click
-    postDate.textContent = comment.post_date /////buildPostDate(comment.post_date); //add build post date
+    postDate.textContent = buildPostDate(comment.post_date); //add build post date
     commentText.textContent = comment.comment; //add comment's text to comment text
     likesContainer.appendChild(likesIcon); //add likes icon to likes container
     likes.textContent = " " + comment.likes; //add comment's likes to likes
@@ -65,20 +70,46 @@ function buildCommentCard(comment){
     cardBody.appendChild(postDate); //add post date to card body
     cardBody.appendChild(likeBtn); //add button to card body
     card.appendChild(cardBody); //add card body to card
-    document.getElementById("comments").appendChild(card); //add card to comments
+    /////////document.getElementById("comments").appendChild(card); //add card to comments
 
-    //return built card:
-    /////////return card;
+    //add built card to array:
+    commentCards.unshift(card)
 }
 
 function buildPostDate(post_date){
     console.log(post_date);
-    return post_date.value;
+    return "oh, oh savaloy!";
 
 }
 
-//show comments on page:
 function showComments(){
+
+    //remove previous comments from comments div:
+    document.getElementById("comments").replaceChildren();
+
+    //loop through comments length:
+    for (let i=0, j=comments.length; i<j; i++){
+
+        let comment = comments[i]; //get current comment
+
+        //update post time:
+        comment.post_date = "updated";
+
+        let card = commentCards[i];
+
+       console.log(card);
+
+       
+       console.log(card.getElementsByClassName("comment-post-date").textContent);
+       document.getElementById("comments").appendChild(card);
+
+    }
+
+}
+
+
+//show comments on page:
+function showCommentsOLD(){
 
     totalLikes = 0; //reset totalLikes
 
@@ -94,7 +125,7 @@ function showComments(){
         let cardTitle = makeElement("div", "card-title"); //card title
         let handle = makeElement("span", "comment-handle"); // handle
         let likesContainer = makeElement("span", "comment-likes-container"); //likes container
-        let likesIcon = makeElement("i", "far fa-thumbs-up comment-likes-icon"); //likes icon
+        let likesIcon = makeElement("i", "far fa-thumbs-up comment-likes-icon"); //likes icon 
         let likes = makeElement("span", "text-muted comment-likes"); //likes
         let comment = makeElement("p", "card-text comment-text"); //comment
         let postDate = makeElement("p", "card-text text-muted comment-post-date"); //post date
@@ -237,6 +268,7 @@ function test(){
 
 function likeClick(comment, likeBtn, likes) {
 
+    //REPLACE CHILDREN REMOVES BOTH ELEMENTS :P
     ///currComment.addLike();
     /*
     likeBtn.removeChild(likeBtnIcon);
