@@ -15,8 +15,8 @@ var commentCards = []; //cards for displaying comments
 var totalComments = 0; //number of comments
 var totalLikes = 0; //number of likes
 
-//load comments from db:
-function loadComments(){
+//build comments:
+function buildComments(){
     comments.push( //add test comments to mimic db pull:
         new Comment("Orinoco", "Bob comment", Date.now(), 6),
         new Comment("Frank", "Frank comment", Date.now(), 6),
@@ -25,12 +25,9 @@ function loadComments(){
 
     console.log(comments); //+++++++++++
     totalComments = comments.length; //set totalComments
-    ///////showComments(); //show comments on page
     comments.forEach(buildCommentCard); //build commentCards for comments
     console.log(commentCards); //+++++++++++
     showComments(); //show comments on page
-    //document.getElementById("comments").replaceChildren(commentCards);
-
 }
 
 //build card element for comment:  
@@ -57,7 +54,7 @@ function buildCommentCard(comment){
     likeBtn.appendChild(likeBtnText); //add text to like button
     likeBtn.addEventListener("click", function(){  //add click event listener to button
         likeClick(comment, likeBtn, likes); }); //call likeClick() on click
-    postDate.textContent = buildPostDate(comment.post_date); //add build post date
+    //////////postDate.textContent = buildPostDate(comment.post_date); //add build post date
     commentText.textContent = comment.comment; //add comment's text to comment text
     likesContainer.appendChild(likesIcon); //add likes icon to likes container
     likes.textContent = " " + comment.likes; //add comment's likes to likes
@@ -70,7 +67,6 @@ function buildCommentCard(comment){
     cardBody.appendChild(postDate); //add post date to card body
     cardBody.appendChild(likeBtn); //add button to card body
     card.appendChild(cardBody); //add card body to card
-    /////////document.getElementById("comments").appendChild(card); //add card to comments
 
     //add built card to array:
     commentCards.unshift(card)
@@ -78,8 +74,8 @@ function buildCommentCard(comment){
 
 function buildPostDate(post_date){
     console.log(post_date);
-    return "oh, oh savaloy!";
-
+    return post_date;
+    
 }
 
 function showComments(){
@@ -90,23 +86,19 @@ function showComments(){
     //loop through comments length:
     for (let i=0, j=comments.length; i<j; i++){
 
-        let comment = comments[i]; //get current comment
+        let commentCard = commentCards[i]; //grab comment's card element
 
-        //update post time:
-        comment.post_date = "updated";
+        //update "comment-post-date" element using comment's post date:
+        commentCard.querySelectorAll(".card .card-body .comment-post-date")[0]
+            .textContent = buildPostDate(comments[i].post_date);
+        //https://mrfrontend.org/2017/10/2-ways-get-child-elements-javascript/
 
-        let card = commentCards[i];
+        console.log(commentCard.querySelectorAll(".card .card-body .comment-post-date")[0].textContent);
 
-       console.log(card);
-
-       
-       console.log(card.getElementsByClassName("comment-post-date").textContent);
-       document.getElementById("comments").appendChild(card);
-
+       //add comment card element to comments element:
+       document.getElementById("comments").appendChild(commentCard);
     }
-
 }
-
 
 //show comments on page:
 function showCommentsOLD(){
@@ -257,13 +249,6 @@ function makeElement(type, className) {
     let element = document.createElement(type); //create element
     element.className = className; //give classname
     return element;
-}
-
-
-var testBtn; 
-
-function test(){
-    console.log("hullo there!")
 }
 
 function likeClick(comment, likeBtn, likes) {
