@@ -43,9 +43,9 @@ function buildCommentCard(comment){
     let likesContainer = makeElement("span", "comment-likes-container"); //likes container
     let likesIcon = makeElement("i", "far fa-thumbs-up comment-likes-icon"); //likes icon
     let likes = makeElement("span", "text-muted comment-likes"); //likes
-    let commentText = makeElement("p", "card-text comment-text"); //comment
-    /////<i class="far fa-clock"></i>
-    let postTime = makeElement("p", "card-text text-muted comment-post-time"); //post time
+    let text = makeElement("p", "card-text comment-text"); //comment
+    let time = makeElement("p", "card-text text-muted comment-time"); //time
+    //////////let timeIcon = makeElement("i", "far fa-clock"); //time icon
     let likeBtn = makeElement("button", "btn btn-sm btn-outline-secondary comment-like-btn"); //like button
     let likeBtnIcon = makeElement("i", "far fa-thumbs-up"); //like button icon
     let likeBtnText = document.createTextNode(" Like"); //like button text
@@ -55,8 +55,9 @@ function buildCommentCard(comment){
     likeBtn.appendChild(likeBtnText); //add text to like button
     likeBtn.addEventListener("click", function(){  //add click event listener to button
         likeClick(comment, likeBtn, likes); }); //call likeClick() on click
-    //////////postDate.textContent = buildPostDate(comment.post_date); //add build post date
-    commentText.textContent = comment.comment; //add comment's text to comment text
+    //////////postTime.textContent = buildPostTime(comment.post_date); //add build post date
+    ////////////////time.appendChild(timeIcon); //add time icon to time //??????????????
+    text.textContent = comment.comment; //add comment's text to comment text
     likesContainer.appendChild(likesIcon); //add likes icon to likes container
     likes.textContent = " " + comment.likes; //add comment's likes to likes
     likesContainer.appendChild(likes); //add likes to likes container
@@ -64,8 +65,8 @@ function buildCommentCard(comment){
     handle.textContent = comment.handle; //add current handle to handle
     cardTitle.appendChild(handle); //add handle to card title
     cardBody.appendChild(cardTitle); //add card title to card body
-    cardBody.appendChild(commentText); //add comment text to card body
-    cardBody.appendChild(postTime); //add post time to card body
+    cardBody.appendChild(text); //add comment text to card body
+    cardBody.appendChild(time); //add time to card body
     cardBody.appendChild(likeBtn); //add button to card body
     card.appendChild(cardBody); //add card body to card
 
@@ -84,18 +85,41 @@ function showComments(){
         let commentCard = commentCards[i]; //grab comment's card element
 
         //update card's comment-post-time using comment's post date:
-        commentCard.querySelectorAll(".card .card-body .comment-post-time")[0]
-            .textContent = buildPostTime(comments[i].post_date);
+        /*commentCard.querySelectorAll(".card .card-body .comment-time")[0]
+            .textContent = buildTime(comments[i].post_date);*/
         //https://mrfrontend.org/2017/10/2-ways-get-child-elements-javascript/
+
+        test(commentCard.querySelectorAll(".card .card-body .comment-time")[0], comments[i].post_date);
         
        //add comment card element to comments element:
        document.getElementById("comments").appendChild(commentCard);
     }
 }
 
-function buildPostTime(postDate){
-    console.log(postDate);
-    return postDate;
+function test(time, yo){
+
+    //add clock icon to comment time:
+    //commentTime.replaceChildren(makeElement("i", "far fa-clock"));
+    //commentTime.textContent = makeElement("i", "far fa-clock") + buildTime(yo);
+    let timeText = document.createTextNode(yo); 
+    time.appendChild(makeElement("i", "far fa-clock"));
+    time.appendChild(timeText);
+   
+    
+
+}
+
+function buildTime(commentTime, postDate){
+
+    let timeString = "ago";
+    
+    let timeText = document.createTextNode(postDate); 
+    commentTime.appendChild(makeElement("i", "far fa-clock")); //add clock icon
+    commentTime.appendChild(timeText); //add time text
+
+
+   // console.log(postDate);
+    //return postDate;
     
 }
 

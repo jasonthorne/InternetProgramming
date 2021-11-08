@@ -242,9 +242,15 @@
     float: right; /* float right */
 }
 
-.comment-likes-container, .comment-post-time, .comment-like-btn {
+.comment-likes-container, .comment-time, .comment-like-btn {
     font-size: small; /* reduce font size */
 }
+
+.fa-clock:after{
+    content: "\00a0"; /* add space after element */
+    /*https://stackoverflow.com/questions/5467605/add-a-space-after-an-element-using-after*/
+}
+
 
 /* --------------------------------------------------------------------- */
 /* footer styles */
