@@ -18,10 +18,10 @@ var totalLikes = 0; //number of likes
 //build comments:
 function buildComments(){
     comments.push( //add test comments to mimic db pull:
-        new Comment("Orinoco", "Bob comment", Date.now(), 6),
-        new Comment("Frank", "Frank comment", Date.now(), 6),
-        new Comment("Billy", "Billy comment", Date.now(), 6),
-        new Comment("Terry", "Terry comment", Date.now(), 6));
+        new Comment("Orinoco", "Bob comment", 1636408053214, 6),
+        new Comment("Frank", "Frank comment", 1636408053214, 6),
+        new Comment("Billy", "Billy comment", 1636408053214, 6),
+        new Comment("Terry", "Terry comment",1636408053214, 6));
 
     console.log(comments); //+++++++++++
     totalComments = comments.length; //set totalComments
@@ -75,54 +75,45 @@ function buildCommentCard(comment){
 }
 
 function showComments(){
-
+    
     //remove previous comments from comments div:
-    /////////////document.getElementById("comments").replaceChildren();
+    document.getElementById("comments").replaceChildren(); 
 
     //loop through comments length:
     for (let i=0, j=comments.length; i<j; i++){
 
-        let commentCard = commentCards[i]; //grab comment's card element
+        let commentCard = commentCards[i]; //grab comment i's card element
 
-        //update card's comment-post-time using comment's post date:
-        /*commentCard.querySelectorAll(".card .card-body .comment-time")[0]
-            .textContent = buildTime(comments[i].post_date);*/
+        buildTime( //update card's comment-time using comment's post date:
+            commentCard.querySelectorAll(".card .card-body .comment-time")[0],
+            comments[i].post_date);
         //https://mrfrontend.org/2017/10/2-ways-get-child-elements-javascript/
 
-        test(commentCard.querySelectorAll(".card .card-body .comment-time")[0], comments[i].post_date);
-        
-       //add comment card element to comments element:
+       //add comment card to comments element:
        document.getElementById("comments").appendChild(commentCard);
     }
 }
 
-function test(time, yo){
+//build time since comment post:
+function buildTime(timeElement, postDate){
 
-    //add clock icon to comment time:
-    //commentTime.replaceChildren(makeElement("i", "far fa-clock"));
-    //commentTime.textContent = makeElement("i", "far fa-clock") + buildTime(yo);
-    let timeText = document.createTextNode(yo); 
-    time.appendChild(makeElement("i", "far fa-clock"));
-    time.appendChild(timeText);
-   
+    let timeStr = " ago"; //string for showing time
+    timeDiff = Date.now() - postDate; //get ms between now and postDate
+
+    //if difference is less than a minute, append string to show in secs:
+    if (timeDiff < 60000) { timeStr = Math.floor(timeDiff/1000) + " secs" + timeStr; }
+    //if difference is less than an hour, append string to show in mins:
+    else if (timeDiff < 3600000) { timeStr = Math.floor(timeDiff/60000) + " mins" + timeStr; }
+    //else, show difference in hours:
+    else timeStr = Math.floor(timeDiff/3600000) + " hrs" + timeStr;
     
-
+    //add nodes to time element:
+    timeElement.replaceChildren(
+        makeElement("i", "far fa-clock"), //add clock icon
+        document.createTextNode(timeStr)); //add time string
 }
 
-function buildTime(commentTime, postDate){
-
-    let timeString = "ago";
-    
-    let timeText = document.createTextNode(postDate); 
-    commentTime.appendChild(makeElement("i", "far fa-clock")); //add clock icon
-    commentTime.appendChild(timeText); //add time text
-
-
-   // console.log(postDate);
-    //return postDate;
-    
-}
-
+//add new comment:
 function addComment(){
 
     //+++++++++++++++++++++++++++CHeck that both forms have valid data. THEN:
