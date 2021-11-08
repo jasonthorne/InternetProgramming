@@ -242,7 +242,7 @@
     float: right; /* float right */
 }
 
-.comment-likes-container, .comment-post-date, .comment-like-btn {
+.comment-likes-container, .comment-post-time, .comment-like-btn {
     font-size: small; /* reduce font size */
 }
 

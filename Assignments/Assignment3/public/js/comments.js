@@ -44,7 +44,8 @@ function buildCommentCard(comment){
     let likesIcon = makeElement("i", "far fa-thumbs-up comment-likes-icon"); //likes icon
     let likes = makeElement("span", "text-muted comment-likes"); //likes
     let commentText = makeElement("p", "card-text comment-text"); //comment
-    let postDate = makeElement("p", "card-text text-muted comment-post-date"); //post date
+    /////<i class="far fa-clock"></i>
+    let postTime = makeElement("p", "card-text text-muted comment-post-time"); //post time
     let likeBtn = makeElement("button", "btn btn-sm btn-outline-secondary comment-like-btn"); //like button
     let likeBtnIcon = makeElement("i", "far fa-thumbs-up"); //like button icon
     let likeBtnText = document.createTextNode(" Like"); //like button text
@@ -64,7 +65,7 @@ function buildCommentCard(comment){
     cardTitle.appendChild(handle); //add handle to card title
     cardBody.appendChild(cardTitle); //add card title to card body
     cardBody.appendChild(commentText); //add comment text to card body
-    cardBody.appendChild(postDate); //add post date to card body
+    cardBody.appendChild(postTime); //add post time to card body
     cardBody.appendChild(likeBtn); //add button to card body
     card.appendChild(cardBody); //add card body to card
 
@@ -72,186 +73,59 @@ function buildCommentCard(comment){
     commentCards.unshift(card)
 }
 
-function buildPostDate(post_date){
-    console.log(post_date);
-    return post_date;
-    
-}
-
 function showComments(){
 
     //remove previous comments from comments div:
-    document.getElementById("comments").replaceChildren();
+    /////////////document.getElementById("comments").replaceChildren();
 
     //loop through comments length:
     for (let i=0, j=comments.length; i<j; i++){
 
         let commentCard = commentCards[i]; //grab comment's card element
 
-        //update "comment-post-date" element using comment's post date:
-        commentCard.querySelectorAll(".card .card-body .comment-post-date")[0]
-            .textContent = buildPostDate(comments[i].post_date);
+        //update card's comment-post-time using comment's post date:
+        commentCard.querySelectorAll(".card .card-body .comment-post-time")[0]
+            .textContent = buildPostTime(comments[i].post_date);
         //https://mrfrontend.org/2017/10/2-ways-get-child-elements-javascript/
-
-        console.log(commentCard.querySelectorAll(".card .card-body .comment-post-date")[0].textContent);
-
+        
        //add comment card element to comments element:
        document.getElementById("comments").appendChild(commentCard);
     }
 }
 
-//show comments on page:
-function showCommentsOLD(){
-
-    totalLikes = 0; //reset totalLikes
-
-    //loop through comments length:
-    //for (let i=0, j=comments.length; i<j; i++){
-    for (let i=0, j=1; i<j; i++){
-
-        let currComment = comments[i]; //get current comment
-
-        //create html elements with class names:
-        let card = makeElement("div", "card comment"); //card
-        let cardBody = makeElement("div", "card-body"); //card body
-        let cardTitle = makeElement("div", "card-title"); //card title
-        let handle = makeElement("span", "comment-handle"); // handle
-        let likesContainer = makeElement("span", "comment-likes-container"); //likes container
-        let likesIcon = makeElement("i", "far fa-thumbs-up comment-likes-icon"); //likes icon 
-        let likes = makeElement("span", "text-muted comment-likes"); //likes
-        let comment = makeElement("p", "card-text comment-text"); //comment
-        let postDate = makeElement("p", "card-text text-muted comment-post-date"); //post date
-        let likeBtn = makeElement("button", "btn btn-sm btn-outline-secondary comment-like-btn"); //like button
-        let likeBtnIcon = makeElement("i", "far fa-thumbs-up"); //like button icon
-        let likeBtnText = document.createTextNode(" Like"); //like button text
-
-        //build comment from html elements:
-        likeBtn.appendChild(likeBtnIcon); //add icon to like button
-        likeBtn.appendChild(likeBtnText); //add text to like button
-        //add click event listener to button:
-        likeBtn.addEventListener("click", function(){
-
-            //+++++++++++check if icon isn't coloured: if not: add like, else remove like
-            ///currComment.addLike();
-            likeBtn.removeChild(likeBtnIcon);
-            likeBtn.removeChild(likeBtnText);
-            likeBtnIcon = makeElement("i", "fas fa-thumbs-up"); 
-            likeBtn.appendChild(likeBtnIcon);
-            likeBtn.appendChild(likeBtnText); //add text to like button
-
-            //currComment.likes++;
-            console.log(currComment.likes);
-            likes.textContent = " " + currComment.likes++ + " ";
-        });
-        
-        //#############
-       // https://stackoverflow.com/questions/203198/event-binding-on-dynamically-created-elements
-       
-
-        //build post date:
-        //++++++++++++++++++++++++++++++MORE NEEDED HERE (to figure out time from silly number :P)
-        postDate.textContent = "Posted 3 mins ago";
-
-        comment.textContent = currComment.comment; //add current comment to comment
-        likesContainer.appendChild(likesIcon); //add likes icon to likes container
-        likes.textContent = " " + currComment.likes; //add current likes to likes
-        likesContainer.appendChild(likes); //add likes to likes container
-        cardTitle.appendChild(likesContainer) //add likes container to card title
-        handle.textContent = currComment.handle; //add current handle to handle
-        cardTitle.appendChild(handle); //add handle to card title
-        cardBody.appendChild(cardTitle); //add card title to card body
-        cardBody.appendChild(comment); //add comment to card body
-        cardBody.appendChild(postDate); //add post date to card body
-        cardBody.appendChild(likeBtn); //add button to card body
-        card.appendChild(cardBody); //add card body to card
-        document.getElementById("comments").appendChild(card); //add card to comments
-
-    }
-
-
-    var card = document.createElement("div");
-    card.className = "card comment";
-
-    var cardBody = document.createElement("div");
-    cardBody.className = "card-body";
-
-    var cardP = document.createElement("p");
-    cardP.className = "card-text";
-    cardP.textContent = "hullo!";
+function buildPostTime(postDate){
+    console.log(postDate);
+    return postDate;
     
-    ///////cardBody.appendChild(document.createTextNode("Yo dawg!"));
-    cardBody.appendChild(cardP);
-
-    card.appendChild(cardBody);
-
-    ////////////////////document.getElementById("comments").appendChild(card); 
-   
-
-
-
-
-
-
-
-
-
-
-
-
-    /*
-
-    https://www.w3schools.com/w3css/w3css_animate.asp
-
-
-    https://stackoverflow.com/questions/35538057/css-bootstrap-creating-elements-via-javascript/35538121
-
-
-    https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fieldshttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields
-    */
-
-    //https://getbootstrap.com/docs/5.0/utilities/sizing/
-
-    /*var test = 
-    "<table>\n" +
-    "<tr>\n" +
-        "<td>Emil</td>\n" +
-        "<td>Tobias</td>\n" +
-        "<td>Linus</td>\n" +
-    "</tr>\n" +
-    "</table>";*/
-
-    //document.getElementById("comments").innerHTML = comments[0].post_date;
-
-   /// document.getElementById("comments").innerHTML = test;
-
 }
 
-function addComment() {
+function addComment(){
 
     //+++++++++++++++++++++++++++CHeck that both forms have valid data. THEN:
-    
-    //add new comment to comments:
-    comments.unshift(new Comment(
+
+    //create new comment:
+    let comment = new Comment(
         document.getElementById("handle").value, //get handle from form
         document.getElementById("comment").value, //get comment from form
         Date.now(), //add current date
-        0)); //initialize likes as 0
+        0); //initialize likes as 0
     
-    console.log(comments); //+++++++++++
-
-    totalComments++;
-
+    comments.unshift(comment); //add new comment to comments
+    buildCommentCard(comment); //create new card for comment
+    totalComments++; //increment comment count
     showComments(); //show comments
+
+    console.log(comments); //+++++++++++
 }
 
 //make a html element with classname:
-function makeElement(type, className) { 
+function makeElement(type, className){ 
     let element = document.createElement(type); //create element
     element.className = className; //give classname
     return element;
 }
 
-function likeClick(comment, likeBtn, likes) {
+function likeClick(comment, likeBtn, likes){
 
     //REPLACE CHILDREN REMOVES BOTH ELEMENTS :P
     ///currComment.addLike();
@@ -264,3 +138,21 @@ function likeClick(comment, likeBtn, likes) {
     */
 
 }
+
+
+
+//#############
+/*
+       // https://stackoverflow.com/questions/203198/event-binding-on-dynamically-created-elements
+
+       https://www.w3schools.com/w3css/w3css_animate.asp
+
+
+       https://stackoverflow.com/questions/35538057/css-bootstrap-creating-elements-via-javascript/35538121
+   
+   
+       https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fieldshttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields
+      
+   
+       //https://getbootstrap.com/docs/5.0/utilities/sizing/
+*/
