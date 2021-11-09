@@ -25,7 +25,7 @@ function buildComments(){
 
     console.log(comments); //+++++++++++
     totalComments = comments.length; //set totalComments
-    for (let i=0; i<totalComments; i++){ //loop through comments length
+    for (let i=0; i<totalComments; i++){ //loop through no of comments
         buildCommentCard(comments[i]);  //build commentCard for comment i
         totalLikes += comments[i].likes;} //add comment i's likes to total likes
     showComments(); //show comments on page
@@ -52,8 +52,9 @@ function buildCommentCard(comment){
     let likeBtnText = document.createTextNode(" Like"); //like button text
 
     //build card, adding comment's values to elements:
-    likeBtn.appendChild(likeBtnIcon); //add icon to like button
-    likeBtn.appendChild(likeBtnText); //add text to like button
+    likeBtn.replaceChildren(likeBtnIcon, likeBtnText); //add icon and text to like button
+    //likeBtn.appendChild(likeBtnIcon); //add icon to like button
+    //likeBtn.appendChild(likeBtnText); //add text to like button
     likeBtn.addEventListener("click", function(){  //add click event listener to button
         likeClick(comment, likeBtn, likes); }); //call likeClick() on click
     //////////postTime.textContent = buildPostTime(comment.post_date); //add build post date
@@ -64,7 +65,7 @@ function buildCommentCard(comment){
     likesContainer.appendChild(likes); //add likes to likes container
     cardTitle.appendChild(likesContainer); //add likes container to card title
     handle.textContent = comment.handle; //add current handle to handle
-    cardTitle.appendChild(makeElement("i", "fas fa-at"));
+    cardTitle.appendChild(makeElement("i", "fas fa-at")); //????????????????????
     cardTitle.appendChild(handle); //add handle to card title
     cardBody.appendChild(cardTitle); //add card title to card body
     cardBody.appendChild(text); //add comment text to card body
@@ -77,11 +78,10 @@ function buildCommentCard(comment){
 }
 
 function showComments(){
-    
     //remove previous comments from comments div:
     document.getElementById("comments").replaceChildren(); 
 
-    for (let i=0, j=comments.length; i<j; i++){ //loop through comments length:
+    for (let i=0; i<totalComments; i++){ //loop through no of comments
         let commentCard = commentCards[i]; //grab comment i's card element
 
         buildTime( //update card's comment-time using comment's post date:
@@ -140,39 +140,34 @@ function makeElement(type, className){
     return element;
 }
 
+//respond to like button click:
 function likeClick(comment, likeBtn, likes){
 
-    //get like button's icon:
-    likeBtnIcon = likeBtn.querySelectorAll(".fa-thumbs-up")[0];
+    //get like button's icon and text content:
+    let likeBtnIcon = likeBtn.querySelectorAll(".fa-thumbs-up")[0];
+    let likeBtnText = likeBtn.textContent;
 
-    //if holding an icon with a "far" class:
+    //if holding an icon with a "far" class (wasn't prev clicked):
     if(likeBtnIcon.classList.contains("far")){
-        //like wasn't previously clicked:
 
-        totalLikes++;//increment total likes
-        comment.likes++; //increment comment likes
-        //console.log(comment.likes);
-        console.log(totalLikes);
-       //likes.textContent = " " + comment.likes; //
+        totalLikes++; //increment total likes
+        //increment and show comment likes:
+        likes.textContent = " " + ++comment.likes;
+        //change to icon with "fas" class:
+        likeBtnIcon = makeElement("i", "fas fa-thumbs-up");
+        likeBtn.style.fontWeight = "bold"; //bolden text
 
-
-    }else{
-
+    }else{  //holding an icon with "fas" class (was prev clicked):
+       
+        totalLikes--; //decrement total likes
+        //decrement and show comment likes:
+        likes.textContent = " " + --comment.likes;
+        //change to icon with "far" class:
+        likeBtnIcon = makeElement("i", "far fa-thumbs-up");
+        likeBtn.style.fontWeight = "normal"; //unbolden text
     }
-    ///////console.log(likeBtnIcon.classList.contains("fas"));
-    /////////console.log(likeBtnIcon.classList.contains("far"));
-
-
-    //REPLACE CHILDREN REMOVES BOTH ELEMENTS :P
-    ///currComment.addLike();
-    /*
-    likeBtn.removeChild(likeBtnIcon);
-    likeBtn.removeChild(likeBtnText);
-    likeBtnIcon = makeElement("i", "fas fa-thumbs-up"); 
-    likeBtn.appendChild(likeBtnIcon);
-    likeBtn.appendChild(likeBtnText); //add text to like button
-    */
-
+    //change likeBtn to new state:
+    likeBtn.replaceChildren(likeBtnIcon, likeBtnText);
 }
 
 
