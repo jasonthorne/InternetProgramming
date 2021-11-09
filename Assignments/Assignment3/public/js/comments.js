@@ -17,15 +17,29 @@ var totalLikes = 0; //number of likes
 
 //build comments:
 function buildComments(){
-    comments.push( //add test comments to mimic db pull:
-        new Comment("Orinoco", "Bob comment", 1636408053214, 6),
-        new Comment("Frank", "Frank comment", 1636408053214, 6),
-        new Comment("Billy", "Billy comment", 1636408053214, 3),
-        new Comment("Terry", "Terry comment",1636408053214, 6));
+    
+    //add test comments:
+    comments.push(
+        new Comment(
+            "Great Uncle Bulgaria",
+            "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+            Date.now() - 34000, 
+            0),
+        new Comment(
+            "Orinoco",
+            "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
+            Date.now() - 3600000,
+            2),
+        new Comment(
+            "Tobermory",
+            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium" +
+            " doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore.",
+            Date.now() - 3600000,
+            6));
 
     console.log(comments); //+++++++++++
     totalComments = comments.length; //set totalComments
-    for (let i=0; i<totalComments; i++){ //loop through no of comments
+    for (let i=totalComments-1; i>=0; i--){ //loop through no of comments
         buildCommentCard(comments[i]);  //build commentCard for comment i
         totalLikes += comments[i].likes;} //add comment i's likes to total likes
     showComments(); //show comments on page

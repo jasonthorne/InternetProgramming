@@ -232,14 +232,17 @@
     margin-top: 30px; /* add top margin */
 }
 
-.comment-handle{
-    color: #777777; /*text colour*/
-    font-weight: bold; /* make bold */
+.fa-at, .comment-handle{
     font-size: 18px; /* font size */
 }
 
 .fa-at{
     color: #999999; /* text colour */
+}
+
+.comment-handle{
+    font-weight: bold; /* make bold */
+    color: #777777; /*text colour*/
 }
 
 .comment-likes-container{
