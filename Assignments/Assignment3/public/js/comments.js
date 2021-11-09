@@ -133,14 +133,7 @@ function addComment(){
     console.log(comments); //+++++++++++
 }
 
-//make a html element with classname:
-function makeElement(type, className){ 
-    let element = document.createElement(type); //create element
-    element.className = className; //give classname
-    return element;
-}
-
-//respond to like button click:
+//handle like button click:
 function likeClick(comment, likeBtn, likes){
 
     //get like button's icon and text content:
@@ -170,7 +163,12 @@ function likeClick(comment, likeBtn, likes){
     likeBtn.replaceChildren(likeBtnIcon, likeBtnText);
 }
 
-
+//make a html element with classname:
+function makeElement(type, className){ 
+    let element = document.createElement(type); //create element
+    element.className = className; //give classname
+    return element;
+}
 
 //#############
 /*

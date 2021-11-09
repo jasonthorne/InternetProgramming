@@ -222,7 +222,7 @@
 }
 
 #comments{
-    width: 50%;
+    width: 40%;
     margin-left: auto; 
     margin-right: auto; 
     /*text-align: center;*/
@@ -232,10 +232,14 @@
     margin-top: 30px; /* add top margin */
 }
 
-.comment-handle, .fa-at{
+.comment-handle{
     color: #777777; /*text colour*/
     font-weight: bold; /* make bold */
     font-size: 18px; /* font size */
+}
+
+.fa-at{
+    color: #999999; /* text colour */
 }
 
 .comment-likes-container{
@@ -246,11 +250,15 @@
     font-size: small; /* reduce font size */
 }
 
+.comment-like-btn:focus{
+    /*box-shadow: none; /* remove shadow */
+}
+
+
 .fa-clock:after{
     content: "\00a0"; /* add space after element */
     /*https://stackoverflow.com/questions/5467605/add-a-space-after-an-element-using-after*/
 }
-
 
 /* --------------------------------------------------------------------- */
 /* footer styles */
