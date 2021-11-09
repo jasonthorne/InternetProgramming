@@ -232,7 +232,7 @@
     margin-top: 30px; /* add top margin */
 }
 
-.comment-handle{
+.comment-handle, .fa-at{
     color: #777777; /*text colour*/
     font-weight: bold; /* make bold */
     font-size: 18px; /* font size */

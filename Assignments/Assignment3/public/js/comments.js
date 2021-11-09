@@ -20,13 +20,14 @@ function buildComments(){
     comments.push( //add test comments to mimic db pull:
         new Comment("Orinoco", "Bob comment", 1636408053214, 6),
         new Comment("Frank", "Frank comment", 1636408053214, 6),
-        new Comment("Billy", "Billy comment", 1636408053214, 6),
+        new Comment("Billy", "Billy comment", 1636408053214, 3),
         new Comment("Terry", "Terry comment",1636408053214, 6));
 
     console.log(comments); //+++++++++++
     totalComments = comments.length; //set totalComments
-    comments.forEach(buildCommentCard); //build commentCards for comments
-    console.log(commentCards); //+++++++++++
+    for (let i=0; i<totalComments; i++){ //loop through comments length
+        buildCommentCard(comments[i]);  //build commentCard for comment i
+        totalLikes += comments[i].likes;} //add comment i's likes to total likes
     showComments(); //show comments on page
 }
 
@@ -61,8 +62,9 @@ function buildCommentCard(comment){
     likesContainer.appendChild(likesIcon); //add likes icon to likes container
     likes.textContent = " " + comment.likes; //add comment's likes to likes
     likesContainer.appendChild(likes); //add likes to likes container
-    cardTitle.appendChild(likesContainer) //add likes container to card title
+    cardTitle.appendChild(likesContainer); //add likes container to card title
     handle.textContent = comment.handle; //add current handle to handle
+    cardTitle.appendChild(makeElement("i", "fas fa-at"));
     cardTitle.appendChild(handle); //add handle to card title
     cardBody.appendChild(cardTitle); //add card title to card body
     cardBody.appendChild(text); //add comment text to card body
@@ -71,7 +73,7 @@ function buildCommentCard(comment){
     card.appendChild(cardBody); //add card body to card
 
     //add built card to array:
-    commentCards.unshift(card)
+    commentCards.unshift(card);
 }
 
 function showComments(){
@@ -79,9 +81,7 @@ function showComments(){
     //remove previous comments from comments div:
     document.getElementById("comments").replaceChildren(); 
 
-    //loop through comments length:
-    for (let i=0, j=comments.length; i<j; i++){
-
+    for (let i=0, j=comments.length; i<j; i++){ //loop through comments length:
         let commentCard = commentCards[i]; //grab comment i's card element
 
         buildTime( //update card's comment-time using comment's post date:
@@ -101,11 +101,11 @@ function buildTime(timeElement, postDate){
     timeDiff = Date.now() - postDate; //get ms between now and postDate
 
     //if difference is less than a minute, append string to show in secs:
-    if (timeDiff < 60000) { timeStr = Math.floor(timeDiff/1000) + " secs" + timeStr; }
+    if (timeDiff < 60000) { timeStr = Math.floor(timeDiff/1000) + "s" + timeStr; }
     //if difference is less than an hour, append string to show in mins:
-    else if (timeDiff < 3600000) { timeStr = Math.floor(timeDiff/60000) + " mins" + timeStr; }
+    else if (timeDiff < 3600000) { timeStr = Math.floor(timeDiff/60000) + "m" + timeStr; }
     //else, show difference in hours:
-    else timeStr = Math.floor(timeDiff/3600000) + " hrs" + timeStr;
+    else timeStr = Math.floor(timeDiff/3600000) + "h" + timeStr;
     
     //add nodes to time element:
     timeElement.replaceChildren(
@@ -141,6 +141,27 @@ function makeElement(type, className){
 }
 
 function likeClick(comment, likeBtn, likes){
+
+    //get like button's icon:
+    likeBtnIcon = likeBtn.querySelectorAll(".fa-thumbs-up")[0];
+
+    //if holding an icon with a "far" class:
+    if(likeBtnIcon.classList.contains("far")){
+        //like wasn't previously clicked:
+
+        totalLikes++;//increment total likes
+        comment.likes++; //increment comment likes
+        //console.log(comment.likes);
+        console.log(totalLikes);
+       //likes.textContent = " " + comment.likes; //
+
+
+    }else{
+
+    }
+    ///////console.log(likeBtnIcon.classList.contains("fas"));
+    /////////console.log(likeBtnIcon.classList.contains("far"));
+
 
     //REPLACE CHILDREN REMOVES BOTH ELEMENTS :P
     ///currComment.addLike();
