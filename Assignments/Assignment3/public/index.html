@@ -294,20 +294,14 @@
 				<div class="row section-row">
 					<div class="col-12">
 						<div class="section-header"> <!--++++++++++++++STICK IN DIV, FLOAT RIGHT :P-->
-							COMMENTS<i class="far fa-comment"></i>60     <i class="far fa-thumbs-up"></i>5
+							COMMENTS<!--<i class="far fa-comment"></i>60     <i class="far fa-thumbs-up"></i>5-->
 						</div>
 						<div class="section-body">
-
 							<form id="comment-form">
 
-								
-								<!--<input type="text" id="handle-input2" name="handle-input" placeholder="Username"><br>-->
-								<input type="text" class="form-control mb-3" id="handle-input" placeholder="Username" autocomplete="off">
-								<textarea type="text" class="form-control mb-3" id="comment-input" rows="5" placeholder="Comments" autocomplete="off"></textarea>
-
-
-								<!--<input type="text" id="comment-input" name="comment-input" placeholder="Comment"><br><br>-->
-								<input type="button" class="btn btn-secondary btn-sm" value="Post Comment" onclick="addComment()">
+								<input type="text" class="form-control mb-3" id="handle-input" placeholder="Name" autocomplete="off">
+								<textarea type="text" class="form-control mb-3" id="comment-input" rows="5" placeholder="Comment" autocomplete="off"></textarea>
+								<input type="button" class="btn btn-secondary btn-sm" id="comment-btn" value="Post Comment" onclick="addComment()">
 							
 
 								<!--<div class="form-floating">

@@ -257,10 +257,13 @@
     /*box-shadow: none; /* remove shadow */
 }
 
-
 .fa-clock:after{
     content: "\00a0"; /* add space after element */
     /*https://stackoverflow.com/questions/5467605/add-a-space-after-an-element-using-after*/
+}
+
+#comment-btn{
+    margin-bottom: 20px;
 }
 
 /* --------------------------------------------------------------------- */
