@@ -1,0 +1,2 @@
+package.json changed from '"node": 14' to '"node": 8'.
+This changes npm to use version 8 instead, and allow us to use functions functioallity on firebase for free. 

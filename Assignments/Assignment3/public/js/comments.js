@@ -22,22 +22,23 @@ function buildComments(){
     comments.push(
         new Comment(
             "Great Uncle Bulgaria",
-            "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
-            Date.now() - 34000, 
+            "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore " +
+            "eu fugiat nulla pariatur.",
+            Date.now() - 37000, //37 secs ago
             0),
         new Comment(
             "Orinoco",
-            "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.",
-            Date.now() - 3600000,
+            "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, " +
+            "sed quia consequuntur magni dolores.",
+            Date.now() - 1440000, //24 mins ago
             2),
         new Comment(
             "Tobermory",
-            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium" +
-            " doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore.",
-            Date.now() - 3600000,
+            "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium " +
+            "doloremque laudantium, totam rem aperiam.",
+            Date.now() - 3600000, //1 hour ago
             6));
 
-    console.log(comments); //+++++++++++
     totalComments = comments.length; //set totalComments
     for (let i=totalComments-1; i>=0; i--){ //loop through no of comments
         buildCommentCard(comments[i]);  //build commentCard for comment i
@@ -98,7 +99,7 @@ function showComments(){
     for (let i=0; i<totalComments; i++){ //loop through no of comments
         let commentCard = commentCards[i]; //grab comment i's card element
 
-        buildTime( //update card's comment-time using comment's post date:
+        buildTime( //update card's comment-time using comment i's post date:
             commentCard.querySelectorAll(".card .card-body .comment-time")[0],
             comments[i].post_date);
         //https://mrfrontend.org/2017/10/2-ways-get-child-elements-javascript/
@@ -134,8 +135,8 @@ function addComment(){
 
     //create new comment:
     let comment = new Comment(
-        document.getElementById("handle").value, //get handle from form
-        document.getElementById("comment").value, //get comment from form
+        document.getElementById("handle-input").value, //get handle from form
+        document.getElementById("comment-input").value, //get comment from form
         Date.now(), //add current date
         0); //initialize likes as 0
     
@@ -143,7 +144,7 @@ function addComment(){
     buildCommentCard(comment); //create new card for comment
     totalComments++; //increment comment count
     showComments(); //show comments
-
+    document.getElementById("comment-form").reset(); //clear form
     console.log(comments); //+++++++++++
 }
 
