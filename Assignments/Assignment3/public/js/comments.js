@@ -187,6 +187,13 @@ function makeElement(type, className){
 
 //#############
 /*
+    toasts:
+
+    https://getbootstrap.com/docs/4.6/components/toasts/?
+
+    https://stackoverflow.com/questions/62109586/bootstrap4-initializing-toasts?rq=1
+
+
        // https://stackoverflow.com/questions/203198/event-binding-on-dynamically-created-elements
 
        https://www.w3schools.com/w3css/w3css_animate.asp
