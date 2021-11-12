@@ -10,12 +10,12 @@ class Comment{
     }
 }
 
-var element = document.getElementById("myTooltip");
+var element = document.getElementById("comment-btn");
 var tooltipBottom = new bootstrap.Tooltip(
     element, { 
-    placement : "bottom" 
+    placement : "top",
+    trigger : "manual" 
 });
-myTooltip.disable();
 
 document.addEventListener("DOMContentLoaded", function(){
     /*var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
@@ -172,7 +172,7 @@ function addComment(){
     //check that inputs have values:
     if(handleInput.length == 0 || commentInput.length == 0){
         console.log("error"); //if not, warn user of error
-        tooltipBottom.enable().show(); //################################################
+        tooltipBottom.show(); //################################################
     }else{ //input was valid:
         tooltipBottom.hide(); //#################################
         //create new comment:
