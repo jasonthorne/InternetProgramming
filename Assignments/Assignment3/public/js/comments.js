@@ -10,6 +10,40 @@ class Comment{
     }
 }
 
+var element = document.getElementById("myTooltip");
+var tooltipBottom = new bootstrap.Tooltip(
+    element, { 
+    placement : "bottom" 
+});
+myTooltip.disable();
+
+document.addEventListener("DOMContentLoaded", function(){
+    /*var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    var tooltipList = tooltipTriggerList.map(function(element){
+        return new bootstrap.Tooltip(element);
+    });*/
+
+    /*var tipBottom = document.getElementById("myTooltip");
+    var tooltipBottom = new bootstrap.Tooltip(tipBottom, { 
+        placement : "bottom" 
+    });*/
+
+    /*
+    tooltipBottom = new bootstrap.Tooltip(
+        document.getElementById("myTooltip"), { 
+        placement : "bottom" 
+    });*/
+
+    /*
+    var tipBottom = document.getElementById("comment-btn");
+    tooltipBottom = new bootstrap.Tooltip(tipBottom, { 
+        placement : "bottom" 
+    });*/
+
+
+});
+
+
 var comments = []; //comments
 var commentCards = []; //cards for displaying comments
 var totalComments = 0; //number of comments
@@ -138,8 +172,9 @@ function addComment(){
     //check that inputs have values:
     if(handleInput.length == 0 || commentInput.length == 0){
         console.log("error"); //if not, warn user of error
+        tooltipBottom.enable().show(); //################################################
     }else{ //input was valid:
-
+        tooltipBottom.hide(); //#################################
         //create new comment:
         let comment = new Comment(
             handleInput, //add handle input
@@ -217,3 +252,7 @@ function makeElement(type, className){
    
        //https://getbootstrap.com/docs/5.0/utilities/sizing/
 */
+
+
+//https://www.tutorialrepublic.com/twitter-bootstrap-tutorial/bootstrap-tooltips.php
+

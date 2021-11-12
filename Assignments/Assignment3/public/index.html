@@ -297,10 +297,11 @@
 							</div>
 						</div>
 						<div class="section-body">
+							<a href="#" data-bs-toggle="tooltip" id="myTooltip" data-bs-toggle="tooltip" title="Default tooltip">Hover over me</a>
 							<form id="comment-form">
 								<input type="text" class="form-control mb-3" id="handle-input" placeholder="Name" autocomplete="off">
 								<textarea type="text" class="form-control mb-3" id="comment-input" rows="5" placeholder="Comment" autocomplete="off"></textarea>
-								<input type="button" class="btn btn-secondary btn-sm" id="comment-btn" value="Post Comment" onclick="addComment()">
+								<input type="button" class="btn btn-secondary btn-sm" id="comment-btn" value="Post Comment" onclick="addComment()" data-bs-toggle="tooltip" title="Default tooltip">
 							</form>
 							<div id="comments">
 
