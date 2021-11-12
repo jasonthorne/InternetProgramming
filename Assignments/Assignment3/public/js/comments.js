@@ -51,8 +51,6 @@ function buildComments(){
 //build card element for comment:  
 function buildCommentCard(comment){
 
-    console.log("Adding: " + comment.handle); //+++++++++++
-
     //create html elements with class names:
     let card = makeElement("div", "card comment"); //card
     let cardBody = makeElement("div", "card-body"); //card body
@@ -138,9 +136,9 @@ function addComment(){
     let commentInput = document.getElementById("comment-input").value.trim();
 
     //check that inputs have values:
-    if (handleInput.length == 0 || commentInput.length == 0) {
+    if(handleInput.length == 0 || commentInput.length == 0){
         console.log("error"); //if not, warn user of error
-    } else { //input was valid:
+    }else{ //input was valid:
 
         //create new comment:
         let comment = new Comment(
@@ -155,7 +153,6 @@ function addComment(){
         document.getElementById("total-comments").innerHTML = ++totalComments;
         showComments(); //show comments
         document.getElementById("comment-form").reset(); //clear form
-        console.log(comments); //+++++++++++
     }
 }
 
@@ -177,7 +174,7 @@ function likeClick(comment, likeBtn, likes){
         likeBtnIcon = makeElement("i", "fas fa-thumbs-up");
         likeBtn.style.fontWeight = "bold"; //bolden text
 
-    }else{  //holding an icon with "fas" class (was prev clicked):
+    }else{ //holding an icon with "fas" class (was prev clicked):
        
         //decrement and show total likes:
         document.getElementById("total-likes").innerHTML = --totalLikes;
