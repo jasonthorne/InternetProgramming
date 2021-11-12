@@ -4,13 +4,11 @@
 		<title>Assignment 3 - Jason Thorne</title>
 		<!-- required meta tags -->
 		<meta charset="utf-8">
-		<!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		
 		<!--font awesome kit-->
 		<script src="https://kit.fontawesome.com/1988175a7f.js" crossorigin="anonymous"></script>
 		<!-- Bootstrap CSS -->
-		<!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">-->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<!-- local default styles -->
 		<link rel="stylesheet" href="css/default.css">
@@ -29,6 +27,7 @@
 					<a class="nav-link" href="#news-updates-section">News & Updates</a>
 					<a class="nav-link" href="#fixtures-section">Fixtures & Results</a>
 					<a class="nav-link d-none d-sm-block" href="#admin-section">Administration</a>
+					<a class="nav-link" href="#comments-section">Comments</a>
 				</div>
 			</div>
 		</nav>
@@ -286,34 +285,25 @@
 			</div>
 		</div>
 
-		<!-- to do: REMOVE CARDS. STOP ADMIN SECTION BENIG REMOVED, & RESIDE IT WHEN SHRUNK-->
-
 		<section id="comments-section">
 			<div class="container-fluid">
 				<div class="row section-row">
 					<div class="col-12">
-						<div class="section-header"> <!--++++++++++++++STICK IN DIV, FLOAT RIGHT :P-->
-							COMMENTS<!--<i class="far fa-comment"></i>60     <i class="far fa-thumbs-up"></i>5-->
+						<div class="section-header">
+							COMMENTS
+							<div id="comment-totals">
+								<i class="far fa-comment"></i><span id="total-comments">3</span>
+								<i class="far fa-thumbs-up"></i><span id="total-likes">8</span>
+							</div>
 						</div>
 						<div class="section-body">
 							<form id="comment-form">
-
 								<input type="text" class="form-control mb-3" id="handle-input" placeholder="Name" autocomplete="off">
 								<textarea type="text" class="form-control mb-3" id="comment-input" rows="5" placeholder="Comment" autocomplete="off"></textarea>
 								<input type="button" class="btn btn-secondary btn-sm" id="comment-btn" value="Post Comment" onclick="addComment()">
-							
-
-								<!--<div class="form-floating">
-									<textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-									<label for="floatingTextarea">Comments</label>
-								</div>-->
-
 							</form>
-
-						
 							<div id="comments">
 
-								
 								<div class="card comment">
 									<div class="card-body">
 										
@@ -383,19 +373,15 @@
 				</a> 
 			</p>
 		</footer>
-		
+
 		<!-- firebase config -->
 		<script src="js/firebase-config.js" type="module"></script>
-		<!-- comments-section comments -->
-		<script src="js/comments.js"></script>
 		<!-- optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 		<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-
-		<!--<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-    	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>-->
-
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+		<!-- comments-section comments -->
+		<script src="js/comments.js"></script>
 	</body>
 </html>

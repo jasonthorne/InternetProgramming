@@ -131,21 +131,29 @@ function buildTime(timeElement, postDate){
 //add new comment:
 function addComment(){
 
-    //+++++++++++++++++++++++++++CHeck that both forms have valid data. THEN:
+    //get trimmed input values from form:
+    let handleInput = document.getElementById("handle-input").value.trim();
+    let commentInput = document.getElementById("comment-input").value.trim();
 
-    //create new comment:
-    let comment = new Comment(
-        document.getElementById("handle-input").value, //get handle from form
-        document.getElementById("comment-input").value, //get comment from form
-        Date.now(), //add current date
-        0); //initialize likes as 0
-    
-    comments.unshift(comment); //add new comment to comments
-    buildCommentCard(comment); //create new card for comment
-    totalComments++; //increment comment count
-    showComments(); //show comments
-    document.getElementById("comment-form").reset(); //clear form
-    console.log(comments); //+++++++++++
+    //check that inputs have values:
+    if (handleInput.length == 0 || commentInput.length == 0) {
+        console.log("error"); //if not, warn user of error
+    } else { //input was valid:
+
+        //create new comment:
+        let comment = new Comment(
+            handleInput, //add handle input
+            commentInput, //add comment input
+            Date.now(), //add current date
+            0); //initialize likes as 0
+        
+        comments.unshift(comment); //add new comment to comments
+        buildCommentCard(comment); //create new card for comment
+        totalComments++; //increment comment count
+        showComments(); //show comments
+        document.getElementById("comment-form").reset(); //clear form
+        console.log(comments); //+++++++++++
+    }
 }
 
 //handle like button click:

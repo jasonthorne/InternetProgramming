@@ -214,6 +214,24 @@
     padding-right: 50px;*/
 }
 
+#comments-section .section-header{
+    margin-top: 20px; /* add top margin */
+}
+
+#comment-totals{ /* ????????????????????????????????*/
+    font-size: 16px; /* font size */
+    /*float: right;*/
+    margin-top: 10px;
+}
+
+#total-comments, #total-likes{
+    font-size: small;
+}
+
+#total-comments:after{
+    content: "\00a0"; /* add space after element */
+}
+
 #comment-form{
     width: 40%;
     margin-left: auto; 
@@ -265,8 +283,6 @@
 #comment-btn{
     margin-bottom: 20px;
 }
-
-
 
 /* --------------------------------------------------------------------- */
 /* footer styles */
