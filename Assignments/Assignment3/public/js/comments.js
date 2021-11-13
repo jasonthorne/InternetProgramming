@@ -10,44 +10,14 @@ class Comment{
     }
 }
 
-var element = document.getElementById("comment-btn");
-var tooltipBottom = new bootstrap.Tooltip(
-    element, { 
-    placement : "top",
-    trigger : "manual" 
-});
 
-document.addEventListener("DOMContentLoaded", function(){
-    /*var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-    var tooltipList = tooltipTriggerList.map(function(element){
-        return new bootstrap.Tooltip(element);
-    });*/
-
-    /*var tipBottom = document.getElementById("myTooltip");
-    var tooltipBottom = new bootstrap.Tooltip(tipBottom, { 
-        placement : "bottom" 
-    });*/
-
-    /*
-    tooltipBottom = new bootstrap.Tooltip(
-        document.getElementById("myTooltip"), { 
-        placement : "bottom" 
-    });*/
-
-    /*
-    var tipBottom = document.getElementById("comment-btn");
-    tooltipBottom = new bootstrap.Tooltip(tipBottom, { 
-        placement : "bottom" 
-    });*/
-
-
-});
-
+//https://getbootstrap.com/docs/4.6/components/tooltips/
 
 var comments = []; //comments
 var commentCards = []; //cards for displaying comments
 var totalComments = 0; //number of comments
 var totalLikes = 0; //number of likes
+
 
 //build comments:
 function buildComments(){
@@ -162,6 +132,22 @@ function buildTime(timeElement, postDate){
         document.createTextNode(timeStr)); //add time string
 }
 
+//handle input tooltip:
+var handleTooltip = new bootstrap.Tooltip(
+    document.getElementById("comment-input"), { 
+    placement : "top",
+    title : "Please enter name",
+    trigger : "manual" 
+});
+
+//comment input tooltip:
+var commentTooltip = new bootstrap.Tooltip(
+    document.getElementById("comment-input"), { 
+    placement : "top",
+    title : "Please enter comment",
+    trigger : "manual" 
+});
+
 //add new comment:
 function addComment(){
 
@@ -172,9 +158,9 @@ function addComment(){
     //check that inputs have values:
     if(handleInput.length == 0 || commentInput.length == 0){
         console.log("error"); //if not, warn user of error
-        tooltipBottom.show(); //################################################
+        commentTooltip.show(); //################################################
     }else{ //input was valid:
-        tooltipBottom.hide(); //#################################
+
         //create new comment:
         let comment = new Comment(
             handleInput, //add handle input
