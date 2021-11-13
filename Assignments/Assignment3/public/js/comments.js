@@ -10,14 +10,10 @@ class Comment{
     }
 }
 
-
-//https://getbootstrap.com/docs/4.6/components/tooltips/
-
 var comments = []; //comments
 var commentCards = []; //cards for displaying comments
 var totalComments = 0; //number of comments
 var totalLikes = 0; //number of likes
-
 
 //build comments:
 function buildComments(){
@@ -134,18 +130,18 @@ function buildTime(timeElement, postDate){
 
 //handle input tooltip:
 var handleTooltip = new bootstrap.Tooltip(
-    document.getElementById("comment-input"), { 
-    placement : "top",
-    title : "Please enter name",
-    trigger : "manual" 
+    document.getElementById("handle-input"), { 
+    placement : "right", //place to right of input
+    title : "Enter Name", //give error message
+    trigger : "manual" //trigger maually
 });
 
 //comment input tooltip:
 var commentTooltip = new bootstrap.Tooltip(
-    document.getElementById("comment-input"), { 
-    placement : "top",
-    title : "Please enter comment",
-    trigger : "manual" 
+    document.getElementById("comment-input"), {
+    placement : "right", //place to right of input
+    title : "Enter Comment", //give error message
+    trigger : "manual" //trigger maually
 });
 
 //add new comment:
@@ -158,6 +154,7 @@ function addComment(){
     //check that inputs have values:
     if(handleInput.length == 0 || commentInput.length == 0){
         console.log("error"); //if not, warn user of error
+        handleTooltip.show(); //################################################
         commentTooltip.show(); //################################################
     }else{ //input was valid:
 
