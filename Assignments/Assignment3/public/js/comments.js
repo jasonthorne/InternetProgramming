@@ -62,44 +62,25 @@ function buildCommentCard(comment){
     let likes = makeElement("span", "text-muted comment-likes"); //likes
     let text = makeElement("p", "card-text comment-text"); //comment
     let time = makeElement("p", "card-text text-muted comment-time"); //time
-    let likeBtn = makeElement("button", "btn btn-sm btn-outline-secondary comment-like-btn"); //like button
+    let likeBtn = makeElement("button", "btn btn-sm btn-outline-secondary comment-like-btn"); //like btn
     let likeBtnIcon = makeElement("i", "far fa-thumbs-up"); //like button icon
     let likeBtnText = document.createTextNode(" Like"); //like button text
 
-    //build card, adding comment's values to elements:
-    ///likeBtn.replaceChildren(likeBtnIcon, likeBtnText); //add icon and text to like button
-    //likeBtn.appendChild(likeBtnIcon); //add icon to like button
-    //likeBtn.appendChild(likeBtnText); //add text to like button
-    //likeBtn.addEventListener("click", function(){  //add click event listener to button
-        //likeClick(comment, likeBtn, likes); }); //call likeClick() on click
-   // text.textContent = comment.comment; //add comment's text to comment text
-    //likesContainer.appendChild(likesIcon); //add likes icon to likes container
-  //  likes.textContent = " " + comment.likes; //add comment's likes to likes
-    //likesContainer.appendChild(likes); //add likes to likes container
-    ////////cardTitle.appendChild(likesContainer); //add likes container to card title
-   // handle.textContent = comment.handle; //add current handle to handle
-    ///////cardTitle.appendChild(makeElement("i", "fas fa-at")); //????????????????????
-    //////cardTitle.appendChild(handle); //add handle to card title
-    
+    //build card from elements:
     likeBtn.replaceChildren(likeBtnIcon, likeBtnText); //build like button
     likesContainer.replaceChildren(likesIcon, likes); //build likes container
     cardTitle.replaceChildren(likesContainer, handleIcon, handle); //build card title
     cardBody.replaceChildren(cardTitle, text, time, likeBtn); //build card body
-    //cardBody.appendChild(cardTitle); //add card title to card body
-    //cardBody.appendChild(text); //add comment text to card body
-    //cardBody.appendChild(time); //add time to card body
-    //cardBody.appendChild(likeBtn); //add button to card body
     card.appendChild(cardBody); //build card
 
-    likeBtn.addEventListener("click", function(){  //add click event listener to button
-        likeClick(comment, likeBtn, likes); }); //call likeClick() on click
+    //add values to elements:
+    handle.textContent = comment.handle; //add comment's handle to handle
     text.textContent = comment.comment; //add comment's text to comment text
-    //likesContainer.appendChild(likesIcon); //add likes icon to likes container
     likes.textContent = " " + comment.likes; //add comment's likes to likes
-    //likesContainer.appendChild(likes); //add likes to likes container
-    ////////cardTitle.appendChild(likesContainer); //add likes container to card title
-    handle.textContent = comment.handle; //add current handle to handle
-
+    likeBtn.addEventListener("click", function(){  //add click event to like btn
+        likeClick(comment, likeBtn, likes);  //call likeClick() on click
+    }); 
+    
     //add built card to array:
     commentCards.unshift(card);
 }
