@@ -21,19 +21,19 @@ function buildComments(){
     //add test comments:
     comments.push(
         new Comment(
-            "Great Uncle Bulgaria",
-            "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore " +
-            "eu fugiat nulla pariatur.",
+            "Jo Wood",
+            "Amo et desidero valde. Promitto me te facturum superbum. Gratias ago tibi, " +
+            "quia non Mummius meus.",
             Date.now() - 37000, //37 secs ago
             0),
         new Comment(
-            "Orinoco",
+            "Daniel Wilson",
             "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, " +
             "sed quia consequuntur magni dolores.",
             Date.now() - 1440000, //24 mins ago
             2),
         new Comment(
-            "Tobermory",
+            "Laura Jane",
             "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium " +
             "doloremque laudantium, totam rem aperiam.",
             Date.now() - 3600000, //1 hour ago
@@ -48,7 +48,7 @@ function buildComments(){
     showComments(); //show comments on page
 }
 
-//build card element for comment:  
+//build card element for comment:
 function buildCommentCard(comment){
 
     //create html elements with class names:
@@ -121,7 +121,7 @@ function buildTime(timeElement, postDate){
         document.createTextNode(timeStr)); //add time string
 }
 
-//handle input tooltip:
+//handle tooltip:
 var handleTooltip = new bootstrap.Tooltip(
     document.getElementById("handle-input"), { 
     placement : "right", //place to right of input
@@ -129,7 +129,7 @@ var handleTooltip = new bootstrap.Tooltip(
     trigger : "manual" //trigger maually
 });
 
-//comment input tooltip:
+//comment tooltip:
 var commentTooltip = new bootstrap.Tooltip(
     document.getElementById("comment-input"), {
     placement : "right", //place to right of input
