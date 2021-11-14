@@ -183,7 +183,6 @@ function likeClick(comment, likeBtn, likes){
         likes.textContent = " " + ++comment.likes;
         //change to icon with "fas" class:
         likeBtnIcon = makeElement("i", "fas fa-thumbs-up");
-        likeBtn.style.fontWeight = "bold"; //bolden text
 
     }else{ //holding an icon with "fas" class (was prev clicked):
        
@@ -193,7 +192,6 @@ function likeClick(comment, likeBtn, likes){
         likes.textContent = " " + --comment.likes;
         //change to icon with "far" class:
         likeBtnIcon = makeElement("i", "far fa-thumbs-up");
-        likeBtn.style.fontWeight = "normal"; //unbolden text
     }
     //change likeBtn to new state:
     likeBtn.replaceChildren(likeBtnIcon, likeBtnText);
@@ -205,30 +203,3 @@ function makeElement(type, className){
     element.className = className; //give classname
     return element;
 }
-
-//#############
-/*
-    toasts:
-
-    https://getbootstrap.com/docs/4.6/components/toasts/?
-
-    https://stackoverflow.com/questions/62109586/bootstrap4-initializing-toasts?rq=1
-
-
-       // https://stackoverflow.com/questions/203198/event-binding-on-dynamically-created-elements
-
-       https://www.w3schools.com/w3css/w3css_animate.asp
-
-
-       https://stackoverflow.com/questions/35538057/css-bootstrap-creating-elements-via-javascript/35538121
-   
-   
-       https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fieldshttps://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/Private_class_fields
-      
-   
-       //https://getbootstrap.com/docs/5.0/utilities/sizing/
-*/
-
-
-//https://www.tutorialrepublic.com/twitter-bootstrap-tutorial/bootstrap-tooltips.php
-
