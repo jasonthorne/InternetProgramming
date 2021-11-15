@@ -183,6 +183,10 @@ function likeClick(comment, likeBtn, likes){
         likes.textContent = " " + ++comment.likes;
         //change to icon with "fas" class:
         likeBtnIcon = makeElement("i", "fas fa-thumbs-up");
+        //update likes modal with total likes:
+        document.getElementById("modal-total-likes").textContent = totalLikes;
+        //show likes modal:
+        $("#likes-modal").modal("show");
 
     }else{ //holding an icon with "fas" class (was prev clicked):
        
