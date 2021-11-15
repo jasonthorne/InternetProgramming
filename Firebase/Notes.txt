@@ -1,3 +1,7 @@
 
 CLI deploy:
 nav to location of .firebase dir > firebase deploy
+
+
+Deploy only functions:
+firebase deploy --only functions
