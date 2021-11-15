@@ -15,6 +15,6 @@ const functions = require("firebase-functions");
 	
 	exports.doubleNumber = functions.https.onRequest((request, response) => {
 		var myDbl = parseInt(request.query.data * 2); //add given '?data= ' from browser, and double it
-		response.send(myDbl); //send back doubled number
+		response.send("number is: " + myDbl); //send back doubled number
 	});
 
