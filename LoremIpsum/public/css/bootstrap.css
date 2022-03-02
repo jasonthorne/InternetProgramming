@@ -1,0 +1,324 @@
+/* --------------------------------------------------------------------- */
+/* navbar styles */
+
+#navbar-logo {
+    color: #ffffff; /* font colour */
+    font-size: 12px; /* font size */
+}
+
+#navbar-logo img{
+	vertical-align: middle; /* align img */
+    width: 30px; /* width */
+    margin-right: 5px; /* push right margin */
+}
+
+/* --------------------------------------------------------------------- */
+/* hero styles */
+
+#hero{ 
+    background-position: center center;  /* center image in it's container */
+    /* https://stackoverflow.com/questions/31147543/how-to-fit-100-of-an-image-to-a-jumbotron */
+    margin-bottom: 0px; /* remove bottom margin */
+}
+
+#hero-container{
+    padding-top: 20px; /* increase top padding */
+}
+
+#hero-title{ 
+    font-weight: bold; /* bolden font */
+}
+
+/* Large devices (desktops, 992px and below) */
+@media (max-width: 992px){
+    #hero-container{
+        padding-top:5px; /* decrease top padding */
+    }
+    #hero{
+        min-height: 600px; /* reduce height */
+    }
+    #hero-title{
+        font-size: 80px; /* reduce font size */
+    }
+}
+
+/* Medium devices (tablets, 768px and below) */
+@media (max-width: 768px){
+    #hero-container{
+        padding-top: 0px; /* decrease top padding */
+    }
+    #hero{
+        min-height: 500px; /* reduce height */
+    }
+    #hero-title{
+        font-size: 60px; /* reduce font size */
+    }
+}
+
+/* Small devices (landscape phones, 576px and below) */
+@media (max-width: 576px){
+    #hero-container{
+        padding-top: 25px; /* increase top padding */
+    }
+    #hero{
+        min-height: 450px; /* reduce height */
+    }
+    #hero-title{
+        font-size: 50px; /* reduce font size */
+    }
+}
+
+/* --------------------------------------------------------------------- */
+/* section styles */
+
+.section-row{
+    /* increase left & right padding: */
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.section-header{
+    text-align: center; /* center text */
+}
+
+/* --------------------------------------------------------------------- */
+/* news & updates section styles */
+
+#news-updates-section{
+    /* remove left & right padding: */
+    padding-left: 0px;
+    padding-right: 0px;
+}
+ 
+#news-updates-section .section-body{
+    column-count: 3; /* number of columns */
+  	column-gap: 50px; /* gap between columns */
+  	column-rule: 1px solid #add8e6; /* line betweeen columns */
+}
+
+/* Large devices (desktops, 992px and below) */
+@media (max-width: 992px){
+    #news-updates-section .section-body{
+        column-count: 2; /* 2 cols */
+    }
+}
+
+/* Medium devices (tablets, 768px and below) */
+@media (max-width: 768px){
+    #news-updates-section .section-body{
+        column-count: 1; /* 1 col */
+    }
+    #news-updates-section hr {
+        border-top: 1px solid #add8e6; /* darken hr colour */
+        margin-bottom: 30px; /* increase bottom magin */
+    }
+}
+
+/* --------------------------------------------------------------------- */
+/* fixtures section styles */
+
+#fixtures-section .section-body{
+	padding: 0px; /* remmove padding */
+}
+
+#fixtures-card{
+    background: #ecf0f1; /* colour section */
+}
+
+#fixtures-card .card-body{
+    /* remove left & right padding: */
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+.fixture-grid-container{
+    padding-top: 30px; /* change top padding */
+    padding-bottom: 20px; /* change bottom padding */
+	place-items: center; /* center items */
+}
+
+.fixture-grid-item p{
+     margin-top: 5px; /* change top margin */
+}
+
+.fixture-grid-item h3{
+    font-size: 1.2em; /* change size */
+    font-weight: bold; /* bolden */
+    padding-bottom: 10px; /* add bottom padding */
+}
+
+/* --------------------------------------------------------------------- */
+/* admin section styles */
+
+.admin-staff img{
+	width: 100px; /* change image width */
+}
+
+.admin-name{
+    margin-bottom: 0; /* remove bottom margin */
+}
+
+#admin-section .section-body p{
+    text-align: left; /* left align text */
+}
+
+/* devices 2000px and above: */
+@media (min-width: 2000px) {
+    #admin-section .section-body p{
+        text-align: center; /* center align text */
+    }
+}
+
+/* Medium devices (tablets, 768px and below) */
+@media (max-width: 768px){
+    /* remove left & right padding from various elements */
+    #admin-col, #admin-section, #admin-section .card-body{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .admin-title{
+        font-size: 22px; /* reduce font size */
+    }
+    #admin-section .section-body p{
+        /* add left & right margins: */
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+}
+
+/* alt admin text when in col-sm */
+#alt-admin-text{
+    background: #ecf0f1; /* add bg colour */
+	text-align: left; /* left align text  */
+	padding: 15px; /* add padding */
+    margin: 15px 50px 0px 50px; /*margins: top, right, bottom, left */
+}
+
+/* --------------------------------------------------------------------- */
+/* comments section styles */
+
+#comments-section{
+	background: #ecf0f1; /* colour section */
+	width: 100%; /* use 100% width */
+	padding-top: 50px; /* top padding */
+    padding-bottom: 80px; /* bottom padding */
+}
+
+#comments-section .section-header{
+    margin-top: 20px; /* add top margin */
+}
+
+#comment-totals{
+    font-size: 16px; /* font size */
+    margin-top: 10px; /* add top margin */
+}
+
+#total-comments, #total-likes{
+    font-size: small; /* reduce font size */
+}
+
+#total-comments:after{
+    content: "\00a0"; /* add space after element */
+}
+
+#comment-form{
+    text-align: center; /* center text */
+}
+
+#comment-form, #comments{
+    width: 45%; /* size width */
+    margin-left: auto; /* center div */
+    margin-right: auto; /* center div */
+}
+
+.comment{
+    margin-top: 40px; /* add top margin */
+}
+
+.fa-at, .comment-handle{
+    font-size: 18px; /* font size */
+}
+
+.fa-at{
+    color: #999999; /* text colour */
+}
+
+.comment-handle{
+    font-weight: bold; /* make bold */
+    color: #777777; /*text colour*/
+}
+
+.comment-likes-container{
+    float: right; /* float right */
+}
+
+.comment-likes-container, .comment-time, .comment-like-btn {
+    font-size: small; /* reduce font size */
+}
+
+.comment-like-btn:focus, #comment-btn:focus{ 
+    box-shadow: none; /* remove shadow*/
+}
+
+.fa-clock:after{
+    content: "\00a0"; /* add space after element */
+    /*https://stackoverflow.com/questions/5467605/add-a-space-after-an-element-using-after*/
+}
+
+#comment-btn{
+    margin-bottom: 20px; /* increase margin btm */
+}
+
+/* Large devices (desktops, 992px and below) */
+@media (max-width: 992px){
+    #comment-form, #comments{
+        width: 60%; /* size width */
+    }
+}
+
+/* Medium devices (tablets, 768px and below) */
+@media (max-width: 768px){
+    #comment-form, #comments{
+        width: 80%; /* size width */
+    }
+}
+
+/* Small devices (landscape phones, 576px and below) */
+@media (max-width: 576px){
+    #comment-form, #comments{
+        width: 100%; /* size width */
+    }
+}
+
+/* --------------------------------------------------------------------- */
+/* likes modal styles */
+
+.modal-content{
+    text-align: center; /* center text */
+}
+
+#likes-modal-title{
+    font-size: 20px; /* font size */
+    margin-bottom: 10px; /* margin btm */
+}
+
+#modal-total-likes{
+    color: #777777; /*text colour*/
+}
+
+/* Small devices (landscape phones, 576px and below) */
+@media (max-width: 576px){
+    #likes-modal{
+        width: 60%; /* reduce width */
+        margin-left: auto; /* center div */
+        margin-right: auto; /* center div */
+    }
+}
+
+/* --------------------------------------------------------------------- */
+/* footer styles */
+
+/* add underline removed by bootsrap: */
+footer a{ 
+    text-decoration: underline; 
+}
