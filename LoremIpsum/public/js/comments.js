@@ -40,11 +40,11 @@ function buildComments(){
             6));
 
     totalComments = comments.length; //set totalComments
-    document.getElementById("total-comments").innerHTML = totalComments; //show total comments
+    ///////////////document.getElementById("total-comments").innerHTML = totalComments; //show total comments
     for (let i=totalComments-1; i>=0; i--){ //loop through no of comments
         buildCommentCard(comments[i]);  //build commentCard for comment i
         totalLikes += comments[i].likes;} //add comment i's likes to total likes
-    document.getElementById("total-likes").innerHTML = totalLikes; //show total likes
+    /////////////document.getElementById("total-likes").innerHTML = totalLikes; //show total likes
     showComments(); //show comments on page
 }
 
@@ -161,7 +161,7 @@ function addComment(){
         comments.unshift(comment); //add new comment to comments
         buildCommentCard(comment); //create new card for comment
         //increment and show total comments:
-        document.getElementById("total-comments").innerHTML = ++totalComments;
+        //////////////document.getElementById("total-comments").innerHTML = ++totalComments;
         showComments(); //show comments
         document.getElementById("comment-form").reset(); //clear form
     }
@@ -178,20 +178,20 @@ function likeClick(comment, likeBtn, likes){
     if(likeBtnIcon.classList.contains("far")){
 
         //increment and show total likes:
-        document.getElementById("total-likes").innerHTML = ++totalLikes;
+        //////////////////document.getElementById("total-likes").innerHTML = ++totalLikes;
         //increment and show comment likes:
         likes.textContent = " " + ++comment.likes;
         //change to icon with "fas" class:
         likeBtnIcon = makeElement("i", "fas fa-thumbs-up");
         //update likes modal with total likes:
-        document.getElementById("modal-total-likes").textContent = totalLikes;
+        ///////////////document.getElementById("modal-total-likes").textContent = totalLikes;
         //show likes modal:
-        $("#likes-modal").modal("show");
+        ////////////////$("#likes-modal").modal("show");
 
     }else{ //holding an icon with "fas" class (was prev clicked):
        
         //decrement and show total likes:
-        document.getElementById("total-likes").innerHTML = --totalLikes;
+       ///////////// document.getElementById("total-likes").innerHTML = --totalLikes;
         //decrement and show comment likes:
         likes.textContent = " " + --comment.likes;
         //change to icon with "far" class:
