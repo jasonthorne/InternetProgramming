@@ -181,21 +181,21 @@
     }
     #admin-section .section-body p{
         /* add left & right margins: */
-        margin-left: 15px;
-        margin-right: 15px;
+        margin-left: 50px;
+        margin-right: 50px;
     }
 }
 
 /* +++++++++++++++++++++++++++++++++++++++++++ */
 
 /* Small devices (landscape phones, 576px and below) */
-@media (max-width: 576px){
+/*@media (max-width: 576px){
     #admin-section .section-body p{
-        /* add left & right margins: */
+        
         margin-left: 50px;
         margin-right: 50px;
     }
-}
+} +++++++++++++++++++++++REMOVE*/
 
 /* alt admin text when in col-sm ++++++++++++++++++++++++CHANGE THIS */
 #alt-admin-text{
