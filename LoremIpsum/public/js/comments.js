@@ -2,10 +2,10 @@
 //comment object:
 class Comment{
     //constructor sets properties:
-    constructor(handle, comment, post_date, likes){
+    constructor(handle, comment, date, likes){
         this.handle = handle;
         this.comment = comment;
-        this.post_date = post_date;
+        this.date = date;
         this.likes = likes;
     }
 }
@@ -95,7 +95,7 @@ function showComments(){
 
         buildTime( //update card's comment-time using comment i's post date:
             commentCard.querySelectorAll(".card .card-body .comment-time")[0],
-            comments[i].post_date);
+            comments[i].date);
         //https://mrfrontend.org/2017/10/2-ways-get-child-elements-javascript/
 
        //add comment card to comments element:
@@ -162,6 +162,7 @@ function addComment(){ //check Comment ++++++++++++
         comments.unshift(comment); //add new comment to comments
         buildCommentCard(comment); //create new card for comment
         //increment and show total comments:
+        ++totalComments;
         //////////////document.getElementById("total-comments").innerHTML = ++totalComments;
         showComments(); //show comments
         document.getElementById("comment-form").reset(); //clear form
