@@ -42,8 +42,8 @@ function buildComments(){
     totalComments = comments.length; //set totalComments
     ///////////////document.getElementById("total-comments").innerHTML = totalComments; //show total comments
     for (let i=totalComments-1; i>=0; i--){ //loop through no of comments
-        buildCommentCard(comments[i]);  //build commentCard for comment i
-        totalLikes += comments[i].likes;} //add comment i's likes to total likes
+        buildCommentCard(comments[i]);}  //build commentCard for comment i
+        //totalLikes += comments[i].likes;} //add comment i's likes to total likes
     /////////////document.getElementById("total-likes").innerHTML = totalLikes; //show total likes
     showComments(); //show comments on page
 }
@@ -55,7 +55,7 @@ function buildCommentCard(comment){
     let card = makeElement("div", "card comment"); //card
     let cardBody = makeElement("div", "card-body"); //card body
     let cardTitle = makeElement("div", "card-title"); //card title
-    let handleIcon = makeElement("i", "fas fa-at") // handle icon
+    //////////let handleIcon = makeElement("i", "fas fa-at") // handle icon
     let handle = makeElement("span", "comment-handle"); // handle
     let likesContainer = makeElement("span", "comment-likes-container"); //likes container
     let likesIcon = makeElement("i", "far fa-thumbs-up comment-likes-icon"); //likes icon
@@ -69,7 +69,8 @@ function buildCommentCard(comment){
     //build card from elements:
     likeBtn.replaceChildren(likeBtnIcon, likeBtnText); //build like button
     likesContainer.replaceChildren(likesIcon, likes); //build likes container
-    cardTitle.replaceChildren(likesContainer, handleIcon, handle); //build card title
+    ///////////////cardTitle.replaceChildren(likesContainer, handleIcon, handle); //build card title
+    cardTitle.replaceChildren(likesContainer, handle); //build card title
     cardBody.replaceChildren(cardTitle, text, time, likeBtn); //build card body
     card.appendChild(cardBody); //build card
 
@@ -138,7 +139,7 @@ var commentTooltip = new bootstrap.Tooltip(
 });
 
 //add new comment:
-function addComment(){
+function addComment(){ //check Comment ++++++++++++
 
     //get trimmed input values from form:
     let handleInput = document.getElementById("handle-input").value.trim();
@@ -166,6 +167,8 @@ function addComment(){
         document.getElementById("comment-form").reset(); //clear form
     }
 }
+
+//+++addComment
 
 //handle like button click:
 function likeClick(comment, likeBtn, likes){
