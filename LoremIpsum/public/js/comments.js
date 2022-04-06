@@ -40,7 +40,7 @@ function buildComments(){
             6));
 
     totalComments = comments.length; //set totalComments
-    ///////////////document.getElementById("total-comments").innerHTML = totalComments; //show total comments
+    ///////////document.getElementById("total-comments").innerHTML = totalComments; //show total comments
     for (let i=totalComments-1; i>=0; i--){ //loop through no of comments
         buildCommentCard(comments[i]);}  //build commentCard for comment i
         //totalLikes += comments[i].likes;} //add comment i's likes to total likes
