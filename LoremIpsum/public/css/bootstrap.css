@@ -305,13 +305,13 @@
 }
 
 /* --------------------------------------------------------------------- */
-/* likes modal styles */
+/* comment modal styles */
 
 .modal-content{
     text-align: center; /* center text */
 }
 
-#likes-modal-title{
+#comment-modal-title{
     font-size: 20px; /* font size */
     margin-bottom: 10px; /* margin btm */
 }
@@ -322,7 +322,7 @@
 
 /* Small devices (landscape phones, 576px and below) */
 @media (max-width: 576px){
-    #likes-modal{
+    #comment-modal{
         width: 60%; /* reduce width */
         margin-left: auto; /* center div */
         margin-right: auto; /* center div */

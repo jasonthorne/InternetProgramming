@@ -38,7 +38,7 @@
 				<h1 id="hero-title">
 					Lorem Ipsum F.C.
 				</h1>
-				More words here
+				<!--More words here-->
 				<!--++++++++++++++DELETE+++++++++++++++https://pixabay.com/photos/soccer-football-pitch-ball-grass-2042585/-->
 			</div>
 		</div>
@@ -380,7 +380,8 @@
 							<form id="comment-form">
 								<input type="text" class="form-control mb-3" id="handle-input" placeholder="Name" autocomplete="off" onfocus="handleTooltip.hide()">
 								<textarea type="text" class="form-control mb-3" id="comment-input" rows="6" placeholder="Comment" autocomplete="off" onfocus="commentTooltip.hide()"></textarea>
-								<input type="button" class="btn btn-secondary btn-sm" id="comment-btn" value="Post Comment" onclick="addComment()">
+								<!--<input type="button" class="btn btn-secondary btn-sm" id="comment-btn" value="Post Comment" onclick="addComment()">-->
+								<input type="button" class="btn btn-secondary btn-sm" id="comment-btn" value="Post Comment" onclick="checkComment()">
 							</form>
 
 							<!--
@@ -407,6 +408,26 @@
 			</div>
 		</section>
 
+		<div class="modal fade" id="comment-modal" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-sm modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-body">
+						<div id="comment-modal-title">
+							Confirm
+						</div>
+						<div id="comment-modal-comment">
+							I be a comment!
+						</div>
+						<div id="comment-modal-btns">
+							<input type="button" class="btn btn-secondary btn-sm" id="comment-btn" value="Post Comment" onclick="addComment()">
+							<input type="button" class="btn btn-secondary btn-sm" id="comment-btn" value="Post Comment" onclick="addComment()">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--
 		<div class="modal fade" id="likes-modal" tabindex="-1" role="dialog" aria-hidden="true">
 			<div class="modal-dialog modal-sm modal-dialog-centered">
 				<div class="modal-content">
@@ -419,6 +440,7 @@
 				</div>
 			</div>
 		</div>
+		-->
 
 		<footer>
 			<div id="footer-social-media">

@@ -39,7 +39,7 @@ function buildComments(){
             Date.now() - 3600000, //1 hour ago
             6));
 
-    totalComments = comments.length; //set totalComments
+    totalComments = 3; //comments.length; //set totalComments
     ///////////document.getElementById("total-comments").innerHTML = totalComments; //show total comments
     for (let i=totalComments-1; i>=0; i--){ //loop through no of comments
         buildCommentCard(comments[i]);}  //build commentCard for comment i
@@ -84,6 +84,13 @@ function buildCommentCard(comment){
     
     //add built card to array:
     commentCards.unshift(card);
+}
+
+function checkComment(){
+
+    //show comment modal:
+    $("#comment-modal").modal("show");
+    
 }
 
 function showComments(){
