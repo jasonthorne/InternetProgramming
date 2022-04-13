@@ -311,10 +311,13 @@
     text-align: center; /* center text */
 }
 
+
+/* ===========================*/
 #comment-modal-title{
     font-size: 20px; /* font size */
     margin-bottom: 10px; /* margin btm */
 }
+/* ===========================*/
 
 #modal-total-likes{
     color: #777777; /*text colour*/
