@@ -308,7 +308,11 @@
 /* comment modal styles */
 
 .modal-content{
-    text-align: center; /* center text */
+    /*text-align: center; /* center text */
+}
+
+.modal-open {
+    /*overflow: unset;*/
 }
 
 
