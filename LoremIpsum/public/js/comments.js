@@ -86,12 +86,12 @@ function buildCommentCard(comment){
     commentCards.unshift(card);
 }
 
-function checkComment(){
+/*function checkComment(){
 
     //show comment modal:
     $("#comment-modal").modal("show");
     
-}
+}*/
 
 function showComments(){
     //remove previous comments from comments div:
@@ -145,8 +145,8 @@ var commentTooltip = new bootstrap.Tooltip(
     trigger : "manual" //trigger maually
 });
 
-//add new comment:
-function addComment(){ //check Comment ++++++++++++
+//check a new comment:
+function checkComment(){ 
 
     //get trimmed input values from form:
     let handleInput = document.getElementById("handle-input").value.trim();
@@ -159,24 +159,42 @@ function addComment(){ //check Comment ++++++++++++
         if (commentInput.length == 0) {commentTooltip.show()};
     }else{ //input was valid:
 
-        //create new comment:
-        let comment = new Comment(
-            handleInput, //add handle input
-            commentInput, //add comment input
-            Date.now(), //add current date
-            0); //initialize likes as 0
+        //++++++++++++++++++++++++++++++POP UP MODAL HERE, CONFRIMIMG COMMENT++++
+
+        //prompt user to confirm comment:
+
+        //add comment input to comment modal:
+        document.getElementById("modal-comment-input").textContent = commentInput;
+
+        //show comment modal:
+        $("#comment-modal").modal("show");
+
+
+        //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
         
-        comments.unshift(comment); //add new comment to comments
-        buildCommentCard(comment); //create new card for comment
-        //increment and show total comments:
-        ++totalComments;
-        //////////////document.getElementById("total-comments").innerHTML = ++totalComments;
-        showComments(); //show comments
-        document.getElementById("comment-form").reset(); //clear form
     }
 }
 
-//+++addComment
+//add new comment:
+function addComment(){
+
+    //create new comment:
+    let comment = new Comment(
+        handleInput, //add handle input
+        commentInput, //add comment input
+        Date.now(), //add current date
+        0); //initialize likes as 0
+    
+    comments.unshift(comment); //add new comment to comments
+    buildCommentCard(comment); //create new card for comment
+    //increment and show total comments:
+    ++totalComments;
+    //////////////document.getElementById("total-comments").innerHTML = ++totalComments;
+    showComments(); //show comments
+    document.getElementById("comment-form").reset(); //clear form
+
+}
 
 //handle like button click:
 function likeClick(comment, likeBtn, likes){
