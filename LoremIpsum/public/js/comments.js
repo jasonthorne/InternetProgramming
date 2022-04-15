@@ -14,6 +14,8 @@ var comments = []; //comments
 var commentCards = []; //cards for displaying comments
 var totalComments = 0; //number of comments
 var totalLikes = 0; //number of likes
+var handleInput = ""; //holds inputted handle
+var commentInput = ""; //holds inputted comment
 
 //build comments:
 function buildComments(){
@@ -86,13 +88,7 @@ function buildCommentCard(comment){
     commentCards.unshift(card);
 }
 
-/*function checkComment(){
-
-    //show comment modal:
-    $("#comment-modal").modal("show");
-    
-}*/
-
+//show comments:
 function showComments(){
     //remove previous comments from comments div:
     document.getElementById("comments").replaceChildren(); 
@@ -149,8 +145,10 @@ var commentTooltip = new bootstrap.Tooltip(
 function checkComment(){ 
 
     //get trimmed input values from form:
-    let handleInput = document.getElementById("handle-input").value.trim();
-    let commentInput = document.getElementById("comment-input").value.trim();
+    ////////let handleInput = document.getElementById("handle-input").value.trim();
+    //////////let commentInput = document.getElementById("comment-input").value.trim();
+    handleInput = document.getElementById("handle-input").value.trim();
+    commentInput = document.getElementById("comment-input").value.trim();
 
     //check that inputs have values:
     if(handleInput.length == 0 || commentInput.length == 0){
@@ -159,20 +157,10 @@ function checkComment(){
         if (commentInput.length == 0) {commentTooltip.show()};
     }else{ //input was valid:
 
-        //++++++++++++++++++++++++++++++POP UP MODAL HERE, CONFRIMIMG COMMENT++++
-
-        //prompt user to confirm comment:
-
-        //add comment input to comment modal:
+        //add input to comment modal:
         document.getElementById("modal-comment-input").textContent = commentInput;
-
         //show comment modal:
         $("#comment-modal").modal("show");
-
-
-        //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-        
     }
 }
 
@@ -193,7 +181,7 @@ function addComment(){
     //////////////document.getElementById("total-comments").innerHTML = ++totalComments;
     showComments(); //show comments
     document.getElementById("comment-form").reset(); //clear form
-
+    $("#comment-modal").modal("hide"); //hide comment modal
 }
 
 //handle like button click:
