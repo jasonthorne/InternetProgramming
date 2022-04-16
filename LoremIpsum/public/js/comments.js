@@ -17,6 +17,11 @@ var totalLikes = 0; //number of likes
 var handleInput = ""; //holds inputted handle
 var commentInput = ""; //holds inputted comment
 
+//tool tips for error handling:
+var handleTooltip = makeToolTip("handle-input", "Enter Name"); //handle tooltip
+var commentTooltip = makeToolTip("comment-input", "Enter Comment");  //comment tooltip
+var commentBtnTooltip;
+
 //build comments:
 function buildComments(){
     
@@ -126,20 +131,24 @@ function buildTime(timeElement, postDate){
 }
 
 //handle tooltip:
-var handleTooltip = new bootstrap.Tooltip(
+/*var handleTooltip = new bootstrap.Tooltip(
     document.getElementById("handle-input"), { 
     placement : "right", //place to right of input
     title : "Enter Name", //give error message
     trigger : "manual" //trigger maually
-});
+});*/
 
 //comment tooltip:
+//var commentTooltip = makeToolTip("comment-input", "Enter Comment");
+
+/*
 var commentTooltip = new bootstrap.Tooltip(
     document.getElementById("comment-input"), {
     placement : "right", //place to right of input
     title : "Enter Comment", //give error message
     trigger : "manual" //trigger maually
 });
+*/
 
 //check a new comment:
 function checkComment(){ 
@@ -155,7 +164,7 @@ function checkComment(){
         //add tooltip warning for empty inputs:
         if (handleInput.length == 0) {handleTooltip.show()};
         if (commentInput.length == 0) {commentTooltip.show()};
-    }else{ //input was valid:
+    }else{ //input was valid: ++++++++++++++++ELSE IF HERE TO CHECK THAT COMMENT NOT ALREADY ENTERED BY USER (boolean - commentMade)
 
         //++++++++++++++++++ADD NAME & COMMENT - with effects on titles +++++++++
         //add input to comment modal:
@@ -224,4 +233,14 @@ function makeElement(type, className){
     let element = document.createElement(type); //create element
     element.className = className; //give classname
     return element;
+}
+
+//make a tool tip with error message:
+function makeToolTip(id, errorMsg){
+    return new bootstrap.Tooltip(
+        document.getElementById(id), { //get element
+        placement : "right", //place to right of input
+        title : errorMsg, //give error message
+        trigger : "manual" //trigger maually
+    });
 }
