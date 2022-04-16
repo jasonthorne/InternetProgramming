@@ -157,6 +157,7 @@ function checkComment(){
         if (commentInput.length == 0) {commentTooltip.show()};
     }else{ //input was valid:
 
+        //++++++++++++++++++ADD NAME & COMMENT - with effects on titles +++++++++
         //add input to comment modal:
         document.getElementById("modal-comment-input").textContent = commentInput;
         //show comment modal:
