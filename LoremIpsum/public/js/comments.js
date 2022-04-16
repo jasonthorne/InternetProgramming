@@ -154,8 +154,6 @@ var commentTooltip = new bootstrap.Tooltip(
 function checkComment(){ 
 
     //get trimmed input values from form:
-    ////////let handleInput = document.getElementById("handle-input").value.trim();
-    //////////let commentInput = document.getElementById("comment-input").value.trim();
     handleInput = document.getElementById("handle-input").value.trim();
     commentInput = document.getElementById("comment-input").value.trim();
 
