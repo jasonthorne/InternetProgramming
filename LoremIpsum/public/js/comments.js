@@ -166,9 +166,10 @@ function checkComment(){
         if (commentInput.length == 0) {commentTooltip.show()};
     }else{ //input was valid: ++++++++++++++++ELSE IF HERE TO CHECK THAT COMMENT NOT ALREADY ENTERED BY USER (boolean - commentMade)
 
-        //++++++++++++++++++ADD NAME & COMMENT - with effects on titles +++++++++
-        //add input to comment modal:
+        //add inputs to comment modal:
+        document.getElementById("modal-handle-input").textContent = handleInput;
         document.getElementById("modal-comment-input").textContent = commentInput;
+
         //show comment modal:
         $("#comment-modal").modal("show");
     }
