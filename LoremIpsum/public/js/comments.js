@@ -20,7 +20,7 @@ var commentInput = ""; //holds inputted comment
 //tool tips for error handling:
 var handleTooltip = makeToolTip("handle-input", "Enter Name"); //handle tooltip
 var commentTooltip = makeToolTip("comment-input", "Enter Comment");  //comment tooltip
-var commentBtnTooltip;
+var postTooltip = makeToolTip("comment-input", "yo dawg!"); 
 
 //build comments:
 function buildComments(){
