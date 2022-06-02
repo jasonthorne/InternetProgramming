@@ -46,13 +46,17 @@ function buildComments(){
             Date.now() - 3600000, //1 hour ago
             6));
 
-    totalComments = 3; //comments.length; //set totalComments
+    totalComments = comments.length; //set totalComments
     ///////////document.getElementById("total-comments").innerHTML = totalComments; //show total comments
-    for (let i=totalComments-1; i>=0; i--){ //loop through no of comments
+   for (let i=totalComments-1; i>=0; i--){ //loop through no of comments
         buildCommentCard(comments[i]);}  //build commentCard for comment i
         //totalLikes += comments[i].likes;} //add comment i's likes to total likes
     /////////////document.getElementById("total-likes").innerHTML = totalLikes; //show total likes
     showComments(); //show comments on page
+
+    /*comments.forEach(comment => buildCommentCard(comment)); //build a card for each comment
+    showComments(); //show comments on page*/
+
 }
 
 //build card element for comment:
