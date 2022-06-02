@@ -25,6 +25,27 @@ var commentTooltip = makeToolTip("comment-input", "Enter Comment");  //comment t
 //build comments:
 function buildComments(){
     
+    let request = new XMLHttpRequest(); //request object
+    //open get request on firebase's 'getComments' function:
+    request.open("GET", "https://us-central1-lorem-ipsum-fc.cloudfunctions.net/getComments");
+
+    //track ther state changes of the request:
+    request.onreadystatechange = function(){
+        
+        if(request.readyState === 4){ //if request is complete:
+            if(request.status === 200){ //if request returned successfully:
+                //parse response text into array of json:  
+                let commentsData = JSON.parse(request.responseText);
+
+                commentsData.forEach(comment =>{
+                    console.log(comment.comment);
+                })
+
+            }else{console.log("Error: " + request.status);} // an error occurred during the request
+        }
+    };
+    request.send(null);
+
     //add test comments:
     comments.push(
         new Comment(

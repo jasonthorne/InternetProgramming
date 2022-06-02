@@ -1,11 +1,11 @@
 
-const functions = require("firebase-functions");
+const functions = require("firebase-functions"); //functions library
+const admin = require("firebase-admin"); //admin library for allowing functions to run in an authenticated mode
+const cors = require('cors')({origin: true}); //cors libary to allow requests from clients
 
-/*admin library for allowing server code (functions) to run in an authenticated mode
-//this means code can CRUD docs securely*/
-const admin = require("firebase-admin");
 admin.initializeApp();
 
+//post comment function:
 exports.postComment = functions.https.onRequest((request, response) => {
 
 //1. receive comment data in here from POST request ".onRequest((request))"
@@ -17,22 +17,26 @@ return admin.firestore().collection("comments").add(request.body).then(()=>{
   });
 });
 
+//get comments function:
 exports.getComments = functions.https.onRequest((request, response) => {
+  
+  // 1. Connect to our firestore database
+  cors(request, response, () => {
 
-  // 1. Connect to our Firestore database
-  let myData = []
-  //////////admin.firestore().collection("comments").orderBy("date", "desc").get().then((snapshot) => {
-  admin.firestore().collection("comments").get().then((snapshot) => {
-      if (snapshot.empty) {
-          console.log("No matching documents.");
-          response.send("No data in database");
-          return; //return if no data
-      }
-      snapshot.forEach(doc => { 
-        myData.push(doc.data()); //add raw object data
-      });
-      // 2. Send data back to client
-      response.send(myData);
+    let myData = []
+    //////////admin.firestore().collection("comments").orderBy("date", "desc").get().then((snapshot) => {
+    admin.firestore().collection("comments").get().then((snapshot) => {
+
+        if (snapshot.empty) {
+            console.log("No matching documents.");
+            response.send("No data in database");
+            return; //return if no data
+        }
+        //add raw object data:
+        snapshot.forEach(doc => { myData.push(doc.data());});
+        // 2. Send data back to client
+        response.send(myData);
+    })
   })
 });
 
