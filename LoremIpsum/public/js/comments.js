@@ -37,21 +37,14 @@ function buildComments(){
 
                 //loop through a json array of comments from response text:
                 JSON.parse(request.responseText).forEach(jc =>{
-                    
+
                     //create new comment:
                     comment = new Comment(jc.handle, jc.comment, jc.date, jc.likes);
                     comments.push(comment); //add comment to comments
                     buildCommentCard(comment); //build commentCard for comment
-
-                    /*comments.push(new Comment( //add new comment obj to comments:
-                        comment.handle, comment.comment, comment.date, comment.likes));*/
                 })
 
                 totalComments = comments.length; //set totalComments
-                /*for (let i=totalComments-1; i>=0; i--){ //loop through no of comments
-                    buildCommentCard(comments[i]);  //build commentCard for comment i
-                }*/
-
                 showComments(); //show comments on page
             }else{ //an error occurred during the request
                 console.log("Error: " + request.status);} //give status of request

@@ -19,48 +19,28 @@ return admin.firestore().collection("comments").add(request.body).then(()=>{
 
 //get comments function:
 exports.getComments = functions.https.onRequest((request, response) => {
-  
-  // 1. Connect to our firestore database
-  cors(request, response, () => {
+  cors(request, response, () => { //using CORS to override Same Origin Policy
 
     let myData = []
     admin.firestore().collection("comments").orderBy("date", "desc").get().then((snapshot) => {
-    ////admin.firestore().collection("comments").get().then((snapshot) => {
 
-        if (snapshot.empty) {
-            console.log("No matching documents.");
-            response.send("No data in database");
-            return; //return if no data
-        }
-        //add raw object data:
-        snapshot.forEach(doc => { myData.push(doc.data());});
-        // 2. Send data back to client
-        response.send(myData);
+      if (snapshot.empty) {
+          console.log("No matching documents.");
+          response.send("No data in database");
+          return; //return if no data
+      }
+      snapshot.forEach(doc => { myData.push(doc.data());}); //add raw object data
+      response.send(myData); //send data back to client
     });
   });
 });
 
-
-/*
-exports.postcomment = functions.https.onRequest((request, response) => {
-
-  const currentTime = admin.firestore.Timestamp.now();
-  request.body.timestamp = currentTime;
-
-  return admin.firestore().collection('comments').add(request.body).then(()=>{
-      response.send("Saved comment in the database");
+//delete comment function:
+exports.deletecomment = functions.https.onRequest((request, response) => {
+  cors(request, response, () => { //using CORS to override Same Origin Policy
+      
+      return admin.firestore().collection("comments").doc(request.query.id).delete().then(function() 	{
+          response.send("Document successfully deleted!");
+      })
   });
-});*/
-
-
-
-
-/*
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-exports.helloWorld = functions.https.onRequest((request, response) => {
-   functions.logger.info("Hello logs!", {structuredData: true});
-   response.send("Hello dawg!");
- });
-*/
+});
