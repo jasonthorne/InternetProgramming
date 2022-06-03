@@ -24,8 +24,8 @@ exports.getComments = functions.https.onRequest((request, response) => {
   cors(request, response, () => {
 
     let myData = []
-    //////////admin.firestore().collection("comments").orderBy("date", "desc").get().then((snapshot) => {
-    admin.firestore().collection("comments").get().then((snapshot) => {
+    admin.firestore().collection("comments").orderBy("date", "desc").get().then((snapshot) => {
+    ////admin.firestore().collection("comments").get().then((snapshot) => {
 
         if (snapshot.empty) {
             console.log("No matching documents.");
@@ -36,8 +36,8 @@ exports.getComments = functions.https.onRequest((request, response) => {
         snapshot.forEach(doc => { myData.push(doc.data());});
         // 2. Send data back to client
         response.send(myData);
-    })
-  })
+    });
+  });
 });
 
 

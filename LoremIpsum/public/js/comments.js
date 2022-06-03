@@ -34,32 +34,25 @@ function buildComments(){
         
         if(request.readyState === 4){ //if request is complete:
             if(request.status === 200){ //if request returned successfully:
-                //parse response text into array of json:  
-                /*let commentsData = JSON.parse(request.responseText);
-
-                commentsData.forEach(comment =>{
-                    console.log(comment.comment);
-                })*/
 
                 //loop through a json array of comments from response text:
-                JSON.parse(request.responseText).forEach(comment =>{
-                    comments.push(new Comment( //add new comment obj to comments:
-                        comment.handle, comment.comment, comment.date, comment.likes));
+                JSON.parse(request.responseText).forEach(jc =>{
+                    
+                    //create new comment:
+                    comment = new Comment(jc.handle, jc.comment, jc.date, jc.likes);
+                    comments.push(comment); //add comment to comments
+                    buildCommentCard(comment); //build commentCard for comment
+
+                    /*comments.push(new Comment( //add new comment obj to comments:
+                        comment.handle, comment.comment, comment.date, comment.likes));*/
                 })
 
-                console.log(comments); //++++++++++++
-                
-
                 totalComments = comments.length; //set totalComments
-                ///////////document.getElementById("total-comments").innerHTML = totalComments; //show total comments
-               for (let i=totalComments-1; i>=0; i--){ //loop through no of comments
-                    buildCommentCard(comments[i]);}  //build commentCard for comment i
-                    //totalLikes += comments[i].likes;} //add comment i's likes to total likes
-                /////////////document.getElementById("total-likes").innerHTML = totalLikes; //show total likes
+                /*for (let i=totalComments-1; i>=0; i--){ //loop through no of comments
+                    buildCommentCard(comments[i]);  //build commentCard for comment i
+                }*/
+
                 showComments(); //show comments on page
-
-                console.log(comments); //++++++++++++
-
             }else{ //an error occurred during the request
                 console.log("Error: " + request.status);} //give status of request
         }
