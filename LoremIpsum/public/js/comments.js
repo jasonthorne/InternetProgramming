@@ -37,7 +37,6 @@ function buildComments(){
 
                 //loop through a json array of comments from response text:
                 JSON.parse(request.responseText).forEach(jc =>{
-
                     //create new comment:
                     comment = new Comment(jc.handle, jc.comment, jc.date, jc.likes);
                     comments.push(comment); //add comment to comments
@@ -217,8 +216,7 @@ function addComment(){
     
     comments.unshift(comment); //add new comment to comments
     buildCommentCard(comment); //create new card for comment
-    //increment and show total comments:
-    ++totalComments;
+    ++totalComments; //increment total comments
     //////////////document.getElementById("total-comments").innerHTML = ++totalComments;
     showComments(); //show comments
     document.getElementById("comment-form").reset(); //clear form
