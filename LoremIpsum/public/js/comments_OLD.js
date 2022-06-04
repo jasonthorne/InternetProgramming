@@ -11,9 +11,9 @@ class Comment{
 }
 
 var comments = []; //comments  //++++++++++++++++++++++++++++++++WHY IS THIS HERE :P NO NEED FOR COMMENT OBJ :P
-var commentCards = []; //cards for displaying comments //+++++++++++++RENAME TO COMMENTS
+var commentCards = []; //cards for displaying comments
 var totalComments = 0; //number of comments
-///var totalLikes = 0; //number of likes
+var totalLikes = 0; //number of likes
 var handleInput = ""; //holds inputted handle
 var commentInput = ""; //holds inputted comment
 
@@ -22,8 +22,8 @@ var handleTooltip = makeToolTip("handle-input", "Enter Name"); //handle tooltip
 var commentTooltip = makeToolTip("comment-input", "Enter Comment");  //comment tooltip
 ////////////?????????var postTooltip = makeToolTip("comment-input", "yo dawg!"); 
 
-//get comment data from db:
-function getCommentData(){
+//build comments:
+function buildComments(){
     
     let request = new XMLHttpRequest(); //request object
     //open get request on firebase's 'getComments' function:
@@ -40,10 +40,10 @@ function getCommentData(){
                     //create new comment:
                     comment = new Comment(jc.handle, jc.comment, jc.date, jc.likes);
                     comments.push(comment); //add comment to comments
-                    buildComment(comment); //build commentCard for comment
+                    buildCommentCard(comment); //build commentCard for comment
                 })
 
-                totalComments = comments.length; //set totalComments ??????????????????????????
+                totalComments = comments.length; //set totalComments
                 showComments(); //show comments on page
             }else{ //an error occurred during the request
                 console.log("Error: " + request.status);} //give status of request
@@ -87,9 +87,7 @@ function getCommentData(){
 }
 
 //build card element for comment:
-////function buildComment(comment){ //???????????PUSH IN ARGS HERE NOT COOMENT OBJ +++++++++++
-function buildComment(handle, comment, date, likes){ //???????????PUSH IN ARGS HERE NOT COOMENT OBJ +++++++++++
-
+function buildCommentCard(comment){
 
     //create html elements with class names:
     let card = makeElement("div", "card comment"); //card
