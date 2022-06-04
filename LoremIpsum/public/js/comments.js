@@ -1,6 +1,6 @@
 
 //comment object:
-class Comment{
+/*class Comment{
     //constructor sets properties:
     constructor(handle, comment, date, likes){
         this.handle = handle;
@@ -8,11 +8,11 @@ class Comment{
         this.date = date;
         this.likes = likes;
     }
-}
+}*/
 
 var comments = []; //comments  //++++++++++++++++++++++++++++++++WHY IS THIS HERE :P NO NEED FOR COMMENT OBJ :P
-var commentCards = []; //cards for displaying comments //+++++++++++++RENAME TO COMMENTS
-var totalComments = 0; //number of comments
+///var commentCards = []; //cards for displaying comments //+++++++++++++RENAME TO COMMENTS
+/////////var totalComments = 0; //number of comments
 ///var totalLikes = 0; //number of likes
 var handleInput = ""; //holds inputted handle
 var commentInput = ""; //holds inputted comment
@@ -22,8 +22,8 @@ var handleTooltip = makeToolTip("handle-input", "Enter Name"); //handle tooltip
 var commentTooltip = makeToolTip("comment-input", "Enter Comment");  //comment tooltip
 ////////////?????????var postTooltip = makeToolTip("comment-input", "yo dawg!"); 
 
-//get comment data from db:
-function getCommentData(){
+//get comments from db:
+function getComments(){
     
     let request = new XMLHttpRequest(); //request object
     //open get request on firebase's 'getComments' function:
@@ -36,14 +36,14 @@ function getCommentData(){
             if(request.status === 200){ //if request returned successfully:
 
                 //loop through a json array of comments from response text:
-                JSON.parse(request.responseText).forEach(jc =>{
+                JSON.parse(request.responseText).forEach(comment =>{
                     //create new comment:
-                    comment = new Comment(jc.handle, jc.comment, jc.date, jc.likes);
-                    comments.push(comment); //add comment to comments
-                    buildComment(comment); //build commentCard for comment
-                })
+                    //////////////comment = new Comment(jsonComment.handle, jsonComment.comment, jsonComment.date, jsonComment.likes);
+                    ////////////comments.push(comment); //add comment to comments
+                    buildCommentCard(comment); //build commentCard for comment
+                });
 
-                totalComments = comments.length; //set totalComments ??????????????????????????
+                ////////totalComments = comments.length; //set totalComments ??????????????????????????
                 showComments(); //show comments on page
             }else{ //an error occurred during the request
                 console.log("Error: " + request.status);} //give status of request
@@ -87,8 +87,8 @@ function getCommentData(){
 }
 
 //build card element for comment:
-////function buildComment(comment){ //???????????PUSH IN ARGS HERE NOT COOMENT OBJ +++++++++++
-function buildComment(handle, comment, date, likes){ //???????????PUSH IN ARGS HERE NOT COOMENT OBJ +++++++++++
+function buildCommentCard(comment){ //???????????PUSH IN ARGS HERE NOT COOMENT OBJ +++++++++++
+
 
 
     //create html elements with class names:
@@ -101,7 +101,8 @@ function buildComment(handle, comment, date, likes){ //???????????PUSH IN ARGS H
     let likesIcon = makeElement("i", "far fa-thumbs-up comment-likes-icon"); //likes icon
     let likes = makeElement("span", "text-muted comment-likes"); //likes
     let text = makeElement("p", "card-text comment-text"); //comment
-    let time = makeElement("p", "card-text text-muted comment-time"); //time
+    ///////let time = makeElement("p", "card-text text-muted comment-time"); //time
+    let date = makeElement("p", "card-text text-muted comment-time"); //time //+++++++++++CHANGE ID ++++++++++
     let likeBtn = makeElement("button", "btn btn-sm btn-outline-secondary comment-like-btn"); //like btn
     let likeBtnIcon = makeElement("i", "far fa-thumbs-up"); //like button icon
     let likeBtnText = document.createTextNode(" Like"); //like button text
@@ -111,27 +112,34 @@ function buildComment(handle, comment, date, likes){ //???????????PUSH IN ARGS H
     likesContainer.replaceChildren(likesIcon, likes); //build likes container
     ///////////////cardTitle.replaceChildren(likesContainer, handleIcon, handle); //build card title
     cardTitle.replaceChildren(likesContainer, handle); //build card title
-    cardBody.replaceChildren(cardTitle, text, time, likeBtn); //build card body
+    //////////////cardBody.replaceChildren(cardTitle, text, time, likeBtn); //build card body
+    cardBody.replaceChildren(cardTitle, text, date, likeBtn); //build card body
     card.appendChild(cardBody); //build card
 
     //add values to elements:
     handle.textContent = comment.handle; //add comment's handle to handle
     text.textContent = comment.comment; //add comment's text to comment text
+    date.textContent = comment.date; //NEW#########++++++++++++++++++++++
     likes.textContent = " " + comment.likes; //add comment's likes to likes
     likeBtn.addEventListener("click", function(){  //add click event to like btn
         likeClick(comment, likeBtn, likes);  //call likeClick() on click
     }); 
     
     //add built card to array:
-    commentCards.unshift(card);
+    ////////////commentCards.unshift(card);
+    comments.unshift(card);
 }
 
 //show comments:
 function showComments(){
     //remove previous comments from comments div:
+    ////////document.getElementById("comments").replaceChildren(); 
+    //remove previous comments from comments div:
     document.getElementById("comments").replaceChildren(); 
+    //add each comment to comments element:
+    comments.forEach(comment => document.getElementById("comments").appendChild(comment));
 
-    for (let i=0; i<totalComments; i++){ //loop through no of comments
+    /*for (let i=0; i<totalComments; i++){ //loop through no of comments
         let commentCard = commentCards[i]; //grab comment i's card element
 
         buildTime( //update card's comment-time using comment i's post date:
@@ -140,8 +148,8 @@ function showComments(){
         //https://mrfrontend.org/2017/10/2-ways-get-child-elements-javascript/
 
        //add comment card to comments element:
-       document.getElementById("comments").appendChild(commentCard);
-    }
+       document.getElementById("comments").appendChild(commentCard)
+    };*/
 }
 
 //build time since comment post:
