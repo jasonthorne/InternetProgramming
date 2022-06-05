@@ -87,10 +87,8 @@ function getComments(){
 }
 
 //build card element for comment:
-function buildCommentCard(comment){ //???????????PUSH IN ARGS HERE NOT COOMENT OBJ +++++++++++
-
-
-
+function buildCommentCard(comment){ 
+    
     //create html elements with class names:
     let card = makeElement("div", "card comment"); //card
     let cardBody = makeElement("div", "card-body"); //card body
@@ -218,15 +216,15 @@ function checkComment(){
 function addComment(){
 
     //create new comment:
-    let comment = new Comment(
-        handleInput, //add handle input
-        commentInput, //add comment input
-        Date.now(), //add current date
-        0); //initialize likes as 0
+    let comment = {
+        handle: handleInput, //add handle input
+        comment: commentInput, //add comment input
+        date: Date.now(), //add current date
+        likes: 0}; //initialize likes as 0
     
-    comments.unshift(comment); //add new comment to comments
+   // comments.unshift(comment); //add new comment to comments
     buildCommentCard(comment); //create new card for comment
-    ++totalComments; //increment total comments
+    ////////////++totalComments; //increment total comments
     //////////////document.getElementById("total-comments").innerHTML = ++totalComments;
     showComments(); //show comments
     document.getElementById("comment-form").reset(); //clear form
