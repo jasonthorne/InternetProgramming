@@ -35,12 +35,14 @@ function getComments(){
         if(request.readyState === 4){ //if request is complete:
             if(request.status === 200){ //if request returned successfully:
 
-                //loop through a json array of comments from response text:
+                //loop through array of comments from response text:
                 JSON.parse(request.responseText).forEach(comment =>{
                     //create new comment:
                     //////////////comment = new Comment(jsonComment.handle, jsonComment.comment, jsonComment.date, jsonComment.likes);
                     ////////////comments.push(comment); //add comment to comments
-                    buildCommentCard(comment); //build commentCard for comment
+                    //makeCommentCard(comment); //build commentCard for comment
+
+                    comments.unshift(makeCommentCard(comment));
                 });
 
                 ////////totalComments = comments.length; //set totalComments ??????????????????????????
@@ -87,7 +89,7 @@ function getComments(){
 }
 
 //build card element for comment:
-function buildCommentCard(comment){ 
+function makeCommentCard(comment){ 
     
     //create html elements with class names:
     let card = makeElement("div", "card comment"); //card
@@ -125,7 +127,9 @@ function buildCommentCard(comment){
     
     //add built card to array:
     ////////////commentCards.unshift(card);
-    comments.unshift(card);
+    ////////////comments.unshift(card); //++++++++++++++++REYURN COMMENT CARD HERE INSTEAD :P
+    //and add in function cvalling this.
+    return card;
 }
 
 //show comments:
@@ -222,8 +226,17 @@ function addComment(){
         date: Date.now(), //add current date
         likes: 0}; //initialize likes as 0
     
-   // comments.unshift(comment); //add new comment to comments
-    buildCommentCard(comment); //create new card for comment
+    // comments.unshift(comment); //add new comment to comments
+    //make card for comment:
+    let commentCard = makeCommentCard(comment);
+
+    //++++++++ADD DELETE BTN HERE ++++++++++++++
+    //add delete btn to right of like btn - with click event which removes it from list.
+    //remove 
+    ///https://stackoverflow.com/questions/56284370/remove-self-element-onclick
+
+
+    comments.unshift(makeCommentCard(comment)); //create new card for comment
     ////////////++totalComments; //increment total comments
     //////////////document.getElementById("total-comments").innerHTML = ++totalComments;
     showComments(); //show comments
