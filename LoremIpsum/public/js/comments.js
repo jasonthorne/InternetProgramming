@@ -1,14 +1,4 @@
 
-//comment object:
-/*class Comment{
-    //constructor sets properties:
-    constructor(handle, comment, date, likes){
-        this.handle = handle;
-        this.comment = comment;
-        this.date = date;
-        this.likes = likes;
-    }
-}*/
 
 var comments = []; //comments  //++++++++++++++++++++++++++++++++WHY IS THIS HERE :P NO NEED FOR COMMENT OBJ :P
 ///var commentCards = []; //cards for displaying comments //+++++++++++++RENAME TO COMMENTS
@@ -102,7 +92,10 @@ function makeCommentCard(comment){
     let likes = makeElement("span", "text-muted comment-likes"); //likes
     let text = makeElement("p", "card-text comment-text"); //comment
     ///////let time = makeElement("p", "card-text text-muted comment-time"); //time
-    let date = makeElement("p", "card-text text-muted comment-time"); //time //+++++++++++CHANGE ID ++++++++++
+    ///////////let dateContainer = makeElement("p", "comment-likes-container"); //likes container
+    let date = makeElement("p", "card-text text-muted comment-date"); //date //+++++++++++CHANGE ID ++++++++++
+    let dateIcon = makeElement("i", "fa-regular fa-calendar comment-date-icon"); //likes icon
+    let dateText = makeElement("span", "card-text date-text"); //date text
     let likeBtn = makeElement("button", "btn btn-sm btn-outline-secondary comment-like-btn"); //like btn
     let likeBtnIcon = makeElement("i", "far fa-thumbs-up"); //like button icon
     let likeBtnText = document.createTextNode(" Like"); //like button text
@@ -112,14 +105,26 @@ function makeCommentCard(comment){
     likesContainer.replaceChildren(likesIcon, likes); //build likes container
     ///////////////cardTitle.replaceChildren(likesContainer, handleIcon, handle); //build card title
     cardTitle.replaceChildren(likesContainer, handle); //build card title
+
+    date.replaceChildren(dateIcon, dateText); //add date
+
     //////////////cardBody.replaceChildren(cardTitle, text, time, likeBtn); //build card body
+    ///////////cardBody.replaceChildren(cardTitle, text, date, likeBtn); //build card body
     cardBody.replaceChildren(cardTitle, text, date, likeBtn); //build card body
     card.appendChild(cardBody); //build card
 
     //add values to elements:
     handle.textContent = comment.handle; //add comment's handle to handle
     text.textContent = comment.comment; //add comment's text to comment text
-    date.textContent = comment.date; //NEW#########++++++++++++++++++++++
+    //date.textContent = comment.date; //NEW#########++++++++++++++++++++++
+    dateText.textContent = comment.date;
+
+   // date.replaceChildren(dateIcon, document.createTextNode(comment.date)); //add time string
+
+
+
+
+
     likes.textContent = " " + comment.likes; //add comment's likes to likes
     likeBtn.addEventListener("click", function(){  //add click event to like btn
         likeClick(comment, likeBtn, likes);  //call likeClick() on click
@@ -205,7 +210,7 @@ function checkComment(){
         //add tooltip warning for empty inputs:
         if (handleInput.length == 0) {handleTooltip.show()};
         if (commentInput.length == 0) {commentTooltip.show()};
-    }else{ //input was valid: ++++++++++++++++ELSE IF HERE TO CHECK THAT COMMENT NOT ALREADY ENTERED BY USER (boolean - commentMade)
+    }else{ //input was valid:
 
         //add inputs to comment modal:
         document.getElementById("modal-handle-input").textContent = handleInput;

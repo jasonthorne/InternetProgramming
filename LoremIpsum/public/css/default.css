@@ -237,6 +237,6 @@ footer a:hover{
 	transition: 0.3s ease all; /* transition properties */
 }
 
-#footer-social-media a{
+#footer-attributes a{
 	text-decoration: none; /* remove underscores */
 }
