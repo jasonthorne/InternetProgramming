@@ -116,22 +116,22 @@ function makeCommentCard(comment){
     handle.textContent = comment.handle; //add comment's handle to handle
     text.textContent = comment.comment; //add comment's text to comment text
     //date.textContent = comment.date; //NEW#########++++++++++++++++++++++
-    dateText.textContent = new Date(comment.date).toDateString();
+    dateText.textContent = new Date(comment.date).toTimeString();
 
     //test = new Date(comment.date);
     //console.log(test);
    // date.replaceChildren(dateIcon, document.createTextNode(comment.date)); //add time string
     const toTimestamp = (strDate) => {  
-        const dt = new Date(strDate).getTime();  
-        return dt / 1000;  
+        var datum = Date.parse(strDate);
+        return datum/1000; 
     }  
-    //console.log(toTimestamp('02/13/2020 23:31:30'));
+    console.log(comment.date);
 
     console.log("Mum: " + toTimestamp('06/06/2022 22:15:17'));
     console.log("Dan: " + toTimestamp('01/06/2022 18:48:02'));
     console.log("Laura: " + toTimestamp('05/19/2022 08:14:30'));
-   
-    
+   //https://www.toptal.com/software/definitive-guide-to-datetime-manipulation
+
 
 
     likes.textContent = " " + comment.likes; //add comment's likes to likes
