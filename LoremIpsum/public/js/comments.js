@@ -240,17 +240,11 @@ function addComment(){
     let deleteBtnText = document.createTextNode(" Delete"); //delete button text
     deleteBtn.replaceChildren(deleteBtnIcon, deleteBtnText); //build delete button
     deleteBtn.addEventListener("click", function(){  //add click event to delete btn
-        //likeClick(comment, likeBtn, likes); 
-        console.log("delete clicked");
+        comments.splice(comments.indexOf(commentCard), 1); //remove comment card from comments
+        showComments(); //show comments
     });
     //add delete button:
     commentCard.querySelectorAll(".card .card-body")[0].appendChild(deleteBtn);
-
-    //++++++++ADD DELETE BTN HERE ++++++++++++++
-    //add delete btn to right of like btn - with click event which removes it from list.
-    //remove 
-    ///https://stackoverflow.com/questions/56284370/remove-self-element-onclick
-
 
     comments.unshift(commentCard); //add to comments
     ////////////++totalComments; //increment total comments
