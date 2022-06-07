@@ -31,7 +31,7 @@ function getComments(){
                     ////////////comments.push(comment); //add comment to comments
                     //makeCommentCard(comment); //build commentCard for comment
 
-                    comments.push(makeCommentCard(comment));
+                    comments.push(makeCommentCard(comment, false));
                 });
 
                 ////////totalComments = comments.length; //set totalComments ??????????????????????????
@@ -78,7 +78,7 @@ function getComments(){
 }
 
 //build card element for comment:
-function makeCommentCard(comment){ 
+function makeCommentCard(comment, isNew){ 
     
     //create html elements with class names:
     let card = makeElement("div", "card comment"); //card
@@ -95,12 +95,28 @@ function makeCommentCard(comment){
     let date = makeElement("p", "card-text text-muted comment-date"); //date //+++++++++++CHANGE ID ++++++++++
     let dateIcon = makeElement("i", "fa-regular fa-calendar comment-date-icon"); //likes icon
     let dateText = makeElement("span", "card-text date-text"); //date text
-    let likeBtn = makeElement("button", "btn btn-sm btn-outline-secondary comment-like-btn"); //like btn
-    let likeBtnIcon = makeElement("i", "far fa-thumbs-up"); //like button icon
-    let likeBtnText = document.createTextNode(" Like"); //like button text
+    let button = null;
+
+    if(!isNew){ //if comment isn't new, create like button:
+        button = makeElement("button", "btn btn-sm btn-outline-secondary comment-like-btn"); //like btn
+        let likeBtnIcon = makeElement("i", "far fa-thumbs-up"); //like button icon
+        let likeBtnText = document.createTextNode(" Like"); //like button text
+        button.replaceChildren(likeBtnIcon, likeBtnText); //build like button
+        button.addEventListener("click", function(){  //add click event to like btn
+            likeClick(comment, button, likes);  //call likeClick() on click
+        }); 
+    }else{ //if comment is new, create delete button:
+        button = makeElement("button", "btn btn-sm btn-outline-secondary comment-delete-btn"); //delete btn
+        let deleteBtnIcon = makeElement("i", "fa-regular fa-trash-can"); //delete button icon
+        let deleteBtnText = document.createTextNode(" Delete"); //delete button text
+        button.replaceChildren(deleteBtnIcon, deleteBtnText); //build delete button
+        button.addEventListener("click", function(){  //add click event to delete btn
+            console.log("delete click!");  //call likeClick() on click
+        }); 
+    }
+    
 
     //build card from elements:
-    likeBtn.replaceChildren(likeBtnIcon, likeBtnText); //build like button
     likesContainer.replaceChildren(likesIcon, likes); //build likes container
     ///////////////cardTitle.replaceChildren(likesContainer, handleIcon, handle); //build card title
     cardTitle.replaceChildren(likesContainer, handle); //build card title
@@ -109,19 +125,24 @@ function makeCommentCard(comment){
 
     //////////////cardBody.replaceChildren(cardTitle, text, time, likeBtn); //build card body
     ///////////cardBody.replaceChildren(cardTitle, text, date, likeBtn); //build card body
-    cardBody.replaceChildren(cardTitle, text, date, likeBtn); //build card body
+    cardBody.replaceChildren(cardTitle, text, date, button); //build card body
     card.appendChild(cardBody); //build card
 
     //add values to elements:
     handle.textContent = comment.handle; //add comment's handle to handle
     text.textContent = comment.comment; //add comment's text to comment text
     //date.textContent = comment.date; //NEW#########++++++++++++++++++++++
-    dateText.textContent = new Date(comment.date * 1000).toLocaleString('en-GB');
+
+    dateText.textContent = new Date(
+        comment.date*1000).toLocaleString('en-GB').slice(0, -3);
     
     likes.textContent = " " + comment.likes; //add comment's likes to likes
-    likeBtn.addEventListener("click", function(){  //add click event to like btn
-        likeClick(comment, likeBtn, likes);  //call likeClick() on click
-    }); 
+    
+
+
+    //https://stackoverflow.com/questions/4313841/insert-a-string-at-a-specific-index
+    
+    //528
     
     //add built card to array:
     ////////////commentCards.unshift(card);
@@ -222,12 +243,19 @@ function addComment(){
     let comment = {
         handle: handleInput, //add handle input
         comment: commentInput, //add comment input
-        date: Math.floor(Date.now() / 1000),//////////Date.now(), //add current date
+        date: Math.floor(Date.now()/1000),//////////Date.now(), //add current date
         likes: 0}; //initialize likes as 0
     
     // comments.unshift(comment); //add new comment to comments
     //make card for comment:
-    let commentCard = makeCommentCard(comment);
+    let commentCard = makeCommentCard(comment, true);
+
+    
+    
+    //commentCard.querySelectorAll(".card .card-body")[0].appendChild(deleteBtn);
+    //commentCard.querySelectorAll(".card .card-body .comment-like-btn")[0].;
+
+
 
     //++++++++ADD DELETE BTN HERE ++++++++++++++
     //add delete btn to right of like btn - with click event which removes it from list.
@@ -235,7 +263,7 @@ function addComment(){
     ///https://stackoverflow.com/questions/56284370/remove-self-element-onclick
 
 
-    comments.unshift(makeCommentCard(comment)); //create new card for comment
+    comments.unshift(commentCard); //create new card for comment
     ////////////++totalComments; //increment total comments
     //////////////document.getElementById("total-comments").innerHTML = ++totalComments;
     showComments(); //show comments

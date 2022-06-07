@@ -266,15 +266,19 @@
     color: #777777; /*text colour*/
 }
 
+/*.comment-delete-btn{
+    margin-left: 10px;
+}*/
+
 .comment-likes-container{
     float: right; /* float right */
 }
 
-.comment-likes-container, .comment-date, .comment-like-btn {
+.comment-likes-container, .comment-date, .comment-like-btn, .comment-delete-btn {
     font-size: small; /* reduce font size */
 }
 
-.comment-like-btn:focus, #comment-btn:focus{ 
+.comment-like-btn:focus, #comment-btn:focus, .comment-delete-btn:focus{ 
     box-shadow: none; /* remove shadow*/
 }
 
