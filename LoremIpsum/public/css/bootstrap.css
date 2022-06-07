@@ -226,18 +226,19 @@
     margin-top: 20px; /* add top margin */
 }
 
+/*
 #comment-totals{
-    font-size: 16px; /* font size */
-    margin-top: 10px; /* add top margin */
+    font-size: 16px; /* font size 
+    margin-top: 10px; /* add top margin 
 }
 
 #total-comments, #total-likes{
-    font-size: small; /* reduce font size */
+    font-size: small; /* reduce font size 
 }
 
 #total-comments:after{
-    content: "\00a0"; /* add space after element */
-}
+    content: "\00a0"; /* add space after element 
+}*/
 
 #comment-form{
     text-align: center; /* center text */
@@ -266,9 +267,16 @@
     color: #777777; /*text colour*/
 }
 
-/*.comment-delete-btn{
+.comment-delete-btn{
     margin-left: 10px;
-}*/
+}
+
+/*
+.comment-delete-btn:hover{
+    background-color: #ffffff;
+    color: #777777;
+}
+*/
 
 .comment-likes-container{
     float: right; /* float right */
