@@ -31,7 +31,7 @@ function getComments(){
                     ////////////comments.push(comment); //add comment to comments
                     //makeCommentCard(comment); //build commentCard for comment
 
-                    comments.unshift(makeCommentCard(comment));
+                    comments.push(makeCommentCard(comment));
                 });
 
                 ////////totalComments = comments.length; //set totalComments ??????????????????????????
@@ -116,24 +116,8 @@ function makeCommentCard(comment){
     handle.textContent = comment.handle; //add comment's handle to handle
     text.textContent = comment.comment; //add comment's text to comment text
     //date.textContent = comment.date; //NEW#########++++++++++++++++++++++
-    dateText.textContent = new Date(comment.date).toTimeString();
-
-    //test = new Date(comment.date);
-    //console.log(test);
-   // date.replaceChildren(dateIcon, document.createTextNode(comment.date)); //add time string
-    const toTimestamp = (strDate) => {  
-        var datum = Date.parse(strDate);
-        return datum/1000; 
-    }  
-    console.log(comment.date);
-
-    console.log("Mum: " + toTimestamp('06/06/2022 22:15:17'));
-    console.log("Dan: " + toTimestamp('01/06/2022 18:48:02'));
-    console.log("Laura: " + toTimestamp('05/19/2022 08:14:30'));
-   //https://www.toptal.com/software/definitive-guide-to-datetime-manipulation
-
-
-
+    dateText.textContent = new Date(comment.date * 1000).toLocaleString('en-GB');
+    
     likes.textContent = " " + comment.likes; //add comment's likes to likes
     likeBtn.addEventListener("click", function(){  //add click event to like btn
         likeClick(comment, likeBtn, likes);  //call likeClick() on click
@@ -141,9 +125,10 @@ function makeCommentCard(comment){
     
     //add built card to array:
     ////////////commentCards.unshift(card);
-    ////////////comments.unshift(card); //++++++++++++++++REYURN COMMENT CARD HERE INSTEAD :P
+    //comments.unshift(card); //++++++++++++++++REYURN COMMENT CARD HERE INSTEAD :P
     //and add in function cvalling this.
     return card;
+
 }
 
 //show comments:
@@ -237,7 +222,7 @@ function addComment(){
     let comment = {
         handle: handleInput, //add handle input
         comment: commentInput, //add comment input
-        date: Date.now(), //add current date
+        date: Math.floor(Date.now() / 1000),//////////Date.now(), //add current date
         likes: 0}; //initialize likes as 0
     
     // comments.unshift(comment); //add new comment to comments
