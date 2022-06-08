@@ -6,6 +6,8 @@ var comments = []; //comments  //++++++++++++++++++++++++++++++++WHY IS THIS HER
 var handleInput = ""; //holds inputted handle
 var commentInput = ""; //holds inputted comment
 
+var commentIndex = 0;
+
 //tool tips for error handling:
 var handleTooltip = makeToolTip("handle-input", "Enter Name"); //handle tooltip
 var commentTooltip = makeToolTip("comment-input", "Enter Comment");  //comment tooltip
@@ -240,8 +242,11 @@ function addComment(){
     let deleteBtnText = document.createTextNode(" Delete"); //delete button text
     deleteBtn.replaceChildren(deleteBtnIcon, deleteBtnText); //build delete button
     deleteBtn.addEventListener("click", function(){  //add click event to delete btn
-        comments.splice(comments.indexOf(commentCard), 1); //remove comment card from comments
-        showComments(); //show comments
+        commentIndex = comments.indexOf(commentCard); //get index of target comment
+        $("#delete-comment-modal").modal("show"); //show delete comment modal
+        
+        /*comments.splice(comments.indexOf(commentCard), 1); //remove comment card from comments
+        showComments(); //show comments*/
     });
     //add delete button:
     commentCard.querySelectorAll(".card .card-body")[0].appendChild(deleteBtn);
@@ -252,6 +257,15 @@ function addComment(){
     showComments(); //show comments
     document.getElementById("comment-form").reset(); //clear form
     $("#comment-modal").modal("hide"); //hide comment modal
+
+    /////////////https://uxmovement.com/buttons/5-rules-for-choosing-the-right-words-on-button-labels/
+}
+
+//delete a commenmt:
+function deleteComment(){
+    comments.splice(commentIndex, 1); //remove target comment from comments
+    $("#delete-comment-modal").modal("hide"); //hide modal
+    showComments(); //show comments*
 }
 
 //handle like button click:
