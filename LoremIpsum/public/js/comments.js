@@ -100,7 +100,8 @@ function makeCommentCard(comment){
     let date = makeElement("p", "card-text text-muted comment-date"); //date //+++++++++++CHANGE ID ++++++++++
     let dateIcon = makeElement("i", "fa-regular fa-calendar comment-date-icon"); //date icon
     let dateText = makeElement("span", "card-text date-text"); //date text
-    let timeIcon = makeElement("i", "far fa-clock comment-time-icon"); //time icon
+    ////////let timeIcon = makeElement("i", "far fa-clock comment-time-icon"); //time icon
+    /////let timeText = makeElement("span", "card-text date-text"); //date text
     let likeBtn = makeElement("button", "btn btn-sm btn-outline-secondary comment-like-btn"); //like btn
     let likeBtnIcon = makeElement("i", "far fa-thumbs-up"); //like button icon
     let likeBtnText = document.createTextNode(" Like"); //like button text
@@ -128,18 +129,24 @@ function makeCommentCard(comment){
     
     console.log(dateTimeStr);
 
+    let dateTest = dateTimeStr.slice(0,10) + " ";
+    let timeTest = dateTimeStr.slice(13);
+
     //var txt2 = txt1.slice(0, 3) + "bar" + txt1.slice(3);
-    dateText.textContent =  dateTimeStr.slice(0,12) +  makeElement("i", "far fa-clock").textContent +  dateTimeStr.slice(12);
+    //dateText.textContent =  dateTimeStr.slice(0,12) +  makeElement("i", "far fa-clock") +  dateTimeStr.slice(12);
+    
 
-    console.log(dateText.textContent);
+    
 
-    /*dateText.textContent = new Date(
-        comment.date*1000).toLocaleString('en-GB').slice(0, -3);*/
+    /////////https://stackoverflow.com/questions/4313841/insert-a-string-at-a-specific-index
+
+    dateText.textContent = new Date(
+        comment.date*1000).toLocaleString('en-GB').slice(0, -3);
     
     likes.textContent = " " + comment.likes; //add comment's likes to likes
     likeBtn.addEventListener("click", function(){  //add click event to like btn
         likeClick(comment, likeBtn, likes);  //call likeClick() on click
-    }); 
+    });
 
 
     //https://stackoverflow.com/questions/4313841/insert-a-string-at-a-specific-index
