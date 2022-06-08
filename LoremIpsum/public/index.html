@@ -415,28 +415,32 @@
 		<div class="modal fade" id="comment-modal" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" role="dialog" aria-hidden="true">
 			<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
 				<div class="modal-content">
-					<!--<div class="modal-body">-->
-						<div class="modal-header">
-							<h6 class="modal-title">Confirm</h6>
-							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-							</button>
+					<div class="modal-header">
+						<p class="h5"><i class="fa-regular fa-circle-check"></i> Confirm Comment</p>
+						
+						<!--<h6 class="modal-title">Confirm</h6>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>-->
+					</div>
+					<div class="modal-body">
+						<div id="modal-handle">
+							<p class="h5"><i class="fa-regular fa-circle-user text-muted"></i>
+								<span id="modal-handle-input"></span>
+							</p>
 						</div>
-						<div class="modal-body">
-							<div id="modal-handle">
-								<h1>Name:</h1>
-								<p id="modal-handle-input"></p>
-							</div>
-							<div id="modal-comment">
-								<h1>Comment:</h1>
-								<p id="modal-comment-input"></p>
-							</div>
+						<div id="modal-comment">
+							<p class="h5 text-muted"><i class="fa-regular fa-comment"></i>
+								<span class="text-muted" id="modal-comment-input"></span>
+							</p>
 						</div>
-						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							<button type="button" class="btn btn-primary" onclick="addComment()">Submit</button>
-						</div>
-					<!--</div>-->
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancel</button>
+						<button type="button" class="btn btn-dark btn-sm" onclick="deleteComment()">Submit</button>
+						<!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary" onclick="addComment()">Submit</button>-->
+					</div>
 				</div>
 			</div>
 		</div>
@@ -463,8 +467,8 @@
 						Total page likes: <span id="modal-total-likes"></span>
 					</div>-->
 					<div class="modal-footer">
-						<button type="button" class="btn-secondary btn-sm" data-dismiss="modal">Cancel</button>
-						<button type="button" class="btn-dark btn-sm" onclick="deleteComment()">Delete</button>
+						<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancel</button>
+						<button type="button" class="btn btn-dark btn-sm" onclick="deleteComment()">Delete</button>
 					</div>
 				</div>
 			</div>

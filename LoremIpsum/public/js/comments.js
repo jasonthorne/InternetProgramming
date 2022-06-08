@@ -16,7 +16,8 @@ var commentTooltip = makeToolTip("comment-input", "Enter Comment");  //comment t
 //get comments from db:
 function getComments(){
 
-    $("#delete-comment-modal").modal("show"); 
+    $("#comment-modal").modal("show");
+    //$("#delete-comment-modal").modal("show"); 
     
     /*let request = new XMLHttpRequest(); //request object
     //open get request on firebase's 'getComments' function:
