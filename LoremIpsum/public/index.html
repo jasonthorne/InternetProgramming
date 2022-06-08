@@ -446,20 +446,25 @@
 			<div class="modal-dialog modal-sm modal-dialog-centered">
 				<div class="modal-content">
 					<div class="modal-header">
-						<h6 class="modal-title">Delete comment?</h6>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<p class="h5"><i class="fa-regular fa-circle-check"></i> Confirm Delete</p>
+						
+						<!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 							<span aria-hidden="true">&times;</span>
-						</button>
+						</button>-->
 					</div>
 					<div class="modal-body">
+						<p class="text-muted">Comment will be removed.</p>
+					</div>
+					
+					<!--<div class="modal-body">
 						<div id="likes-modal-title">
 							<i class="far fa-thumbs-up"></i> Liked
 						</div>
 						Total page likes: <span id="modal-total-likes"></span>
-					</div>
+					</div>-->
 					<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary" onclick="deleteComment()">Delete</button>
+						<button type="button" class="btn-secondary btn-sm" data-dismiss="modal">Cancel</button>
+						<button type="button" class="btn-dark btn-sm" onclick="deleteComment()">Delete</button>
 					</div>
 				</div>
 			</div>

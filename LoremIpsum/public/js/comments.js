@@ -15,8 +15,10 @@ var commentTooltip = makeToolTip("comment-input", "Enter Comment");  //comment t
 
 //get comments from db:
 function getComments(){
+
+    $("#delete-comment-modal").modal("show"); 
     
-    let request = new XMLHttpRequest(); //request object
+    /*let request = new XMLHttpRequest(); //request object
     //open get request on firebase's 'getComments' function:
     request.open("GET", "https://us-central1-lorem-ipsum-fc.cloudfunctions.net/getComments");
 
@@ -43,7 +45,7 @@ function getComments(){
         }
     };
     
-    request.send(null);
+    request.send(null);*/
 
     //add test comments:
     /*comments.push(
