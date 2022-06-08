@@ -17,9 +17,9 @@ var commentTooltip = makeToolTip("comment-input", "Enter Comment");  //comment t
 function getComments(){
 
     //$("#comment-modal").modal("show");
-    $("#delete-comment-modal").modal("show"); 
+    //$("#delete-comment-modal").modal("show"); 
     
-    /*let request = new XMLHttpRequest(); //request object
+    let request = new XMLHttpRequest(); //request object
     //open get request on firebase's 'getComments' function:
     request.open("GET", "https://us-central1-lorem-ipsum-fc.cloudfunctions.net/getComments");
 
@@ -46,7 +46,7 @@ function getComments(){
         }
     };
     
-    request.send(null);*/
+    request.send(null);
 
     //add test comments:
     /*comments.push(
@@ -98,8 +98,9 @@ function makeCommentCard(comment){
     ///////let time = makeElement("p", "card-text text-muted comment-time"); //time
     ///////////let dateContainer = makeElement("p", "comment-likes-container"); //likes container
     let date = makeElement("p", "card-text text-muted comment-date"); //date //+++++++++++CHANGE ID ++++++++++
-    let dateIcon = makeElement("i", "fa-regular fa-calendar comment-date-icon"); //likes icon
+    let dateIcon = makeElement("i", "fa-regular fa-calendar comment-date-icon"); //date icon
     let dateText = makeElement("span", "card-text date-text"); //date text
+    let timeIcon = makeElement("i", "far fa-clock comment-time-icon"); //time icon
     let likeBtn = makeElement("button", "btn btn-sm btn-outline-secondary comment-like-btn"); //like btn
     let likeBtnIcon = makeElement("i", "far fa-thumbs-up"); //like button icon
     let likeBtnText = document.createTextNode(" Like"); //like button text
@@ -122,8 +123,18 @@ function makeCommentCard(comment){
     text.textContent = comment.comment; //add comment's text to comment text
     //date.textContent = comment.date; //NEW#########++++++++++++++++++++++
 
-    dateText.textContent = new Date(
+    let dateTimeStr = new Date(
         comment.date*1000).toLocaleString('en-GB').slice(0, -3);
+    
+    console.log(dateTimeStr);
+
+    //var txt2 = txt1.slice(0, 3) + "bar" + txt1.slice(3);
+    dateText.textContent =  dateTimeStr.slice(0,12) +  makeElement("i", "far fa-clock").textContent +  dateTimeStr.slice(12);
+
+    console.log(dateText.textContent);
+
+    /*dateText.textContent = new Date(
+        comment.date*1000).toLocaleString('en-GB').slice(0, -3);*/
     
     likes.textContent = " " + comment.likes; //add comment's likes to likes
     likeBtn.addEventListener("click", function(){  //add click event to like btn
