@@ -1,8 +1,9 @@
+
 /* --------------------------------------------------------------------- */
 /* navbar styles */
 
 #navbar-logo {
-    color: #ffffff; /* font colour */
+    color: #ecf0f1; /* font colour */
     font-size: 12px; /* font size */
 }
 
@@ -332,16 +333,20 @@
     /*text-align: center; /* center text */
 }
 
-.modal-open {
-    /*overflow: unset;*/
+/* stop scrollbar being disabled on modal open:
+https://stackoverflow.com/questions/52388273/background-images-jump-when-opening-modal
+*/
+.modal-open{
+    padding:0 !important;
+    /*overflow-y: auto;*/
+    overflow-y: inherit;
 }
 
-
-/* ========NOT USING +++++++++++===================*/
+/* ========NOT USING +++++++++++===================
 #comment-modal-title{
-    font-size: 20px; /* font size */
-    margin-bottom: 10px; /* margin btm */
-}
+    font-size: 20px; /* font size 
+    margin-bottom: 10px; /* margin btm
+}*/
 
 
 #modal-total-likes{
