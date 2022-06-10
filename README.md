@@ -3,4 +3,4 @@
 ### A Bootstrap Website, hosted on Google Firebase. 
 Uses Cloud Functions and Firestore Database for AJAX comment requests.
 
-[Link to Website](https://lorem-ipsum-fc.web.app)
+<a href="https://lorem-ipsum-fc.web.app" target="_blank">Link to Website</a>
