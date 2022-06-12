@@ -2,7 +2,6 @@
 const functions = require("firebase-functions"); //functions library
 const admin = require("firebase-admin"); //admin library for allowing functions to run in an authenticated mode
 const cors = require('cors')({origin: true}); //cors libary to allow requests from clients
-
 admin.initializeApp();
 
 //post comment function:
@@ -10,7 +9,7 @@ exports.postComment = functions.https.onRequest((request, response) => {
 
 //1. receive comment data in here from POST request ".onRequest((request))"
 //2. connect to firestore db using admin library:
-//search firestore collections for "comments", then add contents of request body
+//search firestore collections for "comments", then add contents of request body:
 return admin.firestore().collection("comments").add(request.body).then(()=>{
     //.then() callback function, that's returned from server to client when request.body is added to db:
     response.send("Saved comment in the database");

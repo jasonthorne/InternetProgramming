@@ -27,7 +27,7 @@ function getComments(){
                     comments.push(makeCommentCard(comment));
                 });
                 showComments(); //show comments on page
-            }else{ //an error occurred during the request
+            }else{ //an error occurred during the request:
                 console.log("Error: " + request.status);} //give status of request
         }
     };
