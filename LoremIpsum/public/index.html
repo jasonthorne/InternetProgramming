@@ -287,8 +287,8 @@
 						</div>
 						<div class="section-body">
 							<form id="comment-form">
-								<input type="text" class="form-control mb-3" id="handle-input" placeholder="Name" autocomplete="off" onfocus="handleTooltip.hide()">
-								<textarea type="text" class="form-control mb-3" id="comment-input" rows="6" placeholder="Comment" autocomplete="off" onfocus="commentTooltip.hide()"></textarea>
+								<input type="text" class="form-control mb-3" id="handle-input" placeholder="Name" autocomplete="off" maxlength="60" onfocus="handleTooltip.hide()">
+								<textarea type="text" class="form-control mb-3" id="comment-input" rows="6" placeholder="Comment" autocomplete="off" maxlength="1000" onfocus="commentTooltip.hide()"></textarea>
 								<button type="button" class="btn btn-secondary btn-sm" id="comment-btn" onclick="checkComment()">
 									Post Comment
 								</button>
