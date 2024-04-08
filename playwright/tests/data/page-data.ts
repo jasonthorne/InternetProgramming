@@ -1,0 +1,1 @@
+export default {url: 'https://lorem-ipsum-fc.web.app/'};
