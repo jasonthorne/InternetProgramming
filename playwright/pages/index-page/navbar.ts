@@ -1,15 +1,16 @@
 import {Page, expect} from '@playwright/test'
-import {navbar, url} from '../../data/page-data/index-page-data'
+import {navbar} from '../../data/page-data/index-page-data'
 
 
 export class Navbar{
 
-    readonly logo: object;
-    readonly links: [object];
+    //readonly logo: {};
+    //readonly links: [{}];
 
     constructor(readonly page: Page){
-        this.logo = navbar.logo;
-        this.links = [navbar.links];
+       // this.logo = navbar.logo;
+        //et profile_deep_copy = JSON.parse(JSON.stringify(profile));
+        //this.links = [navbar.links];
     }
 
     /*
@@ -22,7 +23,7 @@ export class Navbar{
 
         //https://www.youtube.com/watch?v=4G8c7BwHY5s
 
-        await this.page.waitForLoadState("domcontentloaded");
+        await this.page.waitForLoadState("domcontentloaded"); //here, or in beforeAll()?????????
 
         let test = this.page.getByAltText('Lorem Ipsum logo'); //.toHaveTitle(/Lorem Ipsum F.C./);
         //console.log("+++++++++++++++++++" + test/*await test.getAttribute('src')*/);
@@ -38,7 +39,21 @@ export class Navbar{
         //const blah = await this.page.request.get(url + "/img/teams/Lorem-Ipsum.png");
         //console.log("+++++++++++++++++++" + blah);
 
-        //await expect(this.page.locator('src="img/teams/Lorem-Ipsum.png"')).toBeVisible();
+       // await expect(this.page.locator('img/teams/Lorem-Ipsum.png')).toBeVisible();
+
+       //await expect(this.page.getByAltText('Lorem Ipsum logo')).toBeVisible(); 
+
+       /*await expect(this.page.locator('#navbar-logo')
+        .getByRole('img', { name: 'Lorem Ipsum logo' })).toBeVisible();*/
+
+        await expect(this.page.locator(navbar.logo.id)
+        .getByRole('img', { name: navbar.logo.img.alt })).toBeVisible(); 
+        
+        //wooHoo!! +++++++++++++++++++++++++ ###############
+        let testy = this.page.locator('#navbar-logo').getByRole('img', { name: 'Lorem Ipsum logo' });
+        console.log("testy@@@@@@@@@" + await testy.getAttribute('src'));
+
+       //locator('#navbar-logo').getByRole('img', { name: 'Lorem Ipsum logo' })
 
         //const image = this.page.locator('src="img/teams/Lorem-Ipsum.png"');
 

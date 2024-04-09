@@ -22,16 +22,20 @@ export const url = 'https://lorem-ipsum-fc.web.app';
 export const title = /Lorem Ipsum F.C./;
 export const navbar = {
     logo: {
+        id: '#navbar-logo',
         img: {
             src: 'img/teams/Lorem-Ipsum.png',
             alt: 'Lorem Ipsum logo'
         },
         span: {text: 'Est. 2022'}
     },
-    links: [
-        {href: '#news-updates-section', text: 'News'},
-        {href: '#fixtures-section', text: 'Fixtures'},
-        {href: '#admin-section', text: 'Administration'},
-        {href: '#comments-section', text: 'Comments'}
-    ]
-}
+    nav:{
+        class: '.navbar-nav',
+        links: [
+            {href: '#news-updates-section', text: 'News'},
+            {href: '#fixtures-section', text: 'Fixtures'},
+            {href: '#admin-section', text: 'Administration'},
+            {href: '#comments-section', text: 'Comments'}
+        ]
+    }
+};
