@@ -1,6 +1,5 @@
-import {test} from '@playwright/test'
-import {Navbar} from '../../pages/index-page/navbar'
-//import {indexPageData} from '../../data/page-data/index-page-data';
+import {expect, test} from '@playwright/test';
+import {Navbar} from '../../pages/index-page/navbar';
 import {url} from '../../data/page-data/index-page-data';
 
 let navbar: Navbar;
@@ -14,5 +13,6 @@ test.describe('Testing Index Page Navbar', ()=>{
 
     test('Asserting Navbar Logo', async()=>{
         //await title.assertPageTitle();
+        await navbar.assertLogoAltText();
     });
 });
