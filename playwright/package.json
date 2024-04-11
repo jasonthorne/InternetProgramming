@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test1": "npx playwright test title.spec.ts --project=chromium",
-    "test2": "npx playwright test navbar.spec.ts --project=chromium"
+    "test2": "npx playwright test navbar.spec.ts --project=chromium",
+    "test3": "npx playwright test index.spec.ts --project=chromium"
   },
   "keywords": [],
   "author": "",
