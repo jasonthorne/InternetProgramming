@@ -8,6 +8,8 @@ export class BasePage{
         await expect(this.page).toHaveTitle(title);
     }
 
+
+    //=======================Maybe in index page?? ==================================
     async assertImgIsVisible(imgId: string, imgName: string){ //assert image is visible
         await expect(this.page.locator(imgId).getByRole('img',{name: imgName})).toBeVisible();
     }
@@ -33,6 +35,7 @@ export class BasePage{
         let test = this.page.locator("#navbar-logo").getByText("Est. 2022");
         console.log("++++++++++++" + await test.innerText());
     }
+    //============================================================================
 
     
 
