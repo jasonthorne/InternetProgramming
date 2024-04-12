@@ -23,23 +23,24 @@ test.describe('Testing Index Page Navbar', ()=>{
 
     test('Assert navbar logo', async()=>{
         //++++++++++printout of 'Asserting navbar logo' here+
+
+        //grab logo vars:
+        const logoId: string = indexPageData.navbar.logo.id;
+        const logoImgAlt: string = indexPageData.navbar.logo.img.alt;
+        const logoImgSrc: string = indexPageData.navbar.logo.img.src;
+        const logoText: string = indexPageData.navbar.logo.span.text;
+
         //assert logo image is visible:
-        await indexPage.assertImgIsVisible(
-            //++++++++++printout of 'asserting logo image is visible' here
-            indexPageData.navbar.logo.id,
-            indexPageData.navbar.logo.img.alt,
-        );
+        await indexPage.assertImgIsVisible(logoId, logoImgAlt);
         //assert logo image link:
-        await indexPage.assertImgSrc(
-            indexPageData.navbar.logo.id,
-            indexPageData.navbar.logo.img.alt,
-            indexPageData.navbar.logo.img.src
-        );
+        await indexPage.assertImgSrc(logoId, logoImgAlt, logoImgSrc);
         //assert logo text:
-        await indexPage.assertText(
-            indexPageData.navbar.logo.id,
-            indexPageData.navbar.logo.span.text
-        );
+        await indexPage.assertText(logoId, logoText);
+       
+
+        //<div class="fixture-grid-item">
+		//	<img src="img/teams/Maecenas.png" alt="Maecenas logo">
+		//<p>Maecenas</p>
     });
 
 });
