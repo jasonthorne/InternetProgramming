@@ -22,18 +22,24 @@ test.describe('Testing Index Page Title', ()=>{
 test.describe('Testing Index Page Navbar', ()=>{
 
     test('Assert navbar logo', async()=>{
-        //assert image is visible:
+        //++++++++++printout of 'Asserting navbar logo' here+
+        //assert logo image is visible:
         await indexPage.assertImgIsVisible(
+            //++++++++++printout of 'asserting logo image is visible' here
             indexPageData.navbar.logo.id,
             indexPageData.navbar.logo.img.alt,
         );
-        //assert image link:
+        //assert logo image link:
         await indexPage.assertImgSrc(
             indexPageData.navbar.logo.id,
             indexPageData.navbar.logo.img.alt,
             indexPageData.navbar.logo.img.src
         );
-        await indexPage.test(indexPageData);
+        //assert logo text:
+        await indexPage.assertText(
+            indexPageData.navbar.logo.id,
+            indexPageData.navbar.logo.span.text
+        );
     });
 
 });

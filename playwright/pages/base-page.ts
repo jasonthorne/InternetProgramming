@@ -10,16 +10,16 @@ export class BasePage{
 
 
     //=======================Maybe in index page?? ==================================
-    async assertImgIsVisible(imgId: string, imgName: string){ //assert image is visible
-        await expect(this.page.locator(imgId).getByRole('img',{name: imgName})).toBeVisible();
+    async assertImgIsVisible(selector: string, name: string){ //assert image is visible
+        await expect(this.page.locator(selector).getByRole('img',{name: name})).toBeVisible();
     }
 
-    async assertImgSrc(imgId: string, imgName: string, imgSrc: string){
-        expect(await this.page.locator(imgId).getByRole('img',{name: imgName})
-        .getAttribute('src')).toMatch(imgSrc);
+    async assertImgSrc(selector: string, name: string, src: string){
+        expect(await this.page.locator(selector).getByRole('img',{name: name})
+        .getAttribute('src')).toMatch(src);
     }
 
-    async test(indexPageData: any){
+    async assertText(selector: string, text: string){
 
         /*
         <div id="navbar-logo">
@@ -29,7 +29,11 @@ export class BasePage{
 
 
         */
-        await expect(this.page.locator("#navbar-logo").getByText("Est. 2022")).toBeVisible();
+        //await expect(this.page.locator("#navbar-logo").getByText("Est. 2022")).toBeVisible();
+
+        await expect(this.page.locator(selector).getByText(text)).toBeVisible();
+
+
         //.getAttribute('src')).toMatch(imgSrc);
 
         let test = this.page.locator("#navbar-logo").getByText("Est. 2022");
