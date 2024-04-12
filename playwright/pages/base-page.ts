@@ -1,19 +1,24 @@
-import {expect, Page} from '@playwright/test'
-//import {indexPageData} from '../../data/page-data/index-page-data'
+import {expect, Locator, Page} from '@playwright/test'
 
 export class BasePage{
 
-   // readonly title: RegExp;
+    constructor(readonly page: Page){}
 
-    constructor(readonly page: Page){
-        /*this.title = title*/
-
-        //let test = indexPageData.navbar.logo.img
-    }
-
-    async assertTitle(title: RegExp){ //assert page title:
+    async assertPageTitle(title: RegExp){ //assert page title:
         await expect(this.page).toHaveTitle(title);
     }
+
+    async assertImgIsVisible(imgId: string, imgName: string){ //assert image is visible
+        await expect(this.page.locator(imgId).getByRole('img',{name: imgName})).toBeVisible();
+    }
+
+    async assertImgSrc(imgId: string, imgName: string, imgSrc: string){
+        expect(await this.page.locator(imgId).getByRole('img',{name: imgName})
+        .getAttribute('src')).toMatch(imgSrc);
+    }
+
+    
+
 
 }
 
