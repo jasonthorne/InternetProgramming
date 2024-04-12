@@ -13,9 +13,9 @@ export class IndexPage extends BasePage{
         //let test = indexPageData.navbar.logo.img
     }
 
-    /*async assertTitle(){ //assert page title:
+    //async TEST(){ //assert page title:
         //await expect(this.page).toHaveTitle(/*this.*///indexPageData.title);
-    //}*/
+    //}
 
 }
 

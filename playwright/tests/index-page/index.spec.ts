@@ -8,8 +8,8 @@ let indexPage: IndexPage;
 
 test.beforeEach(async({page})=>{
     await page.goto(indexPageData.url);
-    await page.waitForLoadState("domcontentloaded");
-    await expect(page).toHaveScreenshot();
+    //await page.waitForLoadState("domcontentloaded");
+    //await expect(page).toHaveScreenshot();
     indexPage = new IndexPage(page);
 });
 
@@ -21,7 +21,7 @@ test.describe('Testing Index Page Title', ()=>{
 
 test.describe('Testing Index Page Navbar', ()=>{
 
-    test('Assert navbar logo image', async()=>{
+    test('Assert navbar logo', async()=>{
         //assert image is visible:
         await indexPage.assertImgIsVisible(
             indexPageData.navbar.logo.id,
@@ -33,6 +33,7 @@ test.describe('Testing Index Page Navbar', ()=>{
             indexPageData.navbar.logo.img.alt,
             indexPageData.navbar.logo.img.src
         );
+        await indexPage.test(indexPageData);
     });
 
 });
