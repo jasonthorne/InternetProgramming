@@ -11,3 +11,6 @@ https://www.teststep.com/blog/verify-url-playwright
 array type:
 https://byby.dev/ts-declare-array-type
 
+get css property:
+https://shiv-jirwankar.medium.com/get-css-properties-of-web-element-with-playwright-e092fdc9f462#:~:text=Usage%20of%20Window.&text=getComputedStyle()%20method.,CSS%20properties%20of%20an%20element.&text=The%20element%20for%20which%20to%20get%20the%20computed%20style.&text=A%20string%20specifying%20the%20pseudo%2Delement%20to%20match.
+

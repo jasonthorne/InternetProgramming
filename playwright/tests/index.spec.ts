@@ -12,16 +12,13 @@ test.beforeEach(async({page})=>{
 });
 
 test.describe('Testing Index Page Title', ()=>{
-    test('Asserting Page Title', async()=>{
+    test('Assert page title', async()=>{
         await indexPage.assertPageTitle(indexPageData.title);
     });
 });
 
 test.describe('Testing Index Page Navbar', ()=>{
-
     test('Assert navbar logo', async()=>{
-        //++++++++++printout of 'Asserting navbar logo' here+
-
         //grab logo vars:
         const logoId: string = indexPageData.navbar.logo.id;
         const logoImgAlt: string = indexPageData.navbar.logo.img.alt;
@@ -33,11 +30,7 @@ test.describe('Testing Index Page Navbar', ()=>{
         //assert logo image src:
         await indexPage.assertImgSrc(logoId, logoImgAlt, logoImgSrc);
         //assert logo text:
-        await indexPage.assertTextisVisible(logoId, logoText);
-       
-        //<div class="fixture-grid-item">
-		//	<img src="img/teams/Maecenas.png" alt="Maecenas logo">
-		//<p>Maecenas</p>
+        await indexPage.assertTextIsVisible(logoId, logoText);
     });
 
     test('Assert navbar links', async()=>{
@@ -49,6 +42,23 @@ test.describe('Testing Index Page Navbar', ()=>{
            await indexPage.assertLinkUrl(navClass, navLinks[i].text, navLinks[i].href);
         }
     });
+});
+
+test.describe('Testing Index Page Hero', ()=>{
+
+    test('Assert hero image', async()=>{
+        //assert hero image is visible:
+       await indexPage.assertBackgroundImgUrl('#hero', '/img/pitch/pitch.jpg');
+        //assert hero image src:
+       // await indexPage.assertImgSrc(logoId, logoImgAlt, logoImgSrc);
+        
+    });
+
+    //test('Assert hero title', async()=>{
+        //await indexPage.assertPageTitle(indexPageData.title);
+   // });
+
+
 });
 
 
