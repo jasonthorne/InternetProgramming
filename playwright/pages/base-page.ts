@@ -23,23 +23,29 @@ export class BasePage{
         .getAttribute('src')).toMatch(src);
     }
 
-    //assert text:
-    async assertText(selector: string, text: string){
+    //assert text is visible:
+    async assertTextisVisible(selector: string, text: string){
         await expect(this.page.locator(selector).getByText(text)).toBeVisible();
     }
 
-    async test1(test1: string, test2: string){
-        console.log("test1:" + test1);
-        console.log("test2:" + test2);
+     //assert link href:
+    /*async assertLinkHref(selector: string, name: string, href: string){
+        expect(await this.page.locator(selector).getByRole('link',{name:name})
+        .getAttribute('href')).toMatch(href);
+    
+        //expect(await this.page.locator(selector).getByRole('img',{name: name})
+        //.getAttribute('src')).toMatch(src);
+    
+    }*/
 
-        await this.page.locator(test1).getByRole('link',{name:'News'}).click();
-        //aka getByRole('link', { name: 'News' })
-        await expect(this.page).toHaveURL(test2);
-
+    //assert url is valid:
+    async assertLinkUrl(selector: string, name: string, url: string){
+        await this.page.locator(selector).getByRole('link',{name:name}).click();
+        await expect(this.page).toHaveURL(new RegExp(`/${url}$`));
     }
 
-    async test2(){
-        console.log("test2");
+    async test1(){
+        console.log("test1");
     }
    
     

@@ -20,7 +20,7 @@ export const indexPageData = {
             ]
         }
     }
-}; //as const;
+} as const;
 
 
 export const url = 'https://lorem-ipsum-fc.web.app';

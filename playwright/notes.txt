@@ -3,3 +3,11 @@ https://medium.com/geekculture/grouping-and-organising-test-suite-in-playwright-
 
 
 https://www.youtube.com/watch?v=4G8c7BwHY5s
+
+
+verify url:
+https://www.teststep.com/blog/verify-url-playwright
+
+array type:
+https://byby.dev/ts-declare-array-type
+
