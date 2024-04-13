@@ -19,6 +19,14 @@ export const indexPageData = {
                 {href: '#comments-section', text: 'Comments'}
             ]
         }
+    },
+    hero: {
+        id: '#hero',
+        img: {src: 'img/pitch/pitch.jpg'},
+        title: {
+            id: '#hero-title',
+            text: 'Lorem Ipsum F.C.'
+        }
     }
 } as const;
 

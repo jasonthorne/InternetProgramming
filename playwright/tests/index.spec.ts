@@ -18,6 +18,7 @@ test.describe('Testing Index Page Title', ()=>{
 });
 
 test.describe('Testing Index Page Navbar', ()=>{
+
     test('Assert navbar logo', async()=>{
         //grab logo vars:
         const logoId: string = indexPageData.navbar.logo.id;
@@ -46,19 +47,20 @@ test.describe('Testing Index Page Navbar', ()=>{
 
 test.describe('Testing Index Page Hero', ()=>{
 
-    test('Assert hero image', async()=>{
-        //assert hero image is visible:
-       await indexPage.assertBackgroundImgUrl('#hero', '/img/pitch/pitch.jpg');
-        //assert hero image src:
-       // await indexPage.assertImgSrc(logoId, logoImgAlt, logoImgSrc);
-        
+    test('Assert hero element', async()=>{
+        //grab hero vars:
+        const heroId: string = indexPageData.hero.id;
+        const heroImgSrc: string = indexPageData.hero.img.src;
+        const heroTitleId: string = indexPageData.hero.title.id;
+        const heroTitleText: string = indexPageData.hero.title.text;
+
+        //assert hero is visible:
+        await indexPage.assertElementIsVisible(heroId);
+        //assert hero background-image:
+        await indexPage.assertBackgroundImg(heroId, heroImgSrc);
+        //assert hero title text:
+        await indexPage.assertTextIsVisible(heroTitleId, heroTitleText);
     });
-
-    //test('Assert hero title', async()=>{
-        //await indexPage.assertPageTitle(indexPageData.title);
-   // });
-
-
 });
 
 

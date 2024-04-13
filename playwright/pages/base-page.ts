@@ -45,48 +45,15 @@ export class BasePage{
     }
 
     //assert element is visible:
-    async assertElementIsVisible(selector: string){
-        await expect(this.page.locator(selector)).toBeVisible();
+    async assertElementIsVisible(id: string){
+        await expect(this.page.locator(id)).toBeVisible();
     }
 
-    async assertBackgroundImgUrl(selector: string, url: string){
-        console.log("test1");
-        let test = this.page.locator('#hero');//.getByRole('img',{name: name})).toBeVisible(); //background-image:
-        //console.log(await test.get.getAttribute('background-image')..toString());
-        const bgImgUrl1 = await test.evaluate((element: HTMLElement) =>
-        window.getComputedStyle(element).getPropertyValue('background-image'));
-        console.log("++++++++" + bgImgUrl1);
-
-        /*expect(await this.page.locator('#hero')
-        .evaluate((element) =>
-            window.getComputedStyle(element).getPropertyValue('background-image')
-
-
-        const element: Locator = await page.getByTestId('accept-button);
-        const backgroundColor = await element.evaluate((el) => {
-        return window.getComputedStyle(el).getPropertyValue('background-color');
-        });
-        */
-
-        const element: Locator = this.page.locator(selector);
-        const bgImgUrl = await element.evaluate((element: HTMLElement)=>{
+    async assertBackgroundImg(selector: string, src: string){
+        const bgImgSrc = await this.page.locator(selector).evaluate((element: HTMLElement)=>{
             return window.getComputedStyle(element).getPropertyValue('background-image');
         });
-
-        expect(bgImgUrl).toContain(url);
-        console.log("+++bgImgUrl+++++" + bgImgUrl);
-
-       
-       
-
-
-
-
-
-        
-        
-        //.getAttribute('background-image').)//.toContain("https://lorem-ipsum-fc.web.app/img/pitch/pitch.jpg");
-
+        expect(bgImgSrc).toContain(src);
     }
    
     
