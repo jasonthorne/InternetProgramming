@@ -32,7 +32,7 @@ test.describe('Testing Index Page Navbar', ()=>{
 
         //assert logo image is visible:
         await indexPage.assertImgIsVisible(logoId, logoImgAlt);
-        //assert logo image link:
+        //assert logo image src:
         await indexPage.assertImgSrc(logoId, logoImgAlt, logoImgSrc);
         //assert logo text:
         await indexPage.assertText(logoId, logoText);
@@ -42,5 +42,36 @@ test.describe('Testing Index Page Navbar', ()=>{
 		//	<img src="img/teams/Maecenas.png" alt="Maecenas logo">
 		//<p>Maecenas</p>
     });
+
+    test('Assert navbar links', async()=>{
+
+        //{ name: string; age: number }[]
+
+        //await page.locator('text=Blog').click()
+        //await expect(page).toHaveURL('https://www.programsbuzz.com/blog');
+        
+        /*
+         for(let i=0; i < items.length; i++) {
+    await getData(items[i], 1000 * (5 - items[i]));
+  }
+  console.log("END OF MAIN");
+
+        */
+
+        const links:{href:string,text:string}[] = indexPageData.navbar.nav.links; // = indexPageData.navbar.nav.links;
+        //console.log(links);
+
+        //for(let i=0; i<links.length; i++){
+           // await getData(items[i], 1000 * (5 - items[i]));
+           await indexPage.test1(indexPageData.navbar.nav.class, 'https://lorem-ipsum-fc.web.app/#news-updates-section');
+           //await indexPage.test2();
+        //}
+
+        //await page.locator('text=Blog').click()
+        //await expect(page).toHaveURL('https://www.programsbuzz.com/blog');
+
+    });
+
+
 
 });
