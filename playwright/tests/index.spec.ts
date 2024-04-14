@@ -1,7 +1,5 @@
-import {expect, test} from '@playwright/test';
+import {test} from '@playwright/test';
 import {IndexPage} from '../pages/index-page';
-import {url} from '../data/page-data/index-page-data';
-
 import {indexPageData} from '../data/page-data/index-page-data';
 
 let indexPage: IndexPage;
