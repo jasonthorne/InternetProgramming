@@ -28,7 +28,7 @@ export const indexPageData = {
             text: 'Lorem Ipsum F.C.'
         }
     },
-    sections: {
+    section: {
         news_updates: {
             id: '#news-updates-section',
             header: {

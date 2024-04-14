@@ -61,4 +61,25 @@ test.describe('Testing Index Page Hero', ()=>{
     });
 });
 
+test.describe('Testing News & Updates Section', ()=>{
+
+    test('Assert news and updates section', async()=>{
+        //grab section vars:
+        const sectionId: string = indexPageData.section.news_updates.id;
+        const sectionHeaderClass: string = indexPageData.section.news_updates.header.class;
+        const sectionHeaderText: string = indexPageData.section.news_updates.header.text;
+        
+        //assert section is visible:
+        await indexPage.assertElementIsVisible(sectionId);
+        //assert section header is visible:
+        await indexPage.assertTextIsVisible(sectionHeaderClass, sectionHeaderText);
+        //assert section body has content:
+
+
+        //assert hero background-image:
+        //await indexPage.assertBackgroundImg(heroId, heroImgSrc);
+        //assert hero title text:
+        //await indexPage.assertTextIsVisible(heroTitleId, heroTitleText);
+    });
+});
 
