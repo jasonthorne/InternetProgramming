@@ -46,10 +46,20 @@ export const indexPageData = {
             body: {class: '.section-body'}
         },
         admin: {
-
+            id: '#admin-section',
+            header: {
+                class: '.section-header',
+                text: 'ADMINISTRATION'
+            },
+            body: {class: '.section-body'}
         },
         comments: {
-            
+            id: '#comments-section',
+            header: {
+                class: '.section-header',
+                text: 'COMMENTS'
+            },
+            body: {class: '.section-body'}
         }
     }
 } as const;
