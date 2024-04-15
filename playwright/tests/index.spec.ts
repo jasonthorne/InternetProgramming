@@ -87,21 +87,30 @@ test.describe('Testing Fixtures & Results Section', ()=>{
 
     test('Assert fixtures and results section', async()=>{
         //grab section vars:
-        const sectionId: string = indexPageData.section.news_updates.id;
-        const sectionHeaderClass: string = indexPageData.section.news_updates.header.class;
-        const sectionHeaderText: string = indexPageData.section.news_updates.header.text;
-        const sectionBodyClass: string = indexPageData.section.news_updates.body.class;
-        const sectionBodyContent = indexPageData.section.news_updates.body.content;
+        const sectionId: string = indexPageData.section.fixtures.id;
+        const sectionHeaderClass: string = indexPageData.section.fixtures.header.class;
+        const sectionHeaderText: string = indexPageData.section.fixtures.header.text;
+        const sectionBodyClass: string = indexPageData.section.fixtures.body.class;
+        const secionBodyText: string = indexPageData.section.fixtures.body.content.text;
 
         //assert section is visible:
         await indexPage.assertElementIsVisible(sectionId);
         //assert section header is visible:
         await indexPage.assertTextIsVisible(sectionHeaderClass, sectionHeaderText);
+        //assert section body text is visible:
+        await indexPage.assertTextIsVisible(sectionBodyClass, secionBodyText);
+
+        
+
+
         //assert section body content is visible:
-        for(let i=0; i<sectionBodyContent.length; i++){
+        /*for(let i=0; i<sectionBodyContent.length; i++){
             await indexPage.assertTextIsVisible(sectionBodyClass, sectionBodyContent[i].heading);
             await indexPage.assertTextIsVisible(sectionBodyClass, sectionBodyContent[i].text);
-        }
+        }*/
+
+
+
     });
 });
 

@@ -1,4 +1,5 @@
 import {sectionData} from '../data/section-data';
+import {teamData} from '../data/team-data';
 
 export const indexPageData = {
     url: 'https://lorem-ipsum-fc.web.app',
@@ -7,7 +8,7 @@ export const indexPageData = {
         logo: {
             id: '#navbar-logo',
             img: {
-                src: 'img/teams/Lorem-Ipsum.png',
+                src: teamData.lorem_ipsum.logo.src,
                 alt: 'Lorem Ipsum logo'
             },
             span: {text: 'Est. 2022'}
@@ -50,7 +51,7 @@ export const indexPageData = {
             },
             body: {
                 class: '.section-body',
-                content
+                content: sectionData.fixtures
             }
         },
         admin: {

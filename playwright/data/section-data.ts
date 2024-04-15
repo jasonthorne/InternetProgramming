@@ -1,3 +1,5 @@
+import {teamData} from '../data/team-data';
+
 export const sectionData = {
     news_updates: [
         {
@@ -35,9 +37,18 @@ export const sectionData = {
         }
     ],
     fixtures: {
-        heading: 'Donec pretium sed nisl sodales commodo. Aenean lectus nisl, condimentum at dictum suscipit, eleifend sit amet ante.',
-        fixtures: [
-            
+        text: 'Donec pretium sed nisl sodales commodo. Aenean lectus nisl, condimentum at dictum suscipit, eleifend sit amet ante.',
+        results: [
+            {
+               home_team: {
+                name: teamData.lorem_ipsum.name,
+                score: '9'
+               },
+               away_team: {
+                name: teamData.sed_sit_amet.name,
+                score: '0'
+               }
+            }
         ]
     }
 
