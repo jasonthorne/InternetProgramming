@@ -51,7 +51,11 @@ export const indexPageData = {
             },
             body: {
                 class: '.section-body',
-                content: sectionData.fixtures
+                text: sectionData.fixtures.text,
+                results: {
+                    class: '.fixture-grid-container',
+                    content: sectionData.fixtures.results
+                }
             }
         },
         admin: {

@@ -92,8 +92,8 @@ test.describe('Testing Fixtures & Results Section', ()=>{
         const sectionHeaderClass: string = indexPageData.section.fixtures.header.class;
         const sectionHeaderText: string = indexPageData.section.fixtures.header.text;
         const sectionBodyClass: string = indexPageData.section.fixtures.body.class;
-        const secionBodyText: string = indexPageData.section.fixtures.body.content.text;
-        const sectionBodyResults = indexPageData.section.fixtures.body.content.results;
+        const secionBodyText: string = indexPageData.section.fixtures.body.text;
+        const sectionBodyResults = indexPageData.section.fixtures.body.results.content;
         //teams names from results data: //++++++++++++++++++THS SHOULD BE PULLED FROM PAGE - Maybe :P
         const resultsTeamNames: string[] = [
             ...sectionBodyResults.map(result => result.away_team.name), 
