@@ -1,6 +1,7 @@
 import {test} from '@playwright/test';
 import {IndexPage} from '../pages/index-page';
 import {indexPageData} from '../data/index-page-data';
+import {teamData} from '../data/team-data';
 
 let indexPage: IndexPage;
 
@@ -92,6 +93,47 @@ test.describe('Testing Fixtures & Results Section', ()=>{
         const sectionHeaderText: string = indexPageData.section.fixtures.header.text;
         const sectionBodyClass: string = indexPageData.section.fixtures.body.class;
         const secionBodyText: string = indexPageData.section.fixtures.body.content.text;
+        const sectionBodyResults = indexPageData.section.fixtures.body.content.results;
+        //teams names from results data: //++++++++++++++++++THS SHOULD BE PULLED FROM PAGE - Maybe :P
+        const resultsTeamNames: string[] = [
+            ...sectionBodyResults.map(result => result.away_team.name), 
+            ...sectionBodyResults.map(result => result.home_team.name)
+        ].sort();
+        //teams names from team data:
+        const dataTeamNames: string[] = Object.values(teamData).map(team => team.name).sort();
+
+        /*if(resultsTeamNames.sort().join(',')=== dataTeamNames.sort().join(',')){
+            alert('same members');
+        }
+        else alert('not a match');*/
+
+
+
+       // const dataTeamNames = Object.keys(teamData).map(team => team.name)
+
+     
+            /////for (const key in user) {   console.log(`${key}: ${user[key]}`);
+
+
+        //let testList2 = sectionBodyResults.map(a => a.away_team.name).map(b => b.hom);
+
+        //let ugh;
+
+       /* let testList3 = Object.values(teamData).forEach(team => {
+           //console.log("++++++team++++++++" + team.name);
+           //return team.name;
+           ugh.push(team.name);
+          
+        });*/
+
+        
+
+        //console.log("++++++++testList3++++++" + testList3);
+       // console.log("++++++++ugh++++++" + ugh);
+        //console.log("++++++++testList4++++++" + testList4);
+
+        //testList2 = testList2.concat(testList3);
+        
 
         //assert section is visible:
         await indexPage.assertElementIsVisible(sectionId);
@@ -100,6 +142,46 @@ test.describe('Testing Fixtures & Results Section', ()=>{
         //assert section body text is visible:
         await indexPage.assertTextIsVisible(sectionBodyClass, secionBodyText);
 
+      //  const testList: string[];
+
+        for(let i=0; i<sectionBodyResults.length; i++){
+            //await indexPage.assertTextIsVisible(sectionBodyClass, sectionBodyContent[i].heading);
+            //await indexPage.assertTextIsVisible(sectionBodyClass, sectionBodyContent[i].text);
+          //  console.log(sectionBodyResults[i].away_team.name);
+         //   console.log(sectionBodyResults[i].away_team.score);
+           ////////// testList.push(sectionBodyResults[i].home_team.name);
+           ////////// testList.push(sectionBodyResults[i].away_team.name);
+
+           /* for(const key in sectionBodyResults[i]){ 
+               // console.log(`${key}: ${sectionBodyResults[i][key]}`);
+                console.log(`${key}: ${sectionBodyResults[i][key].name}`);
+                console.log(`${key}: ${sectionBodyResults[i][key].score}`);
+                testList.push(sectionBodyResults[i][key].name);
+            }*/
+        }
+
+        console.log("+++++++++resultsTeamNames+++++" + resultsTeamNames);
+       console.log("+++++dataTeamNames+++++++++" + dataTeamNames);
+
+       
+
+
+
+        //================================================
+        //are all teams from teamsData in results??
+
+        /*const arr = sectionBodyResults.map(({home_team.name}) => (home_team.name))
+
+        if(array1.sort().join(',')=== array2.sort().join(',')){
+            alert('same members');
+        }
+        else alert('not a match');*/
+
+        //does results hold team log and team name from team data?
+        
+        //and score from results data??5
+        //===============================================
+        
         
 
 
