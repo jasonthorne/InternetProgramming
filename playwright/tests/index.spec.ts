@@ -1,6 +1,6 @@
 import {test} from '@playwright/test';
 import {IndexPage} from '../pages/index-page';
-import {indexPageData} from '../data/page-data/index-page-data';
+import {indexPageData} from '../data/index-page-data';
 
 let indexPage: IndexPage;
 
@@ -68,18 +68,40 @@ test.describe('Testing News & Updates Section', ()=>{
         const sectionId: string = indexPageData.section.news_updates.id;
         const sectionHeaderClass: string = indexPageData.section.news_updates.header.class;
         const sectionHeaderText: string = indexPageData.section.news_updates.header.text;
-        
+        const sectionBodyClass: string = indexPageData.section.news_updates.body.class;
+        const sectionBodyContent = indexPageData.section.news_updates.body.content;
+
         //assert section is visible:
         await indexPage.assertElementIsVisible(sectionId);
         //assert section header is visible:
         await indexPage.assertTextIsVisible(sectionHeaderClass, sectionHeaderText);
-        //assert section body has content:
+        //assert section body content is visible:
+        for(let i=0; i<sectionBodyContent.length; i++){
+            await indexPage.assertTextIsVisible(sectionBodyClass, sectionBodyContent[i].heading);
+            await indexPage.assertTextIsVisible(sectionBodyClass, sectionBodyContent[i].text);
+        }
+    });
+});
 
+test.describe('Testing Fixtures & Results Section', ()=>{
 
-        //assert hero background-image:
-        //await indexPage.assertBackgroundImg(heroId, heroImgSrc);
-        //assert hero title text:
-        //await indexPage.assertTextIsVisible(heroTitleId, heroTitleText);
+    test('Assert fixtures and results section', async()=>{
+        //grab section vars:
+        const sectionId: string = indexPageData.section.news_updates.id;
+        const sectionHeaderClass: string = indexPageData.section.news_updates.header.class;
+        const sectionHeaderText: string = indexPageData.section.news_updates.header.text;
+        const sectionBodyClass: string = indexPageData.section.news_updates.body.class;
+        const sectionBodyContent = indexPageData.section.news_updates.body.content;
+
+        //assert section is visible:
+        await indexPage.assertElementIsVisible(sectionId);
+        //assert section header is visible:
+        await indexPage.assertTextIsVisible(sectionHeaderClass, sectionHeaderText);
+        //assert section body content is visible:
+        for(let i=0; i<sectionBodyContent.length; i++){
+            await indexPage.assertTextIsVisible(sectionBodyClass, sectionBodyContent[i].heading);
+            await indexPage.assertTextIsVisible(sectionBodyClass, sectionBodyContent[i].text);
+        }
     });
 });
 

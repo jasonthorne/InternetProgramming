@@ -1,3 +1,5 @@
+import {sectionData} from '../data/section-data';
+
 export const indexPageData = {
     url: 'https://lorem-ipsum-fc.web.app',
     title: /Lorem Ipsum F.C./,
@@ -35,7 +37,10 @@ export const indexPageData = {
                 class: '.section-header',
                 text: 'NEWS & UPDATES'
             },
-            body: {class: '.section-body'}
+            body: {
+                class: '.section-body',
+                content: sectionData.news_updates
+            }
         },
         fixtures: {
             id: '#fixtures-section',
@@ -43,7 +48,10 @@ export const indexPageData = {
                 class: '.section-header',
                 text: 'FIXTURES & RESULTS'
             },
-            body: {class: '.section-body'}
+            body: {
+                class: '.section-body',
+                content
+            }
         },
         admin: {
             id: '#admin-section',

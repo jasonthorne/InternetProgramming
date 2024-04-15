@@ -1,5 +1,5 @@
 import {expect, Page} from '@playwright/test'
-import {indexPageData} from '../data/page-data/index-page-data'
+import {indexPageData} from '../data/index-page-data'
 import BasePage from './base-page';
 
 export class IndexPage extends BasePage{
