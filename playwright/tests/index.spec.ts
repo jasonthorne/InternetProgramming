@@ -93,12 +93,12 @@ test.describe('Testing Fixtures & Results Section', ()=>{
         const sectionHeaderText: string = indexPageData.section.fixtures.header.text;
         const sectionBodyClass: string = indexPageData.section.fixtures.body.class;
         const secionBodyText: string = indexPageData.section.fixtures.body.text;
-        const sectionBodyResults = indexPageData.section.fixtures.body.results.content;
+        const sectionBodyFixtureResults = indexPageData.section.fixtures.body.results.content;
         //teams names from results data: //++++++++++++++++++THS SHOULD BE PULLED FROM PAGE - Maybe :P
-        const resultsTeamNames: string[] = [
-            ...sectionBodyResults.map(result => result.away_team.name), 
-            ...sectionBodyResults.map(result => result.home_team.name)
-        ].sort();
+        //const resultsTeamNames: string[] = [
+           // ...sectionBodyResults.map(result => result.away_team.name), 
+           // ...sectionBodyResults.map(result => result.home_team.name)
+       // ].sort();
         //teams names from team data:
         const dataTeamNames: string[] = Object.values(teamData).map(team => team.name).sort();
 
@@ -106,6 +106,14 @@ test.describe('Testing Fixtures & Results Section', ()=>{
             alert('same members');
         }
         else alert('not a match');*/
+
+        //#############################
+
+        const sectionBodyFixtureClass: string = indexPageData.section.fixtures.body.results.class;
+
+
+
+        //##############################
 
 
 
@@ -144,7 +152,7 @@ test.describe('Testing Fixtures & Results Section', ()=>{
 
       //  const testList: string[];
 
-        for(let i=0; i<sectionBodyResults.length; i++){
+        //for(let i=0; i<sectionBodyResults.length; i++){
             //await indexPage.assertTextIsVisible(sectionBodyClass, sectionBodyContent[i].heading);
             //await indexPage.assertTextIsVisible(sectionBodyClass, sectionBodyContent[i].text);
           //  console.log(sectionBodyResults[i].away_team.name);
@@ -158,10 +166,12 @@ test.describe('Testing Fixtures & Results Section', ()=>{
                 console.log(`${key}: ${sectionBodyResults[i][key].score}`);
                 testList.push(sectionBodyResults[i][key].name);
             }*/
-        }
+        //}
 
-        console.log("+++++++++resultsTeamNames+++++" + resultsTeamNames);
-       console.log("+++++dataTeamNames+++++++++" + dataTeamNames);
+    ////    console.log("+++++++++resultsTeamNames+++++" + resultsTeamNames);
+   //    console.log("+++++dataTeamNames+++++++++" + dataTeamNames);
+
+
 
        
 
@@ -181,6 +191,10 @@ test.describe('Testing Fixtures & Results Section', ()=>{
         
         //and score from results data??5
         //===============================================
+
+        //++++++++++++++++BOOM :P
+        /*for each fixture in fixtures:
+        Is there a fixture class that contains all info in that fixture*.
         
         
 
@@ -191,6 +205,40 @@ test.describe('Testing Fixtures & Results Section', ()=>{
             await indexPage.assertTextIsVisible(sectionBodyClass, sectionBodyContent[i].text);
         }*/
 
+
+
+    });
+
+    test('Assert fixtures and results data', async()=>{
+
+        const fixtureResults = indexPageData.section.fixtures.body.results.content;
+        const fixtureClass: string = indexPageData.section.fixtures.body.results.class;
+
+        console.log("fixtureResults" + fixtureResults);
+
+        for(let i=0; i<fixtureResults.length; i++){
+            //+++++++++++++Scores sdont work becausetheres multiple 0s. Need to pair it with e team name somehow :P +++++
+
+            /*
+            Error: expect.toBeVisible: Error: strict mode violation: locator('.fixture-grid-container').getByText('0') resolved to 3 elements:
+            1) <h3>…</h3> aka getByRole('heading', { name: '9 -' })
+            2) <h3>…</h3> aka getByRole('heading', { name: '0 -' })
+            3) <h3>…</h3> aka getByRole('heading', { name: '1 - 0' })
+
+        Call log:
+        - expect.toBeVisible with timeout 5000ms
+        - waiting for locator('.fixture-grid-container').getByText('0')
+
+
+
+
+
+            */
+            await indexPage.assertTextIsVisible(fixtureClass, fixtureResults[i].home_team.name);
+            await indexPage.assertTextIsVisible(fixtureClass, fixtureResults[i].home_team.score);
+            await indexPage.assertTextIsVisible(fixtureClass, fixtureResults[i].away_team.name);
+            await indexPage.assertTextIsVisible(fixtureClass, fixtureResults[i].away_team.score);
+        }
 
 
     });
