@@ -83,7 +83,7 @@ test.describe('Testing News & Updates Section', ()=>{
 
         //assert section body content is visible:
         for(let i=0; i<sectionBodyContent.length; i++){
-            await indexPage.assertNewsUpdatesTextIsVisible(
+            await indexPage.assertNewsUpdatesContentIsVisible(
                 sectionBodyClass, 
                 sectionBodyContent[i].heading, 
                 sectionBodyContent[i].text
@@ -122,34 +122,6 @@ test.describe('Testing Fixtures & Results Section', ()=>{
 
 
         //##############################
-
-
-
-       // const dataTeamNames = Object.keys(teamData).map(team => team.name)
-
-     
-            /////for (const key in user) {   console.log(`${key}: ${user[key]}`);
-
-
-        //let testList2 = sectionBodyResults.map(a => a.away_team.name).map(b => b.hom);
-
-        //let ugh;
-
-       /* let testList3 = Object.values(teamData).forEach(team => {
-           //console.log("++++++team++++++++" + team.name);
-           //return team.name;
-           ugh.push(team.name);
-          
-        });*/
-
-        
-
-        //console.log("++++++++testList3++++++" + testList3);
-       // console.log("++++++++ugh++++++" + ugh);
-        //console.log("++++++++testList4++++++" + testList4);
-
-        //testList2 = testList2.concat(testList3);
-        
 
         //assert section is visible:
         await indexPage.assertElementIsVisible(sectionId);
@@ -217,14 +189,20 @@ test.describe('Testing Fixtures & Results Section', ()=>{
 
     });
 
-   // test('Assert fixtures and results data', async()=>{
+   test('Assert fixtures and results content', async()=>{
 
-   //     const fixtureResults = indexPageData.section.fixtures.body.results.content;
-    //    const fixtureClass: string = indexPageData.section.fixtures.body.results.class;
+        const fixtureResults = indexPageData.section.fixtures.body.results.content;
+        const fixtureClass: string = indexPageData.section.fixtures.body.results.class;
 
-   //     console.log("fixtureResults" + fixtureResults);
+        ///console.log("fixtureResults" + fixtureResults);
+        let logoSrc: string = null;
 
-     //   for(let i=0; i<fixtureResults.length; i++){
+        /*const getLogoSrc = (fixtureResult: typeof fixtureResults)=>{
+            return Object.values(teamData).find(
+                team => team.name === fixtureResult.home_team.name).logo.src;
+        }*/
+
+        for(let i=0; i<fixtureResults.length; i++){
             //+++++++++++++Scores sdont work becausetheres multiple 0s. Need to pair it with e team name somehow :P +++++
 
             /*
@@ -237,6 +215,8 @@ test.describe('Testing Fixtures & Results Section', ()=>{
         - expect.toBeVisible with timeout 5000ms
         - waiting for locator('.fixture-grid-container').getByText('0')
 
+        await indexPage.
+
 
 
 
@@ -246,9 +226,32 @@ test.describe('Testing Fixtures & Results Section', ()=>{
    //         await indexPage.assertTextIsVisible(fixtureClass, fixtureResults[i].home_team.score);
     //        await indexPage.assertTextIsVisible(fixtureClass, fixtureResults[i].away_team.name);
     //        await indexPage.assertTextIsVisible(fixtureClass, fixtureResults[i].away_team.score);
-   //     }
+            let homeTeamLogoSrc = Object.values(teamData).find(
+                team => team.name === fixtureResults[i].home_team.name).logo.src;
+            let awayTeamLogoSrc = Object.values(teamData).find(
+                team => team.name === fixtureResults[i].away_team.name).logo.src;
+
+            
+            console.log("++++++++++++LOGO " + homeTeamLogoSrc.logo.src);
+
+            await indexPage.assertFixturesResultsContentIsVisible(
+                fixtureClass,
+                homeTeamLogoSrc,
+                fixtureResults[i].home_team.name,
+                fixtureResults[i].home_team.score,
+                awayTeamLogoSrc,
+                fixtureResults[i].away_team.name,
+                fixtureResults[i].away_team.score
+            )
+        }
+
+        //####################
 
 
- //   });
+
+        //#####################
+
+
+    });
 });
 
