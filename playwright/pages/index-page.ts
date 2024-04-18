@@ -12,7 +12,7 @@ export class IndexPage extends BasePage{
         await expect(this.page.locator(selector)
             .filter({hasText: heading})
             .filter({hasText: text})
-            ).toBeVisible();
+        ).toBeVisible();
     }
 
     //assert fixture result content is visible:
@@ -28,44 +28,8 @@ export class IndexPage extends BasePage{
                 .filter({has: this.page.getByRole('img', {name: awayTeamLogoAlt})})
                 .filter({hasText: awayTeamName})
                 .filter({hasText: awayTeamScore})
-                ).toBeVisible();
-
-        /*
-
-        this.page.locator(selector).getByRole('img',{name: name})).toBeVisible();
-          await expect(this.page.locator(selector).getByRole('img',{name: name})).toBeVisible();
-
-        //assert image src:
-    async assertImgSrc(selector: string, name: string, src: string){
-        expect(await this.page.locator(selector).getByRole('img',{name: name})
-            .getAttribute('src')).toMatch(src);
+            ).toBeVisible();
     }
-
-.filter({ has: page.getByRole('button', { name: 'Say goodbye' }) })
-
-          {
-               home_team: {
-                name: teamData.lorem_ipsum.name,
-                score: '9'
-               },
-               away_team: {
-                name: teamData.sed_sit_amet.name,
-                score: '0'
-               }
-            }
-
-        */
-        
-    }
-
-    async assertNewsUpdatesContentIsVisible2(selector: string, heading: string, text: string){
-        await expect(this.page.locator(selector)
-            .filter({hasText: heading})
-            .filter({hasText: text}))
-            .toBeVisible();
-    }
-
-
 }
 
 export default IndexPage;

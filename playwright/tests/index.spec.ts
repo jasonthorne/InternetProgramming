@@ -81,7 +81,7 @@ test.describe('Testing News & Updates Section', ()=>{
         const sectionBodyClass: string = indexPageData.section.news_updates.body.class;
         const sectionBodyContent = indexPageData.section.news_updates.body.content;
 
-        //assert section body content is visible:
+        //assert all section body content is visible:
         for(let i=0; i<sectionBodyContent.length; i++){
             await indexPage.assertNewsUpdatesContentIsVisible(
                 sectionBodyClass, 
@@ -101,137 +101,26 @@ test.describe('Testing Fixtures & Results Section', ()=>{
         const sectionHeaderText: string = indexPageData.section.fixtures.header.text;
         const sectionBodyClass: string = indexPageData.section.fixtures.body.class;
         const secionBodyText: string = indexPageData.section.fixtures.body.text;
-        const sectionBodyFixtureResults = indexPageData.section.fixtures.body.results.content;
-        //teams names from results data: //++++++++++++++++++THS SHOULD BE PULLED FROM PAGE - Maybe :P
-        //const resultsTeamNames: string[] = [
-           // ...sectionBodyResults.map(result => result.away_team.name), 
-           // ...sectionBodyResults.map(result => result.home_team.name)
-       // ].sort();
-        //teams names from team data:
-        const dataTeamNames: string[] = Object.values(teamData).map(team => team.name).sort();
-
-        /*if(resultsTeamNames.sort().join(',')=== dataTeamNames.sort().join(',')){
-            alert('same members');
-        }
-        else alert('not a match');*/
-
-        //#############################
-
-        const sectionBodyFixtureClass: string = indexPageData.section.fixtures.body.results.class;
-
-
-
-        //##############################
-
+        
         //assert section is visible:
         await indexPage.assertElementIsVisible(sectionId);
         //assert section header is visible:
         await indexPage.assertTextIsVisible(sectionHeaderClass, sectionHeaderText);
         //assert section body text is visible:
         await indexPage.assertTextIsVisible(sectionBodyClass, secionBodyText);
-
-      //  const testList: string[];
-
-        //for(let i=0; i<sectionBodyResults.length; i++){
-            //await indexPage.assertTextIsVisible(sectionBodyClass, sectionBodyContent[i].heading);
-            //await indexPage.assertTextIsVisible(sectionBodyClass, sectionBodyContent[i].text);
-          //  console.log(sectionBodyResults[i].away_team.name);
-         //   console.log(sectionBodyResults[i].away_team.score);
-           ////////// testList.push(sectionBodyResults[i].home_team.name);
-           ////////// testList.push(sectionBodyResults[i].away_team.name);
-
-           /* for(const key in sectionBodyResults[i]){ 
-               // console.log(`${key}: ${sectionBodyResults[i][key]}`);
-                console.log(`${key}: ${sectionBodyResults[i][key].name}`);
-                console.log(`${key}: ${sectionBodyResults[i][key].score}`);
-                testList.push(sectionBodyResults[i][key].name);
-            }*/
-        //}
-
-    ////    console.log("+++++++++resultsTeamNames+++++" + resultsTeamNames);
-   //    console.log("+++++dataTeamNames+++++++++" + dataTeamNames);
-
-
-
-       
-
-
-
-        //================================================
-        //are all teams from teamsData in results??
-
-        /*const arr = sectionBodyResults.map(({home_team.name}) => (home_team.name))
-
-        if(array1.sort().join(',')=== array2.sort().join(',')){
-            alert('same members');
-        }
-        else alert('not a match');*/
-
-        //does results hold team log and team name from team data?
-        
-        //and score from results data??5
-        //===============================================
-
-        //++++++++++++++++BOOM :P
-        /*for each fixture in fixtures:
-        Is there a fixture class that contains all info in that fixture*.
-        
-        
-
-
-        //assert section body content is visible:
-        /*for(let i=0; i<sectionBodyContent.length; i++){
-            await indexPage.assertTextIsVisible(sectionBodyClass, sectionBodyContent[i].heading);
-            await indexPage.assertTextIsVisible(sectionBodyClass, sectionBodyContent[i].text);
-        }*/
-
-
-
     });
 
-   test('Assert fixtures and results content', async()=>{
-
+    test('Assert fixtures and results content', async()=>{
+        //grab fixture vars:
         const fixtureResults = indexPageData.section.fixtures.body.results.content;
         const fixtureClass: string = indexPageData.section.fixtures.body.results.class;
-
+        //gets logo alt text from team data:
         const getLogoAlt = (teamName: string)=>{
-            return Object.values(teamData).find(team =>team.name===teamName).logo.alt;
+            return Object.values(teamData).find(team =>team.name === teamName).logo.alt;
         }
 
         for(let i=0; i<fixtureResults.length; i++){
-            //+++++++++++++Scores sdont work becausetheres multiple 0s. Need to pair it with e team name somehow :P +++++
-
-            /*
-            Error: expect.toBeVisible: Error: strict mode violation: locator('.fixture-grid-container').getByText('0') resolved to 3 elements:
-            1) <h3>…</h3> aka getByRole('heading', { name: '9 -' })
-            2) <h3>…</h3> aka getByRole('heading', { name: '0 -' })
-            3) <h3>…</h3> aka getByRole('heading', { name: '1 - 0' })
-
-        Call log:
-        - expect.toBeVisible with timeout 5000ms
-        - waiting for locator('.fixture-grid-container').getByText('0')
-
-        await indexPage.
-
-
-
-
-
-            */
-    //        await indexPage.assertTextIsVisible(fixtureClass, fixtureResults[i].home_team.name);
-   //         await indexPage.assertTextIsVisible(fixtureClass, fixtureResults[i].home_team.score);
-    //        await indexPage.assertTextIsVisible(fixtureClass, fixtureResults[i].away_team.name);
-    //        await indexPage.assertTextIsVisible(fixtureClass, fixtureResults[i].away_team.score);
-
-            //grab teams alt logo text from team data:
-            let homeTeamLogoAlt = Object.values(teamData).find(
-                team => team.name === fixtureResults[i].home_team.name).logo.alt;
-            let awayTeamLogoAlt = Object.values(teamData).find(
-                team => team.name === fixtureResults[i].away_team.name).logo.alt;
-
-            
-           // console.log("++++++++++++LOGO " + homeTeamLogoSrc.logo.src);
-
+            //assert that content for each fixture is visible:
             await indexPage.assertFixtureResultsContentIsVisible(
                 fixtureClass,
                 getLogoAlt(fixtureResults[i].home_team.name),
@@ -242,14 +131,5 @@ test.describe('Testing Fixtures & Results Section', ()=>{
                 fixtureResults[i].away_team.score
             )
         }
-
-        //####################
-
-
-
-        //#####################
-
-
     });
 });
-
