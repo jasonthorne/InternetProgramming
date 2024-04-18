@@ -1,22 +1,19 @@
 import {expect, Page} from '@playwright/test'
-import {indexPageData} from '../data/index-page-data'
 import BasePage from './base-page';
 
 export class IndexPage extends BasePage{
 
-   // readonly title: RegExp;
-
     constructor(readonly page: Page){
         super(page);
-        /*this.title = title*/
-
-        //let test = indexPageData.navbar.logo.img
     }
 
-    //async TEST(){ //assert page title:
-        //await expect(this.page).toHaveTitle(/*this.*///indexPageData.title);
-    //}
-
+    //assert 'news & updates' heading and content text is visible:
+    async assertNewsUpdatesTextIsVisible(selector: string, heading: string, content: string){
+        await expect(this.page.locator(selector)
+            .filter({hasText: heading})
+            .filter({hasText: content}))
+            .toBeVisible();
+    }
 }
 
 export default IndexPage;

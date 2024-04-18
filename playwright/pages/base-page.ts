@@ -20,7 +20,7 @@ export class BasePage{
     //assert image src:
     async assertImgSrc(selector: string, name: string, src: string){
         expect(await this.page.locator(selector).getByRole('img',{name: name})
-        .getAttribute('src')).toMatch(src);
+            .getAttribute('src')).toMatch(src);
     }
 
     //assert text is visible:
@@ -57,10 +57,36 @@ export class BasePage{
         expect(imgSrc).toContain(src);
     }
 
-    async test(test: string){
-        console.log("+++++++++++++test" + test);
+    async test(selector: string, loc1: string, loc2: string){
+        console.log("+++++++++++++loc1 + loc2: " + loc1 + "\n" + loc2);
 
-        //await expect(this.page.locator(testClass)).toHaveAttribute
+       // await expect(this.page.locator(selector).getByText(loc1)).toBeVisible();
+
+        const mySelector = this.page.locator(selector);
+
+        await expect(this.page.locator(selector).filter({hasText: loc1})
+            .filter({hasText: loc2})).toBeVisible();
+
+        /*const rowLocator = page.getByRole('listitem');
+
+            await rowLocator
+                .filter({ hasText: 'Mary' })
+                .filter({ has: page.getByRole('button', { name: 'Say goodbye' }) })
+                .screenshot({ path: 'screenshot.png' });
+            */
+
+
+
+        /*
+           async assertTextIsVisible(selector: string, text: string){
+            await expect(this.page.locator(selector).getByText(text)).toBeVisible();
+        }*/
+
+         /*let test = this.page.locator("#navbar-logo").getByText("Est. 2022");
+        console.log("++++++++++++" + await test.innerText());*/
+
+
+        
 
     }
    
