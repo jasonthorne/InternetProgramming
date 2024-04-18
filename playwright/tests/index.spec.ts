@@ -194,13 +194,9 @@ test.describe('Testing Fixtures & Results Section', ()=>{
         const fixtureResults = indexPageData.section.fixtures.body.results.content;
         const fixtureClass: string = indexPageData.section.fixtures.body.results.class;
 
-        ///console.log("fixtureResults" + fixtureResults);
-        let logoSrc: string = null;
-
-        /*const getLogoSrc = (fixtureResult: typeof fixtureResults)=>{
-            return Object.values(teamData).find(
-                team => team.name === fixtureResult.home_team.name).logo.src;
-        }*/
+        const getLogoAlt = (teamName: string)=>{
+            return Object.values(teamData).find(team =>team.name===teamName).logo.alt;
+        }
 
         for(let i=0; i<fixtureResults.length; i++){
             //+++++++++++++Scores sdont work becausetheres multiple 0s. Need to pair it with e team name somehow :P +++++
@@ -226,20 +222,22 @@ test.describe('Testing Fixtures & Results Section', ()=>{
    //         await indexPage.assertTextIsVisible(fixtureClass, fixtureResults[i].home_team.score);
     //        await indexPage.assertTextIsVisible(fixtureClass, fixtureResults[i].away_team.name);
     //        await indexPage.assertTextIsVisible(fixtureClass, fixtureResults[i].away_team.score);
-            let homeTeamLogoSrc = Object.values(teamData).find(
-                team => team.name === fixtureResults[i].home_team.name).logo.src;
-            let awayTeamLogoSrc = Object.values(teamData).find(
-                team => team.name === fixtureResults[i].away_team.name).logo.src;
+
+            //grab teams alt logo text from team data:
+            let homeTeamLogoAlt = Object.values(teamData).find(
+                team => team.name === fixtureResults[i].home_team.name).logo.alt;
+            let awayTeamLogoAlt = Object.values(teamData).find(
+                team => team.name === fixtureResults[i].away_team.name).logo.alt;
 
             
-            console.log("++++++++++++LOGO " + homeTeamLogoSrc.logo.src);
+           // console.log("++++++++++++LOGO " + homeTeamLogoSrc.logo.src);
 
-            await indexPage.assertFixturesResultsContentIsVisible(
+            await indexPage.assertFixtureResultsContentIsVisible(
                 fixtureClass,
-                homeTeamLogoSrc,
+                getLogoAlt(fixtureResults[i].home_team.name),
                 fixtureResults[i].home_team.name,
                 fixtureResults[i].home_team.score,
-                awayTeamLogoSrc,
+                getLogoAlt(fixtureResults[i].away_team.name),
                 fixtureResults[i].away_team.name,
                 fixtureResults[i].away_team.score
             )

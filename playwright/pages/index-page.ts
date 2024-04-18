@@ -11,24 +11,29 @@ export class IndexPage extends BasePage{
     async assertNewsUpdatesContentIsVisible(selector: string, heading: string, text: string){
         await expect(this.page.locator(selector)
             .filter({hasText: heading})
-            .filter({hasText: text}))
-            .toBeVisible();
+            .filter({hasText: text})
+            ).toBeVisible();
     }
 
-    //assert 'fixtures & results' content is visible:
-    async assertFixturesResultsContentIsVisible(
-        selector: string, homeTeam: string, homeTeamScore: string, 
-        awayTeam: string, awayTeamScore: string){
+    //assert fixture result content is visible:
+    async assertFixtureResultsContentIsVisible(
+        selector: string, 
+        homeTeamLogoAlt: string, homeTeamName: string, homeTeamScore: string, 
+        awayTeamLogoAlt: string, awayTeamName: string, awayTeamScore: string){
 
-            await expect(this.page.locator(selector)
-                .filter({has: this.page.getByRole('img', {name: imSrc})}) //alt text AND src needed here :/
-                .filter({hasText: homeTeam})
+           await expect(this.page.locator(selector)
+                .filter({has: this.page.getByRole('img', {name: homeTeamLogoAlt})})
+                .filter({hasText: homeTeamName})
                 .filter({hasText: homeTeamScore})
-                .filter({hasText: awayTeam})
-                .filter({hasText: awayTeamScore}))
-                .toBeVisible();
+                .filter({has: this.page.getByRole('img', {name: awayTeamLogoAlt})})
+                .filter({hasText: awayTeamName})
+                .filter({hasText: awayTeamScore})
+                ).toBeVisible();
 
         /*
+
+        this.page.locator(selector).getByRole('img',{name: name})).toBeVisible();
+          await expect(this.page.locator(selector).getByRole('img',{name: name})).toBeVisible();
 
         //assert image src:
     async assertImgSrc(selector: string, name: string, src: string){
