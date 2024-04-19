@@ -83,9 +83,7 @@ test.describe('Testing News & Updates Section', ()=>{
         //assert all section body content is visible:
         for(const content of sectionBodyContents){
             await indexPage.assertNewsUpdatesContentIsVisible(
-                sectionBodyClass,
-                content.heading, 
-                content.text
+                sectionBodyClass, content.heading, content.text
             );
         }
     });
@@ -114,7 +112,7 @@ test.describe('Testing Fixtures & Results Section', ()=>{
         const fixtureResults = indexPageData.section.fixtures.body.results.content;
         const fixtureClass: string = indexPageData.section.fixtures.body.results.class;
         //asserts a team's img src:
-        const assertTeamImgSrc = async(team: {logo: {src: string; alt: string}})=>{
+        const assertTeamImgSrc = async(team: {logo: {src: string; alt: string;}})=>{
             await indexPage.assertImgSrc(fixtureClass, team.logo.alt, team.logo.src);
         }
         
@@ -163,7 +161,7 @@ test.describe('Testing Admin Section', ()=>{
         //spin through each staff member:
         for(const staff of Object.keys(adminStaff).map(key=>adminStaff[key])){
             //assert staff's image src:
-            await indexPage.assertImgSrc(adminClass, staff.img.alt, staff.img.src)
+            await indexPage.assertImgSrc(adminClass, staff.img.alt, staff.img.src);
             //assert that content is visible:
             await indexPage.assertAdminContentIsVisible(
                 adminClass, staff.title, staff.img.alt, staff.name, staff.text
