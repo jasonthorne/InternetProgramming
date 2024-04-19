@@ -1,4 +1,5 @@
 import {teamData} from '../data/team-data';
+import {staffData} from '../data/staff-data';
 
 export const sectionData = {
     news_updates: [
@@ -40,16 +41,36 @@ export const sectionData = {
         text: 'Donec pretium sed nisl sodales commodo. Aenean lectus nisl, condimentum at dictum suscipit, eleifend sit amet ante.',
         results: [
             {
-               home_team: {
-                name: teamData.lorem_ipsum.name,
-                score: '9'
-               },
-               away_team: {
-                name: teamData.sed_sit_amet.name,
-                score: '0'
+                home_team: {
+                    name: teamData.lorem_ipsum.name,
+                    score: '9'
+                },
+                away_team: {
+                    name: teamData.sed_sit_amet.name,
+                    score: '0'
                }
-            }
+            },
+            {
+                home_team: {
+                    name: teamData.aliquam_dictum.name,
+                    score: '2'
+                },
+                away_team: {
+                    name: teamData.nunc_lacus.name,
+                    score: '1'
+               }
+            },
         ]
+    },
+    admin: {
+        text: `Ut sagittis urna nec eros maximus, in iaculis lacus sollicitudin. Suspendisse in dui et mi cursus fermentum quis et nulla. 
+        Donec bibendum ipsum nec lacinia consectetur. Phasellus rutrum est at est iaculis, in venenatis dui placerat. 
+        Proin tempor felis justo, vel dapibus erat semper at. Mauris nec libero et dolor gravida cursus. 
+        Ut id ligula volutpat, ultrices lorem vitae, consectetur nulla. Donec sit amet ex et ligula fermentum placerat. Nulla facilisi.`,
+        staff: {
+            chairperson: staffData.chairperson,
+            secretary: staffData.secretary,
+            treasurer: staffData.treasurer
+        }
     }
-
 } as const;

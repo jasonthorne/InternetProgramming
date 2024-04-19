@@ -122,9 +122,8 @@ test.describe('Testing Fixtures & Results Section', ()=>{
         }
 
         for(let i=0; i<fixtureResults.length; i++){
-
             //assert that content for each fixture is visible:
-            await indexPage.assertFixtureResultsContentIsVisible(
+            await indexPage.assertFixtureResultContentIsVisible(
                 fixtureClass,
                 getLogoAlt(fixtureResults[i].home_team.name),
                 fixtureResults[i].home_team.name,
@@ -135,4 +134,48 @@ test.describe('Testing Fixtures & Results Section', ()=>{
             )
         }
     });
+});
+
+test.describe('Testing Admin Section', ()=>{
+
+    test('Assert admin section', async()=>{
+        //grab section vars:
+        const sectionId: string = indexPageData.section.admin.id;
+        const sectionHeaderClass: string = indexPageData.section.admin.header.class;
+        const sectionHeaderText: string = indexPageData.section.admin.header.text;
+        const sectionBodyClass: string = indexPageData.section.admin.body.class;
+        const secionBodyText: string = indexPageData.section.admin.body.text;
+        
+        //assert section is visible:
+        await indexPage.assertElementIsVisible(sectionId);
+        //assert section header is visible:
+        await indexPage.assertTextIsVisible(sectionHeaderClass, sectionHeaderText);
+        //assert section body text is visible:
+        await indexPage.assertTextIsVisible(sectionBodyClass, secionBodyText);
+    });
+
+    /*test('Assert admin staff content', async()=>{
+        //grab fixture vars:
+        const fixtureResults = indexPageData.section.fixtures.body.results.content;
+        const fixtureClass: string = indexPageData.section.fixtures.body.results.class;
+        //gets logo alt text from team data:
+        const getLogoAlt = (teamName: string)=>{
+            return Object.keys(teamData)
+                .map(key=>teamData[key])
+                .find(team=>team.name === teamName).logo.alt;
+        }
+
+        for(let i=0; i<fixtureResults.length; i++){
+            //assert that content for each fixture is visible:
+            await indexPage.assertFixtureResultContentIsVisible(
+                fixtureClass,
+                getLogoAlt(fixtureResults[i].home_team.name),
+                fixtureResults[i].home_team.name,
+                fixtureResults[i].home_team.score,
+                getLogoAlt(fixtureResults[i].away_team.name),
+                fixtureResults[i].away_team.name,
+                fixtureResults[i].away_team.score
+            )
+        }
+    });*/
 });

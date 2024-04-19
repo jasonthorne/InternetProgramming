@@ -14,19 +14,18 @@ export const teamData = {
             alt: 'Sed Sit Amet logo'
         }
     },
-    /*{
-        name: 'Lorem Ipsum',
+    aliquam_dictum: {
+        name: 'Aliquam Dictum',
         logo: {
-            src: 'img/teams/Lorem-Ipsum.png',
-            alt: 'Lorem Ipsum logo'
+            src: 'img/teams/Aliquam-Dictum.png',
+            alt: 'Aliquam Dictum logo'
         }
     },
-    {
-        name: 'Lorem Ipsum',
+    nunc_lacus: {
+        name: 'Nunc Lacus',
         logo: {
-            src: 'img/teams/Lorem-Ipsum.png',
-            alt: 'Lorem Ipsum logo'
+            src: 'img/teams/Nunc-Lacus.png',
+            alt: 'Nunc Lacus logo'
         }
-    },*/
-
+    }
  } as const;

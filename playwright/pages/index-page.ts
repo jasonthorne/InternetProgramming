@@ -16,7 +16,7 @@ export class IndexPage extends BasePage{
     }
 
     //assert fixture result content is visible:
-    async assertFixtureResultsContentIsVisible(
+    async assertFixtureResultContentIsVisible(
         selector: string, 
         homeTeamLogoAlt: string, homeTeamName: string, homeTeamScore: string, 
         awayTeamLogoAlt: string, awayTeamName: string, awayTeamScore: string){

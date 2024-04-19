@@ -64,7 +64,11 @@ export const indexPageData = {
                 class: '.section-header',
                 text: 'ADMINISTRATION'
             },
-            body: {class: '.section-body'}
+            body: {
+                class: '.section-body',
+                text: sectionData.admin.text,
+                staff: sectionData.admin.staff
+            }
         },
         comments: {
             id: '#comments-section',
