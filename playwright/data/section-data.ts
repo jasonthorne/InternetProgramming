@@ -42,21 +42,21 @@ export const sectionData = {
         results: [
             {
                 home_team: {
-                    name: teamData.lorem_ipsum.name,
+                    team: teamData.lorem_ipsum,
                     score: '9'
                 },
                 away_team: {
-                    name: teamData.sed_sit_amet.name,
+                    team: teamData.sed_sit_amet,
                     score: '0'
                }
             },
             {
                 home_team: {
-                    name: teamData.aliquam_dictum.name,
+                    team: teamData.aliquam_dictum,
                     score: '2'
                 },
                 away_team: {
-                    name: teamData.nunc_lacus.name,
+                   team: teamData.nunc_lacus,
                     score: '1'
                }
             },

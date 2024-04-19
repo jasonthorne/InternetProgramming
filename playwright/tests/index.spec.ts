@@ -1,7 +1,6 @@
 import {test} from '@playwright/test';
 import {IndexPage} from '../pages/index-page';
 import {indexPageData} from '../data/index-page-data';
-import {teamData} from '../data/team-data';
 
 let indexPage: IndexPage;
 
@@ -38,8 +37,8 @@ test.describe('Testing Index Page Navbar', ()=>{
         const navClass: string = indexPageData.navbar.nav.class;
         const navLinks = indexPageData.navbar.nav.links;
         //assert each nav link's url:
-        for(let i=0; i<navLinks.length; i++){
-           await indexPage.assertLinkUrl(navClass, navLinks[i].text, navLinks[i].href);
+        for(const navLink of navLinks){
+           await indexPage.assertLinkUrl(navClass, navLink.text, navLink.href);
         }
     });
 });
@@ -79,15 +78,15 @@ test.describe('Testing News & Updates Section', ()=>{
     test('Assert news and updates content', async()=>{
         //grab section vars:
         const sectionBodyClass: string = indexPageData.section.news_updates.body.class;
-        const sectionBodyContent = indexPageData.section.news_updates.body.content;
+        const sectionBodyContents = indexPageData.section.news_updates.body.content;
 
         //assert all section body content is visible:
-        for(let i=0; i<sectionBodyContent.length; i++){
+        for(const content of sectionBodyContents){
             await indexPage.assertNewsUpdatesContentIsVisible(
-                sectionBodyClass, 
-                sectionBodyContent[i].heading, 
-                sectionBodyContent[i].text
-            )
+                sectionBodyClass,
+                content.heading, 
+                content.text
+            );
         }
     });
 });
@@ -114,24 +113,27 @@ test.describe('Testing Fixtures & Results Section', ()=>{
         //grab fixture vars:
         const fixtureResults = indexPageData.section.fixtures.body.results.content;
         const fixtureClass: string = indexPageData.section.fixtures.body.results.class;
-        //gets logo alt text from team data:
-        const getLogoAlt = (teamName: string)=>{
-            return Object.keys(teamData)
-                .map(key=>teamData[key])
-                .find(team=>team.name === teamName).logo.alt;
-        }
+       
+        
+        for(const fixtureResult of fixtureResults){
 
-        for(let i=0; i<fixtureResults.length; i++){
+            //assert img src for teams:
+            await indexPage.assertImgSrc(
+                fixtureClass, 
+                fixtureResult.home_team.team.logo.alt,
+                fixtureResult.home_team.team.logo.src
+            );
+
             //assert that content for each fixture is visible:
             await indexPage.assertFixtureResultContentIsVisible(
                 fixtureClass,
-                getLogoAlt(fixtureResults[i].home_team.name),
-                fixtureResults[i].home_team.name,
-                fixtureResults[i].home_team.score,
-                getLogoAlt(fixtureResults[i].away_team.name),
-                fixtureResults[i].away_team.name,
-                fixtureResults[i].away_team.score
-            )
+                fixtureResult.home_team.team.logo.alt,
+                fixtureResult.home_team.team.name,
+                fixtureResult.home_team.score,
+                fixtureResult.away_team.team.logo.alt,
+                fixtureResult.away_team.team.name,
+                fixtureResult.away_team.score
+            );
         }
     });
 });
@@ -154,28 +156,24 @@ test.describe('Testing Admin Section', ()=>{
         await indexPage.assertTextIsVisible(sectionBodyClass, secionBodyText);
     });
 
-    /*test('Assert admin staff content', async()=>{
-        //grab fixture vars:
-        const fixtureResults = indexPageData.section.fixtures.body.results.content;
-        const fixtureClass: string = indexPageData.section.fixtures.body.results.class;
-        //gets logo alt text from team data:
-        const getLogoAlt = (teamName: string)=>{
-            return Object.keys(teamData)
-                .map(key=>teamData[key])
-                .find(team=>team.name === teamName).logo.alt;
-        }
+    test('Assert admin staff content', async()=>{
+        //grab staff vars:
+        const adminStaff = indexPageData.section.admin.body.staff;
+        const adminClass: string = indexPageData.section.admin.body.class;
 
-        for(let i=0; i<fixtureResults.length; i++){
-            //assert that content for each fixture is visible:
-            await indexPage.assertFixtureResultContentIsVisible(
-                fixtureClass,
-                getLogoAlt(fixtureResults[i].home_team.name),
-                fixtureResults[i].home_team.name,
-                fixtureResults[i].home_team.score,
-                getLogoAlt(fixtureResults[i].away_team.name),
-                fixtureResults[i].away_team.name,
-                fixtureResults[i].away_team.score
-            )
+       /* Object.keys(teamData)
+                .map(key=>teamData[key])
+                .find(team=>team.name === teamName)*/
+
+               // Object.keys(adminStaff).map(key=>adminStaff[key]).forEach(()=>{
+
+                //});
+
+        for(const staff of Object.keys(adminStaff).map(key=>adminStaff[key])){
+            console.log("+++++++++++++" + await staff.name);
+            await indexPage.assertAdminContentIsVisible(
+                adminClass, staff.title, staff.img.alt, staff.name, staff.text
+            );
         }
-    });*/
+    });
 });

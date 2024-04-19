@@ -16,3 +16,7 @@ https://shiv-jirwankar.medium.com/get-css-properties-of-web-element-with-playwri
 
 selectors guide:
 https://www.browserstack.com/guide/playwright-selectors
+
+
+await loops:
+https://gist.github.com/joeytwiddle/37d2085425c049629b80956d3c618971

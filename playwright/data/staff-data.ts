@@ -1,5 +1,6 @@
 export const staffData = {
     chairperson: {
+        title: 'Chairperson',
         name: 'John Doe',
         img: {
             src: 'img/staff/chairperson.png',
@@ -10,6 +11,7 @@ export const staffData = {
         Nam sed venenatis diam, pulvinar consectetur lacus.`
     },
     secretary: {
+        title: 'Secretary',
         name: 'John Roe',
         img: {
             src: 'img/staff/secretary.png',
@@ -19,6 +21,7 @@ export const staffData = {
         Aliquam a lorem congue, ornare ligula quis, dictum enim.`
     },
     treasurer: {
+        title: 'Treasurer',
         name: 'Jane Doe',
         img: {
             src: 'img/staff/treasurer.png',
