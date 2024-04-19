@@ -21,7 +21,7 @@ export class IndexPage extends BasePage{
         homeTeamLogoAlt: string, homeTeamName: string, homeTeamScore: string, 
         awayTeamLogoAlt: string, awayTeamName: string, awayTeamScore: string){
 
-           await expect(this.page.locator(selector) //+++++++++++++NOT CHECKING IF IMG URLS ARE VALID :P 
+           await expect(this.page.locator(selector)
                 .filter({has: this.page.getByRole('img',{name: homeTeamLogoAlt})})
                 .filter({hasText: homeTeamName})
                 .filter({hasText: homeTeamScore})

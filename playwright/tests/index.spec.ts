@@ -113,16 +113,15 @@ test.describe('Testing Fixtures & Results Section', ()=>{
         //grab fixture vars:
         const fixtureResults = indexPageData.section.fixtures.body.results.content;
         const fixtureClass: string = indexPageData.section.fixtures.body.results.class;
-       
+        //asserts a team's img src:
+        const assertTeamImgSrc = async(team: {logo: {src: string; alt: string}})=>{
+            await indexPage.assertImgSrc(fixtureClass, team.logo.alt, team.logo.src);
+        }
         
         for(const fixtureResult of fixtureResults){
-
-            //assert img src for teams:
-            await indexPage.assertImgSrc(
-                fixtureClass, 
-                fixtureResult.home_team.team.logo.alt,
-                fixtureResult.home_team.team.logo.src
-            );
+            //assert team's img sources:
+            assertTeamImgSrc(fixtureResult.home_team.team);
+            assertTeamImgSrc(fixtureResult.away_team.team);
 
             //assert that content for each fixture is visible:
             await indexPage.assertFixtureResultContentIsVisible(
@@ -161,16 +160,11 @@ test.describe('Testing Admin Section', ()=>{
         const adminStaff = indexPageData.section.admin.body.staff;
         const adminClass: string = indexPageData.section.admin.body.class;
 
-       /* Object.keys(teamData)
-                .map(key=>teamData[key])
-                .find(team=>team.name === teamName)*/
-
-               // Object.keys(adminStaff).map(key=>adminStaff[key]).forEach(()=>{
-
-                //});
-
+        //spin through each staff member:
         for(const staff of Object.keys(adminStaff).map(key=>adminStaff[key])){
-            console.log("+++++++++++++" + await staff.name);
+            //assert staff's image src:
+            await indexPage.assertImgSrc(adminClass, staff.img.alt, staff.img.src)
+            //assert that content is visible:
             await indexPage.assertAdminContentIsVisible(
                 adminClass, staff.title, staff.img.alt, staff.name, staff.text
             );

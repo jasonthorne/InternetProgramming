@@ -13,13 +13,13 @@ export class BasePage{
     }
 
     //assert image is visible:
-    async assertImgIsVisible(selector: string, name: string){ 
-        await expect(this.page.locator(selector).getByRole('img',{name: name})).toBeVisible();
+    async assertImgIsVisible(selector: string, alt: string){ 
+        await expect(this.page.locator(selector).getByRole('img',{name: alt})).toBeVisible();
     }
 
     //assert image src:
-    async assertImgSrc(selector: string, name: string, src: string){
-        expect(await this.page.locator(selector).getByRole('img',{name: name})
+    async assertImgSrc(selector: string, alt: string, src: string){
+        expect(await this.page.locator(selector).getByRole('img',{name: alt})
             .getAttribute('src')).toMatch(src);
     }
 
