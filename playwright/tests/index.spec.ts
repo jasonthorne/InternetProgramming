@@ -116,10 +116,13 @@ test.describe('Testing Fixtures & Results Section', ()=>{
         const fixtureClass: string = indexPageData.section.fixtures.body.results.class;
         //gets logo alt text from team data:
         const getLogoAlt = (teamName: string)=>{
-            return Object.values(teamData).find(team =>team.name === teamName).logo.alt;
+            return Object.keys(teamData)
+                .map(key=>teamData[key])
+                .find(team=>team.name === teamName).logo.alt;
         }
 
         for(let i=0; i<fixtureResults.length; i++){
+
             //assert that content for each fixture is visible:
             await indexPage.assertFixtureResultsContentIsVisible(
                 fixtureClass,
