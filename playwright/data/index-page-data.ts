@@ -9,7 +9,7 @@ export const indexPageData = {
             id: '#navbar-logo',
             img: {
                 src: teamData.lorem_ipsum.logo.src,
-                alt: 'Lorem Ipsum logo'
+                alt: teamData.lorem_ipsum.logo.alt
             },
             span: {text: 'Est. 2022'}
         },
