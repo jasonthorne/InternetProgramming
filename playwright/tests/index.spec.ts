@@ -159,12 +159,12 @@ test.describe('Testing Admin Section', ()=>{
         const adminClass: string = indexPageData.section.admin.body.class;
 
         //spin through each staff member:
-        for(const staff of Object.keys(adminStaff).map(key=>adminStaff[key])){
-            //assert staff's image src:
-            await indexPage.assertImgSrc(adminClass, staff.img.alt, staff.img.src);
-            //assert that content is visible:
+        for(const member of Object.keys(adminStaff).map(key=>adminStaff[key])){
+            //assert staff member's image src:
+            await indexPage.assertImgSrc(adminClass, member.img.alt, member.img.src);
+            //assert that staff member's content is visible:
             await indexPage.assertAdminContentIsVisible(
-                adminClass, staff.title, staff.img.alt, staff.name, staff.text
+                adminClass, member.title, member.img.alt, member.name, member.text
             );
         }
     });

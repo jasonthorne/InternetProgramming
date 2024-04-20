@@ -1,3 +1,4 @@
+
 export const staffData = {
     chairperson: {
         title: 'Chairperson',
