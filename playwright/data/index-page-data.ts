@@ -3,7 +3,7 @@ import {teamData} from '../data/team-data';
 
 export const indexPageData = {
     url: 'https://lorem-ipsum-fc.web.app',
-    title: /Lorem Ipsum F.C./,
+    title: 'Lorem Ipsum F.C.',
     navbar: {
         logo: {
             id: '#navbar-logo',

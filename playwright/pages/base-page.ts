@@ -8,7 +8,7 @@ export class BasePage{
         console.log("++++++++++++" + await test.innerText());*/
 
     //assert page title:
-    async assertPageTitle(title: RegExp){ 
+    async assertPageTitle(title: string){ 
         await expect(this.page).toHaveTitle(title);
     }
 
