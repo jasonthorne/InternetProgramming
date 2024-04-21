@@ -169,3 +169,42 @@ test.describe('Testing Admin Section', ()=>{
         }
     });
 });
+
+test.describe('Testing Comments Section', ()=>{
+
+    test('Assert comments section', async()=>{
+        //grab section vars:
+        const sectionId: string = indexPageData.section.comments.id;
+        const sectionHeaderClass: string = indexPageData.section.comments.header.class;
+        const sectionHeaderText: string = indexPageData.section.comments.header.text;
+        const sectionBodyClass: string = indexPageData.section.comments.body.class;
+        
+        //assert section is visible:
+        await indexPage.assertElementIsVisible(sectionId);
+        //assert section header is visible:
+        await indexPage.assertTextIsVisible(sectionHeaderClass, sectionHeaderText);
+        //assert comment form is visible:
+        
+       
+    });
+
+    test('Assert comment creation', async()=>{
+        /*//grab staff vars:
+        const adminStaff = indexPageData.section.admin.body.staff;
+        const adminClass: string = indexPageData.section.admin.body.class;
+
+        //spin through each staff member:
+        for(const member of Object.keys(adminStaff).map(key=>adminStaff[key])){
+            //assert staff member's image src:
+            await indexPage.assertImgSrc(adminClass, member.img.alt, member.img.src);
+            //assert that staff member's content is visible:
+            await indexPage.assertAdminContentIsVisible(
+                adminClass, member.title, member.img.alt, member.name, member.text
+            );
+        }*/
+
+    });
+
+    //add each example of a failed comment:
+
+});

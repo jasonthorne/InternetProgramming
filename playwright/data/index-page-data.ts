@@ -76,7 +76,26 @@ export const indexPageData = {
                 class: '.section-header',
                 text: 'COMMENTS'
             },
-            body: {class: '.section-body'}
+            body: {
+                class: '.section-body',
+                comment_form: {
+                    id: '#comment-form',
+                    handle_input: {
+                        id: '#handle-input',
+                        placeholder: 'Name',
+                        maxlength: '60'
+                    },
+                    comment_input: {
+                        id: '#comment-input',
+                        placeholder: 'Comment',
+                        maxlength: '1000'
+                    },
+                    comment_button: {
+                        id: '#comment-btn',
+                        text: 'Post Comment'
+                    }
+                }
+            }
         }
     }
 } as const;
