@@ -178,12 +178,35 @@ test.describe('Testing Comments Section', ()=>{
         const sectionHeaderClass: string = indexPageData.section.comments.header.class;
         const sectionHeaderText: string = indexPageData.section.comments.header.text;
         const sectionBodyClass: string = indexPageData.section.comments.body.class;
+        const commentForm = indexPageData.section.comments.body.comment_form;
         
         //assert section is visible:
         await indexPage.assertElementIsVisible(sectionId);
         //assert section header is visible:
         await indexPage.assertTextIsVisible(sectionHeaderClass, sectionHeaderText);
         //assert comment form is visible:
+        await indexPage.assertCommentFormIsVisible(
+            commentForm.id
+
+        );
+
+        /*comment_form: {
+            id: '#comment-form',
+            handle_input: {
+                id: '#handle-input',
+                placeholder: 'Name',
+                maxlength: '60'
+            },
+            comment_input: {
+                id: '#comment-input',
+                placeholder: 'Comment',
+                maxlength: '1000'
+            },
+            comment_button: {
+                id: '#comment-btn',
+                text: 'Post Comment'
+            }
+        }*/
         
        
     });
