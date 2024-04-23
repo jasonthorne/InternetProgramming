@@ -205,23 +205,17 @@ test.describe('Testing Comments Section', ()=>{
         );
     });
 
-    test('Assert comment creation', async()=>{
-        /*//grab staff vars:
-        const adminStaff = indexPageData.section.admin.body.staff;
-        const adminClass: string = indexPageData.section.admin.body.class;
+    test('Assert successfull comment creation', async()=>{
+        //grab comment form:
+        const commentForm = indexPageData.section.comments.body.comment_form;
 
-        //spin through each staff member:
-        for(const member of Object.keys(adminStaff).map(key=>adminStaff[key])){
-            //assert staff member's image src:
-            await indexPage.assertImgSrc(adminClass, member.img.alt, member.img.src);
-            //assert that staff member's content is visible:
-            await indexPage.assertAdminContentIsVisible(
-                adminClass, member.title, member.img.alt, member.name, member.text
-            );
-        }*/
+        
+        
 
     });
 
-    //add each example of a failed comment:
+    //coment with no handle:
+    //comment with no comment
+    //comment with no handle & no comment
 
 });

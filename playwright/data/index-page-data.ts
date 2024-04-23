@@ -83,12 +83,14 @@ export const indexPageData = {
                     handle_input: {
                         id: '#handle-input',
                         placeholder: 'Name',
-                        maxlength: '50'
+                        maxlength: '50',
+                        handle_tooltip: {text: 'Enter Name'}
                     },
                     comment_input: {
                         id: '#comment-input',
                         placeholder: 'Comment',
-                        maxlength: '1000'
+                        maxlength: '1000',
+                        comment_tooltip: {text: 'Enter Comment'}
                     },
                     comment_button: {
                         id: '#comment-btn',
@@ -96,6 +98,14 @@ export const indexPageData = {
                     }
                 }
             }
+        }
+    },
+    modal: {
+        comment: {
+
+        },
+        delete_comment: {
+
         }
     }
 } as const;
