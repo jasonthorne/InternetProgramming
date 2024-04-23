@@ -196,34 +196,13 @@ test.describe('Testing Comments Section', ()=>{
             commentForm.comment_input.placeholder,
             commentForm.comment_input.maxlength
         );
-        
         //assert comment form is visible:
         await indexPage.assertCommentFormIsVisible(
-            commentForm.id,
-            
-
-
+            sectionBodyClass,
+            commentForm.handle_input.placeholder,
+            commentForm.comment_input.placeholder,
+            commentForm.comment_button.text
         );
-
-        /*comment_form: {
-            id: '#comment-form',
-            handle_input: {
-                id: '#handle-input',
-                placeholder: 'Name',
-                maxlength: '50'
-            },
-            comment_input: {
-                id: '#comment-input',
-                placeholder: 'Comment',
-                maxlength: '1000'
-            },
-            comment_button: {
-                id: '#comment-btn',
-                text: 'Post Comment'
-            }
-        }*/
-        
-       
     });
 
     test('Assert comment creation', async()=>{
