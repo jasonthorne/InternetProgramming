@@ -184,9 +184,24 @@ test.describe('Testing Comments Section', ()=>{
         await indexPage.assertElementIsVisible(sectionId);
         //assert section header is visible:
         await indexPage.assertTextIsVisible(sectionHeaderClass, sectionHeaderText);
+        //assert handle input field:
+        await indexPage.assertInputField(
+            commentForm.handle_input.id,
+            commentForm.handle_input.placeholder,
+            commentForm.handle_input.maxlength
+        );
+        //assert comment input field:
+        await indexPage.assertInputField(
+            commentForm.comment_input.id,
+            commentForm.comment_input.placeholder,
+            commentForm.comment_input.maxlength
+        );
+        
         //assert comment form is visible:
         await indexPage.assertCommentFormIsVisible(
-            commentForm.id
+            commentForm.id,
+            
+
 
         );
 
@@ -195,7 +210,7 @@ test.describe('Testing Comments Section', ()=>{
             handle_input: {
                 id: '#handle-input',
                 placeholder: 'Name',
-                maxlength: '60'
+                maxlength: '50'
             },
             comment_input: {
                 id: '#comment-input',

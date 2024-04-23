@@ -83,7 +83,7 @@ export const indexPageData = {
                     handle_input: {
                         id: '#handle-input',
                         placeholder: 'Name',
-                        maxlength: '60'
+                        maxlength: '50'
                     },
                     comment_input: {
                         id: '#comment-input',

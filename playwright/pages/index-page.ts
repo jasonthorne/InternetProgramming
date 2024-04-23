@@ -42,10 +42,42 @@ export class IndexPage extends BasePage{
             ).toBeVisible();
     }
 
+    //assert input field:
+    async assertInputField(selector: string, placeholder: string, maxlength: string){
+        await expect(this.page.locator(selector)).toHaveAttribute('placeholder',placeholder);
+        await expect(this.page.locator(selector)).toHaveAttribute('maxlength',maxlength);
+    }
+    
+    //assert coment button:
+
+    //assert comment form is visible:
+
     //aseert coment form is visible:
-    async assertCommentFormIsVisible(selector: string){
+    async assertCommentFormIsVisible(
+        selector: string/*, handlePlaceholder: string, commentPlaceholder: string*/){
+
+        await expect(this.page.locator(selector)
+            .filter({has: this.page.getByPlaceholder('Name')})
+        ).toBeVisible();
+
+        /*let test = this.page.locator("#navbar-logo").getByText("Est. 2022");
+        console.log("++++++++++++" + await test.innerText());*/
+
+
+
+            /*await expect(this.page.locator(selector).filter({hasText: loc1})
+            .filter({hasText: loc2})).toBeVisible();*/
+
 
         /*
+
+         async assertElementIsVisible(id: string){
+        await expect(this.page.locator(id)).toBeVisible();
+    }
+
+
+
+
          comment_form: {
                     id: '#comment-form',
                     handle_input: {
