@@ -94,6 +94,11 @@ export class BasePage{
         
 
     }
+
+    //enter text into input field:
+    async enterInputFieldText(selector: string, text: string){
+        await this.page.locator(selector).fill(text);
+    }
    
     
 

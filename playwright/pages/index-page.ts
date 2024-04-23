@@ -57,6 +57,8 @@ export class IndexPage extends BasePage{
             .filter({has: this.page.getByRole('button',{name: btnText})})
         ).toBeVisible();
     }
+
+   
 }
 
 export default IndexPage;

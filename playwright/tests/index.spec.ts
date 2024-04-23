@@ -178,38 +178,49 @@ test.describe('Testing Comments Section', ()=>{
         const sectionHeaderClass: string = indexPageData.section.comments.header.class;
         const sectionHeaderText: string = indexPageData.section.comments.header.text;
         const sectionBodyClass: string = indexPageData.section.comments.body.class;
-        const commentForm = indexPageData.section.comments.body.comment_form;
-        
+        const commentForm = indexPageData.section.comments.body.form;
+
         //assert section is visible:
         await indexPage.assertElementIsVisible(sectionId);
         //assert section header is visible:
         await indexPage.assertTextIsVisible(sectionHeaderClass, sectionHeaderText);
         //assert handle input field:
         await indexPage.assertInputField(
-            commentForm.handle_input.id,
-            commentForm.handle_input.placeholder,
+            commentForm.handle_input.id, 
+            commentForm.handle_input.placeholder, 
             commentForm.handle_input.maxlength
         );
         //assert comment input field:
         await indexPage.assertInputField(
-            commentForm.comment_input.id,
-            commentForm.comment_input.placeholder,
+            commentForm.comment_input.id, 
+            commentForm.comment_input.placeholder, 
             commentForm.comment_input.maxlength
         );
         //assert comment form is visible:
         await indexPage.assertCommentFormIsVisible(
-            sectionBodyClass,
-            commentForm.handle_input.placeholder,
+            sectionBodyClass, 
+            commentForm.handle_input.placeholder, 
             commentForm.comment_input.placeholder,
-            commentForm.comment_button.text
+            commentForm.button.text
         );
     });
 
     test('Assert successfull comment creation', async()=>{
         //grab comment form:
-        const commentForm = indexPageData.section.comments.body.comment_form;
+        const commentForm = indexPageData.section.comments.body.form;
+        //assert comment form is visible:
+        await indexPage.assertCommentFormIsVisible(
+            commentForm.id,
+            commentForm.handle_input.placeholder, 
+            commentForm.comment_input.placeholder,
+            commentForm.button.text
+        );
+        //enter valid handle:
+        await indexPage.enterInputFieldText(commentForm.handle_input.id, "bob");
 
-        
+
+
+
         
 
     });

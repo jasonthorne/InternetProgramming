@@ -78,21 +78,21 @@ export const indexPageData = {
             },
             body: {
                 class: '.section-body',
-                comment_form: {
+                form: {
                     id: '#comment-form',
                     handle_input: {
                         id: '#handle-input',
                         placeholder: 'Name',
                         maxlength: '50',
-                        handle_tooltip: {text: 'Enter Name'}
+                        tooltip: {text: 'Enter Name'}
                     },
                     comment_input: {
                         id: '#comment-input',
                         placeholder: 'Comment',
                         maxlength: '1000',
-                        comment_tooltip: {text: 'Enter Comment'}
+                        tooltip: {text: 'Enter Comment'}
                     },
-                    comment_button: {
+                    button: {
                         id: '#comment-btn',
                         text: 'Post Comment'
                     }
@@ -101,7 +101,7 @@ export const indexPageData = {
         }
     },
     modal: {
-        comment: {
+        create_comment: {
 
         },
         delete_comment: {
