@@ -225,12 +225,14 @@ test.describe('Testing Comments Section', ()=>{
         await indexPage.enterInputFieldText(commentInputId, commentText);
         //click 'post comment' button:
         await indexPage.clickButton(postCommentBtnText);
-        //assert confirmation modal header has popped up:
+        //assert confirmation modal is visibe:
         await indexPage.assertCommentModalIsVisible(
             modalId, headerText, handleText, commentText, submitBtnText, cancelBtnText
         );
         //click 'submit' button:
         await indexPage.clickButton(submitBtnText);
+        //confirm created comment is visible:
+
 
 
 

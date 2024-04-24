@@ -127,5 +127,18 @@ export const indexPageData = {
         delete_comment: {
 
         }
+    },
+    comment: {
+        class: '.card comment',
+        body: {
+            title: {
+                likes: {span: {class: '.comment-likes'}},
+                handle: {span: {class: '.comment-handle'}}
+            },
+            text: {class: '.comment-text'},
+            date: {span: {class: '.date-text'}},
+            like_button: {text: 'Like'},
+            delete_button: {text: 'Delete'}
+        }
     }
 } as const;

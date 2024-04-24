@@ -70,6 +70,19 @@ export class IndexPage extends BasePage{
             ).toBeVisible();
     }
 
+    //assert comment is visible:
+    async assertCommentIsVisible(
+        selector: string, header: string, handle: string, 
+        comment: string, submitBtnText: string, cancelBtnText: string){
+            await expect(this.page.locator(selector)
+                .filter({hasText: header})
+                .filter({hasText: handle})
+                .filter({hasText: comment})
+                .filter({has: this.page.getByRole('button',{name: submitBtnText})})
+                .filter({has: this.page.getByRole('button',{name: cancelBtnText})})
+            ).toBeVisible();
+    }
+
     async assertDeleteCommentModalIsVisible(){
 
     }
