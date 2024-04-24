@@ -74,11 +74,26 @@ export class IndexPage extends BasePage{
     async assertCommentIsVisible(
         selector: string, header: string, handle: string, 
         comment: string, submitBtnText: string, cancelBtnText: string){
+
+
+            /*class: '.card comment',
+            body: {
+                title: {
+                    likes: {span: {class: '.comment-likes'}},
+                    handle: {span: {class: '.comment-handle'}}
+                },
+                text: {class: '.comment-text'},
+                date: {span: {class: '.date-text'}},
+                like_button: {text: 'Like'},
+                delete_button: {text: 'Delete'}*/
+
+
+
             await expect(this.page.locator(selector)
                 .filter({hasText: header})
                 .filter({hasText: handle})
                 .filter({hasText: comment})
-                .filter({has: this.page.getByRole('button',{name: submitBtnText})})
+                .filter({has: this.page.get.getByRole('button',{name: submitBtnText})})
                 .filter({has: this.page.getByRole('button',{name: cancelBtnText})})
             ).toBeVisible();
     }
