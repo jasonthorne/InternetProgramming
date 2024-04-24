@@ -99,6 +99,11 @@ export class BasePage{
     async enterInputFieldText(selector: string, text: string){
         await this.page.locator(selector).fill(text);
     }
+
+    //click target buton:
+    async clickBtn(btnText: string){
+        await this.page.getByRole('button', {name: btnText}).click();
+    }
    
     
 

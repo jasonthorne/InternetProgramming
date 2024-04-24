@@ -171,7 +171,7 @@ test.describe('Testing Admin Section', ()=>{
 });
 
 test.describe('Testing Comments Section', ()=>{
-
+    
     test('Assert comments section', async()=>{
         //grab section vars:
         const sectionId: string = indexPageData.section.comments.id;
@@ -179,7 +179,7 @@ test.describe('Testing Comments Section', ()=>{
         const sectionHeaderText: string = indexPageData.section.comments.header.text;
         const sectionBodyClass: string = indexPageData.section.comments.body.class;
         const commentForm = indexPageData.section.comments.body.form;
-
+        
         //assert section is visible:
         await indexPage.assertElementIsVisible(sectionId);
         //assert section header is visible:
@@ -206,17 +206,20 @@ test.describe('Testing Comments Section', ()=>{
     });
 
     test('Assert successfull comment creation', async()=>{
-        //grab comment form:
-        const commentForm = indexPageData.section.comments.body.form;
-        //assert comment form is visible:
-        await indexPage.assertCommentFormIsVisible(
-            commentForm.id,
-            commentForm.handle_input.placeholder, 
-            commentForm.comment_input.placeholder,
-            commentForm.button.text
-        );
+        //grab comment form vars:
+        const handleInputId: string = indexPageData.section.comments.body.form.handle_input.id;
+        const commentInputId: string = indexPageData.section.comments.body.form.comment_input.id;
+        const postCommentBtnText: string =  indexPageData.section.comments.body.form.button.text;
+
         //enter valid handle:
-        await indexPage.enterInputFieldText(commentForm.handle_input.id, "bob");
+        await indexPage.enterInputFieldText(handleInputId, "TestName-1"); //names should be stored here and then checked :P +++++++++
+        //enter valid comment:
+        await indexPage.enterInputFieldText(commentInputId, "Test Comment-1");
+        //click 'post comment' button:
+        await indexPage.clickBtn(postCommentBtnText);
+        //assert that confirmation modal has popped up:
+
+
 
 
 
