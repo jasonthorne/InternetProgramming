@@ -1,6 +1,5 @@
 import {sectionData} from '../data/section-data';
 import {teamData} from '../data/team-data';
-import {commentData} from '../data/comment-data';
 
 export const indexPageData = {
     url: 'https://lorem-ipsum-fc.web.app',
@@ -103,29 +102,26 @@ export const indexPageData = {
     },
     modal: {
         create_comment: {
-            id: '#comment-model',
-            content: {
-                class: '.modal-content',
-                header: {
-                    class: '.modal-header',
-                    text: 'Confirm'
+            id: '#comment-modal',
+            header: {
+                class: '.modal-header',
+                text: 'Confirm'
+            },
+            body: {
+                class: '.modal-body',
+                handle: {
+                    id: '#modal-handle',
+                    span: {id: '#modal-handle-input'}
                 },
-                body: {
-                    class: '.modal-body',
-                    handle: {
-                        id: '#modal-handle',
-                        span: {id: '#modal-handle-input'}
-                    },
-                    comment: {
-                        id: '#modal-comment',
-                        span: {id: '#modal-comment-input'}
-                    }
-                },
-                footer: {
-                    class: '.modal-footer',
-                    submit_button: {text: 'Submit'},
-                    cancel_button: {text: 'Cabcel'}
+                comment: {
+                    id: '#modal-comment',
+                    span: {id: '#modal-comment-input'}
                 }
+            },
+            footer: {
+                class: '.modal-footer',
+                submit_button: {text: 'Submit'},
+                cancel_button: {text: 'Cancel'}
             }
         },
         delete_comment: {

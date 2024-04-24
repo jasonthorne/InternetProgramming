@@ -205,26 +205,34 @@ test.describe('Testing Comments Section', ()=>{
         );
     });
 
-    test('Assert successfull comment creation', async()=>{
+    test('Assert successfull comment creation and deletion', async()=>{
         //grab comment form vars:
         const handleInputId: string = indexPageData.section.comments.body.form.handle_input.id;
         const commentInputId: string = indexPageData.section.comments.body.form.comment_input.id;
         const postCommentBtnText: string =  indexPageData.section.comments.body.form.button.text;
+        //grab create comment modal vars:
+        const modalId: string = indexPageData.modal.create_comment.id;
+        const headerText: string = indexPageData.modal.create_comment.header.text;
+        const submitBtnText: string = indexPageData.modal.create_comment.footer.submit_button.text;
+        const cancelBtnText: string = indexPageData.modal.create_comment.footer.cancel_button.text;
+        //sample input text:
+        const handleText: string = 'Sample Handle';
+        const commentText: string = 'Sample Comment';
 
         //enter valid handle:
-        await indexPage.enterInputFieldText(handleInputId, "TestName-1"); //names should be stored here and then checked :P +++++++++
+        await indexPage.enterInputFieldText(handleInputId, handleText);
         //enter valid comment:
-        await indexPage.enterInputFieldText(commentInputId, "Test Comment-1");
+        await indexPage.enterInputFieldText(commentInputId, commentText);
         //click 'post comment' button:
-        await indexPage.clickBtn(postCommentBtnText);
-        //assert that confirmation modal has popped up:
+        await indexPage.clickButton(postCommentBtnText);
+        //assert confirmation modal header has popped up:
+        await indexPage.assertCommentModalIsVisible(
+            modalId, headerText, handleText, commentText, submitBtnText, cancelBtnText
+        );
+        //click 'submit' button:
+        await indexPage.clickButton(submitBtnText);
 
 
-
-
-
-
-        
 
     });
 

@@ -58,9 +58,9 @@ export class BasePage{
     }
 
     //assert button is visible:
-    async assertBtnIsVisible(name: string){
+    /*async assertBtnIsVisible(name: string){
         await expect(this.page.getByRole('button',{name: name})).toBeVisible();
-    }
+    }*/
   
     async test(selector: string, loc1: string, loc2: string){
         console.log("+++++++++++++loc1 + loc2: " + loc1 + "\n" + loc2);
@@ -101,7 +101,7 @@ export class BasePage{
     }
 
     //click target buton:
-    async clickBtn(btnText: string){
+    async clickButton(btnText: string){
         await this.page.getByRole('button', {name: btnText}).click();
     }
    

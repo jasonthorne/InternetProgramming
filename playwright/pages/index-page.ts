@@ -20,7 +20,6 @@ export class IndexPage extends BasePage{
         selector: string, 
         homeTeamLogoAlt: string, homeTeamName: string, homeTeamScore: string, 
         awayTeamLogoAlt: string, awayTeamName: string, awayTeamScore: string){
-
             await expect(this.page.locator(selector)
                 .filter({has: this.page.getByRole('img',{name: homeTeamLogoAlt})})
                 .filter({hasText: homeTeamName})
@@ -51,11 +50,28 @@ export class IndexPage extends BasePage{
     //aseert coment form is visible:
     async assertCommentFormIsVisible(
         selector: string, handlePlaceholder: string, commentPlaceholder: string, btnText: string){
-        await expect(this.page.locator(selector)
-            .filter({has: this.page.getByPlaceholder(handlePlaceholder)})
-            .filter({has: this.page.getByPlaceholder(commentPlaceholder)})
-            .filter({has: this.page.getByRole('button',{name: btnText})})
-        ).toBeVisible();
+            await expect(this.page.locator(selector)
+                .filter({has: this.page.getByPlaceholder(handlePlaceholder)})
+                .filter({has: this.page.getByPlaceholder(commentPlaceholder)})
+                .filter({has: this.page.getByRole('button',{name: btnText})})
+            ).toBeVisible();
+    }
+
+    //assert comment modal is visible:
+    async assertCommentModalIsVisible(
+        selector: string, header: string, handle: string, 
+        comment: string, submitBtnText: string, cancelBtnText: string){
+            await expect(this.page.locator(selector)
+                .filter({hasText: header})
+                .filter({hasText: handle})
+                .filter({hasText: comment})
+                .filter({has: this.page.getByRole('button',{name: submitBtnText})})
+                .filter({has: this.page.getByRole('button',{name: cancelBtnText})})
+            ).toBeVisible();
+    }
+
+    async assertDeleteCommentModalIsVisible(){
+
     }
 
    
