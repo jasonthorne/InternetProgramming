@@ -18,13 +18,13 @@ export class IndexPage extends BasePage{
     //assert fixture result content is visible:
     async assertFixtureResultContentIsVisible(
         selector: string, 
-        homeTeamLogoAlt: string, homeTeamName: string, homeTeamScore: string, 
-        awayTeamLogoAlt: string, awayTeamName: string, awayTeamScore: string){
+        homeTeamLogo: string, homeTeamName: string, homeTeamScore: string, 
+        awayTeamLogo: string, awayTeamName: string, awayTeamScore: string){
             await expect(this.page.locator(selector)
-                .filter({has: this.page.getByRole('img',{name: homeTeamLogoAlt})})
+                .filter({has: this.page.getByRole('img',{name: homeTeamLogo})})
                 .filter({hasText: homeTeamName})
                 .filter({hasText: homeTeamScore})
-                .filter({has: this.page.getByRole('img',{name: awayTeamLogoAlt})})
+                .filter({has: this.page.getByRole('img',{name: awayTeamLogo})})
                 .filter({hasText: awayTeamName})
                 .filter({hasText: awayTeamScore})
             ).toBeVisible();
@@ -32,10 +32,10 @@ export class IndexPage extends BasePage{
 
     //assert admin content is visible:
     async assertAdminContentIsVisible(
-        selector: string, title: string, imgAlt: string, name: string, text: string){
+        selector: string, title: string, image: string, name: string, text: string){
             await expect(this.page.locator(selector)
                 .filter({hasText: title})
-                .filter({has: this.page.getByRole('img',{name: imgAlt})})
+                .filter({has: this.page.getByRole('img',{name: image})})
                 .filter({hasText: name})
                 .filter({hasText: text})
             ).toBeVisible();
@@ -49,31 +49,48 @@ export class IndexPage extends BasePage{
 
     //aseert coment form is visible:
     async assertCommentFormIsVisible(
-        selector: string, handlePlaceholder: string, commentPlaceholder: string, btnText: string){
+        selector: string, handlePlaceholder: string, commentPlaceholder: string, postBtn: string){
             await expect(this.page.locator(selector)
                 .filter({has: this.page.getByPlaceholder(handlePlaceholder)})
                 .filter({has: this.page.getByPlaceholder(commentPlaceholder)})
-                .filter({has: this.page.getByRole('button',{name: btnText})})
+                .filter({has: this.page.getByRole('button',{name: postBtn})})
             ).toBeVisible();
     }
 
     //assert comment modal is visible:
     async assertCommentModalIsVisible(
         selector: string, header: string, handle: string, 
-        comment: string, submitBtnText: string, cancelBtnText: string){
+        comment: string, submitBtn: string, cancelBtn: string){
+            console.log("assert comment modal is visible");
             await expect(this.page.locator(selector)
                 .filter({hasText: header})
                 .filter({hasText: handle})
                 .filter({hasText: comment})
-                .filter({has: this.page.getByRole('button',{name: submitBtnText})})
-                .filter({has: this.page.getByRole('button',{name: cancelBtnText})})
+                .filter({has: this.page.getByRole('button',{name: submitBtn})})
+                .filter({has: this.page.getByRole('button',{name: cancelBtn})})
             ).toBeVisible();
     }
 
     //assert comment is visible:
     async assertCommentIsVisible(
-        selector: string, header: string, handle: string, 
-        comment: string, submitBtnText: string, cancelBtnText: string){
+        selector: string, likes: string, /*handle: string, 
+    comment: string, date: string, likeBtn: string, deleteBtn: string*/){
+            await expect(this.page.locator(selector)
+                .filter({hasText: likes})
+                /*.filter({hasText: handle})
+                .filter({hasText: comment})
+                .filter({hasText: date})
+                .filter({has: this.page.getByRole('button',{name: likeBtn})})
+                .filter({has: this.page.getByRole('button',{name: deleteBtn})})*/
+            ).toBeVisible();
+
+       
+
+        /*let test2 = this.page.locator(test);
+        //console.log("+++test2+++++++++" + test2.textContent());
+        console.log("+++innerText+++++++++" + await test2.innerText());*/
+        
+
 
 
             /*class: '.card comment',
@@ -89,13 +106,13 @@ export class IndexPage extends BasePage{
 
 
 
-            await expect(this.page.locator(selector)
+            /*await expect(this.page.locator(selector)
                 .filter({hasText: header})
                 .filter({hasText: handle})
                 .filter({hasText: comment})
                 .filter({has: this.page.get.getByRole('button',{name: submitBtnText})})
                 .filter({has: this.page.getByRole('button',{name: cancelBtnText})})
-            ).toBeVisible();
+            ).toBeVisible();*/
     }
 
     async assertDeleteCommentModalIsVisible(){

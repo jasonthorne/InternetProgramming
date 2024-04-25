@@ -233,6 +233,15 @@ test.describe('Testing Comments Section', ()=>{
         await indexPage.clickButton(submitBtnText);
         //confirm created comment is visible:
 
+        
+        //console.log("+++++++++" + indexPageData.comment.body.title.likes.span.class);
+
+        //await indexPage.assertCommentIsVisible(indexPageData.comment.body.title.likes.span.class);
+
+       /* await indexPage.assertCommentIsVisible(
+            indexPageData.comment.class, indexPageData.comment.body.title.likes.span.class
+        );*/
+
 
 
 
