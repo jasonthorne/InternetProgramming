@@ -130,10 +130,10 @@ export const indexPageData = {
         }
     },
     comment: {
-        class: '.card comment',
+        class: '.comment',
         body: {
             title: {
-                likes: {span: {class: '.comment-likes'}},
+                likes: {class: '.comment-likes'},
                 handle: {span: {class: '.comment-handle'}}
             },
             text: {class: '.comment-text'},

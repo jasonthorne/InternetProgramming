@@ -72,21 +72,18 @@ export class IndexPage extends BasePage{
 
     //assert comment is visible:
     async assertCommentIsVisible(
-        selector: string, likes: string, /*handle: string, 
-    comment: string, date: string, likeBtn: string, deleteBtn: string*/){
+        selector: string, likes: string, handle: string, 
+        comment: string, date: number, likeBtn: string, deleteBtn: string){
             await expect(this.page.locator(selector)
-                .filter({hasText: 'Sample Handle'})
-                //.filter({has: this.page.getByRole('button',{name: likeBtn})})
-                .filter({hasText: await this.page.locator(likes).innerText()})
-                /*.filter({hasText: handle})
+                .filter({hasText: await this.page.locator(likes).innerText()}) //MIGHT BE A PROBLEM WITH MULTIPLE COMMENTS :P
+                .filter({hasText: handle})
                 .filter({hasText: comment})
-                .filter({hasText: date})
+                .filter({hasText: new Date(date).toLocaleString('en-GB').slice(0,-3)})
                 .filter({has: this.page.getByRole('button',{name: likeBtn})})
-                .filter({has: this.page.getByRole('button',{name: deleteBtn})})*/
+                .filter({has: this.page.getByRole('button',{name: deleteBtn})})
             ).toBeVisible();
 
        
-
         /*let test2 = this.page.locator(test);
         //console.log("+++test2+++++++++" + test2.textContent());
         console.log("+++innerText+++++++++" + await test2.innerText());*/
@@ -105,15 +102,6 @@ export class IndexPage extends BasePage{
                 like_button: {text: 'Like'},
                 delete_button: {text: 'Delete'}*/
 
-
-
-            /*await expect(this.page.locator(selector)
-                .filter({hasText: header})
-                .filter({hasText: handle})
-                .filter({hasText: comment})
-                .filter({has: this.page.get.getByRole('button',{name: submitBtnText})})
-                .filter({has: this.page.getByRole('button',{name: cancelBtnText})})
-            ).toBeVisible();*/
     }
 
     async assertDeleteCommentModalIsVisible(){

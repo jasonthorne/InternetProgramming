@@ -45,8 +45,8 @@ export class BasePage{
     }
 
     //assert element is visible:
-    async assertElementIsVisible(id: string){
-        await expect(this.page.locator(id)).toBeVisible();
+    async assertElementIsVisible(selector: string){
+        await expect(this.page.locator(selector)).toBeVisible();
     }
 
     //assert background image:

@@ -210,12 +210,16 @@ test.describe('Testing Comments Section', ()=>{
         const handleInputId: string = indexPageData.section.comments.body.form.handle_input.id;
         const commentInputId: string = indexPageData.section.comments.body.form.comment_input.id;
         const postCommentBtnText: string =  indexPageData.section.comments.body.form.button.text;
-        const commentsId: string = indexPageData.section.comments.body.comments.id;
         //grab create comment modal vars:
         const modalId: string = indexPageData.modal.create_comment.id;
         const headerText: string = indexPageData.modal.create_comment.header.text;
         const submitBtnText: string = indexPageData.modal.create_comment.footer.submit_button.text;
         const cancelBtnText: string = indexPageData.modal.create_comment.footer.cancel_button.text;
+        //grab comment vars:
+        const commentClass: string = indexPageData.comment.class;
+        const likesClass: string = indexPageData.comment.body.title.likes.class;
+        const likeBtnText: string = indexPageData.comment.body.like_button.text;
+        const deleteBtnText: string = indexPageData.comment.body.delete_button.text;
         //sample input text:
         const handleText: string = 'Sample Handle';
         const commentText: string = 'Sample Comment';
@@ -239,9 +243,26 @@ test.describe('Testing Comments Section', ()=>{
 
         //await indexPage.assertCommentIsVisible(indexPageData.comment.body.title.likes.span.class);
 
+        /*
+         selector: string, likes: string, handle: string, 
+        comment: string, date: string, likeBtn: string, deleteBtn: string){
+
+
+
+        */
+
         await indexPage.assertCommentIsVisible(
-            commentsId, indexPageData.comment.body.title.likes.span.class
+            commentClass, likesClass, handleText, commentText, 
+            //new Date(Math.floor(Date.now()/1000)*1000).toLocaleString('en-GB').slice(0,-3),
+            Math.floor(Date.now()), 
+            likeBtnText, deleteBtnText 
         );
+
+        //Math.floor(Date.now() / 1000)
+
+        //await indexPage.assertElementIsVisible(".comment");
+
+
 
 
 
