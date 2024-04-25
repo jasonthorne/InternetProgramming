@@ -134,10 +134,10 @@ export const indexPageData = {
         body: {
             title: {
                 likes: {class: '.comment-likes'},
-                handle: {span: {class: '.comment-handle'}}
+                handle: {class: '.comment-handle'}
             },
             text: {class: '.comment-text'},
-            date: {span: {class: '.date-text'}},
+            date: {class: '.date-text'},
             like_button: {text: 'Like'},
             delete_button: {text: 'Delete'}
         }

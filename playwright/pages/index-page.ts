@@ -82,27 +82,21 @@ export class IndexPage extends BasePage{
                 .filter({has: this.page.getByRole('button',{name: likeBtn})})
                 .filter({has: this.page.getByRole('button',{name: deleteBtn})})
             ).toBeVisible();
+    }
 
-       
-        /*let test2 = this.page.locator(test);
-        //console.log("+++test2+++++++++" + test2.textContent());
-        console.log("+++innerText+++++++++" + await test2.innerText());*/
-        
+    //assert like button click:
+    async assertLikeBtnClick(selector: string, btnText: string){
 
 
 
-            /*class: '.card comment',
-            body: {
-                title: {
-                    likes: {span: {class: '.comment-likes'}},
-                    handle: {span: {class: '.comment-handle'}}
-                },
-                text: {class: '.comment-text'},
-                date: {span: {class: '.date-text'}},
-                like_button: {text: 'Like'},
-                delete_button: {text: 'Delete'}*/
+        /*
+        async clickButton(btnText: string){
+        await this.page.getByRole('button', {name: btnText}).click();
+        }
+        */
 
     }
+
 
     async assertDeleteCommentModalIsVisible(){
 

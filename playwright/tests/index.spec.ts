@@ -237,26 +237,13 @@ test.describe('Testing Comments Section', ()=>{
         //click 'submit' button:
         await indexPage.clickButton(submitBtnText);
         //confirm created comment is visible:
-
-        
-        //console.log("+++++++++" + indexPageData.comment.body.title.likes.span.class);
-
-        //await indexPage.assertCommentIsVisible(indexPageData.comment.body.title.likes.span.class);
-
-        /*
-         selector: string, likes: string, handle: string, 
-        comment: string, date: string, likeBtn: string, deleteBtn: string){
-
-
-
-        */
-
         await indexPage.assertCommentIsVisible(
             commentClass, likesClass, handleText, commentText, 
-            //new Date(Math.floor(Date.now()/1000)*1000).toLocaleString('en-GB').slice(0,-3),
-            Math.floor(Date.now()), 
-            likeBtnText, deleteBtnText 
+            Math.floor(Date.now()), likeBtnText, deleteBtnText 
         );
+        //assert like button click:
+        
+
 
         //Math.floor(Date.now() / 1000)
 
