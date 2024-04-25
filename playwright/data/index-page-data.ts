@@ -96,7 +96,8 @@ export const indexPageData = {
                         id: '#comment-btn',
                         text: 'Post Comment'
                     }
-                }
+                },
+                comments: {id: '#comments'}
             }
         }
     },

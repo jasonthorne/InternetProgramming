@@ -61,7 +61,6 @@ export class IndexPage extends BasePage{
     async assertCommentModalIsVisible(
         selector: string, header: string, handle: string, 
         comment: string, submitBtn: string, cancelBtn: string){
-            console.log("assert comment modal is visible");
             await expect(this.page.locator(selector)
                 .filter({hasText: header})
                 .filter({hasText: handle})
@@ -76,7 +75,9 @@ export class IndexPage extends BasePage{
         selector: string, likes: string, /*handle: string, 
     comment: string, date: string, likeBtn: string, deleteBtn: string*/){
             await expect(this.page.locator(selector)
-                .filter({hasText: likes})
+                .filter({hasText: 'Sample Handle'})
+                //.filter({has: this.page.getByRole('button',{name: likeBtn})})
+                .filter({hasText: await this.page.locator(likes).innerText()})
                 /*.filter({hasText: handle})
                 .filter({hasText: comment})
                 .filter({hasText: date})

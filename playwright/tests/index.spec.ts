@@ -210,6 +210,7 @@ test.describe('Testing Comments Section', ()=>{
         const handleInputId: string = indexPageData.section.comments.body.form.handle_input.id;
         const commentInputId: string = indexPageData.section.comments.body.form.comment_input.id;
         const postCommentBtnText: string =  indexPageData.section.comments.body.form.button.text;
+        const commentsId: string = indexPageData.section.comments.body.comments.id;
         //grab create comment modal vars:
         const modalId: string = indexPageData.modal.create_comment.id;
         const headerText: string = indexPageData.modal.create_comment.header.text;
@@ -238,9 +239,9 @@ test.describe('Testing Comments Section', ()=>{
 
         //await indexPage.assertCommentIsVisible(indexPageData.comment.body.title.likes.span.class);
 
-       /* await indexPage.assertCommentIsVisible(
-            indexPageData.comment.class, indexPageData.comment.body.title.likes.span.class
-        );*/
+        await indexPage.assertCommentIsVisible(
+            commentsId, indexPageData.comment.body.title.likes.span.class
+        );
 
 
 
