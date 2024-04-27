@@ -171,6 +171,44 @@ test.describe('Testing Admin Section', ()=>{
 });
 
 test.describe('Testing Comments Section', ()=>{
+
+    //creates a comment with given handle and comment:
+    const createComment = async(handle: string, comment: string)=>{
+        //grab comment form vars:
+        const handleInputId: string = indexPageData.section.comments.body.form.handle_input.id;
+        const commentInputId: string = indexPageData.section.comments.body.form.comment_input.id;
+        const postCommentBtnText: string =  indexPageData.section.comments.body.form.button.text;
+        //grab create comment modal vars:
+        const modalId: string = indexPageData.modal.create_comment.id;
+        const headerText: string = indexPageData.modal.create_comment.header.text;
+        const submitBtnText: string = indexPageData.modal.create_comment.footer.submit_button.text;
+        const cancelBtnText: string = indexPageData.modal.create_comment.footer.cancel_button.text;
+        //grab comment vars:
+        const commentClass: string = indexPageData.comment.class;
+        const likesClass: string = indexPageData.comment.body.title.likes.class;
+        const likeBtnText: string = indexPageData.comment.body.like_button.text;
+        const deleteBtnText: string = indexPageData.comment.body.delete_button.text;
+
+        //enter valid handle:
+        await indexPage.enterInputFieldText(handleInputId, handle);
+        //enter valid comment:
+        await indexPage.enterInputFieldText(commentInputId, comment);
+        //click 'post comment' button:
+        await indexPage.clickButton(postCommentBtnText);
+        //assert confirmation modal is visibe:
+        await indexPage.assertCommentModalIsVisible(
+            modalId, headerText, handle, comment, submitBtnText, cancelBtnText
+        );
+        //click 'submit' button:
+        await indexPage.clickButton(submitBtnText);
+        //confirm created comment is visible:
+        await indexPage.assertCommentIsVisible(
+            commentClass, likesClass, handle, comment, 
+            Math.floor(Date.now()), likeBtnText, deleteBtnText 
+        );
+    }
+
+
     
     test('Assert comments section', async()=>{
         //grab section vars:
@@ -206,7 +244,7 @@ test.describe('Testing Comments Section', ()=>{
     });
 
     test('Assert successfull comment creation and deletion', async()=>{
-        //grab comment form vars:
+        /*//grab comment form vars:
         const handleInputId: string = indexPageData.section.comments.body.form.handle_input.id;
         const commentInputId: string = indexPageData.section.comments.body.form.comment_input.id;
         const postCommentBtnText: string =  indexPageData.section.comments.body.form.button.text;
@@ -240,7 +278,7 @@ test.describe('Testing Comments Section', ()=>{
         await indexPage.assertCommentIsVisible(
             commentClass, likesClass, handleText, commentText, 
             Math.floor(Date.now()), likeBtnText, deleteBtnText 
-        );
+        );*/
         //assert like button click:
         
 
@@ -248,6 +286,14 @@ test.describe('Testing Comments Section', ()=>{
         //Math.floor(Date.now() / 1000)
 
         //await indexPage.assertElementIsVisible(".comment");
+
+        //sample input text:
+        const handleText: string = 'Sample Handle';
+        const commentText: string = 'Sample Comment';
+        
+        //create comment with input text:
+        await createComment(handleText, commentText);
+
 
 
 
