@@ -139,6 +139,7 @@ export const indexPageData = {
             text: {class: '.comment-text'},
             date: {class: '.date-text'},
             like_button: {
+                class: '.comment-like-btn',
                 text: 'Like',
                 liked: {class: '.fas'},
                 unliked: {class: '.far'}

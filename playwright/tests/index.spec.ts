@@ -256,6 +256,7 @@ test.describe('Testing Comments Section', ()=>{
         //grab comment vars:
         const commentClass: string = indexPageData.comment.class;
         const likesClass: string = indexPageData.comment.body.title.likes.class;
+        const likeBtnClass: string = indexPageData.comment.body.like_button.class;
         const likeBtnText: string = indexPageData.comment.body.like_button.text;
         const likeBtnLikedClass: string = indexPageData.comment.body.like_button.liked.class;
         const likeBtnUnlikedClass: string = indexPageData.comment.body.like_button.unliked.class;
@@ -281,10 +282,10 @@ test.describe('Testing Comments Section', ()=>{
             commentClass, likesClass, handleText, commentText, 
             Math.floor(Date.now()), likeBtnText, deleteBtnText 
         );
-        //assert like button 'like':
-        await indexPage.assertLikeBtnClick(likeBtnLikedClass, likeBtnText);
+        //assert like button clicks:
+        await indexPage.assertLikeBtnClicks(likeBtnClass, likeBtnUnlikedClass, likeBtnLikedClass );
         //assert like button 'unlike':
-        await indexPage.assertLikeBtnClick(likeBtnUnlikedClass, likeBtnText);
+       // await indexPage.assertLikeBtnClick(likeBtnUnlikedClass, likeBtnText);
         
 
 
