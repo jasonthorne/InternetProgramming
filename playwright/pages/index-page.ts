@@ -86,14 +86,14 @@ export class IndexPage extends BasePage{
 
     //assert like button click:
     async assertLikeBtnClick(selector: string, btnText: string){
-
-
-
-        /*
-        async clickButton(btnText: string){
         await this.page.getByRole('button', {name: btnText}).click();
-        }
-        */
+
+        const btnClass = await this.page.locator(selector).evaluate((element: HTMLElement)=>{
+            return window.getComputedStyle(element).getPropertyValue('background-image');
+        });
+        expect(imgSrc).toContain(src);
+
+        
 
     }
 

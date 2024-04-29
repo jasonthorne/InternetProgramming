@@ -171,9 +171,9 @@ test.describe('Testing Admin Section', ()=>{
 });
 
 test.describe('Testing Comments Section', ()=>{
-
+    /*
     //creates a comment with given handle and comment:
-    const createComment = async(handle: string, comment: string)=>{
+    const assertCreateComment = async(handle: string, comment: string)=>{
         //grab comment form vars:
         const handleInputId: string = indexPageData.section.comments.body.form.handle_input.id;
         const commentInputId: string = indexPageData.section.comments.body.form.comment_input.id;
@@ -206,10 +206,10 @@ test.describe('Testing Comments Section', ()=>{
             commentClass, likesClass, handle, comment, 
             Math.floor(Date.now()), likeBtnText, deleteBtnText 
         );
-    }
+        //assert like button click:
+        //await 
+    }*/
 
-
-    
     test('Assert comments section', async()=>{
         //grab section vars:
         const sectionId: string = indexPageData.section.comments.id;
@@ -243,8 +243,8 @@ test.describe('Testing Comments Section', ()=>{
         );
     });
 
-    test('Assert successfull comment creation and deletion', async()=>{
-        /*//grab comment form vars:
+    test('Assert comment creation and deletion', async()=>{
+        //grab comment form vars:
         const handleInputId: string = indexPageData.section.comments.body.form.handle_input.id;
         const commentInputId: string = indexPageData.section.comments.body.form.comment_input.id;
         const postCommentBtnText: string =  indexPageData.section.comments.body.form.button.text;
@@ -257,6 +257,8 @@ test.describe('Testing Comments Section', ()=>{
         const commentClass: string = indexPageData.comment.class;
         const likesClass: string = indexPageData.comment.body.title.likes.class;
         const likeBtnText: string = indexPageData.comment.body.like_button.text;
+        const likeBtnLikedClass: string = indexPageData.comment.body.like_button.liked.class;
+        const likeBtnUnlikedClass: string = indexPageData.comment.body.like_button.unliked.class;
         const deleteBtnText: string = indexPageData.comment.body.delete_button.text;
         //sample input text:
         const handleText: string = 'Sample Handle';
@@ -278,8 +280,11 @@ test.describe('Testing Comments Section', ()=>{
         await indexPage.assertCommentIsVisible(
             commentClass, likesClass, handleText, commentText, 
             Math.floor(Date.now()), likeBtnText, deleteBtnText 
-        );*/
-        //assert like button click:
+        );
+        //assert like button 'like':
+        await indexPage.assertLikeBtnClick(likeBtnLikedClass, likeBtnText);
+        //assert like button 'unlike':
+        await indexPage.assertLikeBtnClick(likeBtnUnlikedClass, likeBtnText);
         
 
 
@@ -287,12 +292,10 @@ test.describe('Testing Comments Section', ()=>{
 
         //await indexPage.assertElementIsVisible(".comment");
 
-        //sample input text:
-        const handleText: string = 'Sample Handle';
-        const commentText: string = 'Sample Comment';
+        
         
         //create comment with input text:
-        await createComment(handleText, commentText);
+        //await assertCreateComment(handleText, commentText);
 
 
 
