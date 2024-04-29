@@ -85,39 +85,11 @@ export class IndexPage extends BasePage{
     }
 
     //assert like button clicks:
-    async assertLikeBtnClicks(selector: string, unlikedClass: string, likedClass: string){
-       /* await expect(this.page.locator('.fas')).toBeVisible();
-        await this.page.getByRole('button', {name: btnText}).click();
-        console.log("+++++++++" + selector);
-        await expect(this.page.locator('.far')).toBeVisible();*/
-
-
-        //await expect(this.page.locator('.comment-like-btn').locator('.far')).toBeVisible();
-        await expect(this.page.locator(selector).locator(unlikedClass)).toBeVisible();
-        //await this.page.getByRole('button', {name: btnText}).click();
-        await this.page.locator(selector).locator(unlikedClass).click();
-        await expect(this.page.locator(selector).locator(likedClass)).toBeVisible();
-        await this.page.locator(selector).locator(likedClass).click();
-        await expect(this.page.locator(selector).locator(unlikedClass)).toBeVisible();
-
-
-        /*
-         //assert image src:
-        async assertImgSrc(selector: string, alt: string, src: string){
-        expect(await this.page.locator(selector).getByRole('img',{name: alt})
-            .getAttribute('src')).toMatch(src);
-        }*/
-
-       /* expect(this.page.locator('.comment-like-btn')
-            .filter({ has: this.page.ge.getByRole('i', { name: 'Like' }) }))*/
-
-        /*const btnClass = await this.page.locator(selector).evaluate((element: HTMLElement)=>{
-            return window.getComputedStyle(element).getPropertyValue('background-image');
-        });
-        expect(imgSrc).toContain(src);*/
-
-        
-
+    async assertLikeBtnClicks(btnClass: string, unlikedClass: string, likedClass: string){
+        await this.page.locator(btnClass).locator(unlikedClass).click();
+        await expect(this.page.locator(btnClass).locator(likedClass)).toBeVisible();
+        await this.page.locator(btnClass).locator(likedClass).click();
+        await expect(this.page.locator(btnClass).locator(unlikedClass)).toBeVisible();
     }
 
 
