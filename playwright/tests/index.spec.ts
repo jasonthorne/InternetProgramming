@@ -226,7 +226,11 @@ test.describe('Testing Comments Section', ()=>{
         //sample input text:
         const handleText: string = 'Sample Handle';
         const commentText: string = 'Sample Comment';
-
+        //creation date:
+        const dateText: string = new Date(
+            Math.floor(Date.now())).toLocaleString('en-GB').slice(0,-3);
+        
+        //-----------------------------creation:-----------------------------
         //enter valid handle:
         await indexPage.enterInputFieldText(handleInputId, handleText);
         //enter valid comment:
@@ -241,13 +245,18 @@ test.describe('Testing Comments Section', ()=>{
         await indexPage.clickButton(submitBtnText);
         //confirm created comment is visible:
         await indexPage.assertCommentIsVisible(
-            commentClass, likesClass, handleText, commentText, 
-            Math.floor(Date.now()), likeBtnText, deleteBtnText 
+            commentClass, likesClass, handleText, commentText, dateText, likeBtnText, deleteBtnText 
         );
         //assert like button clicks:
         await indexPage.assertLikeBtnClicks(
-            likeBtnClass, likeBtnUnlikedClass, likeBtnLikedClass
+            likeBtnClass, likeBtnUnlikedClass, likeBtnLikedClass, likesClass
         );
+       //-----------------------------deletion:-----------------------------
+        //click 'delete' button:
+        await indexPage.clickButton(deleteBtnText);
+
+
+
         
 
         //await indexPage.assertElementIsVisible(".comment");
