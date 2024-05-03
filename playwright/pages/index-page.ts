@@ -86,9 +86,16 @@ export class IndexPage extends BasePage{
 
     //assert like button clicks:
     async assertLikeBtnClicks(
-        btnClass: string, unlikedClass: string, likedClass: string, likesClass: string){
+        commentClass: string, date: string, btnClass: string, 
+        unlikedClass: string, likedClass: string, likesClass: string){
+            //.filter({hasText: handle})
+           // .filter({hasText: comment})
+           // .filter({hasText: date})
+            const commentLocator = this.page.locator(commentClass).filter({hasText: date}); //grab comment of given date
+            expect(commentLocator).toBeVisible();
+            let btnLocator = this.page.locator(btnClass);
             let likes: number = parseInt((await this.page.locator(likesClass).innerText()).trim()); //grab likes value
-            await expect(this.page.locator(btnClass).locator(unlikedClass)).toBeVisible(); //confirm unliked icon
+            await expect(/*this.page.locator(btnClass)*/btnLocator.locator(unlikedClass)).toBeVisible(); //confirm unliked icon
             await this.page.locator(btnClass).locator(unlikedClass).click(); //click like btn (to like)
             expect(parseInt((await this.page.locator(likesClass).innerText()).trim())).toBe(++likes); //confirm likes increase
             await expect(this.page.locator(btnClass).locator(likedClass)).toBeVisible(); //confirm liked icon

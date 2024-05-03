@@ -249,7 +249,7 @@ test.describe('Testing Comments Section', ()=>{
         );
         //assert like button clicks:
         await indexPage.assertLikeBtnClicks(
-            likeBtnClass, likeBtnUnlikedClass, likeBtnLikedClass, likesClass
+            commentClass, dateText, likeBtnClass, likeBtnUnlikedClass, likeBtnLikedClass, likesClass
         );
        //-----------------------------deletion:-----------------------------
         //click 'delete' button:
