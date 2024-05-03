@@ -1,4 +1,4 @@
-import {expect, Page} from '@playwright/test'
+import {expect, Locator, Page} from '@playwright/test'
 import BasePage from './base-page';
 
 export class IndexPage extends BasePage{
@@ -88,20 +88,34 @@ export class IndexPage extends BasePage{
     async assertLikeBtnClicks(
         commentClass: string, date: string, btnClass: string, 
         unlikedClass: string, likedClass: string, likesClass: string){
-            //.filter({hasText: handle})
-           // .filter({hasText: comment})
-           // .filter({hasText: date})
-            const commentLocator = this.page.locator(commentClass).filter({hasText: date}); //grab comment of given date
-            expect(commentLocator).toBeVisible();
-            let btnLocator = this.page.locator(btnClass);
-            let likes: number = parseInt((await this.page.locator(likesClass).innerText()).trim()); //grab likes value
-            await expect(/*this.page.locator(btnClass)*/btnLocator.locator(unlikedClass)).toBeVisible(); //confirm unliked icon
+            //grab locators from comment of given date:
+            const commentLocator: Locator = this.page.locator(commentClass).filter({hasText: date});
+            const unlikedBtnLocator: Locator = commentLocator.locator(btnClass).locator(unlikedClass);
+            const likedBtnLocator: Locator = commentLocator.locator(btnClass).locator(likedClass);
+            const likesLocator: Locator = commentLocator.locator(likesClass);
+            //grab likes value from comment of given date:
+            let likes: number = parseInt((await commentLocator.locator(likesClass).innerText()).trim());
+
+            await expect(commentLocator).toBeVisible(); //check comment is visible
+            await expect(unlikedBtnLocator).toBeVisible(); //confirm unliked icon is visible
+            await commentLocator.locator(btnClass).click(); //click like btn (to like)
+            expect(parseInt((await likesLocator.innerText()).trim())).toBe(++likes); //confirm likes increase
+            await expect(likedBtnLocator).toBeVisible(); //confirm liked icon is visible
+            await commentLocator.locator(btnClass).click(); //click btn again (to unlike)
+            expect(parseInt((await likesLocator.innerText()).trim())).toBe(--likes); //confirm likes decrease
+            await expect(unlikedBtnLocator).toBeVisible(); //confirm unliked icon is visible
+
+
+
+            /*let btnLocator = this.page.locator(btnClass);
+            //let likes: number = parseInt((await this.page.locator(likesClass).innerText()).trim()); //grab likes value
+            await expect(this.page.locator(btnClass).locator(unlikedClass)).toBeVisible(); //confirm unliked icon
             await this.page.locator(btnClass).locator(unlikedClass).click(); //click like btn (to like)
             expect(parseInt((await this.page.locator(likesClass).innerText()).trim())).toBe(++likes); //confirm likes increase
             await expect(this.page.locator(btnClass).locator(likedClass)).toBeVisible(); //confirm liked icon
             await this.page.locator(btnClass).locator(likedClass).click(); //click btn again (to unlike)
             expect(parseInt((await this.page.locator(likesClass).innerText()).trim())).toBe(--likes); //confirm likes decrease
-            await expect(this.page.locator(btnClass).locator(unlikedClass)).toBeVisible(); //confirm unliked icon
+            await expect(this.page.locator(btnClass).locator(unlikedClass)).toBeVisible(); //confirm unliked icon*/
     }
 
     //############### //////////await this.page.locator(btnClass).locator(unlikedClass).filter({hasText: new Date(date).toLocaleString('en-GB').slice(0,-3)}).click();

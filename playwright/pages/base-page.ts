@@ -51,7 +51,7 @@ export class BasePage{
 
     //assert background image:
     async assertBackgroundImg(selector: string, src: string){
-        const imgSrc = await this.page.locator(selector).evaluate((element: HTMLElement)=>{
+        const imgSrc: string = await this.page.locator(selector).evaluate((element: HTMLElement)=>{
             return window.getComputedStyle(element).getPropertyValue('background-image');
         });
         expect(imgSrc).toContain(src);
