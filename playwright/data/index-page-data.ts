@@ -181,7 +181,10 @@ export const indexPageData = {
             liked: {class: '.fas'},
             unliked: {class: '.far'}
         },
-        delete_button: {text: 'Delete'},
+        delete_button: {
+            class: '.comment-like-btn',
+            text: 'Delete'
+        },
         content: {
             handle: commentData.handle,
             comment: commentData.comment

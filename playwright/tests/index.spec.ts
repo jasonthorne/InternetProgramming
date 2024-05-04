@@ -207,7 +207,9 @@ test.describe('Testing Comments Section', ()=>{
             commentFormData.comment_input.id, commentData.content.comment
         );
         //click 'post comment' button:
-        await indexPage.clickButton(commentFormData.button.text);
+        await indexPage.clickButton(
+            sectionData.body.class, commentFormData.button.text
+        );
         //assert confirmation modal is visible:
         await indexPage.assertCommentModalIsVisible(
             createCommentModalData.id, 
@@ -218,7 +220,10 @@ test.describe('Testing Comments Section', ()=>{
             createCommentModalData.footer.cancel_button.text
         );
         //click 'submit' button:
-        await indexPage.clickButton(createCommentModalData.footer.submit_button.text);
+        await indexPage.clickButton(
+            createCommentModalData.footer.class,
+            createCommentModalData.footer.submit_button.text
+        );
         //confirm created comment is visible:
         await indexPage.assertCommentIsVisible(
             commentData.class, 
@@ -240,7 +245,10 @@ test.describe('Testing Comments Section', ()=>{
         );
     
         //click 'delete' button:
-        await indexPage.clickButton(commentData.delete_button.text);
+        await indexPage.clickButton(
+            commentData.delete_button.class,
+            commentData.delete_button.text
+        );
         //assert confirmation modal is visible:
         await indexPage.assertDeleteCommentModalIsVisible(
             deleteCommentModalData.id,
@@ -248,6 +256,21 @@ test.describe('Testing Comments Section', ()=>{
             deleteCommentModalData.body.text,
             deleteCommentModalData.footer.delete_button.text,
             deleteCommentModalData.footer.cancel_button.text
+        );
+        //click 'delete' button:
+        await indexPage.clickButton(
+            deleteCommentModalData.footer.class,
+            deleteCommentModalData.footer.delete_button.text
+        );
+        //confirm created comment is gone:
+        await indexPage.assertCommentIsHidden(
+            commentData.class, 
+            commentData.title.likes.class, 
+            commentData.content.handle, 
+            commentData.content.comment,
+            dateNow,
+            commentData.like_button.text, 
+            commentData.delete_button.text 
         );
 
 

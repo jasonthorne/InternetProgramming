@@ -101,13 +101,9 @@ export class BasePage{
     }
 
     //click target buton:
-    async clickButton(btnText: string){
-        await this.page.getByRole('button', {name: btnText}).click();
+    async clickButton(selector: string, btnText: string){
+        await this.page.locator(selector).getByRole('button',{name: btnText}).click();
     }
-   
-    
-
-
 }
 
 export default BasePage;

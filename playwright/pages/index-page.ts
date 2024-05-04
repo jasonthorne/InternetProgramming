@@ -108,6 +108,7 @@ export class IndexPage extends BasePage{
 
     //############### //////////await this.page.locator(btnClass).locator(unlikedClass).filter({hasText: new Date(date).toLocaleString('en-GB').slice(0,-3)}).click();
 
+    //assert delete comment modal is visible:
     async assertDeleteCommentModalIsVisible(
         selector: string, header: string, msg: string, deleteBtn: string, cancelBtn: string){
             await expect(this.page.locator(selector)
@@ -116,6 +117,20 @@ export class IndexPage extends BasePage{
                 .filter({has: this.page.getByRole('button',{name: deleteBtn})})
                 .filter({has: this.page.getByRole('button',{name: cancelBtn})})
             ).toBeVisible();
+    }
+
+    //assert comment is hidden:
+    async assertCommentIsHidden(
+        selector: string, likes: string, handle: string, 
+        comment: string, date: string, likeBtn: string, deleteBtn: string){
+            await expect(this.page.locator(selector)
+                .filter({hasText: await this.page.locator(likes).innerText()})
+                .filter({hasText: handle})
+                .filter({hasText: comment})
+                .filter({hasText: date})
+                .filter({has: this.page.getByRole('button',{name: likeBtn})})
+                .filter({has: this.page.getByRole('button',{name: deleteBtn})})
+            ).toBeHidden();
     }
 
     /*
