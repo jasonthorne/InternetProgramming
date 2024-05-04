@@ -1,5 +1,6 @@
 import {sectionData} from '../data/section-data';
 import {teamData} from '../data/team-data';
+import {commentData} from '../data/comment-data';
 
 export const indexPageData = {
     url: 'https://lorem-ipsum-fc.web.app',
@@ -131,20 +132,22 @@ export const indexPageData = {
     },
     comment: {
         class: '.comment',
-        ///body: {
-            title: {
-                likes: {class: '.comment-likes'},
-                handle: {class: '.comment-handle'}
-            },
-            text: {class: '.comment-text'},
-            date: {class: '.date-text'},
-            like_button: {
-                class: '.comment-like-btn',
-                text: 'Like',
-                liked: {class: '.fas'},
-                unliked: {class: '.far'}
-            },
-            delete_button: {text: 'Delete'}
-        //}
+        title: {
+            likes: {class: '.comment-likes'},
+            handle: {class: '.comment-handle'}
+        },
+        text: {class: '.comment-text'},
+        date: {class: '.date-text'},
+        like_button: {
+            class: '.comment-like-btn',
+            text: 'Like',
+            liked: {class: '.fas'},
+            unliked: {class: '.far'}
+        },
+        delete_button: {text: 'Delete'},
+        content: {
+            handle: commentData.handle,
+            comment: commentData.comment
+        }
     }
 } as const;

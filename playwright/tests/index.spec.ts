@@ -202,11 +202,11 @@ test.describe('Testing Comments Section', ()=>{
         //-----------------------------create comment:-----------------------------
         //enter valid handle:
         await indexPage.enterInputFieldText(
-            commentFormData.handle_input.id, handleText
+            commentFormData.handle_input.id, commentData.content.handle
         );
         //enter valid comment:
         await indexPage.enterInputFieldText(
-            commentFormData.comment_input.id, commentText
+            commentFormData.comment_input.id, commentData.content.comment
         );
         //click 'post comment' button:
         await indexPage.clickButton(commentFormData.button.text);
@@ -214,8 +214,8 @@ test.describe('Testing Comments Section', ()=>{
         await indexPage.assertCommentModalIsVisible(
             createCommentModalData.id, 
             createCommentModalData.header.text, 
-            handleText, 
-            commentText, 
+            commentData.content.handle, 
+            commentData.content.comment,
             createCommentModalData.footer.submit_button.text, 
             createCommentModalData.footer.cancel_button.text
         );
@@ -225,16 +225,18 @@ test.describe('Testing Comments Section', ()=>{
         await indexPage.assertCommentIsVisible(
             commentData.class, 
             commentData.title.likes.class, 
-            handleText, 
-            commentText, 
-            dateText, 
+            commentData.content.handle, 
+            commentData.content.comment,
+            dateText,
+            //commentData.content.date,
             commentData.like_button.text, 
             commentData.delete_button.text 
         );
         //assert like button clicks:
         await indexPage.assertLikeBtnClicks(
             commentData.class,
-            dateText, 
+            dateText,
+            //commentData.content.date,
             commentData.like_button.class, 
             commentData.like_button.unliked.class, 
             commentData.like_button.liked.class, 
