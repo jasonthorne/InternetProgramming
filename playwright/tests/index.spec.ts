@@ -16,48 +16,47 @@ test.describe('Testing Index Page Title', ()=>{
 });
 
 test.describe('Testing Index Page Navbar', ()=>{
+    const navbarData = indexPageData.navbar;
 
     test('Assert navbar logo', async()=>{
-        //grab logo vars:
-        const logoId: string = indexPageData.navbar.logo.id;
-        const logoImgAlt: string = indexPageData.navbar.logo.img.alt;
-        const logoImgSrc: string = indexPageData.navbar.logo.img.src;
-        const logoText: string = indexPageData.navbar.logo.span.text;
-
         //assert logo image is visible:
-        await indexPage.assertImgIsVisible(logoId, logoImgAlt);
+        await indexPage.assertImgIsVisible(
+            navbarData.logo.id, 
+            navbarData.logo.img.alt
+        );
         //assert logo image src:
-        await indexPage.assertImgSrc(logoId, logoImgAlt, logoImgSrc);
+        await indexPage.assertImgSrc(
+            navbarData.logo.id,
+            navbarData.logo.img.alt,
+            indexPageData.navbar.logo.img.src
+        );
         //assert logo text:
-        await indexPage.assertTextIsVisible(logoId, logoText);
+        await indexPage.assertTextIsVisible(
+            navbarData.logo.id, navbarData.logo.span.text);
     });
 
     test('Assert navbar links', async()=>{
-        //grab nav vars:
-        const navClass: string = indexPageData.navbar.nav.class;
-        const navLinks = indexPageData.navbar.nav.links;
         //assert each nav link's url:
-        for(const navLink of navLinks){
-           await indexPage.assertLinkUrl(navClass, navLink.text, navLink.href);
+        for(const navLink of navbarData.nav.links){
+            await indexPage.assertLinkUrl(
+            navbarData.nav.class, navLink.text, navLink.href);
         }
     });
-});
+}); //++++++++++++++++++++++UP TO HERE :P
 
 test.describe('Testing Index Page Hero', ()=>{
 
     test('Assert hero element', async()=>{
-        //grab hero vars:
         const heroId: string = indexPageData.hero.id;
-        const heroImgSrc: string = indexPageData.hero.img.src;
-        const heroTitleId: string = indexPageData.hero.title.id;
-        const heroTitleText: string = indexPageData.hero.title.text;
 
         //assert hero is visible:
         await indexPage.assertElementIsVisible(heroId);
         //assert hero background-image:
-        await indexPage.assertBackgroundImg(heroId, heroImgSrc);
+        await indexPage.assertBackgroundImg(heroId, indexPageData.hero.img.src);
         //assert hero title text:
-        await indexPage.assertTextIsVisible(heroTitleId, heroTitleText);
+        await indexPage.assertTextIsVisible(
+            indexPageData.hero.title.id, indexPageData.hero.title.text
+        );
     });
 });
 
@@ -65,14 +64,18 @@ test.describe('Testing News & Updates Section', ()=>{
 
     test('Assert news and updates section', async()=>{
         //grab section vars:
+        const sectionData = indexPageData.section.news_updates;
         const sectionId: string = indexPageData.section.news_updates.id;
         const sectionHeaderClass: string = indexPageData.section.news_updates.header.class;
         const sectionHeaderText: string = indexPageData.section.news_updates.header.text;
 
         //assert section is visible:
-        await indexPage.assertElementIsVisible(sectionId);
+        await indexPage.assertElementIsVisible(sectionData.id);
         //assert section header is visible:
-        await indexPage.assertTextIsVisible(sectionHeaderClass, sectionHeaderText);
+        await indexPage.assertTextIsVisible(
+            sectionData.header.class, 
+            sectionData.header.text
+        );
     });
 
     test('Assert news and updates content', async()=>{
@@ -139,6 +142,8 @@ test.describe('Testing Admin Section', ()=>{
 
     test('Assert admin section', async()=>{
         //grab section vars:
+        //##??????????????
+        const adminSection =  indexPageData.section.admin;
         const sectionId: string = indexPageData.section.admin.id;
         const sectionHeaderClass: string = indexPageData.section.admin.header.class;
         const sectionHeaderText: string = indexPageData.section.admin.header.text;
@@ -146,7 +151,7 @@ test.describe('Testing Admin Section', ()=>{
         const secionBodyText: string = indexPageData.section.admin.body.text;
         
         //assert section is visible:
-        await indexPage.assertElementIsVisible(sectionId);
+        await indexPage.assertElementIsVisible(adminSection.id);
         //assert section header is visible:
         await indexPage.assertTextIsVisible(sectionHeaderClass, sectionHeaderText);
         //assert section body text is visible:
@@ -215,6 +220,14 @@ test.describe('Testing Comments Section', ()=>{
         const headerText: string = indexPageData.modal.create_comment.header.text;
         const submitBtnText: string = indexPageData.modal.create_comment.footer.submit_button.text;
         const cancelBtnText: string = indexPageData.modal.create_comment.footer.cancel_button.text;
+        
+        /*const likeModal = {
+            modalId: indexPageData.modal.create_comment.id,
+            headerText: indexPageData.modal.create_comment.header.text,
+            submitBtnText: indexPageData.modal.create_comment.footer.submit_button.text,
+            cancelBtnText:indexPageData.modal.create_comment.footer.cancel_button.text,
+        }*/
+        
         //grab comment vars:
         const commentClass: string = indexPageData.comment.class;
         const likesClass: string = indexPageData.comment.body.title.likes.class;
