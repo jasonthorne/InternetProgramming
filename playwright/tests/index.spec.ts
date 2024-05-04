@@ -64,11 +64,6 @@ test.describe('Testing News & Updates Section', ()=>{
     const sectionData = indexPageData.section.news_updates;
 
     test('Assert news and updates section', async()=>{
-       
-        //const sectionId: string = indexPageData.section.news_updates.id;
-       //const sectionHeaderClass: string = indexPageData.section.news_updates.header.class;
-       // const sectionHeaderText: string = indexPageData.section.news_updates.header.text;
-
         //assert section is visible:
         await indexPage.assertElementIsVisible(sectionData.id);
         //assert section header is visible:
@@ -78,10 +73,6 @@ test.describe('Testing News & Updates Section', ()=>{
     });
 
     test('Assert news and updates content', async()=>{
-        //grab section vars:
-        //const sectionBodyClass: string = indexPageData.section.news_updates.body.class;
-        //const sectionBodyContents = indexPageData.section.news_updates.body.content;
-
         //assert all section body content is visible:
         for(const content of sectionData.body.content){
             await indexPage.assertNewsUpdatesContentIsVisible(
@@ -95,13 +86,6 @@ test.describe('Testing Fixtures & Results Section', ()=>{
     const sectionData = indexPageData.section.fixtures;
 
     test('Assert fixtures and results section', async()=>{
-        //grab section vars:
-        ///const sectionId: string = indexPageData.section.fixtures.id;
-        //const sectionHeaderClass: string = indexPageData.section.fixtures.header.class;
-        //const sectionHeaderText: string = indexPageData.section.fixtures.header.text;
-        //const sectionBodyClass: string = indexPageData.section.fixtures.body.class;
-       // const secionBodyText: string = indexPageData.section.fixtures.body.text;
-        
         //assert section is visible:
         await indexPage.assertElementIsVisible(sectionData.id);
         //assert section header is visible:
@@ -115,9 +99,6 @@ test.describe('Testing Fixtures & Results Section', ()=>{
     });
 
     test('Assert fixtures and results content', async()=>{
-        //grab fixture vars:
-        //const fixtureResults = indexPageData.section.fixtures.body.results.content;
-        //const fixtureClass: string = indexPageData.section.fixtures.body.results.class;
         //asserts a team's img src:
         const assertTeamImgSrc = async(team:{logo:{src:string; alt:string;}})=>{
             await indexPage.assertImgSrc(
@@ -125,20 +106,20 @@ test.describe('Testing Fixtures & Results Section', ()=>{
             );
         };
         //spin throgh fixture results:
-        for(const fixtureResult of sectionData.body.results.content){
+        for(const result of sectionData.body.results.content){
             //assert team's img sources:
-            assertTeamImgSrc(fixtureResult.home_team.team);
-            assertTeamImgSrc(fixtureResult.away_team.team);
+            assertTeamImgSrc(result.home_team.team);
+            assertTeamImgSrc(result.away_team.team);
 
             //assert that content for each fixture is visible:
             await indexPage.assertFixtureResultContentIsVisible(
                 sectionData.body.results.class,
-                fixtureResult.home_team.team.logo.alt,
-                fixtureResult.home_team.team.name,
-                fixtureResult.home_team.score,
-                fixtureResult.away_team.team.logo.alt,
-                fixtureResult.away_team.team.name,
-                fixtureResult.away_team.score
+                result.home_team.team.logo.alt,
+                result.home_team.team.name,
+                result.home_team.score,
+                result.away_team.team.logo.alt,
+                result.away_team.team.name,
+                result.away_team.score
             );
         }
     });
@@ -148,15 +129,6 @@ test.describe('Testing Admin Section', ()=>{
     const sectionData = indexPageData.section.admin;
 
     test('Assert admin section', async()=>{
-        //grab section vars:
-        //##??????????????
-        //const adminSection =  indexPageData.section.admin;
-        //const sectionId: string = indexPageData.section.admin.id;
-        //const sectionHeaderClass: string = indexPageData.section.admin.header.class;
-        //const sectionHeaderText: string = indexPageData.section.admin.header.text;
-        //const sectionBodyClass: string = indexPageData.section.admin.body.class;
-        //const secionBodyText: string = indexPageData.section.admin.body.text;
-        
         //assert section is visible:
         await indexPage.assertElementIsVisible(sectionData.id);
         //assert section header is visible:
@@ -170,22 +142,18 @@ test.describe('Testing Admin Section', ()=>{
     });
 
     test('Assert admin staff content', async()=>{
-        const adminStaff = sectionData.body.staff;
-        //const adminClass: string = indexPageData.section.admin.body.class;
+        const staff = sectionData.body.staff;
 
         //spin through each staff member:
-        for(const member of Object.keys(adminStaff).map(key=>adminStaff[key])){
+        for(const member of Object.keys(staff).map(key=>staff[key])){
             //assert member's image src:
             await indexPage.assertImgSrc(
                 sectionData.body.class, member.img.alt, member.img.src
             );
             //assert that member's content is visible:
             await indexPage.assertAdminContentIsVisible(
-                sectionData.body.class, 
-                member.title, 
-                member.img.alt,
-                member.name,
-                member.text
+                sectionData.body.class, member.title, 
+                member.img.alt, member.name, member.text
             );
         }
     });
@@ -193,16 +161,9 @@ test.describe('Testing Admin Section', ()=>{
 
 test.describe('Testing Comments Section', ()=>{
     const sectionData = indexPageData.section.comments;
+    const commentFormData = sectionData.body.form;
    
     test('Assert comments section', async()=>{
-        
-        //grab section vars:
-        //const sectionId: string = indexPageData.section.comments.id;
-       // const sectionHeaderClass: string = indexPageData.section.comments.header.class;
-        //const sectionHeaderText: string = indexPageData.section.comments.header.text;
-        //const sectionBodyClass: string = indexPageData.section.comments.body.class;
-        const commentFormData = sectionData.body.form;
-        
         //assert section is visible:
         await indexPage.assertElementIsVisible(sectionData.id);
         //assert section header is visible:
@@ -231,55 +192,57 @@ test.describe('Testing Comments Section', ()=>{
     });
 
     test('Assert comment creation and deletion', async()=>{
-        //grab comment form vars:
-        const handleInputId: string = indexPageData.section.comments.body.form.handle_input.id;
-        const commentInputId: string = indexPageData.section.comments.body.form.comment_input.id;
-        const postCommentBtnText: string =  indexPageData.section.comments.body.form.button.text;
-        //grab create comment modal vars:
-        const modalId: string = indexPageData.modal.create_comment.id;
-        const headerText: string = indexPageData.modal.create_comment.header.text;
-        const submitBtnText: string = indexPageData.modal.create_comment.footer.submit_button.text;
-        const cancelBtnText: string = indexPageData.modal.create_comment.footer.cancel_button.text;
-        
-        //grab comment vars:
-        const commentClass: string = indexPageData.comment.class;
-        const likesClass: string = indexPageData.comment.body.title.likes.class;
-        const likeBtnClass: string = indexPageData.comment.body.like_button.class;
-        const likeBtnText: string = indexPageData.comment.body.like_button.text;
-        const likeBtnLikedClass: string = indexPageData.comment.body.like_button.liked.class;
-        const likeBtnUnlikedClass: string = indexPageData.comment.body.like_button.unliked.class;
-        const deleteBtnText: string = indexPageData.comment.body.delete_button.text;
-        //sample input text:
+        const createCommentModalData = indexPageData.modal.create_comment;
+        const commentData = indexPageData.comment;
         const handleText: string = 'Sample Handle';
         const commentText: string = 'Sample Comment';
-        //creation date:
         const dateText: string = new Date(
             Math.floor(Date.now())).toLocaleString('en-GB').slice(0,-3);
         
-        //-----------------------------creation:-----------------------------
+        //-----------------------------create comment:-----------------------------
         //enter valid handle:
-        await indexPage.enterInputFieldText(handleInputId, handleText);
+        await indexPage.enterInputFieldText(
+            commentFormData.handle_input.id, handleText
+        );
         //enter valid comment:
-        await indexPage.enterInputFieldText(commentInputId, commentText);
+        await indexPage.enterInputFieldText(
+            commentFormData.comment_input.id, commentText
+        );
         //click 'post comment' button:
-        await indexPage.clickButton(postCommentBtnText);
+        await indexPage.clickButton(commentFormData.button.text);
         //assert confirmation modal is visibe:
         await indexPage.assertCommentModalIsVisible(
-            modalId, headerText, handleText, commentText, submitBtnText, cancelBtnText
+            createCommentModalData.id, 
+            createCommentModalData.header.text, 
+            handleText, 
+            commentText, 
+            createCommentModalData.footer.submit_button.text, 
+            createCommentModalData.footer.cancel_button.text
         );
         //click 'submit' button:
-        await indexPage.clickButton(submitBtnText);
+        await indexPage.clickButton(createCommentModalData.footer.submit_button.text);
         //confirm created comment is visible:
         await indexPage.assertCommentIsVisible(
-            commentClass, likesClass, handleText, commentText, dateText, likeBtnText, deleteBtnText 
+            commentData.class, 
+            commentData.title.likes.class, 
+            handleText, 
+            commentText, 
+            dateText, 
+            commentData.like_button.text, 
+            commentData.delete_button.text 
         );
         //assert like button clicks:
         await indexPage.assertLikeBtnClicks(
-            commentClass, dateText, likeBtnClass, likeBtnUnlikedClass, likeBtnLikedClass, likesClass
+            commentData.class,
+            dateText, 
+            commentData.like_button.class, 
+            commentData.like_button.unliked.class, 
+            commentData.like_button.liked.class, 
+            commentData.title.likes.class
         );
-       //-----------------------------deletion:-----------------------------
+       //-----------------------------delete comment:-----------------------------
         //click 'delete' button:
-        await indexPage.clickButton(deleteBtnText);
+        //await indexPage.clickButton(deleteBtnText);
 
 
 

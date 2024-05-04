@@ -131,7 +131,7 @@ export const indexPageData = {
     },
     comment: {
         class: '.comment',
-        body: {
+        ///body: {
             title: {
                 likes: {class: '.comment-likes'},
                 handle: {class: '.comment-handle'}
@@ -145,6 +145,6 @@ export const indexPageData = {
                 unliked: {class: '.far'}
             },
             delete_button: {text: 'Delete'}
-        }
+        //}
     }
 } as const;
