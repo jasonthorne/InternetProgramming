@@ -127,6 +127,43 @@ export const indexPageData = {
             }
         },
         delete_comment: {
+            id: '#delete-comment-modal',
+            header: {
+                class: '.modal-header',
+                text: 'Confirm'
+            },
+            body: {
+                class: '.modal-body',
+                text: 'Delete comment?'
+            },
+            footer: {
+                class: '.modal-footer',
+                delete_button: {text: 'Delete'},
+                cancel_button: {text: 'Cancel'}
+            }
+
+
+
+            /*
+            <div class="modal fade" id="delete-comment-modal" tabindex="-1" role="dialog" aria-hidden="true">
+			<div class="modal-dialog modal-sm modal-dialog-centered">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title"><i class="fa-regular fa-circle-check"></i> Confirm</h5>
+					</div>
+					<div class="modal-body">
+						<h6 class="text-muted">Delete comment?</h6>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-dark btn-sm" onclick="deleteComment()">Delete</button>
+						<button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancel</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+            */
 
         }
     },

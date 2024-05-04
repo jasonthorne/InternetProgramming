@@ -193,13 +193,11 @@ test.describe('Testing Comments Section', ()=>{
 
     test('Assert comment creation and deletion', async()=>{
         const createCommentModalData = indexPageData.modal.create_comment;
+        const deleteCommentModalData = indexPageData.modal.delete_comment;
         const commentData = indexPageData.comment;
-        const handleText: string = 'Sample Handle';
-        const commentText: string = 'Sample Comment';
-        const dateText: string = new Date(
+        const dateNow: string = new Date(
             Math.floor(Date.now())).toLocaleString('en-GB').slice(0,-3);
         
-        //-----------------------------create comment:-----------------------------
         //enter valid handle:
         await indexPage.enterInputFieldText(
             commentFormData.handle_input.id, commentData.content.handle
@@ -210,7 +208,7 @@ test.describe('Testing Comments Section', ()=>{
         );
         //click 'post comment' button:
         await indexPage.clickButton(commentFormData.button.text);
-        //assert confirmation modal is visibe:
+        //assert confirmation modal is visible:
         await indexPage.assertCommentModalIsVisible(
             createCommentModalData.id, 
             createCommentModalData.header.text, 
@@ -227,24 +225,30 @@ test.describe('Testing Comments Section', ()=>{
             commentData.title.likes.class, 
             commentData.content.handle, 
             commentData.content.comment,
-            dateText,
-            //commentData.content.date,
+            dateNow,
             commentData.like_button.text, 
             commentData.delete_button.text 
         );
         //assert like button clicks:
         await indexPage.assertLikeBtnClicks(
             commentData.class,
-            dateText,
-            //commentData.content.date,
+            dateNow,
             commentData.like_button.class, 
             commentData.like_button.unliked.class, 
             commentData.like_button.liked.class, 
             commentData.title.likes.class
         );
-       //-----------------------------delete comment:-----------------------------
+    
         //click 'delete' button:
-        //await indexPage.clickButton(deleteBtnText);
+        await indexPage.clickButton(commentData.delete_button.text);
+        //assert confirmation modal is visible:
+        await indexPage.assertDeleteCommentModalIsVisible(
+            deleteCommentModalData.id,
+            deleteCommentModalData.header.text,
+            deleteCommentModalData.body.text,
+            deleteCommentModalData.footer.delete_button.text,
+            deleteCommentModalData.footer.cancel_button.text
+        );
 
 
 

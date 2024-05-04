@@ -108,10 +108,41 @@ export class IndexPage extends BasePage{
 
     //############### //////////await this.page.locator(btnClass).locator(unlikedClass).filter({hasText: new Date(date).toLocaleString('en-GB').slice(0,-3)}).click();
 
-
-    async assertDeleteCommentModalIsVisible(){
-
+    async assertDeleteCommentModalIsVisible(
+        selector: string, header: string, msg: string, deleteBtn: string, cancelBtn: string){
+            await expect(this.page.locator(selector)
+                .filter({hasText: header})
+                .filter({hasText: msg})
+                .filter({has: this.page.getByRole('button',{name: deleteBtn})})
+                .filter({has: this.page.getByRole('button',{name: cancelBtn})})
+            ).toBeVisible();
     }
+
+    /*
+
+    deleteCommentModal.id,
+    deleteCommentModal.header.text,
+    deleteCommentModal.body.text,
+    deleteCommentModal.footer.delete_button.text,
+    deleteCommentModal.footer.cancel_button.text
+
+
+
+
+    //assert comment modal is visible:
+    async assertCommentModalIsVisible(
+        selector: string, header: string, handle: string, 
+        comment: string, submitBtn: string, cancelBtn: string){
+            await expect(this.page.locator(selector)
+                .filter({hasText: header})
+                .filter({hasText: handle})
+                .filter({hasText: comment})
+                .filter({has: this.page.getByRole('button',{name: submitBtn})})
+                .filter({has: this.page.getByRole('button',{name: cancelBtn})})
+            ).toBeVisible();
+    }
+
+    */
 
    
 }
