@@ -162,6 +162,7 @@ test.describe('Testing Admin Section', ()=>{
 test.describe('Testing Comments Section', ()=>{
     const sectionData = indexPageData.section.comments;
     const commentFormData = sectionData.body.form;
+    const commentData = indexPageData.comment;
    
     test('Assert comments section', async()=>{
         //assert section is visible:
@@ -194,7 +195,6 @@ test.describe('Testing Comments Section', ()=>{
     test('Assert comment creation and deletion', async()=>{
         const createCommentModalData = indexPageData.modal.create_comment;
         const deleteCommentModalData = indexPageData.modal.delete_comment;
-        const commentData = indexPageData.comment;
         const dateNow: string = new Date(
             Math.floor(Date.now())).toLocaleString('en-GB').slice(0,-3);
         
@@ -224,6 +224,10 @@ test.describe('Testing Comments Section', ()=>{
             createCommentModalData.footer.class,
             createCommentModalData.footer.submit_button.text
         );
+        //assert confirmation modal is gone:
+        await indexPage.assertElementIsHidden(
+            createCommentModalData.id
+        );
         //confirm created comment is visible:
         await indexPage.assertCommentIsVisible(
             commentData.class, 
@@ -246,8 +250,7 @@ test.describe('Testing Comments Section', ()=>{
     
         //click 'delete' button:
         await indexPage.clickButton(
-            commentData.delete_button.class,
-            commentData.delete_button.text
+            commentData.class, commentData.delete_button.text
         );
         //assert confirmation modal is visible:
         await indexPage.assertDeleteCommentModalIsVisible(
@@ -262,38 +265,65 @@ test.describe('Testing Comments Section', ()=>{
             deleteCommentModalData.footer.class,
             deleteCommentModalData.footer.delete_button.text
         );
-        //confirm created comment is gone:
+        //assert confirmation modal is gone:
+        await indexPage.assertElementIsHidden(
+            deleteCommentModalData.id
+        );
+        //assert created comment is gone:
         await indexPage.assertCommentIsHidden(
             commentData.class, 
-            commentData.title.likes.class, 
             commentData.content.handle, 
             commentData.content.comment,
             dateNow,
             commentData.like_button.text, 
             commentData.delete_button.text 
         );
-
-
-
-        
-
-        //await indexPage.assertElementIsVisible(".comment");
-
-        
-        
-        //create comment with input text:
-        //await assertCreateComment(handleText, commentText);
-
-
-
-
-
-
-
     });
 
-    //coment with no handle:
-    //comment with no comment
-    //comment with no handle & no comment
+    test('Assert tooltip on comment creation with no handle', async()=>{
+        //enter valid comment:
+        await indexPage.enterInputFieldText(
+            commentFormData.comment_input.id, 
+            commentData.content.comment
+        );
+        //click 'post comment' button:
+        await indexPage.clickButton(
+            sectionData.body.class, commentFormData.button.text
+        );
+        //assert tooltip for handle input:
+        await indexPage.assertTooltipIsVisible(
+            commentFormData.handle_input.tooltip.text
+        );
+    });
 
+    test('Assert tooltip on comment creation with no comment', async()=>{
+        //enter valid handle:
+        await indexPage.enterInputFieldText(
+            commentFormData.handle_input.id, 
+            commentData.content.handle
+        );
+        //click 'post comment' button:
+        await indexPage.clickButton(
+            sectionData.body.class, commentFormData.button.text
+        );
+        //assert tooltip for comment input:
+        await indexPage.assertTooltipIsVisible(
+            commentFormData.comment_input.tooltip.text
+        );
+    });
+
+    test('Assert tooltips on comment creation with no handle & no comment', async()=>{
+        //click 'post comment' button:
+        await indexPage.clickButton(
+            sectionData.body.class, commentFormData.button.text
+        );
+        //assert tooltip for handle input:
+        await indexPage.assertTooltipIsVisible(
+            commentFormData.handle_input.tooltip.text
+        );
+        //assert tooltip for comment input:
+        await indexPage.assertTooltipIsVisible(
+            commentFormData.comment_input.tooltip.text
+        );
+    });
 });

@@ -121,10 +121,9 @@ export class IndexPage extends BasePage{
 
     //assert comment is hidden:
     async assertCommentIsHidden(
-        selector: string, likes: string, handle: string, 
-        comment: string, date: string, likeBtn: string, deleteBtn: string){
+        selector: string, handle: string, comment: string, 
+        date: string, likeBtn: string, deleteBtn: string){
             await expect(this.page.locator(selector)
-                .filter({hasText: await this.page.locator(likes).innerText()})
                 .filter({hasText: handle})
                 .filter({hasText: comment})
                 .filter({hasText: date})
@@ -132,34 +131,6 @@ export class IndexPage extends BasePage{
                 .filter({has: this.page.getByRole('button',{name: deleteBtn})})
             ).toBeHidden();
     }
-
-    /*
-
-    deleteCommentModal.id,
-    deleteCommentModal.header.text,
-    deleteCommentModal.body.text,
-    deleteCommentModal.footer.delete_button.text,
-    deleteCommentModal.footer.cancel_button.text
-
-
-
-
-    //assert comment modal is visible:
-    async assertCommentModalIsVisible(
-        selector: string, header: string, handle: string, 
-        comment: string, submitBtn: string, cancelBtn: string){
-            await expect(this.page.locator(selector)
-                .filter({hasText: header})
-                .filter({hasText: handle})
-                .filter({hasText: comment})
-                .filter({has: this.page.getByRole('button',{name: submitBtn})})
-                .filter({has: this.page.getByRole('button',{name: cancelBtn})})
-            ).toBeVisible();
-    }
-
-    */
-
-   
 }
 
 export default IndexPage;

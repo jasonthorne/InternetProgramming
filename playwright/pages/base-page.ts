@@ -1,4 +1,4 @@
-import {expect, Locator, Page} from '@playwright/test'
+import {expect, Page} from '@playwright/test'
 
 export class BasePage{
 
@@ -47,6 +47,11 @@ export class BasePage{
     //assert element is visible:
     async assertElementIsVisible(selector: string){
         await expect(this.page.locator(selector)).toBeVisible();
+    }
+
+    //assert element is hidden:
+    async assertElementIsHidden(selector: string){
+        await expect(this.page.locator(selector)).toBeHidden();
     }
 
     //assert background image:
@@ -103,6 +108,11 @@ export class BasePage{
     //click target buton:
     async clickButton(selector: string, btnText: string){
         await this.page.locator(selector).getByRole('button',{name: btnText}).click();
+    }
+
+    //assert tooltip is visible:
+    async assertTooltipIsVisible(text: string){
+        await expect(this.page.getByRole('tooltip',{name:text})).toBeVisible();
     }
 }
 
