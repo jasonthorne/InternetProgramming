@@ -38,12 +38,6 @@ export class BasePage{
     
     }*/
 
-    //assert url is valid:
-    async assertLinkUrl(selector: string, name: string, url: string){
-        await this.page.locator(selector).getByRole('link',{name:name}).click();
-        await expect(this.page).toHaveURL(new RegExp(`/${url}$`));
-    }
-
     //assert element is visible:
     async assertElementIsVisible(selector: string){
         await expect(this.page.locator(selector)).toBeVisible();

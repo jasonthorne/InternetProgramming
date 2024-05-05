@@ -8,7 +8,7 @@ test.beforeEach(async({page})=>{
     await page.goto(indexPageData.url);
     indexPage = new IndexPage(page);
 });
-/*
+
 test.describe('Testing Index Page Title', ()=>{
     test('Assert page title', async()=>{
         await indexPage.assertPageTitle(indexPageData.title);
@@ -37,7 +37,7 @@ test.describe('Testing Index Page Navbar', ()=>{
     test('Assert navbar links', async()=>{
         //assert each nav link's url:
         for(const navLink of navbarData.nav.links){
-            await indexPage.assertLinkUrl(
+            await indexPage.assertNavbarLink(
                 navbarData.nav.class, navLink.text, navLink.href
             );
         }
@@ -336,7 +336,7 @@ test.describe('Testing Comments Section', ()=>{
         );
     });
 });
-*/
+
 test.describe('Testing Footer', ()=>{
     const footerData = indexPageData.footer;
 
@@ -344,22 +344,13 @@ test.describe('Testing Footer', ()=>{
         const creatorData = footerData.attribute.creator;
         //assert creator text is visible:
         await indexPage.assertTextIsVisible(footerData.selector, creatorData.text);
-        //assert github link:
-
-
-
-        /*
-        //assert creator links:
-        for(const link of creatorData.links){
-            await indexPage.assertLinkUrl(
-                footerData.selector, '', link.href
-            ).then(async()=>{
-                await indexPage.goBack();
-            });*/
-            await indexPage.goBack();
-            //console.log(link.href);
+        //spin through creator links:
+        for(const [i, link] of creatorData.links.entries()){
+            //assert icon is visible:
+            await indexPage.assertElementIsVisible(link.icon.class);
+            //assert link url works:
+            await indexPage.assertFooterCreatorLink(creatorData.id, i, link.href)
         }
-
     });
 
     /*
@@ -370,12 +361,9 @@ test.describe('Testing Footer', ()=>{
     5) <a target="_blank" href="https://www.freepik.com">↵⇆⇆⇆⇆⇆Freepik ↵⇆⇆⇆⇆</a> aka getByRole('link', { name: 'Freepik' })
     6) <a target="_blank" href="https://www.flaticon.com">↵⇆⇆⇆⇆⇆www.flaticon.com↵⇆⇆⇆⇆</a> aka getByRole('link', { name: 'www.flaticon.com' })
     7) <a target="_blank" href="https://fontawesome.com">↵⇆⇆⇆⇆⇆Font Awesome↵⇆⇆⇆⇆</a> aka getByRole('link', { name: 'Font Awesome' })
-
-
-
     */
 
-    /*test('Assert image attributes', async()=>{
+    test('Assert image attributes', async()=>{
 
-    });*/
+    });
 });
