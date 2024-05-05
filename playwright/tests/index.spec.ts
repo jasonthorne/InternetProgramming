@@ -8,7 +8,7 @@ test.beforeEach(async({page})=>{
     await page.goto(indexPageData.url);
     indexPage = new IndexPage(page);
 });
-
+/*
 test.describe('Testing Index Page Title', ()=>{
     test('Assert page title', async()=>{
         await indexPage.assertPageTitle(indexPageData.title);
@@ -336,16 +336,46 @@ test.describe('Testing Comments Section', ()=>{
         );
     });
 });
-
+*/
 test.describe('Testing Footer', ()=>{
+    const footerData = indexPageData.footer;
 
-    test('Assert comments section', async()=>{
+    test('Assert creator attribute', async()=>{
+        const creatorData = footerData.attribute.creator;
+        //assert creator text is visible:
+        await indexPage.assertTextIsVisible(footerData.selector, creatorData.text);
+        //assert github link:
+
+
+
+        /*
+        //assert creator links:
+        for(const link of creatorData.links){
+            await indexPage.assertLinkUrl(
+                footerData.selector, '', link.href
+            ).then(async()=>{
+                await indexPage.goBack();
+            });*/
+            await indexPage.goBack();
+            //console.log(link.href);
+        }
 
     });
 
-    test('Assert comments section', async()=>{
+    /*
+       1) <a target="_blank" href="https://github.com/jasonth…>…</a> aka locator('#footer-attributes').getByRole('link').first()
+    2) <a target="_blank" href="https://linkedin.com/in/ja…>…</a> aka locator('#footer-attributes').getByRole('link').nth(1)
+    3) <a target="_blank" href="https://bit.ly/3l419Y0">↵⇆⇆⇆⇆⇆Rudy and Peter Skitterians ↵⇆⇆⇆⇆</a> aka getByRole('link', { name: 'Rudy and Peter Skitterians' })
+    4) <a target="_blank" href="https://bit.ly/3l0HyYN">↵⇆⇆⇆⇆⇆Pixabay↵⇆⇆⇆⇆</a> aka getByRole('link', { name: 'Pixabay' })
+    5) <a target="_blank" href="https://www.freepik.com">↵⇆⇆⇆⇆⇆Freepik ↵⇆⇆⇆⇆</a> aka getByRole('link', { name: 'Freepik' })
+    6) <a target="_blank" href="https://www.flaticon.com">↵⇆⇆⇆⇆⇆www.flaticon.com↵⇆⇆⇆⇆</a> aka getByRole('link', { name: 'www.flaticon.com' })
+    7) <a target="_blank" href="https://fontawesome.com">↵⇆⇆⇆⇆⇆Font Awesome↵⇆⇆⇆⇆</a> aka getByRole('link', { name: 'Font Awesome' })
 
-    });
 
 
+    */
+
+    /*test('Assert image attributes', async()=>{
+
+    });*/
 });

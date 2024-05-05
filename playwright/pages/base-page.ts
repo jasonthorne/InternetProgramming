@@ -114,6 +114,9 @@ export class BasePage{
     async assertTooltipIsVisible(text: string){
         await expect(this.page.getByRole('tooltip',{name:text})).toBeVisible();
     }
+
+    //navigate page back to last redirect:
+    async goBack(){ await this.page.goBack(); }
 }
 
 export default BasePage;

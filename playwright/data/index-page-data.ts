@@ -167,9 +167,20 @@ export const indexPageData = {
         }
     },
     footer: {
+        selector: 'footer',
         attribute: {
             creator:{
                 text: 'Made by Jason Thorne. 2022',
+                /*links: [
+                    {
+                        href: 'https://github.com/jasonthorne/LoremIpsumFC',
+                        icon: {class: '.fa-github-square'}
+                    },
+                    {
+                        href: 'https://linkedin.com/in/jason-thorne-dev',
+                        icon: {class: '.fa-linkedin'}
+                    }
+                ]*/
                 github: {
                     href: 'https://github.com/jasonthorne/LoremIpsumFC',
                     icon: {class: '.fa-github-square'}
