@@ -336,3 +336,16 @@ test.describe('Testing Comments Section', ()=>{
         );
     });
 });
+
+test.describe('Testing Footer', ()=>{
+
+    test('Assert comments section', async()=>{
+
+    });
+
+    test('Assert comments section', async()=>{
+
+    });
+
+
+});

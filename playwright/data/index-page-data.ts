@@ -165,5 +165,57 @@ export const indexPageData = {
             handle: commentData.handle,
             comment: commentData.comment
         }
+    },
+    footer: {
+        attribute: {
+            creator:{
+                text: 'Made by Jason Thorne. 2022',
+                github: {
+                    href: 'https://github.com/jasonthorne/LoremIpsumFC',
+                    icon: {class: '.fa-github-square'}
+                },
+                linkedin: {
+                    href: 'https://linkedin.com/in/jason-thorne-dev',
+                    icon: {class: '.fa-linkedin'}
+                }
+            },
+            image: {
+                pitch: {
+                    text: 'Pitch Image by',
+                    link: {
+                        href: 'https://bit.ly/3l419Y0', 
+                        text: 'Rudy and Peter Skitterians'
+                    },
+                    host: {
+                        text: 'from',
+                        link: {
+                            href: 'https://bit.ly/3l0HyYN', 
+                            text: 'Pixabay'
+                        }
+                    }
+                },
+                team_and_staff: {
+                    text: 'Team and Staff Icons made by',
+                    link: {
+                        href: 'https://www.freepik.com', 
+                        text: 'Freepik'
+                    },
+                    host: {
+                        text: 'from',
+                        link: {
+                            href: 'https://www.flaticon.com', 
+                            text: 'www.flaticon.com'
+                        }
+                    }
+                },
+                footer_and_comment:{
+                    text: 'Footer and Comment Icons from',
+                    link: {
+                        href: 'https://fontawesome.com',
+                        text: 'Font Awesome'
+                    }
+                }
+            }
+        }
     }
 } as const;
