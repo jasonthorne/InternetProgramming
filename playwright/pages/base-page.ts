@@ -106,8 +106,8 @@ export class BasePage{
     }
 
     //click target buton:
-    async clickButton(selector: string, btnText: string){
-        await this.page.locator(selector).getByRole('button',{name: btnText}).click();
+    async clickButton(selector: string, text: string){
+        await this.page.locator(selector).getByRole('button',{name:text}).click();
     }
 
     //assert tooltip is visible:

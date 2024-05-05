@@ -114,12 +114,16 @@ test.describe('Testing Fixtures & Results Section', ()=>{
             //assert that content for each fixture is visible:
             await indexPage.assertFixtureResultContentIsVisible(
                 sectionData.body.results.class,
-                result.home_team.team.logo.alt,
-                result.home_team.team.name,
-                result.home_team.score,
-                result.away_team.team.logo.alt,
-                result.away_team.team.name,
-                result.away_team.score
+                {
+                    logo: result.home_team.team.logo.alt,
+                    name: result.home_team.team.name,
+                    score: result.home_team.score
+                },
+                {
+                    logo: result.away_team.team.logo.alt,
+                    name: result.away_team.team.name,
+                    score: result.away_team.score
+                }
             );
         }
     });
@@ -152,8 +156,11 @@ test.describe('Testing Admin Section', ()=>{
             );
             //assert that member's content is visible:
             await indexPage.assertAdminContentIsVisible(
-                sectionData.body.class, member.title, 
-                member.img.alt, member.name, member.text
+                sectionData.body.class, 
+                {
+                    title: member.title, img: member.img.alt, 
+                    name: member.name, text: member.text
+                } 
             );
         }
     });
@@ -185,10 +192,12 @@ test.describe('Testing Comments Section', ()=>{
         );
         //assert comment form is visible:
         await indexPage.assertCommentFormIsVisible(
-            sectionData.body.class, 
-            commentFormData.handle_input.placeholder, 
-            commentFormData.comment_input.placeholder,
-            commentFormData.button.text
+            sectionData.body.class,
+            {
+                handle: commentFormData.handle_input.placeholder, 
+                comment: commentFormData.comment_input.placeholder,
+                button: commentFormData.button.text
+            }
         );
     });
 

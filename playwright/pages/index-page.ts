@@ -16,7 +16,7 @@ export class IndexPage extends BasePage{
     }
 
     //assert fixture result content is visible:
-    async assertFixtureResultContentIsVisible(
+    /*async assertFixtureResultContentIsVisible(
         selector: string, 
         homeTeamLogo: string, homeTeamName: string, homeTeamScore: string, 
         awayTeamLogo: string, awayTeamName: string, awayTeamScore: string){
@@ -28,10 +28,24 @@ export class IndexPage extends BasePage{
                 .filter({hasText: awayTeamName})
                 .filter({hasText: awayTeamScore})
             ).toBeVisible();
+    }*/
+
+    async assertFixtureResultContentIsVisible(
+        resultsClass: string, 
+        homeTeam: {logo:string; name:string; score:string},
+        awayTeam: {logo:string; name:string; score:string}){
+            await expect(this.page.locator(resultsClass)
+                .filter({has: this.page.getByRole('img',{name: homeTeam.logo})})
+                .filter({hasText: homeTeam.name})
+                .filter({hasText: homeTeam.score})
+                .filter({has: this.page.getByRole('img',{name: awayTeam.logo})})
+                .filter({hasText: awayTeam.name})
+                .filter({hasText: awayTeam.score})
+            ).toBeVisible();
     }
 
     //assert admin content is visible:
-    async assertAdminContentIsVisible(
+    /*async assertAdminContentIsVisible(
         selector: string, title: string, image: string, name: string, text: string){
             await expect(this.page.locator(selector)
                 .filter({hasText: title})
@@ -39,21 +53,54 @@ export class IndexPage extends BasePage{
                 .filter({hasText: name})
                 .filter({hasText: text})
             ).toBeVisible();
+    }*/
+
+    //assert admin content is visible:
+    async assertAdminContentIsVisible(
+        adminClass: string,
+        admin: {title:string; img:string; name:string, text:string}){
+            await expect(this.page.locator(adminClass)
+                .filter({hasText: admin.title})
+                .filter({has: this.page.getByRole('img',{name: admin.img})})
+                .filter({hasText: admin.name})
+                .filter({hasText: admin.text})
+            ).toBeVisible();
     }
 
+    /*
+     title: member.title, img: member.img.alt, 
+                    name: member.name, text: member.text
+
+
+    */
+
     //assert input field:
-    async assertInputField(selector: string, placeholder: string, maxlength: string){
-        await expect(this.page.locator(selector)).toHaveAttribute('placeholder', placeholder);
-        await expect(this.page.locator(selector)).toHaveAttribute('maxlength', maxlength);
+    async assertInputField(formId: string, placeholder: string, maxlength: string){
+        await expect(this.page.locator(formId)).toHaveAttribute('placeholder', placeholder);
+        await expect(this.page.locator(formId)).toHaveAttribute('maxlength', maxlength);
     }
 
     //aseert coment form is visible:
-    async assertCommentFormIsVisible(
+    /*async assertCommentFormIsVisible(
         selector: string, handlePlaceholder: string, commentPlaceholder: string, postBtn: string){
             await expect(this.page.locator(selector)
                 .filter({has: this.page.getByPlaceholder(handlePlaceholder)})
                 .filter({has: this.page.getByPlaceholder(commentPlaceholder)})
                 .filter({has: this.page.getByRole('button',{name: postBtn})})
+            ).toBeVisible();
+
+            handle: commentFormData.handle_input.placeholder, 
+                comment: commentFormData.comment_input.placeholder,
+                button: commentFormData.button.text
+    }*/
+
+    //aseert coment form is visible:
+    async assertCommentFormIsVisible(
+        sectionClass: string, form: {handle:string; comment:string; button:string}){
+            await expect(this.page.locator(sectionClass)
+                .filter({has: this.page.getByPlaceholder(form.handle)})
+                .filter({has: this.page.getByPlaceholder(form.comment)})
+                .filter({has: this.page.getByRole('button',{name: form.button})})
             ).toBeVisible();
     }
 
