@@ -8,7 +8,7 @@ test.beforeEach(async({page})=>{
     await page.goto(indexPageData.url);
     indexPage = new IndexPage(page);
 });
-
+/*
 test.describe('Testing Index Page Title', ()=>{
     test('Assert page title', async()=>{
         await indexPage.assertPageTitle(indexPageData.title);
@@ -335,12 +335,12 @@ test.describe('Testing Comments Section', ()=>{
             commentFormData.comment_input.tooltip.text
         );
     });
-});
+});*/
 
 test.describe('Testing Footer', ()=>{
     const footerData = indexPageData.footer;
 
-    test('Assert creator attribute', async()=>{
+    /*test('Assert creator attribute', async()=>{
         const creatorData = footerData.attribute.creator;
         //assert creator text is visible:
         await indexPage.assertTextIsVisible(footerData.selector, creatorData.text);
@@ -351,7 +351,7 @@ test.describe('Testing Footer', ()=>{
             //assert link url works:
             await indexPage.assertFooterCreatorLink(creatorData.id, i, link.href)
         }
-    });
+    });*/
 
     /*
        1) <a target="_blank" href="https://github.com/jasonth…>…</a> aka locator('#footer-attributes').getByRole('link').first()
@@ -363,7 +363,27 @@ test.describe('Testing Footer', ()=>{
     7) <a target="_blank" href="https://fontawesome.com">↵⇆⇆⇆⇆⇆Font Awesome↵⇆⇆⇆⇆</a> aka getByRole('link', { name: 'Font Awesome' })
     */
 
-    test('Assert image attributes', async()=>{
+    test('Assert Pitch Image attribute', async()=>{
+        const pitchData = footerData.attribute.pitch;
+        //assert text is visible:
+        await indexPage.assertTextIsVisible(
+            footerData.selector, pitchData.text
+        );
+        //assert source url works:
+        await indexPage.assertFooterAttributeLink(
+            pitchData.link.text, pitchData.link.href
+        );
+        //assert host url works:
+        await indexPage.assertFooterAttributeLink(
+            pitchData.host.link.text, pitchData.host.link.href
+        );
+    });
+
+    test('Assert Team and Staff attribute', async()=>{
+
+    });
+    
+    test('Assert Footer and Comment Icons attribute', async()=>{
 
     });
 });

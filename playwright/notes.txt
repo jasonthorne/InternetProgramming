@@ -20,3 +20,7 @@ https://www.browserstack.com/guide/playwright-selectors
 
 await loops:
 https://gist.github.com/joeytwiddle/37d2085425c049629b80956d3c618971
+
+
+checking new tab:
+ //https://medium.com/@panthira.tie/playwright-checking-new-tabs-and-dark-mode-099bf9e8db41

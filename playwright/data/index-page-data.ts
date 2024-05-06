@@ -1,6 +1,7 @@
 import {sectionData} from '../data/section-data';
 import {teamData} from '../data/team-data';
 import {commentData} from '../data/comment-data';
+import {footerData} from './footer-data';
 
 export const indexPageData = {
     url: 'https://lorem-ipsum-fc.web.app',
@@ -170,64 +171,22 @@ export const indexPageData = {
         selector: 'footer',
         attribute: {
             creator:{
-                text: 'Made by Jason Thorne. 2022',
+                text: footerData.creator.text,
                 id: '#footer-attributes',
                 links: [
                     {
-                        href: 'https://github.com/jasonthorne/LoremIpsumFC',
+                        href: footerData.creator.link.github,
                         icon: {class: '.fa-github-square'}
                     },
                     {
-                        href: 'https://www.linkedin.com/in/jason-thorne-dev',
+                        href: footerData.creator.link.linkedin,
                         icon: {class: '.fa-linkedin'}
                     }
                 ]
-                /*github: {
-                    href: 'https://github.com/jasonthorne/LoremIpsumFC',
-                    icon: {class: '.fa-github-square'}
-                },
-                linkedin: {
-                    href: 'https://linkedin.com/in/jason-thorne-dev',
-                    icon: {class: '.fa-linkedin'}
-                }*/
             },
-            image: {
-                pitch: {
-                    text: 'Pitch Image by',
-                    link: {
-                        href: 'https://bit.ly/3l419Y0', 
-                        text: 'Rudy and Peter Skitterians'
-                    },
-                    host: {
-                        text: 'from',
-                        link: {
-                            href: 'https://bit.ly/3l0HyYN', 
-                            text: 'Pixabay'
-                        }
-                    }
-                },
-                team_and_staff: {
-                    text: 'Team and Staff Icons made by',
-                    link: {
-                        href: 'https://www.freepik.com', 
-                        text: 'Freepik'
-                    },
-                    host: {
-                        text: 'from',
-                        link: {
-                            href: 'https://www.flaticon.com', 
-                            text: 'www.flaticon.com'
-                        }
-                    }
-                },
-                footer_and_comment:{
-                    text: 'Footer and Comment Icons from',
-                    link: {
-                        href: 'https://fontawesome.com',
-                        text: 'Font Awesome'
-                    }
-                }
-            }
+            pitch: footerData.pitch,
+            team_and_staff: footerData.team_and_staff,
+            footer_and_comment: footerData.footer_and_comment
         }
     }
 } as const;

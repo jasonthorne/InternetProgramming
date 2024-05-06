@@ -185,16 +185,32 @@ export class IndexPage extends BasePage{
             ).toBeHidden();
     }
 
-    //assert creator link is valid:
+    //assert footer creator link is valid:
     async assertFooterCreatorLink(footerId: string, nth: number, url: string){
        await this.page.locator(footerId).getByRole('link').nth(nth).click();
        const newTab =  await this.page.waitForEvent('popup');
        await newTab.waitForLoadState();
        await expect(newTab).toHaveURL(new RegExp(url));
-       //https://medium.com/@panthira.tie/playwright-checking-new-tabs-and-dark-mode-099bf9e8db41
     }
 
+    //assert footer attribute link is valid:
+    async assertFooterAttributeLink(text: string, url: string){
+        await this.page.getByRole('link',{name: text}).click();
+        const newTab =  await this.page.waitForEvent('popup');
+        await newTab.waitForLoadState();
+        await expect(newTab).toHaveURL(url);
+    }
+
+
+
      /*
+
+      await page.goto('https://hokkung.netlify.app/');
+    await page.getByRole('link', { name: 'Medium' }).click();
+    const pagePromise = page.waitForEvent('popup');
+    const newTab = await pagePromise;
+    await newTab.waitForLoadState();
+    await expect(newTab).toHaveURL("https://medium.com/@hokkung");
 
      str.split("Example")[0]
        1) <a target="_blank" href="https://github.com/jasonth…>…</a> aka locator('#footer-attributes').getByRole('link').first()
