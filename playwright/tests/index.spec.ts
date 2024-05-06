@@ -364,7 +364,7 @@ test.describe('Testing Footer', ()=>{
     */
 
     test('Assert Pitch Image attribute', async()=>{
-        const pitchData = footerData.attribute.pitch;
+        const pitchData = footerData.pitch;
         //assert text is visible:
         await indexPage.assertTextIsVisible(
             footerData.selector, pitchData.text

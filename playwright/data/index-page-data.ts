@@ -169,24 +169,22 @@ export const indexPageData = {
     },
     footer: {
         selector: 'footer',
-        attribute: {
-            creator:{
-                text: footerData.creator.text,
-                id: '#footer-attributes',
-                links: [
-                    {
-                        href: footerData.creator.link.github,
-                        icon: {class: '.fa-github-square'}
-                    },
-                    {
-                        href: footerData.creator.link.linkedin,
-                        icon: {class: '.fa-linkedin'}
-                    }
-                ]
-            },
-            pitch: footerData.pitch,
-            team_and_staff: footerData.team_and_staff,
-            footer_and_comment: footerData.footer_and_comment
-        }
+        creator:{
+            text: footerData.creator.text,
+            id: '#footer-attributes',
+            links: [
+                {
+                    href: footerData.creator.link.github,
+                    icon: {class: '.fa-github-square'}
+                },
+                {
+                    href: footerData.creator.link.linkedin,
+                    icon: {class: '.fa-linkedin'}
+                }
+            ]
+        },
+        pitch: footerData.pitch,
+        team_and_staff: footerData.team_and_staff,
+        footer_and_comment: footerData.footer_and_comment
     }
 } as const;
