@@ -27,10 +27,10 @@ export class BasePage{
     }
 
      //assert link href:
-    /*async assertLinkHref(selector: string, name: string, href: string){
+    async assertLinkHref(selector: string, name: string, href: string){
         expect(await this.page.locator(selector).getByRole('link',{name:name})
         .getAttribute('href')).toMatch(href);
-    }*/
+    }
 
     //assert element is visible:
     async assertElementIsVisible(selector: string){
@@ -51,9 +51,9 @@ export class BasePage{
     }
 
     //assert button is visible:
-    /*async assertBtnIsVisible(name: string){
+    async assertBtnIsVisible(name: string){
         await expect(this.page.getByRole('button',{name: name})).toBeVisible();
-    }*/
+    }
   
     //enter text into input field:
     async enterInputFieldText(selector: string, text: string){
