@@ -8,14 +8,14 @@ export class IndexPage extends BasePage{
     }
 
     //assert navbar link is valid:
-    async assertNavbarLink(selector: string, name: string, url: string){
-        await this.page.locator(selector).getByRole('link',{name:name}).click();
+    async assertNavbarLink(navbarClass: string, name: string, url: string){
+        await this.page.locator(navbarClass).getByRole('link',{name:name}).click();
         await expect(this.page).toHaveURL(new RegExp(`/${url}$`));
     }
 
     //assert 'news & updates' content is visible:
-    async assertNewsUpdatesContentIsVisible(selector: string, heading: string, text: string){
-        await expect(this.page.locator(selector)
+    async assertNewsUpdatesContentIsVisible(sectionClass: string, heading: string, text: string){
+        await expect(this.page.locator(sectionClass)
             .filter({hasText: heading})
             .filter({hasText: text})
         ).toBeVisible();
@@ -37,9 +37,9 @@ export class IndexPage extends BasePage{
 
     //assert admin content is visible:
     async assertAdminContentIsVisible(
-        adminClass: string,
+        sectionClass: string,
         admin: {title:string; img:string; name:string, text:string}){
-            await expect(this.page.locator(adminClass)
+            await expect(this.page.locator(sectionClass)
                 .filter({hasText: admin.title})
                 .filter({has: this.page.getByRole('img',{name: admin.img})})
                 .filter({hasText: admin.name})
@@ -100,14 +100,14 @@ export class IndexPage extends BasePage{
 
     //assert like button clicks:
     async assertLikeBtnClicks(
-        commentClass: string, date: string, btnClass: string, 
-        unlikedClass: string, likedClass: string, likesClass: string){
+        comment: {class:string; date:string; likesClass:string;
+        likeBtnClass:string; unlikedClass:string; likedClass:string}){
             //grab locators from comment of given date:
-            const commentLocator: Locator = this.page.locator(commentClass).filter({hasText: date});
-            const likeBtnLocator: Locator = commentLocator.locator(btnClass);
-            const unlikedIconLocator: Locator = likeBtnLocator.locator(unlikedClass);
-            const likedIconLocator: Locator = likeBtnLocator.locator(likedClass);
-            const likesLocator: Locator = commentLocator.locator(likesClass);
+            const commentLocator: Locator = this.page.locator(comment.class).filter({hasText: comment.date});
+            const likeBtnLocator: Locator = commentLocator.locator(comment.likeBtnClass);
+            const unlikedIconLocator: Locator = likeBtnLocator.locator(comment.unlikedClass);
+            const likedIconLocator: Locator = likeBtnLocator.locator(comment.likedClass);
+            const likesLocator: Locator = commentLocator.locator(comment.likesClass);
             let likes: number = parseInt((await likesLocator.innerText()).trim()); //grab likes value
 
             await expect(commentLocator).toBeVisible(); //check comment is visible
@@ -120,29 +120,27 @@ export class IndexPage extends BasePage{
             await expect(unlikedIconLocator).toBeVisible(); //confirm unliked icon is visible
     }
 
-    //############### //////////await this.page.locator(btnClass).locator(unlikedClass).filter({hasText: new Date(date).toLocaleString('en-GB').slice(0,-3)}).click();
-
     //assert delete comment modal is visible:
     async assertDeleteCommentModalIsVisible(
-        selector: string, header: string, msg: string, deleteBtn: string, cancelBtn: string){
-            await expect(this.page.locator(selector)
-                .filter({hasText: header})
-                .filter({hasText: msg})
-                .filter({has: this.page.getByRole('button',{name: deleteBtn})})
-                .filter({has: this.page.getByRole('button',{name: cancelBtn})})
+        modal: {id:string; header:string; text:string; deleteBtn:string; cancelBtn:string}){
+            await expect(this.page.locator(modal.id)
+                .filter({hasText: modal.header})
+                .filter({hasText: modal.text})
+                .filter({has: this.page.getByRole('button',{name: modal.deleteBtn})})
+                .filter({has: this.page.getByRole('button',{name: modal.cancelBtn})})
             ).toBeVisible();
     }
 
     //assert comment is hidden:
     async assertCommentIsHidden(
-        selector: string, handle: string, comment: string, 
-        date: string, likeBtn: string, deleteBtn: string){
-            await expect(this.page.locator(selector)
-                .filter({hasText: handle})
-                .filter({hasText: comment})
-                .filter({hasText: date})
-                .filter({has: this.page.getByRole('button',{name: likeBtn})})
-                .filter({has: this.page.getByRole('button',{name: deleteBtn})})
+        comment: {class:string; handle:string; comment:string; 
+        date:string; likeBtn:string; deleteBtn:string}){
+            await expect(this.page.locator(comment.class)
+                .filter({hasText: comment.handle})
+                .filter({hasText: comment.comment})
+                .filter({hasText: comment.date})
+                .filter({has: this.page.getByRole('button',{name: comment.likeBtn})})
+                .filter({has: this.page.getByRole('button',{name: comment.deleteBtn})})
             ).toBeHidden();
     }
 

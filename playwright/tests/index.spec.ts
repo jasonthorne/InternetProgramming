@@ -256,12 +256,14 @@ test.describe('Testing Comments Section', ()=>{
         );
         //assert like button clicks:
         await indexPage.assertLikeBtnClicks(
-            commentData.class,
-            dateNow,
-            commentData.like_button.class, 
-            commentData.like_button.icon.unliked.class, 
-            commentData.like_button.icon.liked.class, 
-            commentData.title.likes.class
+            {
+                class: commentData.class,
+                date: dateNow,
+                likesClass: commentData.title.likes.class,
+                likeBtnClass: commentData.like_button.class, 
+                unlikedClass: commentData.like_button.icon.unliked.class, 
+                likedClass: commentData.like_button.icon.liked.class, 
+            }
         );
     
         //click 'delete' button:
@@ -270,11 +272,13 @@ test.describe('Testing Comments Section', ()=>{
         );
         //assert confirmation modal is visible:
         await indexPage.assertDeleteCommentModalIsVisible(
-            deleteCommentModalData.id,
-            deleteCommentModalData.header.text,
-            deleteCommentModalData.body.text,
-            deleteCommentModalData.footer.delete_button.text,
-            deleteCommentModalData.footer.cancel_button.text
+            {
+                id: deleteCommentModalData.id,
+                header: deleteCommentModalData.header.text,
+                text: deleteCommentModalData.body.text,
+                deleteBtn: deleteCommentModalData.footer.delete_button.text,
+                cancelBtn: deleteCommentModalData.footer.cancel_button.text
+            }
         );
         //click 'delete' button:
         await indexPage.clickButton(
@@ -287,12 +291,14 @@ test.describe('Testing Comments Section', ()=>{
         );
         //assert created comment is gone:
         await indexPage.assertCommentIsHidden(
-            commentData.class, 
-            commentData.content.handle, 
-            commentData.content.comment,
-            dateNow,
-            commentData.like_button.text, 
-            commentData.delete_button.text 
+            {
+                class: commentData.class, 
+                handle: commentData.content.handle, 
+                comment: commentData.content.comment,
+                date: dateNow,
+                likeBtn: commentData.like_button.text, 
+                deleteBtn: commentData.delete_button.text 
+            }
         );
     });
 

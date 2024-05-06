@@ -4,9 +4,6 @@ export class BasePage{
 
     constructor(readonly page: Page){}
 
-    /*let test = this.page.locator("#navbar-logo").getByText("Est. 2022");
-        console.log("++++++++++++" + await test.innerText());*/
-
     //assert page title:
     async assertPageTitle(title: string){ 
         await expect(this.page).toHaveTitle(title);
@@ -33,10 +30,6 @@ export class BasePage{
     /*async assertLinkHref(selector: string, name: string, href: string){
         expect(await this.page.locator(selector).getByRole('link',{name:name})
         .getAttribute('href')).toMatch(href);
-    
-        //expect(await this.page.locator(selector).getByRole('img',{name: name})
-        //.getAttribute('src')).toMatch(src);
-    
     }*/
 
     //assert element is visible:
@@ -62,39 +55,6 @@ export class BasePage{
         await expect(this.page.getByRole('button',{name: name})).toBeVisible();
     }*/
   
-    async test(selector: string, loc1: string, loc2: string){
-        console.log("+++++++++++++loc1 + loc2: " + loc1 + "\n" + loc2);
-
-       // await expect(this.page.locator(selector).getByText(loc1)).toBeVisible();
-
-        const mySelector = this.page.locator(selector);
-
-        await expect(this.page.locator(selector).filter({hasText: loc1})
-            .filter({hasText: loc2})).toBeVisible();
-
-        /*const rowLocator = page.getByRole('listitem');
-
-            await rowLocator
-                .filter({ hasText: 'Mary' })
-                .filter({ has: page.getByRole('button', { name: 'Say goodbye' }) })
-                .screenshot({ path: 'screenshot.png' });
-            */
-
-
-
-        /*
-           async assertTextIsVisible(selector: string, text: string){
-            await expect(this.page.locator(selector).getByText(text)).toBeVisible();
-        }*/
-
-         /*let test = this.page.locator("#navbar-logo").getByText("Est. 2022");
-        console.log("++++++++++++" + await test.innerText());*/
-
-
-        
-
-    }
-
     //enter text into input field:
     async enterInputFieldText(selector: string, text: string){
         await this.page.locator(selector).fill(text);
