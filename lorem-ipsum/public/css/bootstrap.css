@@ -138,7 +138,7 @@
 .fixture-grid-container{
     padding-top: 30px; /* change top padding */
     padding-bottom: 20px; /* change bottom padding */
-	place-items: center; /* center items */
+    place-items: center; /* center items */
 }
 
 .fixture-grid-item p{
@@ -194,9 +194,9 @@
 /* comments section styles */
 
 #comments-section{
-	background: #ecf0f1; /* colour section */
-	width: 100%; /* use 100% width */
-	padding-top: 50px; /* top padding */
+    background: #ecf0f1; /* colour section */
+    width: 100%; /* use 100% width */
+    padding-top: 50px; /* top padding */
     padding-bottom: 80px; /* bottom padding */
 }
 

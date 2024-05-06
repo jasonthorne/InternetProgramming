@@ -21,7 +21,7 @@ header{
 }
 
 #header-logo{
-    font-weight: bold; /* font weight */
+	font-weight: bold; /* font weight */
 	display: inline-block; /* sit on same line as siblings */
 }
 
@@ -47,8 +47,8 @@ header{
 #header-navigation a{
 	color: #ffffff; /* colour links white */
 	text-decoration: none; /* remove underscores */
-    padding-left: 15px; /* right padding */
-    padding-right: 15px; /* left padding */
+	padding-left: 15px; /* right padding */
+	padding-right: 15px; /* left padding */
 }
 
 #header-navigation a:hover{
@@ -68,7 +68,7 @@ header{
 
 #hero-container{
 	color: #ffffff; /* text colour */
-    text-align: center; /* center align text */
+	text-align: center; /* center align text */
 	padding-top: 90px; /* top padding */
 }
 
@@ -131,7 +131,7 @@ section{
 	padding: 30px 30px 20px 30px; /* top, right, bottom, left */
 	width: 90%; /* take 90% of width */
 	margin-left: auto; /* centers container */
-    margin-right: auto; /* centers container */
+	margin-right: auto; /* centers container */
 	place-items: center; /* center items. S.O. link below */
 	/* https://stackoverflow.com/questions/45536537/centering-in-css-grid */
 }
@@ -166,9 +166,9 @@ section{
 
 #admin-staff-container{
 	display: table; /* display as table */
-  	width: 90%; /* take 90% of width */
+	width: 90%; /* take 90% of width */
 	margin-left: auto; /* center container */
-    margin-right: auto; /* center container */
+	margin-right: auto; /* center container */
 }
 
 .admin-staff{

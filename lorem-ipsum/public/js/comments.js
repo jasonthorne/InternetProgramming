@@ -116,7 +116,8 @@ function addComment(){
         handle: handleInput, //add handle input
         comment: commentInput, //add comment input
         date: Math.floor(Date.now() / 1000), //add current date
-        likes: 0}; //initialize likes as 0
+        likes: 0 //initialize likes as 0
+    }; 
     
     //make card for comment:
     let commentCard = makeCommentCard(comment);
