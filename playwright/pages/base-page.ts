@@ -14,7 +14,8 @@ export class BasePage{
 
     //assert image is visible:
     async assertImgIsVisible(selector: string, alt: string){ 
-        await expect(this.page.locator(selector).getByRole('img',{name: alt})).toBeVisible();
+        await expect(this.page.locator(selector)
+            .getByRole('img',{name: alt})).toBeVisible();
     }
 
     //assert image src:
@@ -108,9 +109,6 @@ export class BasePage{
     async assertTooltipIsVisible(text: string){
         await expect(this.page.getByRole('tooltip',{name:text})).toBeVisible();
     }
-
-    //navigate page back to last redirect:
-    async goBack(){ await this.page.goBack(); }
 }
 
 export default BasePage;

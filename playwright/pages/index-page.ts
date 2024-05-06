@@ -1,4 +1,4 @@
-import {expect, Locator, Page, BrowserContext} from '@playwright/test'
+import {expect, Locator, Page} from '@playwright/test'
 import BasePage from './base-page';
 
 export class IndexPage extends BasePage{
@@ -21,21 +21,6 @@ export class IndexPage extends BasePage{
         ).toBeVisible();
     }
 
-    //assert fixture result content is visible:
-    /*async assertFixtureResultContentIsVisible(
-        selector: string, 
-        homeTeamLogo: string, homeTeamName: string, homeTeamScore: string, 
-        awayTeamLogo: string, awayTeamName: string, awayTeamScore: string){
-            await expect(this.page.locator(selector)
-                .filter({has: this.page.getByRole('img',{name: homeTeamLogo})})
-                .filter({hasText: homeTeamName})
-                .filter({hasText: homeTeamScore})
-                .filter({has: this.page.getByRole('img',{name: awayTeamLogo})})
-                .filter({hasText: awayTeamName})
-                .filter({hasText: awayTeamScore})
-            ).toBeVisible();
-    }*/
-
     async assertFixtureResultContentIsVisible(
         resultsClass: string, 
         homeTeam: {logo:string; name:string; score:string},
@@ -51,17 +36,6 @@ export class IndexPage extends BasePage{
     }
 
     //assert admin content is visible:
-    /*async assertAdminContentIsVisible(
-        selector: string, title: string, image: string, name: string, text: string){
-            await expect(this.page.locator(selector)
-                .filter({hasText: title})
-                .filter({has: this.page.getByRole('img',{name: image})})
-                .filter({hasText: name})
-                .filter({hasText: text})
-            ).toBeVisible();
-    }*/
-
-    //assert admin content is visible:
     async assertAdminContentIsVisible(
         adminClass: string,
         admin: {title:string; img:string; name:string, text:string}){
@@ -73,13 +47,6 @@ export class IndexPage extends BasePage{
             ).toBeVisible();
     }
 
-    /*
-     title: member.title, img: member.img.alt, 
-                    name: member.name, text: member.text
-
-
-    */
-
     //assert input field:
     async assertInputField(formId: string, placeholder: string, maxlength: string){
         await expect(this.page.locator(formId)).toHaveAttribute('placeholder', placeholder);
@@ -89,24 +56,10 @@ export class IndexPage extends BasePage{
     //assert footer creator link is valid:
     async assertFooterCreatorLink(footerId: string, nth: number, url: string){
         await this.page.locator(footerId).getByRole('link').nth(nth).click();
-        const newTab =  await this.page.waitForEvent('popup');
+        const newTab = await this.page.waitForEvent('popup');
         await newTab.waitForLoadState();
         await expect(newTab).toHaveURL(new RegExp(url));
     }
-
-    //aseert coment form is visible:
-    /*async assertCommentFormIsVisible(
-        selector: string, handlePlaceholder: string, commentPlaceholder: string, postBtn: string){
-            await expect(this.page.locator(selector)
-                .filter({has: this.page.getByPlaceholder(handlePlaceholder)})
-                .filter({has: this.page.getByPlaceholder(commentPlaceholder)})
-                .filter({has: this.page.getByRole('button',{name: postBtn})})
-            ).toBeVisible();
-
-            handle: commentFormData.handle_input.placeholder, 
-                comment: commentFormData.comment_input.placeholder,
-                button: commentFormData.button.text
-    }*/
 
     //aseert coment form is visible:
     async assertCommentFormIsVisible(
@@ -120,28 +73,28 @@ export class IndexPage extends BasePage{
 
     //assert comment modal is visible:
     async assertCommentModalIsVisible(
-        selector: string, header: string, handle: string, 
-        comment: string, submitBtn: string, cancelBtn: string){
-            await expect(this.page.locator(selector)
-                .filter({hasText: header})
-                .filter({hasText: handle})
-                .filter({hasText: comment})
-                .filter({has: this.page.getByRole('button',{name: submitBtn})})
-                .filter({has: this.page.getByRole('button',{name: cancelBtn})})
+        modal: {id:string; header:string; submitBtn:string; cancelBtn:string},
+        commentData: {handle:string, comment:string}){
+            await expect(this.page.locator(modal.id)
+                .filter({hasText: modal.header})
+                .filter({hasText: commentData.handle})
+                .filter({hasText: commentData.comment})
+                .filter({has: this.page.getByRole('button',{name: modal.submitBtn})})
+                .filter({has: this.page.getByRole('button',{name: modal.cancelBtn})})
             ).toBeVisible();
     }
 
     //assert comment is visible:
     async assertCommentIsVisible(
-        selector: string, likes: string, handle: string, 
-        comment: string, date: string, likeBtn: string, deleteBtn: string){
-            await expect(this.page.locator(selector)
-                .filter({hasText: await this.page.locator(likes).innerText()})
-                .filter({hasText: handle})
-                .filter({hasText: comment})
-                .filter({hasText: date})
-                .filter({has: this.page.getByRole('button',{name: likeBtn})})
-                .filter({has: this.page.getByRole('button',{name: deleteBtn})})
+        comment: {class:string; likesClass:string; handle:string; 
+        comment:string; date:string; likeBtn:string; deleteBtn:string}){
+            await expect(this.page.locator(comment.class)
+                .filter({hasText: await this.page.locator(comment.likesClass).innerText()})
+                .filter({hasText: comment.handle})
+                .filter({hasText: comment.comment})
+                .filter({hasText: comment.date})
+                .filter({has: this.page.getByRole('button',{name:comment.likeBtn})})
+                .filter({has: this.page.getByRole('button',{name:comment.deleteBtn})})
             ).toBeVisible();
     }
 
@@ -196,32 +149,10 @@ export class IndexPage extends BasePage{
     //assert footer attribute link is valid:
     async assertFooterAttributeLink(text: string, url: string){
         await this.page.getByRole('link',{name: text}).click();
-        const newTab =  await this.page.waitForEvent('popup');
+        const newTab = await this.page.waitForEvent('popup');
         await newTab.waitForLoadState();
         await expect(newTab).toHaveURL(url);
     }
-
-
-
-     /*
-
-      await page.goto('https://hokkung.netlify.app/');
-    await page.getByRole('link', { name: 'Medium' }).click();
-    const pagePromise = page.waitForEvent('popup');
-    const newTab = await pagePromise;
-    await newTab.waitForLoadState();
-    await expect(newTab).toHaveURL("https://medium.com/@hokkung");
-
-     str.split("Example")[0]
-       1) <a target="_blank" href="https://github.com/jasonth…>…</a> aka locator('#footer-attributes').getByRole('link').first()
-    2) <a target="_blank" href="https://linkedin.com/in/ja…>…</a> aka locator('#footer-attributes').getByRole('link').nth(1)
-    3) <a target="_blank" href="https://bit.ly/3l419Y0">↵⇆⇆⇆⇆⇆Rudy and Peter Skitterians ↵⇆⇆⇆⇆</a> aka getByRole('link', { name: 'Rudy and Peter Skitterians' })
-    4) <a target="_blank" href="https://bit.ly/3l0HyYN">↵⇆⇆⇆⇆⇆Pixabay↵⇆⇆⇆⇆</a> aka getByRole('link', { name: 'Pixabay' })
-    5) <a target="_blank" href="https://www.freepik.com">↵⇆⇆⇆⇆⇆Freepik ↵⇆⇆⇆⇆</a> aka getByRole('link', { name: 'Freepik' })
-    6) <a target="_blank" href="https://www.flaticon.com">↵⇆⇆⇆⇆⇆www.flaticon.com↵⇆⇆⇆⇆</a> aka getByRole('link', { name: 'www.flaticon.com' })
-    7) <a target="_blank" href="https://fontawesome.com">↵⇆⇆⇆⇆⇆Font Awesome↵⇆⇆⇆⇆</a> aka getByRole('link', { name: 'Font Awesome' })
-    */
-
 }
 
 export default IndexPage;

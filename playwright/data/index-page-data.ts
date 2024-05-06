@@ -155,8 +155,10 @@ export const indexPageData = {
         like_button: {
             class: '.comment-like-btn',
             text: 'Like',
-            liked: {class: '.fas'},
-            unliked: {class: '.far'}
+            icon: {
+                liked: {class: '.fas'},
+                unliked: {class: '.far'}
+            }
         },
         delete_button: {
             class: '.comment-delete-btn',

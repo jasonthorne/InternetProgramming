@@ -31,7 +31,8 @@ test.describe('Testing Index Page Navbar', ()=>{
         );
         //assert logo text:
         await indexPage.assertTextIsVisible(
-            navbarData.logo.id, navbarData.logo.span.text);
+            navbarData.logo.id, navbarData.logo.span.text
+        );
     });
 
     test('Assert navbar links', async()=>{
@@ -221,12 +222,16 @@ test.describe('Testing Comments Section', ()=>{
         );
         //assert confirmation modal is visible:
         await indexPage.assertCommentModalIsVisible(
-            createCommentModalData.id, 
-            createCommentModalData.header.text, 
-            commentData.content.handle, 
-            commentData.content.comment,
-            createCommentModalData.footer.submit_button.text, 
-            createCommentModalData.footer.cancel_button.text
+            {
+                id: createCommentModalData.id, 
+                header: createCommentModalData.header.text, 
+                submitBtn: createCommentModalData.footer.submit_button.text, 
+                cancelBtn: createCommentModalData.footer.cancel_button.text
+            },
+            {
+                handle: commentData.content.handle, 
+                comment: commentData.content.comment
+            }
         );
         //click 'submit' button:
         await indexPage.clickButton(
@@ -239,21 +244,23 @@ test.describe('Testing Comments Section', ()=>{
         );
         //confirm created comment is visible:
         await indexPage.assertCommentIsVisible(
-            commentData.class, 
-            commentData.title.likes.class, 
-            commentData.content.handle, 
-            commentData.content.comment,
-            dateNow,
-            commentData.like_button.text, 
-            commentData.delete_button.text 
+            {
+                class: commentData.class, 
+                likesClass: commentData.title.likes.class, 
+                handle: commentData.content.handle, 
+                comment: commentData.content.comment,
+                date: dateNow,
+                likeBtn: commentData.like_button.text, 
+                deleteBtn: commentData.delete_button.text
+            }
         );
         //assert like button clicks:
         await indexPage.assertLikeBtnClicks(
             commentData.class,
             dateNow,
             commentData.like_button.class, 
-            commentData.like_button.unliked.class, 
-            commentData.like_button.liked.class, 
+            commentData.like_button.icon.unliked.class, 
+            commentData.like_button.icon.liked.class, 
             commentData.title.likes.class
         );
     
