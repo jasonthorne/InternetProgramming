@@ -96,8 +96,8 @@
  
 #news-updates-section .section-body{
     column-count: 3; /* number of columns */
-  	column-gap: 50px; /* gap between columns */
-  	column-rule: 1px solid #add8e6; /* line betweeen columns */
+    column-gap: 50px; /* gap between columns */
+    column-rule: 1px solid #add8e6; /* line betweeen columns */
 }
 
 /* Large devices (desktops, 992px and below) */
