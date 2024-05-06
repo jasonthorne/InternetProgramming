@@ -8,7 +8,7 @@ test.beforeEach(async({page})=>{
     await page.goto(indexPageData.url);
     indexPage = new IndexPage(page);
 });
-/*
+
 test.describe('Testing Index Page Title', ()=>{
     test('Assert page title', async()=>{
         await indexPage.assertPageTitle(indexPageData.title);
@@ -335,36 +335,33 @@ test.describe('Testing Comments Section', ()=>{
             commentFormData.comment_input.tooltip.text
         );
     });
-});*/
+});
 
 test.describe('Testing Footer', ()=>{
     const footerData = indexPageData.footer;
+    test.setTimeout(120000); //increase due to new tabs
 
-    /*test('Assert creator attribute', async()=>{
-        const creatorData = footerData.attribute.creator;
+    test('Assert creator attribute', async()=>{
+        const creatorData = footerData.creator;
+
         //assert creator text is visible:
-        await indexPage.assertTextIsVisible(footerData.selector, creatorData.text);
+        await indexPage.assertTextIsVisible(
+            footerData.selector, creatorData.text
+        );
         //spin through creator links:
         for(const [i, link] of creatorData.links.entries()){
             //assert icon is visible:
             await indexPage.assertElementIsVisible(link.icon.class);
             //assert link url works:
-            await indexPage.assertFooterCreatorLink(creatorData.id, i, link.href)
+            await indexPage.assertFooterCreatorLink(
+                creatorData.id, i, link.source.href
+            )
         }
-    });*/
-
-    /*
-       1) <a target="_blank" href="https://github.com/jasonth…>…</a> aka locator('#footer-attributes').getByRole('link').first()
-    2) <a target="_blank" href="https://linkedin.com/in/ja…>…</a> aka locator('#footer-attributes').getByRole('link').nth(1)
-    3) <a target="_blank" href="https://bit.ly/3l419Y0">↵⇆⇆⇆⇆⇆Rudy and Peter Skitterians ↵⇆⇆⇆⇆</a> aka getByRole('link', { name: 'Rudy and Peter Skitterians' })
-    4) <a target="_blank" href="https://bit.ly/3l0HyYN">↵⇆⇆⇆⇆⇆Pixabay↵⇆⇆⇆⇆</a> aka getByRole('link', { name: 'Pixabay' })
-    5) <a target="_blank" href="https://www.freepik.com">↵⇆⇆⇆⇆⇆Freepik ↵⇆⇆⇆⇆</a> aka getByRole('link', { name: 'Freepik' })
-    6) <a target="_blank" href="https://www.flaticon.com">↵⇆⇆⇆⇆⇆www.flaticon.com↵⇆⇆⇆⇆</a> aka getByRole('link', { name: 'www.flaticon.com' })
-    7) <a target="_blank" href="https://fontawesome.com">↵⇆⇆⇆⇆⇆Font Awesome↵⇆⇆⇆⇆</a> aka getByRole('link', { name: 'Font Awesome' })
-    */
+    });
 
     test('Assert Pitch Image attribute', async()=>{
         const pitchData = footerData.pitch;
+
         //assert text is visible:
         await indexPage.assertTextIsVisible(
             footerData.selector, pitchData.text
@@ -380,10 +377,34 @@ test.describe('Testing Footer', ()=>{
     });
 
     test('Assert Team and Staff attribute', async()=>{
+        const teamStaffData = footerData.team_and_staff;
 
+        //assert text is visible:
+        await indexPage.assertTextIsVisible(
+            footerData.selector, teamStaffData.text
+        );
+        //assert source url works:
+        await indexPage.assertFooterAttributeLink(
+            teamStaffData.link.text, teamStaffData.link.href
+        );
+        //assert host url works:
+        await indexPage.assertFooterAttributeLink(
+            teamStaffData.host.link.text, 
+            teamStaffData.host.link.href
+        );
     });
     
     test('Assert Footer and Comment Icons attribute', async()=>{
+        const footerCommentData = footerData.footer_and_comment;
 
+        //assert text is visible:
+        await indexPage.assertTextIsVisible(
+            footerData.selector, footerCommentData.text
+        );
+        //assert source url works:
+        await indexPage.assertFooterAttributeLink(
+            footerCommentData.link.text, 
+            footerCommentData.link.href
+        );
     });
 });

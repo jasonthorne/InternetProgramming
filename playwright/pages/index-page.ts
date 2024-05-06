@@ -86,6 +86,14 @@ export class IndexPage extends BasePage{
         await expect(this.page.locator(formId)).toHaveAttribute('maxlength', maxlength);
     }
 
+    //assert footer creator link is valid:
+    async assertFooterCreatorLink(footerId: string, nth: number, url: string){
+        await this.page.locator(footerId).getByRole('link').nth(nth).click();
+        const newTab =  await this.page.waitForEvent('popup');
+        await newTab.waitForLoadState();
+        await expect(newTab).toHaveURL(new RegExp(url));
+    }
+
     //aseert coment form is visible:
     /*async assertCommentFormIsVisible(
         selector: string, handlePlaceholder: string, commentPlaceholder: string, postBtn: string){
@@ -183,14 +191,6 @@ export class IndexPage extends BasePage{
                 .filter({has: this.page.getByRole('button',{name: likeBtn})})
                 .filter({has: this.page.getByRole('button',{name: deleteBtn})})
             ).toBeHidden();
-    }
-
-    //assert footer creator link is valid:
-    async assertFooterCreatorLink(footerId: string, nth: number, url: string){
-       await this.page.locator(footerId).getByRole('link').nth(nth).click();
-       const newTab =  await this.page.waitForEvent('popup');
-       await newTab.waitForLoadState();
-       await expect(newTab).toHaveURL(new RegExp(url));
     }
 
     //assert footer attribute link is valid:

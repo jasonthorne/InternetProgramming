@@ -174,11 +174,11 @@ export const indexPageData = {
             id: '#footer-attributes',
             links: [
                 {
-                    href: footerData.creator.link.github,
+                    source: footerData.creator.link.github,
                     icon: {class: '.fa-github-square'}
                 },
                 {
-                    href: footerData.creator.link.linkedin,
+                    source: footerData.creator.link.linkedin,
                     icon: {class: '.fa-linkedin'}
                 }
             ]
