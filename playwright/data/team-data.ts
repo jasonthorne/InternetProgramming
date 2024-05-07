@@ -27,5 +27,61 @@ export const teamData = {
             src: 'img/teams/Nunc-Lacus.png',
             alt: 'Nunc Lacus logo'
         }
+    },
+    pellentesque: {
+        name: 'Pellentesque',
+        logo: {
+            src: 'img/teams/Pellentesque.png',
+            alt: 'Pellentesque logo'
+        }
+    },
+    diam_arcu: {
+        name: 'Diam Arcu',
+        logo: {
+            src: 'img/teams/Diam-Arcu.png',
+            alt: 'Diam Arcu logo'
+        }
+    },
+    maecenas: {
+        name: 'Maecenas',
+        logo: {
+            src: 'img/teams/Maecenas.png',
+            alt: 'Maecenas logo'
+        }
+    },
+    donec_vitae: {
+        name: 'Donec Vitae',
+        logo: {
+            src: 'img/teams/Donec-Vitae.png',
+            alt: 'Donec Vitae logo'
+        }
+    },
+    ultricies_turpis: {
+        name: 'Ultricies Turpis',
+        logo: {
+            src: 'img/teams/Ultricies-Turpis.png',
+            alt: 'Ultricies Turpis logo'
+        }
+    },
+    vestibulum: {
+        name: 'Vestibulum',
+        logo: {
+            src: 'img/teams/Vestibulum.png',
+            alt: 'Vestibulum logo'
+        }
+    },
+    et_lacus_id: {
+        name: 'Et Lacus Id',
+        logo: {
+            src: 'img/teams/Et-Lacus-Id.png',
+            alt: 'Et Lacus Id logo'
+        }
+    },
+    suspendisse: {
+        name: 'Suspendisse',
+        logo: {
+            src: 'img/teams/Suspendisse.png',
+            alt: 'Suspendisse logo'
+        }
     }
  } as const;
