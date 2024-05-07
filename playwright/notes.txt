@@ -24,3 +24,6 @@ https://gist.github.com/joeytwiddle/37d2085425c049629b80956d3c618971
 
 checking new tab:
  //https://medium.com/@panthira.tie/playwright-checking-new-tabs-and-dark-mode-099bf9e8db41
+
+change browser size:
+https://stackoverflow.com/questions/69942054/how-to-achieve-browser-resizing-in-run-time-using-playwright-in-a-e2e-test-run

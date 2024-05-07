@@ -34,7 +34,15 @@ test.describe('Testing Index Page Navbar', ()=>{
             navbarData.logo.id, navbarData.logo.span.text
         );
     });
+    //+++++++++++++++++* Small devices (landscape phones, 576px and below) */
+    //+++++++++++@media (max-width: 576px){
+        /*
+        or this :P:
+        * Medium devices (tablets, 768px and below)
+        @media (max-width: 768px){
 
+
+        */
     test('Assert navbar links', async()=>{
         //assert each nav link's url:
         for(const navLink of navbarData.nav.links){

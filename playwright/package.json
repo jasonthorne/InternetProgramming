@@ -5,8 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test1": "npx playwright test index.spec.ts --project=chromium",
-    "test2": "npx playwright test index.spec.ts --project=firefox",
-    "test3": "npx playwright test index.spec.ts --project=webkit"
+    "all-tests:chromium-firefox-webkit": "npx playwright test index.spec.ts",
+    "all-tests:chromium": "npx playwright test index.spec.ts --project=chromium",
+    "all-tests:firefox": "npx playwright test index.spec.ts --project=firefox",
+    "all-tests:webkit": "npx playwright test index.spec.ts --project=webkit"
   },
   "keywords": [],
   "author": "Jason Thorne",
