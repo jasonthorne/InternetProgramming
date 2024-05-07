@@ -9,13 +9,13 @@ test.beforeEach(async({page})=>{
     indexPage = new IndexPage(page);
 });
 
-test.describe('Testing Index Page Title', ()=>{
+test.describe('Testing Page Title', {tag:'@title'},()=>{
     test('Assert page title', async()=>{
         await indexPage.assertPageTitle(indexPageData.title);
     });
 });
 
-test.describe('Testing Index Page Navbar', ()=>{
+test.describe('Testing Navbar', {tag:'@navbar'},()=>{
     const navbarData = indexPageData.navbar;
     
     test('Assert navbar logo', async()=>{
@@ -57,7 +57,7 @@ test.describe('Testing Index Page Navbar', ()=>{
     });
 });
 
-test.describe('Testing Index Page Hero', ()=>{
+test.describe('Testing Hero', {tag:'@hero'},()=>{
 
     test('Assert hero element', async()=>{
         const heroData = indexPageData.hero;
@@ -73,7 +73,7 @@ test.describe('Testing Index Page Hero', ()=>{
     });
 });
 
-test.describe('Testing News & Updates Section', ()=>{
+test.describe('Testing News & Updates Section', {tag:'@news-updates'},()=>{
     const sectionData = indexPageData.section.news_updates;
 
     test('Assert news and updates section', async()=>{
@@ -95,7 +95,7 @@ test.describe('Testing News & Updates Section', ()=>{
     });
 });
 
-test.describe('Testing Fixtures & Results Section', ()=>{
+test.describe('Testing Fixtures & Results Section', {tag:'@fixtures-results'},()=>{
     const sectionData = indexPageData.section.fixtures;
 
     test('Assert fixtures and results section', async()=>{
@@ -142,7 +142,7 @@ test.describe('Testing Fixtures & Results Section', ()=>{
     });
 });
 
-test.describe('Testing Admin Section', ()=>{
+test.describe('Testing Admin Section', {tag:'@admin'},()=>{
     const sectionData = indexPageData.section.admin;
 
     test('Assert admin section', async()=>{
@@ -179,7 +179,7 @@ test.describe('Testing Admin Section', ()=>{
     });
 });
 
-test.describe('Testing Comments Section', ()=>{
+test.describe('Testing Comments Section', {tag:'@comments'},()=>{
     const sectionData = indexPageData.section.comments;
     const commentFormData = sectionData.body.form;
     const commentData = indexPageData.comment;
@@ -362,7 +362,7 @@ test.describe('Testing Comments Section', ()=>{
     });
 });
 
-test.describe('Testing Footer', ()=>{
+test.describe('Testing Footer', {tag:'@footer'},()=>{
     const footerData = indexPageData.footer;
     test.setTimeout(120000); //increase due to new tabs
 

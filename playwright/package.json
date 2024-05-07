@@ -4,11 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test1": "npx playwright test index.spec.ts --project=chromium",
-    "all-tests:chromium-firefox-webkit": "npx playwright test index.spec.ts",
     "all-tests:chromium": "npx playwright test index.spec.ts --project=chromium",
     "all-tests:firefox": "npx playwright test index.spec.ts --project=firefox",
-    "all-tests:webkit": "npx playwright test index.spec.ts --project=webkit"
+    "all-tests:webkit": "npx playwright test index.spec.ts --project=webkit",
+    "all-tests:all-browsers": "npx playwright test index.spec.ts",
+    "title:all-browsers": "npx playwright test index.spec.ts --grep @title",
+    "navbar:all-browsers": "npx playwright test index.spec.ts --grep @navbar",
+    "hero:all-browsers": "npx playwright test index.spec.ts --grep @hero",
+    "news-updates:all-browsers": "npx playwright test index.spec.ts --grep @news-updates",
+    "fixtures-results:all-browsers": "npx playwright test index.spec.ts --grep @fixtures-results",
+    "admin:all-browsers": "npx playwright test index.spec.ts --grep @admin",
+    "comments:all-browsers": "npx playwright test index.spec.ts --grep @comments",
+    "footer:all-browsers": "npx playwright test index.spec.ts --grep @footer"
   },
   "keywords": [],
   "author": "Jason Thorne",

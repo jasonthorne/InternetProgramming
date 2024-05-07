@@ -21,6 +21,7 @@ export class IndexPage extends BasePage{
         ).toBeVisible();
     }
 
+    //assert fixture result content is visible:
     async assertFixtureResultContentIsVisible(
         resultsClass: string, 
         homeTeam: {logo:string; name:string; score:string},
