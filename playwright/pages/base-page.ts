@@ -69,6 +69,14 @@ export class BasePage{
     async assertTooltipIsVisible(text: string){
         await expect(this.page.getByRole('tooltip',{name:text})).toBeVisible();
     }
+
+    //assert that text is hiiden on given width
+    async assertTextIsHiddenOnViewportWidth(selector: string, text: string, width: number){
+        const viewportSize: {width:number; height:number} = this.page.viewportSize();
+        await this.page.setViewportSize({width:width, height:viewportSize.height});
+        await expect(this.page.locator(selector).getByText(text)).toBeHidden();
+        await this.page.setViewportSize({width:viewportSize.width, height:viewportSize.height});
+    }
 }
 
 export default BasePage;

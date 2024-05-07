@@ -17,7 +17,7 @@ test.describe('Testing Index Page Title', ()=>{
 
 test.describe('Testing Index Page Navbar', ()=>{
     const navbarData = indexPageData.navbar;
-
+    
     test('Assert navbar logo', async()=>{
         //assert logo image is visible:
         await indexPage.assertImgIsVisible(
@@ -29,20 +29,12 @@ test.describe('Testing Index Page Navbar', ()=>{
             navbarData.logo.img.alt,
             indexPageData.navbar.logo.img.src
         );
-        //assert logo text:
+        //assert logo text is visible:
         await indexPage.assertTextIsVisible(
             navbarData.logo.id, navbarData.logo.span.text
         );
     });
-    //+++++++++++++++++* Small devices (landscape phones, 576px and below) */
-    //+++++++++++@media (max-width: 576px){
-        /*
-        or this :P:
-        * Medium devices (tablets, 768px and below)
-        @media (max-width: 768px){
-
-
-        */
+   
     test('Assert navbar links', async()=>{
         //assert each nav link's url:
         for(const navLink of navbarData.nav.links){
@@ -50,6 +42,18 @@ test.describe('Testing Index Page Navbar', ()=>{
                 navbarData.nav.class, navLink.text, navLink.href
             );
         }
+    });
+
+    test('Assert navbar logo text visability', async()=>{
+        //assert logo text is visible:
+        await indexPage.assertTextIsVisible(
+            navbarData.logo.id, navbarData.logo.span.text
+        );
+        //assert text is hidden on given viewport width:
+        await indexPage.assertTextIsHiddenOnViewportWidth(
+            navbarData.logo.id, navbarData.logo.span.text, 
+            navbarData.logo.span.hidden_width
+        );
     });
 });
 
@@ -380,7 +384,7 @@ test.describe('Testing Footer', ()=>{
         }
     });
 
-    test('Assert Pitch Image attribute', async()=>{
+    test('Assert pitch image attribute', async()=>{
         const pitchData = footerData.pitch;
 
         //assert text is visible:
@@ -397,7 +401,7 @@ test.describe('Testing Footer', ()=>{
         );
     });
 
-    test('Assert Team and Staff attribute', async()=>{
+    test('Assert team & staff icons attribute', async()=>{
         const teamStaffData = footerData.team_and_staff;
 
         //assert text is visible:
@@ -415,7 +419,7 @@ test.describe('Testing Footer', ()=>{
         );
     });
     
-    test('Assert Footer and Comment Icons attribute', async()=>{
+    test('Assert footer & comment icons attribute', async()=>{
         const footerCommentData = footerData.footer_and_comment;
 
         //assert text is visible:

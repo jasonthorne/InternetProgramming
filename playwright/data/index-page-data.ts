@@ -13,7 +13,10 @@ export const indexPageData = {
                 src: teamData.lorem_ipsum.logo.src,
                 alt: teamData.lorem_ipsum.logo.alt
             },
-            span: {text: 'Est. 2022'}
+            span: {
+                text: 'Est. 2022',
+                hidden_width: 767
+            }
         },
         nav: {
             class: '.navbar-nav',
