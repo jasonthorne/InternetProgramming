@@ -1,4 +1,7 @@
 # Lorem Ipsum F.C.
+<p align="left">
+<img src="https://github.com/jasonthorne/LoremIpsumFC/blob/main/lorem-ipsum-fc/public/img/teams/Lorem-Ipsum.png" width="80" height="80" border="10"/>
+</p>
 
 ### A Bootstrap Website, hosted on Google Firebase. Tested using Playwright with Typescript.
 
