@@ -32,7 +32,7 @@
 | npm run hero:all-browsers | Run all hero tests with all browsers<sup>*</sup> |
 | npm run news-updates:all-browsers | Run all 'news & updates' section tests with all browsers<sup>*</sup> |
 | npm run fixtures-results:all-browsers | Run all 'fixtures & results' section tests with all browsers<sup>*</sup> |
-| npm run admin:all-browsers | Run all 'admin' section tests with all browsers<sup*</sup> |
+| npm run admin:all-browsers | Run all 'admin' section tests with all browsers<sup>*</sup> |
 | npm run comments:all-browsers | Run all 'comments' section tests with all browsers<sup>*</sup> |
 | npm run footer:all-browsers | Run all footer tests with all browsers<sup>*</sup> |
 
