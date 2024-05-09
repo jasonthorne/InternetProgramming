@@ -9,11 +9,11 @@ class Staff{
 }
 
 class Image{
-    readonly src: string = `img/staff/${this.name}.png`;
+    readonly src: string; 
     constructor(
-        readonly name: string, 
+        name: string, 
         readonly alt: string
-    ){}
+    ){this.src = `img/staff/${name}.png`}
 }
 
 export const staffData = {
