@@ -1,87 +1,104 @@
 
+class Team{
+    constructor(
+        readonly name: string, 
+        readonly logo: Logo
+    ){}
+}
+
+class Logo{
+    readonly src: string = `img/teams/${this.imgName}.png`;
+    readonly alt: string = `${this.altName} logo`;
+    
+    constructor(
+        readonly imgName: string, 
+        readonly altName: string
+    ){}
+}
+
 export const teamData = {
-    lorem_ipsum: {
-        name: 'Lorem Ipsum',
-        logo: {
-            src: 'img/teams/Lorem-Ipsum.png',
-            alt: 'Lorem Ipsum logo'
-        }
-    },
-    sed_sit_amet: {
-        name: 'Sed Sit Amet',
-        logo: {
-            src: 'img/teams/Sed-Sit-Amet.png',
-            alt: 'Sed Sit Amet logo'
-        }
-    },
-    aliquam_dictum: {
-        name: 'Aliquam Dictum',
-        logo: {
-            src: 'img/teams/Aliquam-Dictum.png',
-            alt: 'Aliquam Dictum logo'
-        }
-    },
-    nunc_lacus: {
-        name: 'Nunc Lacus',
-        logo: {
-            src: 'img/teams/Nunc-Lacus.png',
-            alt: 'Nunc Lacus logo'
-        }
-    },
-    pellentesque: {
-        name: 'Pellentesque',
-        logo: {
-            src: 'img/teams/Pellentesque.png',
-            alt: 'Pellentesque logo'
-        }
-    },
-    diam_arcu: {
-        name: 'Diam Arcu',
-        logo: {
-            src: 'img/teams/Diam-Arcu.png',
-            alt: 'Diam Arcu logo'
-        }
-    },
-    maecenas: {
-        name: 'Maecenas',
-        logo: {
-            src: 'img/teams/Maecenas.png',
-            alt: 'Maecenas logo'
-        }
-    },
-    donec_vitae: {
-        name: 'Donec Vitae',
-        logo: {
-            src: 'img/teams/Donec-Vitae.png',
-            alt: 'Donec Vitae logo'
-        }
-    },
-    ultricies_turpis: {
-        name: 'Ultricies Turpis',
-        logo: {
-            src: 'img/teams/Ultricies-Turpis.png',
-            alt: 'Ultricies Turpis logo'
-        }
-    },
-    vestibulum: {
-        name: 'Vestibulum',
-        logo: {
-            src: 'img/teams/Vestibulum.png',
-            alt: 'Vestibulum logo'
-        }
-    },
-    et_lacus_id: {
-        name: 'Et Lacus Id',
-        logo: {
-            src: 'img/teams/Et-Lacus-Id.png',
-            alt: 'Et Lacus Id logo'
-        }
-    },
-    suspendisse: {
-        name: 'Suspendisse',
-        logo: {
-            src: 'img/teams/Suspendisse.png',
-            alt: 'Suspendisse logo'
-        }
-    }
+    lorem_ipsum: new Team(
+        'Lorem Ipsum',
+        new Logo(
+            'Lorem-Ipsum', 
+            'Lorem Ipsum'
+        )
+    ),
+    sed_sit_amet: new Team(
+        'Sed Sit Amet',
+        new Logo(
+            'Sed-Sit-Amet', 
+            'Sed Sit Amet'
+        )
+    ),
+    aliquam_dictum: new Team(
+        'Aliquam Dictum',
+        new Logo(
+            'Aliquam-Dictum', 
+            'Aliquam Dictum'
+        )
+    ),
+    nunc_lacus: new Team(
+        'Nunc Lacus',
+        new Logo (
+            'Nunc-Lacus', 
+            'Nunc Lacus'
+        )
+    ),
+    pellentesque: new Team(
+        'Pellentesque',
+        new Logo(
+            'Pellentesque',
+            'Pellentesque'
+        )
+    ),
+    diam_arcu: new Team(
+        'Diam Arcu',
+        new Logo(
+            'Diam-Arcu',
+            'Diam Arcu'
+        )
+    ),
+    maecenas: new Team(
+        'Maecenas',
+        new Logo(
+            'Maecenas',
+            'Maecenas'
+        )
+    ),
+    donec_vitae: new Team(
+        'Donec Vitae',
+        new Logo(
+            'Donec-Vitae',
+            'Donec Vitae'
+        )
+    ),
+    ultricies_turpis: new Team(
+        'Ultricies Turpis',
+        new Logo(
+            'Ultricies-Turpis',
+            'Ultricies Turpis'
+        )
+    ),
+    vestibulum: new Team(
+        'Vestibulum',
+        new Logo(
+            'Vestibulum',
+            'Vestibulum'
+        )
+    ),
+    et_lacus_id: new Team(
+        'Et Lacus Id',
+        new Logo(
+            'Et-Lacus-Id',
+            'Et Lacus Id'
+        )
+    ),
+    suspendisse: new Team(
+        'Suspendisse',
+        new Logo(
+            'Suspendisse',
+            'Suspendisse'
+        )
+    )
  } as const;
