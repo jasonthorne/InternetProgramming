@@ -3,6 +3,26 @@ import {teamData} from '../data/team-data';
 import {commentData} from '../data/comment-data';
 import {footerData} from './footer-data';
 
+class NavLink{
+    constructor(
+        readonly href: string,
+        readonly text: string
+    ){}
+}
+
+class FooterLink{
+    readonly icon: Icon;
+    constructor(
+        readonly source: {href: string},
+        readonly iconClass: string
+    ){this.icon = new Icon(this.iconClass)}
+}
+
+class Icon{
+    readonly class: string = this.iconClass;
+    constructor(readonly iconClass: string){}
+}
+
 export const indexPageData = {
     url: 'https://lorem-ipsum-fc.web.app',
     title: 'Lorem Ipsum F.C.',
@@ -21,10 +41,10 @@ export const indexPageData = {
         nav: {
             class: '.navbar-nav',
             links: [
-                {href: '#news-updates-section', text: 'News'},
-                {href: '#fixtures-section', text: 'Fixtures'},
-                {href: '#admin-section', text: 'Administration'},
-                {href: '#comments-section', text: 'Comments'}
+                new NavLink('#news-updates-section', 'News'),
+                new NavLink('#fixtures-section', 'Fixtures'),
+                new NavLink('#admin-section', 'Administration'),
+                new NavLink('#comments-section', 'Comments')
             ]
         }
     },
@@ -178,14 +198,12 @@ export const indexPageData = {
             text: footerData.creator.text,
             id: '#footer-attributes',
             links: [
-                {
-                    source: footerData.creator.link.github,
-                    icon: {class: '.fa-github-square'}
-                },
-                {
-                    source: footerData.creator.link.linkedin,
-                    icon: {class: '.fa-linkedin'}
-                }
+                new FooterLink(
+                    footerData.creator.link.github, '.fa-github-square'
+                ),
+                new FooterLink(
+                    footerData.creator.link.linkedin, '.fa-linkedin'
+                )
             ]
         },
         pitch: footerData.pitch,
