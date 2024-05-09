@@ -22,19 +22,19 @@
 
 ### Pre-made commands for running tests:
 |  Command  | Description |         
-| ---------- | -------- | 
-| npm run all-tests:chromium | Run all tests with Chromium |
-| npm run all-tests:firefox | Run all tests with Firefox |
-| npm run all-tests:webkit | Run all tests with Webkit |
-| npm run all-tests:all-browsers | Run all tests with all browsers<sup>*</sup> |
-| npm run title:all-browsers | Run all page title tests with all browsers<sup>*</sup> |
-| npm run navbar:all-browsers | Run all navbar tests with all browsers<sup>*</sup> |
-| npm run hero:all-browsers | Run all hero tests with all browsers<sup>*</sup> |
-| npm run news-updates:all-browsers | Run all 'news & updates' section tests with all browsers<sup>*</sup> |
-| npm run fixtures-results:all-browsers | Run all 'fixtures & results' section tests with all browsers<sup>*</sup> |
-| npm run admin:all-browsers | Run all 'admin' section tests with all browsers<sup>*</sup> |
-| npm run comments:all-browsers | Run all 'comments' section tests with all browsers<sup>*</sup> |
-| npm run footer:all-browsers | Run all footer tests with all browsers<sup>*</sup> |
+| ---------- | ----------  
+| ```npm run all-tests:chromium``` | Run all tests with Chromium <tr></tr>|
+| ```npm run all-tests:firefox``` | Run all tests with Firefox <tr></tr>|
+| ```npm run all-tests:webkit``` | Run all tests with Webkit <tr></tr>|
+| ```npm run all-tests:all-browsers``` | Run all tests with all browsers<sup>*</sup> <tr></tr>|
+| ```npm run title:all-browsers``` | Run all page title tests with all browsers<sup>*</sup> <tr></tr>|
+| ```npm run navbar:all-browsers``` | Run all navbar tests with all browsers<sup>*</sup> <tr></tr>|
+| ```npm run hero:all-browsers``` | Run all hero tests with all browsers<sup>*</sup> <tr></tr>|
+| ```npm run news-updates:all-browsers``` | Run all 'news & updates' section tests with all browsers<sup>*</sup> <tr></tr>|
+| ```npm run fixtures-results:all-browsers``` | Run all 'fixtures & results' section tests with all browsers<sup>*</sup> <tr></tr>|
+| ```npm run admin:all-browsers``` | Run all 'admin' section tests with all browsers<sup>*</sup> <tr></tr>|
+| ```npm run comments:all-browsers``` | Run all 'comments' section tests with all browsers<sup>*</sup> <tr></tr>|
+| ```npm run footer:all-browsers``` | Run all footer tests with all browsers<sup>*</sup> |
 
 *<sub>Chromium, Firefox & Webkit<sub>
 
