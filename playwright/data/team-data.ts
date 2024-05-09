@@ -9,12 +9,14 @@ class Team{
 class Logo{
     readonly src: string = `img/teams/${this.imgName}.png`;
     readonly alt: string = `${this.altName} logo`;
-    
     constructor(
         readonly imgName: string, 
         readonly altName: string
     ){}
 }
+
+//export type for section-data:
+export type {Team as teamType}; 
 
 export const teamData = {
     lorem_ipsum: new Team(

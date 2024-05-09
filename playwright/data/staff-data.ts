@@ -10,7 +10,6 @@ class Staff{
 
 class Image{
     readonly src: string = `img/staff/${this.name}.png`;
-
     constructor(
         readonly name: string, 
         readonly alt: string
