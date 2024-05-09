@@ -14,13 +14,14 @@ class FooterLink{
     readonly icon: Icon;
     constructor(
         readonly source: {href: string},
-        readonly iconClass: string
-    ){this.icon = new Icon(this.iconClass)}
+        iconClass: string
+    ){this.icon = new Icon(iconClass)}
 }
 
 class Icon{
-    readonly class: string = this.iconClass;
-    constructor(readonly iconClass: string){}
+    readonly class: string;
+    constructor(iconClass: string
+    ){this.class = iconClass}
 }
 
 export const indexPageData = {
