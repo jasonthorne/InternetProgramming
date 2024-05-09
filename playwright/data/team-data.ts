@@ -7,12 +7,12 @@ class Team{
 }
 
 class Logo{
-    readonly src: string = `img/teams/${this.imgName}.png`;
-    readonly alt: string = `${this.altName} logo`;
-    constructor(
-        readonly imgName: string, 
-        readonly altName: string
-    ){}
+    readonly src: string;
+    readonly alt: string;
+    constructor(imgName: string, altName: string){
+        this.src = `img/teams/${imgName}.png`;
+        this.alt = `${altName} logo`;
+    }
 }
 
 //export type for section-data:
