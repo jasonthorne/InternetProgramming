@@ -13,7 +13,7 @@ class Host{
 export const footerData = {
     creator: {
         text: 'Made by Jason Thorne. 2022',
-        link:{
+        icon:{
             github: {href: 'https://github.com/jasonthorne/LoremIpsumFC'},
             linkedin: {href: 'https://www.linkedin.com/in/jason-thorne-dev'}
         }

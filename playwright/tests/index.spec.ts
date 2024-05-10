@@ -379,7 +379,7 @@ test.describe('Testing Footer', {tag:'@footer'},()=>{
             await indexPage.assertElementIsVisible(link.icon.class);
             //assert link url works:
             await indexPage.assertFooterCreatorLink(
-                creatorData.id, i, link.source.href
+                creatorData.id, i, link.href
             )
         }
     });
@@ -403,7 +403,7 @@ test.describe('Testing Footer', {tag:'@footer'},()=>{
 
     test('Assert team & staff icons attribute', async()=>{
         const teamStaffData = footerData.team_and_staff;
-
+        
         //assert text is visible:
         await indexPage.assertTextIsVisible(
             footerData.selector, teamStaffData.text

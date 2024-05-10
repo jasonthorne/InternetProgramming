@@ -13,7 +13,7 @@ class NavLink{
 class FooterLink{
     readonly icon: Icon;
     constructor(
-        readonly source: {href: string},
+        readonly href: string,
         iconClass: string
     ){this.icon = new Icon(iconClass)}
 }
@@ -200,10 +200,10 @@ export const indexPageData = {
             id: '#footer-attributes',
             links: [
                 new FooterLink(
-                    footerData.creator.link.github, '.fa-github-square'
+                    footerData.creator.icon.github.href, '.fa-github-square'
                 ),
                 new FooterLink(
-                    footerData.creator.link.linkedin, '.fa-linkedin'
+                    footerData.creator.icon.linkedin.href, '.fa-linkedin'
                 )
             ]
         },
