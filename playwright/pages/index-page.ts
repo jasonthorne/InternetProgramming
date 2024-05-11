@@ -56,8 +56,9 @@ export class IndexPage extends BasePage{
 
     //assert footer creator link is valid:
     async assertFooterCreatorLink(footerId: string, nth: number, url: string){
+        const tabPromise = this.page.waitForEvent('popup');
         await this.page.locator(footerId).getByRole('link').nth(nth).click();
-        const newTab = await this.page.waitForEvent('popup');
+        const newTab = await tabPromise;
         await newTab.waitForLoadState();
         await expect(newTab).toHaveURL(new RegExp(url));
     }
@@ -147,8 +148,9 @@ export class IndexPage extends BasePage{
 
     //assert footer attribute link is valid:
     async assertFooterAttributeLink(text: string, url: string){
+        const tabPromise = this.page.waitForEvent('popup');
         await this.page.getByRole('link',{name: text}).click();
-        const newTab = await this.page.waitForEvent('popup');
+        const newTab = await tabPromise;
         await newTab.waitForLoadState();
         await expect(newTab).toHaveURL(url);
     }
