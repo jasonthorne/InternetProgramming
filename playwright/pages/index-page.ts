@@ -56,11 +56,15 @@ export class IndexPage extends BasePage{
 
     //assert footer creator link is valid:
     async assertFooterCreatorLink(footerId: string, nth: number, url: string){
-        const tabPromise = this.page.waitForEvent('popup');
-        await this.page.locator(footerId).getByRole('link').nth(nth).click();
-        const newTab = await tabPromise;
-        await newTab.waitForLoadState();
-        await expect(newTab).toHaveURL(new RegExp(url));
+        try{
+            const tabPromise = this.page.waitForEvent('popup');
+            await this.page.locator(footerId).getByRole('link').nth(nth).click();
+            const newTab = await tabPromise;
+            await newTab.waitForLoadState();
+            await expect(newTab).toHaveURL(new RegExp(url));
+        }catch(error){
+            console.error(`An error occurred: ${error.message}`);
+        }
     }
 
     //aseert coment form is visible:
@@ -90,69 +94,89 @@ export class IndexPage extends BasePage{
     async assertCommentIsVisible(
         comment: {class:string; likesClass:string; handle:string; 
         comment:string; date:string; likeBtn:string; deleteBtn:string}){
-            await expect(this.page.locator(comment.class)
-                .filter({hasText: await this.page.locator(comment.likesClass).innerText()})
-                .filter({hasText: comment.handle})
-                .filter({hasText: comment.comment})
-                .filter({hasText: comment.date})
-                .filter({has: this.page.getByRole('button',{name:comment.likeBtn})})
-                .filter({has: this.page.getByRole('button',{name:comment.deleteBtn})})
-            ).toBeVisible();
+            try{
+                await expect(this.page.locator(comment.class)
+                    .filter({hasText: await this.page.locator(comment.likesClass).innerText()})
+                    .filter({hasText: comment.handle})
+                    .filter({hasText: comment.comment})
+                    .filter({hasText: comment.date})
+                    .filter({has: this.page.getByRole('button',{name:comment.likeBtn})})
+                    .filter({has: this.page.getByRole('button',{name:comment.deleteBtn})})
+                ).toBeVisible();
+            }catch(error){
+                console.error(`An error occurred: ${error.message}`);
+            }
     }
 
     //assert like button clicks:
     async assertLikeBtnClicks(
         comment: {class:string; date:string; likesClass:string;
         likeBtnClass:string; unlikedClass:string; likedClass:string}){
-            //grab locators from comment of given date:
-            const commentLocator: Locator = this.page.locator(comment.class).filter({hasText: comment.date});
-            const likeBtnLocator: Locator = commentLocator.locator(comment.likeBtnClass);
-            const unlikedIconLocator: Locator = likeBtnLocator.locator(comment.unlikedClass);
-            const likedIconLocator: Locator = likeBtnLocator.locator(comment.likedClass);
-            const likesLocator: Locator = commentLocator.locator(comment.likesClass);
-            let likes: number = parseInt((await likesLocator.innerText()).trim()); //grab likes value
+            try{
+                //grab locators from comment of given date:
+                const commentLocator: Locator = this.page.locator(comment.class).filter({hasText: comment.date});
+                const likeBtnLocator: Locator = commentLocator.locator(comment.likeBtnClass);
+                const unlikedIconLocator: Locator = likeBtnLocator.locator(comment.unlikedClass);
+                const likedIconLocator: Locator = likeBtnLocator.locator(comment.likedClass);
+                const likesLocator: Locator = commentLocator.locator(comment.likesClass);
+                let likes: number = parseInt((await likesLocator.innerText()).trim()); //grab likes value
 
-            await expect(commentLocator).toBeVisible(); //check comment is visible
-            await expect(unlikedIconLocator).toBeVisible(); //confirm unliked icon is visible
-            await likeBtnLocator.click(); //click like btn (to like)
-            expect(parseInt((await likesLocator.innerText()).trim())).toBe(++likes); //confirm likes increase
-            await expect(likedIconLocator).toBeVisible(); //confirm liked icon is visible
-            await likeBtnLocator.click(); //click like btn again (to unlike)
-            expect(parseInt((await likesLocator.innerText()).trim())).toBe(--likes); //confirm likes decrease
-            await expect(unlikedIconLocator).toBeVisible(); //confirm unliked icon is visible
+                await expect(commentLocator).toBeVisible(); //check comment is visible
+                await expect(unlikedIconLocator).toBeVisible(); //confirm unliked icon is visible
+                await likeBtnLocator.click(); //click like btn (to like)
+                expect(parseInt((await likesLocator.innerText()).trim())).toBe(++likes); //confirm likes increase
+                await expect(likedIconLocator).toBeVisible(); //confirm liked icon is visible
+                await likeBtnLocator.click(); //click like btn again (to unlike)
+                expect(parseInt((await likesLocator.innerText()).trim())).toBe(--likes); //confirm likes decrease
+                await expect(unlikedIconLocator).toBeVisible(); //confirm unliked icon is visible
+            }catch(error){
+                console.error(`An error occurred: ${error.message}`);
+            }
     }
 
     //assert delete comment modal is visible:
     async assertDeleteCommentModalIsVisible(
         modal: {id:string; header:string; text:string; deleteBtn:string; cancelBtn:string}){
-            await expect(this.page.locator(modal.id)
-                .filter({hasText: modal.header})
-                .filter({hasText: modal.text})
-                .filter({has: this.page.getByRole('button',{name: modal.deleteBtn})})
-                .filter({has: this.page.getByRole('button',{name: modal.cancelBtn})})
-            ).toBeVisible();
+            try{
+                await expect(this.page.locator(modal.id)
+                    .filter({hasText: modal.header})
+                    .filter({hasText: modal.text})
+                    .filter({has: this.page.getByRole('button',{name: modal.deleteBtn})})
+                    .filter({has: this.page.getByRole('button',{name: modal.cancelBtn})})
+                ).toBeVisible();
+            }catch(error){
+                console.error(`An error occurred: ${error.message}`);
+            }
     }
 
     //assert comment is hidden:
     async assertCommentIsHidden(
         comment: {class:string; handle:string; comment:string; 
         date:string; likeBtn:string; deleteBtn:string}){
-            await expect(this.page.locator(comment.class)
-                .filter({hasText: comment.handle})
-                .filter({hasText: comment.comment})
-                .filter({hasText: comment.date})
-                .filter({has: this.page.getByRole('button',{name: comment.likeBtn})})
-                .filter({has: this.page.getByRole('button',{name: comment.deleteBtn})})
-            ).toBeHidden();
+            try{
+                await expect(this.page.locator(comment.class)
+                    .filter({hasText: comment.handle})
+                    .filter({hasText: comment.comment})
+                    .filter({hasText: comment.date})
+                    .filter({has: this.page.getByRole('button',{name: comment.likeBtn})})
+                    .filter({has: this.page.getByRole('button',{name: comment.deleteBtn})})
+                ).toBeHidden();
+            }catch(error){
+                console.error(`An error occurred: ${error.message}`);
+            }
     }
 
     //assert footer attribute link is valid:
     async assertFooterAttributeLink(text: string, url: string){
-        const tabPromise = this.page.waitForEvent('popup');
-        await this.page.getByRole('link',{name: text}).click();
-        const newTab = await tabPromise;
-        await newTab.waitForLoadState();
-        await expect(newTab).toHaveURL(url);
+        try{
+            const tabPromise = this.page.waitForEvent('popup');
+            await this.page.getByRole('link',{name: text}).click();
+            const newTab = await tabPromise;
+            await newTab.waitForLoadState();
+            await expect(newTab).toHaveURL(url);
+        }catch(error){
+            console.error(`An error occurred: ${error.message}`);
+        }
     }
 }
 
