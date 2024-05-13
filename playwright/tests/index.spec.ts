@@ -5,8 +5,12 @@ import {indexPageData} from '../data/index-page-data';
 let indexPage: IndexPage;
 
 test.beforeEach(async({page})=>{
-    await page.goto(indexPageData.url);
-    indexPage = new IndexPage(page);
+    try{
+        await page.goto(indexPageData.url);
+        indexPage = new IndexPage(page);
+    }catch(error){
+        console.error(`An error occurred: ${error.message}`);
+    }
 });
 
 test.describe('Testing Page Title', {tag:'@title'},()=>{
