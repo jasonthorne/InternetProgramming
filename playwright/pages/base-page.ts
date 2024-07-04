@@ -9,7 +9,8 @@ export class BasePage{
         try{
             await expect(this.page).toHaveTitle(title);
         }catch(error){
-            console.error(`An error occurred: ${error.message}`);
+            console.log(`Error asserting page title: ${title}`);
+            throw error;
         }
     }
 
@@ -19,7 +20,8 @@ export class BasePage{
             await expect(this.page.locator(selector)
                 .getByRole('img',{name: alt})).toBeVisible();
         }catch(error){
-            console.error(`An error occurred: ${error.message}`);
+            console.log(`Error asserting image: ${alt} is visible`);
+            throw error;
         }
     }
 
@@ -29,7 +31,8 @@ export class BasePage{
             expect(await this.page.locator(selector).getByRole('img',{name: alt})
                 .getAttribute('src')).toMatch(src);
         }catch(error){
-            console.error(`An error occurred: ${error.message}`);
+            console.log(`Error asserting image src: ${src}`);
+            throw error;
         }
     }
 
@@ -38,7 +41,8 @@ export class BasePage{
         try{
             await expect(this.page.locator(selector).getByText(text)).toBeVisible();
         }catch(error){
-            console.error(`An error occurred: ${error.message}`);
+            console.log(`Error asserting text: ${text} is visible`);
+            throw error;
         }
     }
 
@@ -48,7 +52,8 @@ export class BasePage{
             expect(await this.page.locator(selector).getByRole('link',{name:name})
             .getAttribute('href')).toMatch(href);
         }catch(error){
-            console.error(`An error occurred: ${error.message}`);
+            console.log(`Error asserting link href: ${href}`);
+            throw error;
         }
     }
 
@@ -57,7 +62,8 @@ export class BasePage{
         try{
             await expect(this.page.locator(selector)).toBeVisible();
         }catch(error){
-            console.error(`An error occurred: ${error.message}`);
+            console.log(`Error asserting element: ${selector} is visible`);
+            throw error;
         }
     }
 
@@ -66,7 +72,8 @@ export class BasePage{
         try{
             await expect(this.page.locator(selector)).toBeHidden();
         }catch(error){
-            console.error(`An error occurred: ${error.message}`);
+            console.log(`Error asserting element: ${selector} is hidden`);
+            throw error;
         }
     }
 
@@ -78,7 +85,8 @@ export class BasePage{
             });
             expect(imgSrc).toContain(src);
         }catch(error){
-            console.error(`An error occurred: ${error.message}`);
+            console.log(`Error asserting background image: ${src}`);
+            throw error;
         }
     }
 
@@ -87,7 +95,8 @@ export class BasePage{
         try{
             await expect(this.page.getByRole('button',{name: name})).toBeVisible();
         }catch(error){
-            console.error(`An error occurred: ${error.message}`);
+            console.log(`Error asserting button: ${name} is visible`);
+            throw error;
         }
     }
   
@@ -96,7 +105,8 @@ export class BasePage{
         try{
             await this.page.locator(selector).fill(text);
         }catch(error){
-            console.error(`An error occurred: ${error.message}`);
+            console.log(`Error entering text into input field: ${selector}`);
+            throw error;
         }
     }
 
@@ -105,7 +115,8 @@ export class BasePage{
         try{
             await this.page.locator(selector).getByRole('button',{name:text}).click();
         }catch(error){
-            console.error(`An error occurred: ${error.message}`);
+            console.log(`Error clicking button: ${text}`);
+            throw error;
         }
     }
 
@@ -114,11 +125,12 @@ export class BasePage{
         try{
             await expect(this.page.getByRole('tooltip',{name:text})).toBeVisible();
         }catch(error){
-            console.error(`An error occurred: ${error.message}`);
+            console.log(`Error asserting tooltip: ${text} is visible`);
+            throw error;
         }
     }
 
-    //assert that text is hiiden on given width
+    //assert that text is hidden on given width
     async assertTextIsHiddenOnViewportWidth(selector: string, text: string, width: number){
         try{
             const viewportSize: {width:number; height:number} = this.page.viewportSize();
@@ -126,7 +138,8 @@ export class BasePage{
             await expect(this.page.locator(selector).getByText(text)).toBeHidden();
             await this.page.setViewportSize({width:viewportSize.width, height:viewportSize.height});
         }catch(error){
-            console.error(`An error occurred: ${error.message}`);
+            console.log(`Error asserting text: ${text} is hidden on width: ${width}`);
+            throw error;
         }
     }
 }

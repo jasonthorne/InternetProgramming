@@ -13,7 +13,8 @@ export class IndexPage extends BasePage{
             await this.page.locator(navbarClass).getByRole('link',{name:name}).click();
             await expect(this.page).toHaveURL(new RegExp(`/${url}$`));
         }catch(error){
-            console.error(`An error occurred: ${error.message}`);
+            console.log(`Error asserting navbar link: ${url}`);
+            throw error;
         }
     }
 
@@ -25,7 +26,8 @@ export class IndexPage extends BasePage{
                 .filter({hasText: text})
             ).toBeVisible();
         }catch(error){
-            console.error(`An error occurred: ${error.message}`);
+            console.log(`Error asserting news & updates content is visible`);
+            throw error;
         }
     }
 
@@ -44,7 +46,8 @@ export class IndexPage extends BasePage{
                 .filter({hasText: awayTeam.score})
             ).toBeVisible();
         }catch(error){
-            console.error(`An error occurred: ${error.message}`);
+            console.log(`Error asserting fixture result content is visible`);
+            throw error;
         }
     }
 
@@ -60,7 +63,8 @@ export class IndexPage extends BasePage{
                 .filter({hasText: admin.text})
             ).toBeVisible();
         }catch(error){
-            console.error(`An error occurred: ${error.message}`);
+            console.log(`Error asserting admin content is visible`);
+            throw error;
         }
     }
 
@@ -70,7 +74,8 @@ export class IndexPage extends BasePage{
             await expect(this.page.locator(formId)).toHaveAttribute('placeholder', placeholder);
             await expect(this.page.locator(formId)).toHaveAttribute('maxlength', maxlength);
         }catch(error){
-            console.error(`An error occurred: ${error.message}`);
+            console.log(`Error asserting input field`);
+            throw error;
         }
     }
 
@@ -83,7 +88,8 @@ export class IndexPage extends BasePage{
             await newTab.waitForLoadState();
             await expect(newTab).toHaveURL(new RegExp(url));
         }catch(error){
-            console.error(`An error occurred: ${error.message}`);
+            console.log(`Error asserting footer creator link: ${url}`);
+            throw error;
         }
     }
 
@@ -97,7 +103,8 @@ export class IndexPage extends BasePage{
                 .filter({has: this.page.getByRole('button',{name: form.button})})
             ).toBeVisible();
         }catch(error){
-            console.error(`An error occurred: ${error.message}`);
+            console.log(`Error asserting comment form is visible`);
+            throw error;
         }
     }
 
@@ -114,7 +121,8 @@ export class IndexPage extends BasePage{
                 .filter({has: this.page.getByRole('button',{name: modal.cancelBtn})})
             ).toBeVisible();
         }catch(error){
-            console.error(`An error occurred: ${error.message}`);
+            console.log(`Error asserting comment modal is visible`);
+            throw error;
         }
     }
 
@@ -132,7 +140,8 @@ export class IndexPage extends BasePage{
                 .filter({has: this.page.getByRole('button',{name:comment.deleteBtn})})
             ).toBeVisible();
         }catch(error){
-            console.error(`An error occurred: ${error.message}`);
+            console.log(`Error asserting comment is visible`);
+            throw error;
         }
     }
 
@@ -158,7 +167,8 @@ export class IndexPage extends BasePage{
             expect(parseInt((await likesLocator.innerText()).trim())).toBe(--likes); //confirm likes decrease
             await expect(unlikedIconLocator).toBeVisible(); //confirm unliked icon is visible
         }catch(error){
-            console.error(`An error occurred: ${error.message}`);
+            console.log(`Error asserting like button clicks`);
+            throw error;
         }
     }
 
@@ -173,7 +183,8 @@ export class IndexPage extends BasePage{
                 .filter({has: this.page.getByRole('button',{name: modal.cancelBtn})})
             ).toBeVisible();
         }catch(error){
-            console.error(`An error occurred: ${error.message}`);
+            console.log(`Error asserting delete comment modal is visible`);
+            throw error;
         }
     }
 
@@ -190,7 +201,8 @@ export class IndexPage extends BasePage{
                 .filter({has: this.page.getByRole('button',{name: comment.deleteBtn})})
             ).toBeHidden();
         }catch(error){
-            console.error(`An error occurred: ${error.message}`);
+            console.log(`Error asserting comment is hidden`);
+            throw error;
         }
     }
 
@@ -203,7 +215,8 @@ export class IndexPage extends BasePage{
             await newTab.waitForLoadState();
             await expect(newTab).toHaveURL(url);
         }catch(error){
-            console.error(`An error occurred: ${error.message}`);
+            console.log(`Error asserting footer attribute link: ${url}`);
+            throw error;
         }
     }
 }
