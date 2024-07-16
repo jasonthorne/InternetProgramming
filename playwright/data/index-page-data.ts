@@ -13,7 +13,7 @@ class NavLink{
 class FooterLink{
     readonly icon: Icon;
     constructor(
-        readonly href: string,
+        readonly href: RegExp,
         iconClass: string
     ){this.icon = new Icon(iconClass)}
 }

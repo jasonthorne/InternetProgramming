@@ -15,7 +15,8 @@
     "fixtures-results:all-browsers": "npx playwright test index.spec.ts --grep @fixtures-results",
     "admin:all-browsers": "npx playwright test index.spec.ts --grep @admin",
     "comments:all-browsers": "npx playwright test index.spec.ts --grep @comments",
-    "footer:all-browsers": "npx playwright test index.spec.ts --grep @footer"
+    "footer:all-browsers": "npx playwright test index.spec.ts --grep @footer",
+    "test": "npx playwright test index.spec.ts --grep @footer --project=chromium"
   },
   "keywords": [],
   "author": "Jason Thorne",

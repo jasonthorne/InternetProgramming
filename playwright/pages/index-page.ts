@@ -80,13 +80,13 @@ export class IndexPage extends BasePage{
     }
 
     //assert footer creator link is valid:
-    async assertFooterCreatorLink(footerId: string, nth: number, url: string){
+    async assertFooterCreatorLink(footerId: string, nth: number, url: RegExp){
         try{
             const tabPromise = this.page.waitForEvent('popup');
             await this.page.locator(footerId).getByRole('link').nth(nth).click();
             const newTab = await tabPromise;
             await newTab.waitForLoadState();
-            await expect(newTab).toHaveURL(new RegExp(url));
+            await expect(newTab).toHaveURL(url);
         }catch(error){
             console.log(`Error asserting footer creator link: ${url}`);
             throw error;
