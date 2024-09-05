@@ -1,6 +1,6 @@
 import {expect, Page} from '@playwright/test'
 
-export class BasePage{
+export abstract class BasePage{
 
     constructor(readonly page: Page){}
 
